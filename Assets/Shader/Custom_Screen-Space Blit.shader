@@ -2,55 +2,52 @@ Shader "Custom/Screen-Space Blit" {
 	Properties {
 		_MainTex ("Main Texture", 2D) = "white" {}
 	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType"="Opaque" }
+
+	SubShader
+	{
+		Tags { "RenderType" = "Opaque" }
 		LOD 200
+		Cull Off
+		ZWrite Off
+		ZTest Always
 
 		Pass
 		{
-			HLSLPROGRAM
+			CGPROGRAM
+			#pragma target 2.0
 			#pragma vertex vert
 			#pragma fragment frag
+			#include "UnityCG.cginc"
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
-			float4 _MainTex_ST;
-
-			struct Vertex_Stage_Input
+			struct appdata
 			{
-				float4 pos : POSITION;
-				float2 uv : TEXCOORD0;
+				float4 vertex : POSITION;
 			};
 
-			struct Vertex_Stage_Output
+			struct v2f
 			{
-				float2 uv : TEXCOORD0;
-				float4 pos : SV_POSITION;
+				float4 vertex : SV_POSITION;
+				float4 screenPos : TEXCOORD0;
 			};
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
+			sampler2D _MainTex;
+
+			v2f vert(appdata input)
 			{
-				Vertex_Stage_Output output;
-				output.uv = (input.uv.xy * _MainTex_ST.xy) + _MainTex_ST.zw;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
+				v2f output;
+				output.vertex = UnityObjectToClipPos(input.vertex);
+				output.screenPos = ComputeScreenPos(output.vertex);
 				return output;
 			}
 
-			Texture2D<float4> _MainTex;
-			SamplerState sampler_MainTex;
-
-			struct Fragment_Stage_Input
+			fixed4 frag(v2f input) : SV_Target
 			{
-				float2 uv : TEXCOORD0;
-			};
-
-			float4 frag(Fragment_Stage_Input input) : SV_TARGET
-			{
-				return _MainTex.Sample(sampler_MainTex, input.uv.xy);
+				return tex2Dproj(_MainTex, UNITY_PROJ_COORD(input.screenPos));
 			}
 
-			ENDHLSL
+			ENDCG
 		}
 	}
+
+	Fallback Off
 }

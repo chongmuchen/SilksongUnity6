@@ -7,55 +7,133 @@ Shader "UI/Blur/UIBlur Camera" {
 		_MaskLerp ("Mask Lerp", Range(0, 1)) = 1
 		_Mask ("Mask", 2D) = "white" {}
 	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType"="Opaque" }
+
+	SubShader
+	{
+		Tags { "RenderType" = "Opaque" }
 		LOD 200
+		Cull Off
+		ZWrite Off
+		ZTest Always
+
+		CGINCLUDE
+		#include "UnityCG.cginc"
+
+		sampler2D _MainTex;
+		float4 _MainTex_TexelSize;
+		sampler2D _Mask;
+		float4 _Mask_ST;
+		half _Size;
+		half _Vibrancy;
+		half _MaskLerp;
+
+		half MaskedBlurAmount(float2 uv)
+		{
+			#if defined(USE_MASK)
+				float2 maskUv = uv * _Mask_ST.xy + _Mask_ST.zw;
+				return lerp(1.0h, saturate(tex2D(_Mask, maskUv).r), saturate(_MaskLerp));
+			#else
+				return 1.0h;
+			#endif
+		}
+
+		half4 SampleGaussian(v2f_img input, float2 direction, half radiusScale)
+		{
+			float2 offset = direction * _MainTex_TexelSize.xy * _Size * radiusScale;
+			offset *= MaskedBlurAmount(input.uv);
+
+			half4 color = tex2D(_MainTex, input.uv) * 0.40262h;
+			color += tex2D(_MainTex, input.uv + offset * 1.3846154) * 0.24420h;
+			color += tex2D(_MainTex, input.uv - offset * 1.3846154) * 0.24420h;
+			color += tex2D(_MainTex, input.uv + offset * 3.2307692) * 0.05449h;
+			color += tex2D(_MainTex, input.uv - offset * 3.2307692) * 0.05449h;
+			return color;
+		}
+
+		half4 fragPrepare(v2f_img input) : SV_Target
+		{
+			half4 color = tex2D(_MainTex, input.uv);
+			half luminance = dot(color.rgb, half3(0.2126h, 0.7152h, 0.0722h));
+			color.rgb = lerp(luminance.xxx, color.rgb, 1.0h + _Vibrancy);
+			return color;
+		}
+
+		half4 fragHorizontalNear(v2f_img input) : SV_Target
+		{
+			return SampleGaussian(input, float2(1.0, 0.0), 0.5h);
+		}
+
+		half4 fragVerticalNear(v2f_img input) : SV_Target
+		{
+			return SampleGaussian(input, float2(0.0, 1.0), 0.5h);
+		}
+
+		half4 fragHorizontalFar(v2f_img input) : SV_Target
+		{
+			return SampleGaussian(input, float2(1.0, 0.0), 1.0h);
+		}
+
+		half4 fragVerticalFar(v2f_img input) : SV_Target
+		{
+			return SampleGaussian(input, float2(0.0, 1.0), 1.0h);
+		}
+		ENDCG
+
+		// CameraBlurPlane and DisplayFrozenCamera call these passes by index.
+		Pass
+		{
+			Name "PREPARE"
+			CGPROGRAM
+			#pragma target 2.0
+			#pragma vertex vert_img
+			#pragma fragment fragPrepare
+			ENDCG
+		}
 
 		Pass
 		{
-			HLSLPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
+			Name "BLUR_HORIZONTAL_NEAR"
+			CGPROGRAM
+			#pragma target 2.0
+			#pragma vertex vert_img
+			#pragma fragment fragHorizontalNear
+			#pragma multi_compile_local __ USE_MASK
+			ENDCG
+		}
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
-			float4 _MainTex_ST;
+		Pass
+		{
+			Name "BLUR_VERTICAL_NEAR"
+			CGPROGRAM
+			#pragma target 2.0
+			#pragma vertex vert_img
+			#pragma fragment fragVerticalNear
+			#pragma multi_compile_local __ USE_MASK
+			ENDCG
+		}
 
-			struct Vertex_Stage_Input
-			{
-				float4 pos : POSITION;
-				float2 uv : TEXCOORD0;
-			};
+		Pass
+		{
+			Name "BLUR_HORIZONTAL_FAR"
+			CGPROGRAM
+			#pragma target 2.0
+			#pragma vertex vert_img
+			#pragma fragment fragHorizontalFar
+			#pragma multi_compile_local __ USE_MASK
+			ENDCG
+		}
 
-			struct Vertex_Stage_Output
-			{
-				float2 uv : TEXCOORD0;
-				float4 pos : SV_POSITION;
-			};
-
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.uv = (input.uv.xy * _MainTex_ST.xy) + _MainTex_ST.zw;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
-			}
-
-			Texture2D<float4> _MainTex;
-			SamplerState sampler_MainTex;
-
-			struct Fragment_Stage_Input
-			{
-				float2 uv : TEXCOORD0;
-			};
-
-			float4 frag(Fragment_Stage_Input input) : SV_TARGET
-			{
-				return _MainTex.Sample(sampler_MainTex, input.uv.xy);
-			}
-
-			ENDHLSL
+		Pass
+		{
+			Name "BLUR_VERTICAL_FAR"
+			CGPROGRAM
+			#pragma target 2.0
+			#pragma vertex vert_img
+			#pragma fragment fragVerticalFar
+			#pragma multi_compile_local __ USE_MASK
+			ENDCG
 		}
 	}
+
+	Fallback Off
 }
