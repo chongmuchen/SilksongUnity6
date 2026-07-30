@@ -1,0 +1,237 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd66c4746f697baa50b4a8e1ede231d8, type: 3}
+  m_Name: Dresses
+  m_EditorClassIdentifier:
+  popupIconScale: 1
+  useResponses: []
+  useResponseTextOverride:
+    Sheet:
+    Key:
+  preventUseChaining: 0
+  useSounds:
+    Clips: []
+    PitchMin: 0
+    PitchMax: 0
+    Volume: 0
+    vibrations: []
+  instantUseSounds:
+    Clips: []
+    PitchMin: 0
+    PitchMax: 0
+    Volume: 0
+    vibrations: []
+  alwaysPlayInstantUse: 0
+  skipBenchUseEffect: 0
+  extraUseEffect: {fileID: 0}
+  customInventoryDisplay: {fileID: 0}
+  extraDescriptionSection: {fileID: 0}
+  resetIsSeen: 0
+  isVisibleWithBareInventory: 0
+  isHidden: 0
+  hideInShopCounters: 0
+  useQuestForCap: {fileID: 0}
+  customMaxAmount: 0
+  storyEvent: -1
+  overridesCollected: 1
+  states:
+  - DisplayName:
+      Sheet: UI
+      Key: INV_NAME_DRESS_REG
+    Description:
+      Sheet: UI
+      Key: INV_DESC_DRESS_REG
+    DescriptionExtra:
+      Sheet:
+      Key:
+    Icon: {fileID: 21300000, guid: 018f7fc01432b1d4f89fa74fdb18a760, type: 2}
+    Test:
+      TestGroups: []
+    HideAppends: 0
+    DisplayButtonPrompt: 0
+    ButtonPromptData: []
+  - DisplayName:
+      Sheet: UI
+      Key: INV_NAME_DRESS_BROLLY
+    Description:
+      Sheet: UI
+      Key: INV_DESC_DRESS_BROLLY
+    DescriptionExtra:
+      Sheet:
+      Key:
+    Icon: {fileID: 21300000, guid: a2118db1383d56e4ab8f2b80002edf37, type: 2}
+    Test:
+      TestGroups:
+      - Tests:
+        - Type: 0
+          FieldName: hasBrolly
+          BoolValue: 1
+          NumType: 0
+          IntValue: 0
+          FloatValue: 0
+          StringValue:
+          StringType: 0
+    HideAppends: 0
+    DisplayButtonPrompt: 1
+    ButtonPromptData:
+    - Action: 0
+      IsMenuButton: 0
+      DisabledWhenBareInventory: 0
+      UseText:
+        Sheet: Prompts
+        Key: BUTTON_DESC_HOLD
+      ResponseText:
+        Sheet: Prompts
+        Key: PROMPT_BROLLY
+      ConditionText:
+        Sheet:
+        Key:
+  - DisplayName:
+      Sheet: UI
+      Key: INV_NAME_DRESS_DJ
+    Description:
+      Sheet: UI
+      Key: INV_DESC_DRESS_DJ
+    DescriptionExtra:
+      Sheet:
+      Key:
+    Icon: {fileID: 21300000, guid: c766eb4a3b22ff640b97ec84e248aaa7, type: 2}
+    Test:
+      TestGroups:
+      - Tests:
+        - Type: 0
+          FieldName: hasDoubleJump
+          BoolValue: 1
+          NumType: 0
+          IntValue: 0
+          FloatValue: 0
+          StringValue:
+          StringType: 0
+    HideAppends: 0
+    DisplayButtonPrompt: 1
+    ButtonPromptData:
+    - Action: 0
+      IsMenuButton: 0
+      DisabledWhenBareInventory: 0
+      UseText:
+        Sheet:
+        Key:
+      ResponseText:
+        Sheet: Prompts
+        Key: PROMPT_DJ
+      ConditionText:
+        Sheet:
+        Key:
+  - DisplayName:
+      Sheet: UI
+      Key: INV_NAME_DRESS_DJ
+    Description:
+      Sheet: UI
+      Key: INV_DESC_DRESS_DJ
+    DescriptionExtra:
+      Sheet:
+      Key:
+    Icon: {fileID: 21300000, guid: c766eb4a3b22ff640b97ec84e248aaa7, type: 2}
+    Test:
+      TestGroups:
+      - Tests:
+        - Type: 0
+          FieldName: hasDoubleJump
+          BoolValue: 1
+          NumType: 0
+          IntValue: 0
+          FloatValue: 0
+          StringValue:
+          StringType: 0
+        - Type: 0
+          FieldName: hasBrolly
+          BoolValue: 1
+          NumType: 0
+          IntValue: 0
+          FloatValue: 0
+          StringValue:
+          StringType: 0
+    HideAppends: 0
+    DisplayButtonPrompt: 1
+    ButtonPromptData:
+    - Action: 0
+      IsMenuButton: 0
+      DisabledWhenBareInventory: 0
+      UseText:
+        Sheet:
+        Key:
+      ResponseText:
+        Sheet: Prompts
+        Key: PROMPT_DJ
+      ConditionText:
+        Sheet:
+        Key:
+    - Action: 0
+      IsMenuButton: 0
+      DisabledWhenBareInventory: 0
+      UseText:
+        Sheet: Prompts
+        Key: BUTTON_DESC_HOLD
+      ResponseText:
+        Sheet: Prompts
+        Key: PROMPT_BROLLY
+      ConditionText:
+        Sheet:
+        Key:
+  appends:
+  - Text:
+      Sheet: UI
+      Key: INV_DESC_DRESS_APP_FLY_FULL
+    Format:
+    Condition:
+      TestGroups:
+      - Tests:
+        - Type: 1
+          FieldName: cloakOdour_slabFly
+          BoolValue: 1
+          NumType: 3
+          IntValue: 50
+          FloatValue: 0
+          StringValue:
+          StringType: 0
+  - Text:
+      Sheet: UI
+      Key: INV_DESC_DRESS_APP_FLY_HALF
+    Format:
+    Condition:
+      TestGroups:
+      - Tests:
+        - Type: 1
+          FieldName: cloakOdour_slabFly
+          BoolValue: 1
+          NumType: 2
+          IntValue: 50
+          FloatValue: 0
+          StringValue:
+          StringType: 0
+        - Type: 1
+          FieldName: cloakOdour_slabFly
+          BoolValue: 1
+          NumType: 3
+          IntValue: 0
+          FloatValue: 0
+          StringValue:
+          StringType: 0
+      - Tests:
+        - Type: 1
+          FieldName: cloakOdour_slabFly
+          BoolValue: 1
+          NumType: 0
+          IntValue: 50
+          FloatValue: 0
+          StringValue:
+          StringType: 0

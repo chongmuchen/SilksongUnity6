@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0784056c28e9e5349b3a84fb8ca3e6db, type: 3}
+  m_Name: Mapper Shellwood Map
+  m_EditorClassIdentifier:
+  displayName:
+    Sheet: Wanderers
+    Key: MAPPER_ITEM_MAP_SHELLWOOD_NAME
+  description:
+    Sheet: Wanderers
+    Key: MAPPER_ITEM_MAP_SHELLWOOD_DESC
+  descriptionMultiple:
+    Sheet:
+    Key:
+  itemSprite: {fileID: 21300000, guid: 339fec3f776a20442b36cb0836f44455, type: 2}
+  itemSpriteScale: 1
+  purchaseType: 0
+  typeFlags: 2
+  currencyType: 0
+  costReference: {fileID: 0}
+  cost: 70
+  requiredItem: {fileID: 0}
+  requiredItemAmount: 1
+  requiredTools: 0
+  requiredToolsAmount: 0
+  requiredToolsDescription:
+    Plural:
+      Sheet:
+      Key:
+    Single:
+      Sheet:
+      Key:
+  upgradeFromItem: {fileID: 0}
+  extraAppearConditions:
+    TestGroups:
+    - Tests:
+      - Type: 0
+        FieldName: SeenMapperShellwood
+        BoolValue: 1
+        NumType: 0
+        IntValue: 0
+        FloatValue: 0
+        StringValue:
+        StringType: 0
+  questsAppearConditions: []
+  playerDataBoolName: HasShellwoodMap
+  savedItem: {fileID: 0}
+  playerDataIntName:
+  subItems: []
+  subItemSelectPrompt:
+    Sheet:
+    Key:
+  onPurchase:
+    m_PersistentCalls:
+      m_Calls: []
+  spawnOnPurchaseConditionals:
+  - Condition:
+      TestGroups:
+      - Tests:
+        - Type: 0
+          FieldName: HasAnyMap
+          BoolValue: 0
+          NumType: 0
+          IntValue: 0
+          FloatValue: 0
+          StringValue:
+          StringType: 0
+    GameObjectsToSpawn:
+    - {fileID: 1709254077376921, guid: 39acf47f4413a754db3deec184ba22f0, type: 2}
+  setExtraPlayerDataBools: []
+  setExtraPlayerDataInts: []
+  eventAfterPurchased:
