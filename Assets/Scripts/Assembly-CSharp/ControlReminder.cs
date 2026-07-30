@@ -201,7 +201,7 @@ public class ControlReminder : MonoBehaviour
 			{
 				return _instance;
 			}
-			_instance = UnityEngine.Object.FindObjectOfType<ControlReminder>();
+			_instance = UnityEngine.Object.FindFirstObjectByType<ControlReminder>(FindObjectsInactive.Include);
 			if (!_instance)
 			{
 				Debug.LogError("Couldn't find ControlReminder instance.");

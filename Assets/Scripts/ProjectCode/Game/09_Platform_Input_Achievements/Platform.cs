@@ -797,7 +797,7 @@ public abstract class Platform : MonoBehaviour
 			{
 				SetBackgroundLoadingPriority(ThreadPriority.High);
 			}
-			GameCameras instance = GameCameras.instance;
+			GameCameras instance = GameCameras.SilentInstance;
 			if ((bool)instance && (bool)instance.mainCamera)
 			{
 				instance.SetMainCameraActive(value: false);
@@ -810,7 +810,7 @@ public abstract class Platform : MonoBehaviour
 			{
 				RestoreBackgroundLoadingPriority();
 			}
-			GameCameras instance2 = GameCameras.instance;
+			GameCameras instance2 = GameCameras.SilentInstance;
 			if ((bool)instance2 && (bool)instance2.mainCamera)
 			{
 				instance2.SetMainCameraActive(value: true);

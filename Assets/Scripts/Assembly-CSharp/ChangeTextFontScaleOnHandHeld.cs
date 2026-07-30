@@ -100,7 +100,7 @@ public sealed class ChangeTextFontScaleOnHandHeld : MonoBehaviour
 			DoUpdate();
 		}
 		Platform.Current.OnScreenModeChanged += OnScreenModeChanged;
-		GameManager instance = GameManager.instance;
+		GameManager instance = GameManager.SilentInstance;
 		if (instance != null)
 		{
 			instance.RefreshLanguageText += DoUpdate;
@@ -110,7 +110,7 @@ public sealed class ChangeTextFontScaleOnHandHeld : MonoBehaviour
 	private void OnDisable()
 	{
 		Platform.Current.OnScreenModeChanged -= OnScreenModeChanged;
-		GameManager instance = GameManager.instance;
+		GameManager instance = GameManager.SilentInstance;
 		if (instance != null)
 		{
 			instance.RefreshLanguageText -= DoUpdate;

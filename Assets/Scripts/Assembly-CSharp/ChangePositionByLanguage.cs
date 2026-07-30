@@ -102,7 +102,7 @@ public sealed class ChangePositionByLanguage : MonoBehaviour
 		if (!registeredEvents)
 		{
 			registeredEvents = true;
-			GameManager instance = GameManager.instance;
+			GameManager instance = GameManager.SilentInstance;
 			if (instance != null)
 			{
 				instance.RefreshLanguageText += DoOffset;
@@ -120,10 +120,9 @@ public sealed class ChangePositionByLanguage : MonoBehaviour
 		if (registeredEvents)
 		{
 			registeredEvents = false;
-			GameManager instance = GameManager.instance;
+			GameManager instance = GameManager.SilentInstance;
 			if (instance != null)
 			{
-				registeredEvents = true;
 				instance.RefreshLanguageText -= DoOffset;
 			}
 			if (handHeldEvents)

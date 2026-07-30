@@ -18,7 +18,7 @@ public class NativeInputModuleManager : MonoBehaviour
 			Debug.LogError("Too late to enable native input module.");
 			return;
 		}
-		GameManager instance = GameManager.instance;
+		GameManager instance = GameManager.SilentInstance;
 		GameSettings gameSettings = (instance ? instance.gameSettings : new GameSettings());
 		gameSettings.LoadControllerSettings();
 		manager.enableNativeInput = gameSettings.nativeInput;
