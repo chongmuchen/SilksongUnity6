@@ -65,55 +65,109 @@ Shader "TextMeshPro/Distance Field" {
 		_StencilReadMask ("Stencil Read Mask", Float) = 255
 		_ColorMask ("Color Mask", Float) = 15
 	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType"="Opaque" }
-		LOD 200
+	SubShader
+	{
+		Tags
+		{
+			"Queue"="Transparent"
+			"IgnoreProjector"="True"
+			"RenderType"="Transparent"
+		}
+
+		Stencil
+		{
+			Ref [_Stencil]
+			Comp [_StencilComp]
+			Pass [_StencilOp]
+			ReadMask [_StencilReadMask]
+			WriteMask [_StencilWriteMask]
+		}
+
+		Cull Off
+		Lighting Off
+		ZWrite Off
+		ZTest [unity_GUIZTestMode]
+		ColorMask [_ColorMask]
+		Blend One OneMinusSrcAlpha
 
 		Pass
 		{
-			HLSLPROGRAM
+			CGPROGRAM
+			#pragma target 3.0
 			#pragma vertex vert
 			#pragma fragment frag
+			#pragma multi_compile_local _ UNITY_UI_CLIP_RECT
+			#include "UnityCG.cginc"
+			#include "UnityUI.cginc"
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+			struct appdata
+			{
+				float4 vertex : POSITION;
+				float2 uv : TEXCOORD0;
+				fixed4 color : COLOR;
+			};
+
+			struct v2f
+			{
+				float4 vertex : SV_POSITION;
+				float2 uv : TEXCOORD0;
+				fixed4 color : COLOR;
+				float4 localPosition : TEXCOORD1;
+			};
+
+			sampler2D _MainTex;
 			float4 _MainTex_ST;
+			fixed4 _FaceColor;
+			fixed4 _OutlineColor;
+			half _FaceDilate;
+			half _OutlineWidth;
+			half _ScaleRatioA;
+			float _VertexOffsetX;
+			float _VertexOffsetY;
+			float4 _ClipRect;
 
-			struct Vertex_Stage_Input
+			v2f vert(appdata input)
 			{
-				float4 pos : POSITION;
-				float2 uv : TEXCOORD0;
-			};
-
-			struct Vertex_Stage_Output
-			{
-				float2 uv : TEXCOORD0;
-				float4 pos : SV_POSITION;
-			};
-
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.uv = (input.uv.xy * _MainTex_ST.xy) + _MainTex_ST.zw;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
+				v2f output;
+				input.vertex.xy += float2(_VertexOffsetX, _VertexOffsetY);
+				output.localPosition = input.vertex;
+				output.vertex = UnityObjectToClipPos(input.vertex);
+				output.uv = TRANSFORM_TEX(input.uv, _MainTex);
+				output.color = input.color;
 				return output;
 			}
 
-			Texture2D<float4> _MainTex;
-			SamplerState sampler_MainTex;
-
-			struct Fragment_Stage_Input
+			fixed4 frag(v2f input) : SV_Target
 			{
-				float2 uv : TEXCOORD0;
-			};
+				half distanceValue = tex2D(_MainTex, input.uv).a;
+				half smoothing = max(fwidth(distanceValue), 0.001);
+				half faceThreshold = 0.5 - _FaceDilate * _ScaleRatioA * 0.25;
+				half outlineThreshold =
+					faceThreshold - _OutlineWidth * _ScaleRatioA * 0.5;
+				half faceCoverage = smoothstep(
+					faceThreshold - smoothing,
+					faceThreshold + smoothing,
+					distanceValue);
+				half outlineCoverage = smoothstep(
+					outlineThreshold - smoothing,
+					outlineThreshold + smoothing,
+					distanceValue);
 
-			float4 frag(Fragment_Stage_Input input) : SV_TARGET
-			{
-				return _MainTex.Sample(sampler_MainTex, input.uv.xy);
+				fixed4 faceColor = _FaceColor * input.color;
+				fixed4 outlineColor = _OutlineColor * input.color;
+				fixed4 color = lerp(outlineColor, faceColor, faceCoverage);
+				color.a = max(
+					faceCoverage * faceColor.a,
+					outlineCoverage * outlineColor.a);
+
+				#ifdef UNITY_UI_CLIP_RECT
+				color.a *= UnityGet2DClipping(input.localPosition.xy, _ClipRect);
+				#endif
+
+				color.rgb *= color.a;
+				return color;
 			}
-
-			ENDHLSL
+			ENDCG
 		}
 	}
 	Fallback "TextMeshPro/Mobile/Distance Field"

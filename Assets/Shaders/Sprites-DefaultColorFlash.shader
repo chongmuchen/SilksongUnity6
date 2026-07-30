@@ -1,5 +1,7 @@
-Shader "Sprites/Default-ColorFlash" {
-	Properties {
+Shader "Sprites/Default-ColorFlash"
+{
+	Properties
+	{
 		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
 		_Color ("Tint", Vector) = (1,1,1,1)
 		_FlashColor ("Flash Color", Vector) = (1,1,1,1)
@@ -28,56 +30,76 @@ Shader "Sprites/Default-ColorFlash" {
 		[Toggle(CAN_HUESHIFT)] _CanHueShift ("Can Hue Shift", Float) = 0
 		_HueShift ("Hue Shift", Range(-1, 1)) = 0
 	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType"="Opaque" }
-		LOD 200
+
+	SubShader
+	{
+		Tags
+		{
+			"Queue"="Transparent"
+			"IgnoreProjector"="True"
+			"RenderType"="Transparent"
+			"PreviewType"="Plane"
+			"CanUseSpriteAtlas"="True"
+		}
+
+		Cull Off
+		Lighting Off
+		ZWrite Off
+		Blend SrcAlpha OneMinusSrcAlpha
 
 		Pass
 		{
-			HLSLPROGRAM
+			CGPROGRAM
+			#pragma target 2.0
 			#pragma vertex vert
 			#pragma fragment frag
+			#pragma multi_compile _ PIXELSNAP_ON
+			#include "UnityCG.cginc"
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+			struct appdata
+			{
+				float4 vertex : POSITION;
+				float2 uv : TEXCOORD0;
+				fixed4 color : COLOR;
+			};
+
+			struct v2f
+			{
+				float4 vertex : SV_POSITION;
+				float2 uv : TEXCOORD0;
+				fixed4 color : COLOR;
+			};
+
+			sampler2D _MainTex;
 			float4 _MainTex_ST;
+			fixed4 _Color;
+			fixed4 _FlashColor;
+			half _FlashAmount;
 
-			struct Vertex_Stage_Input
+			v2f vert(appdata input)
 			{
-				float4 pos : POSITION;
-				float2 uv : TEXCOORD0;
-			};
+				v2f output;
+				output.vertex = UnityObjectToClipPos(input.vertex);
+				output.uv = TRANSFORM_TEX(input.uv, _MainTex);
+				output.color = input.color * _Color;
 
-			struct Vertex_Stage_Output
-			{
-				float2 uv : TEXCOORD0;
-				float4 pos : SV_POSITION;
-			};
+				#ifdef PIXELSNAP_ON
+				output.vertex = UnityPixelSnap(output.vertex);
+				#endif
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.uv = (input.uv.xy * _MainTex_ST.xy) + _MainTex_ST.zw;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
 				return output;
 			}
 
-			Texture2D<float4> _MainTex;
-			SamplerState sampler_MainTex;
-			float4 _Color;
-
-			struct Fragment_Stage_Input
+			fixed4 frag(v2f input) : SV_Target
 			{
-				float2 uv : TEXCOORD0;
-			};
-
-			float4 frag(Fragment_Stage_Input input) : SV_TARGET
-			{
-				return _MainTex.Sample(sampler_MainTex, input.uv.xy) * _Color;
+				fixed4 color = tex2D(_MainTex, input.uv) * input.color;
+				color.rgb = lerp(
+					color.rgb,
+					_FlashColor.rgb,
+					saturate(_FlashAmount));
+				return color;
 			}
-
-			ENDHLSL
+			ENDCG
 		}
 	}
 }

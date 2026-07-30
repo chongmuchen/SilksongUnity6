@@ -2,55 +2,61 @@ Shader "tk2d/BlendVertexColor" {
 	Properties {
 		_MainTex ("Base (RGB) Trans (A)", 2D) = "white" {}
 	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType"="Opaque" }
-		LOD 200
+	SubShader
+	{
+		Tags
+		{
+			"Queue"="Transparent"
+			"IgnoreProjector"="True"
+			"RenderType"="Transparent"
+			"PreviewType"="Plane"
+			"CanUseSpriteAtlas"="True"
+		}
+
+		Cull Off
+		Lighting Off
+		ZWrite Off
+		Blend SrcAlpha OneMinusSrcAlpha
 
 		Pass
 		{
-			HLSLPROGRAM
+			CGPROGRAM
+			#pragma target 2.0
 			#pragma vertex vert
 			#pragma fragment frag
+			#include "UnityCG.cginc"
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+			struct appdata
+			{
+				float4 vertex : POSITION;
+				float2 uv : TEXCOORD0;
+				fixed4 color : COLOR;
+			};
+
+			struct v2f
+			{
+				float4 vertex : SV_POSITION;
+				float2 uv : TEXCOORD0;
+				fixed4 color : COLOR;
+			};
+
+			sampler2D _MainTex;
 			float4 _MainTex_ST;
 
-			struct Vertex_Stage_Input
+			v2f vert(appdata input)
 			{
-				float4 pos : POSITION;
-				float2 uv : TEXCOORD0;
-			};
-
-			struct Vertex_Stage_Output
-			{
-				float2 uv : TEXCOORD0;
-				float4 pos : SV_POSITION;
-			};
-
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.uv = (input.uv.xy * _MainTex_ST.xy) + _MainTex_ST.zw;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
+				v2f output;
+				output.vertex = UnityObjectToClipPos(input.vertex);
+				output.uv = TRANSFORM_TEX(input.uv, _MainTex);
+				output.color = input.color;
 				return output;
 			}
 
-			Texture2D<float4> _MainTex;
-			SamplerState sampler_MainTex;
-
-			struct Fragment_Stage_Input
+			fixed4 frag(v2f input) : SV_Target
 			{
-				float2 uv : TEXCOORD0;
-			};
-
-			float4 frag(Fragment_Stage_Input input) : SV_TARGET
-			{
-				return _MainTex.Sample(sampler_MainTex, input.uv.xy);
+				return tex2D(_MainTex, input.uv) * input.color;
 			}
-
-			ENDHLSL
+			ENDCG
 		}
 	}
 }

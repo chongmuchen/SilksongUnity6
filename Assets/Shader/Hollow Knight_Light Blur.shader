@@ -3,55 +3,44 @@ Shader "Hollow Knight/Light Blur" {
 		_MainTex ("Base (RGB)", 2D) = "white" {}
 		_BlurInfo ("Blur Info", Vector) = (0.00052083336,0.0009259259,0,0)
 	}
-	//DummyShaderTextExporter
-	SubShader{
+	SubShader
+	{
 		Tags { "RenderType"="Opaque" }
 		LOD 200
+		Cull Off
+		ZWrite Off
+		ZTest Always
+
+		CGINCLUDE
+		#include "UnityCG.cginc"
+
+		sampler2D _MainTex;
+
+		fixed4 fragCopy(v2f_img input) : SV_Target
+		{
+			return tex2D(_MainTex, input.uv);
+		}
+		ENDCG
 
 		Pass
 		{
-			HLSLPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
+			Name "COPY_HORIZONTAL"
+			CGPROGRAM
+			#pragma vertex vert_img
+			#pragma fragment fragCopy
+			#pragma target 2.0
+			ENDCG
+		}
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
-			float4 _MainTex_ST;
-
-			struct Vertex_Stage_Input
-			{
-				float4 pos : POSITION;
-				float2 uv : TEXCOORD0;
-			};
-
-			struct Vertex_Stage_Output
-			{
-				float2 uv : TEXCOORD0;
-				float4 pos : SV_POSITION;
-			};
-
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.uv = (input.uv.xy * _MainTex_ST.xy) + _MainTex_ST.zw;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
-			}
-
-			Texture2D<float4> _MainTex;
-			SamplerState sampler_MainTex;
-
-			struct Fragment_Stage_Input
-			{
-				float2 uv : TEXCOORD0;
-			};
-
-			float4 frag(Fragment_Stage_Input input) : SV_TARGET
-			{
-				return _MainTex.Sample(sampler_MainTex, input.uv.xy);
-			}
-
-			ENDHLSL
+		Pass
+		{
+			Name "COPY_VERTICAL"
+			CGPROGRAM
+			#pragma vertex vert_img
+			#pragma fragment fragCopy
+			#pragma target 2.0
+			ENDCG
 		}
 	}
+	Fallback Off
 }

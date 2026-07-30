@@ -13,43 +13,61 @@ Shader "UI/Blur/UIBlur" {
 		_MaskLerp ("Mask Lerp", Range(0, 1)) = 1
 		_Mask ("Mask", 2D) = "white" {}
 	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType" = "Opaque" }
-		LOD 200
+	SubShader
+	{
+		Tags
+		{
+			"Queue"="Transparent"
+			"IgnoreProjector"="True"
+			"RenderType"="Transparent"
+		}
+
+		Stencil
+		{
+			Ref [_Stencil]
+			Comp [_StencilComp]
+			Pass [_StencilOp]
+			ReadMask [_StencilReadMask]
+			WriteMask [_StencilWriteMask]
+		}
+
+		Cull Off
+		Lighting Off
+		ZWrite Off
+		Blend SrcAlpha OneMinusSrcAlpha
 
 		Pass
 		{
-			HLSLPROGRAM
+			CGPROGRAM
+			#pragma target 2.0
 			#pragma vertex vert
 			#pragma fragment frag
+			#include "UnityCG.cginc"
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
-
-			struct Vertex_Stage_Input
+			struct appdata
 			{
-				float4 pos : POSITION;
+				float4 vertex : POSITION;
 			};
 
-			struct Vertex_Stage_Output
+			struct v2f
 			{
-				float4 pos : SV_POSITION;
+				float4 vertex : SV_POSITION;
 			};
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
+			fixed4 _TintColor;
+
+			v2f vert(appdata input)
 			{
-				Vertex_Stage_Output output;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
+				v2f output;
+				output.vertex = UnityObjectToClipPos(input.vertex);
 				return output;
 			}
 
-			float4 frag(Vertex_Stage_Output input) : SV_TARGET
+			fixed4 frag(v2f input) : SV_Target
 			{
-				return float4(1.0, 1.0, 1.0, 1.0); // RGBA
+				return _TintColor;
 			}
-
-			ENDHLSL
+			ENDCG
 		}
 	}
 }
