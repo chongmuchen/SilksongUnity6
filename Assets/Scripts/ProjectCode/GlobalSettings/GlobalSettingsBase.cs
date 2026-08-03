@@ -6,9 +6,9 @@ namespace GlobalSettings
 {
 	public abstract class GlobalSettingsBase<T> : ScriptableObject where T : GlobalSettingsBase<T>
 	{
-		private static bool _foundInstance;
+		private static bool _foundInstance;		// 是否最终创建实例
 
-		private static T _instance;
+		private static T _instance;				// 最终创建实例
 
 		private static AsyncOperationHandle<T>? _loadHandle;
 
