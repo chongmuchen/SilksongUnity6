@@ -1,7 +1,7 @@
-using InControl;
+using TeamCherry.Input;
 using UnityEngine;
 
-[RequireComponent(typeof(InControlInputModule))]
+[RequireComponent(typeof(HollowKnightInputModule))]
 public class PreMenuInputModuleActionAdaptor : MonoBehaviour
 {
 	public class PreMenuInputModuleActions : PlayerActionSet
@@ -37,7 +37,7 @@ public class PreMenuInputModuleActionAdaptor : MonoBehaviour
 	private void OnEnable()
 	{
 		CreateActions();
-		InControlInputModule component = GetComponent<InControlInputModule>();
+		HollowKnightInputModule component = GetComponent<HollowKnightInputModule>();
 		if (component != null)
 		{
 			component.SubmitAction = actions.Submit;

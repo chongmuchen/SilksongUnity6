@@ -1,5 +1,5 @@
 using System.IO;
-using InControl;
+using TeamCherry.Input;
 
 public sealed class PlaystationSwipeInputSource : BindingSource
 {

@@ -1,7 +1,7 @@
-using InControl;
+using TeamCherry.Input;
 using UnityEngine;
 
-[RequireComponent(typeof(InControlInputModule))]
+[RequireComponent(typeof(HollowKnightInputModule))]
 public class InputModuleBinder : MonoBehaviour
 {
 	public class MyActionSet : PlayerActionSet
@@ -40,7 +40,7 @@ public class InputModuleBinder : MonoBehaviour
 	{
 		actions = new MyActionSet();
 		BindAndApplyActions();
-		InControlInputModule component = GetComponent<InControlInputModule>();
+		HollowKnightInputModule component = GetComponent<HollowKnightInputModule>();
 		component.SubmitAction = actions.Submit;
 		component.CancelAction = actions.Cancel;
 		component.MoveAction = actions.Move;

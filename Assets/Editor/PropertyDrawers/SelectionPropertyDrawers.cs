@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Linq;
-using InControl;
 using UnityEditor;
 using UnityEngine;
 
@@ -99,76 +97,5 @@ public sealed class AssetNamePickerDrawer : PropertyDrawer
 			.ToArray();
 		assetNamesByFilter[searchFilter] = names;
 		return names;
-	}
-}
-
-[CustomPropertyDrawer(typeof(HexadecimalAttribute))]
-public sealed class HexadecimalDrawer : PropertyDrawer
-{
-	public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
-	{
-		SerializedProperty hasValue = property.FindPropertyRelative("hasValue");
-		SerializedProperty value = property.FindPropertyRelative("value");
-		if (hasValue != null && value != null)
-		{
-			DrawOptionalHex(position, label, hasValue, value);
-			return;
-		}
-
-		if (property.propertyType == SerializedPropertyType.Integer)
-		{
-			DrawHexField(position, label, property, enabled: true);
-			return;
-		}
-		EditorGUI.PropertyField(position, property, label, includeChildren: true);
-	}
-
-	private static void DrawOptionalHex(
-		Rect position,
-		GUIContent label,
-		SerializedProperty hasValue,
-		SerializedProperty value)
-	{
-		Rect content = EditorGUI.PrefixLabel(position, label);
-		Rect toggleRect = new Rect(content.x, content.y, 18f, content.height);
-		Rect valueRect = new Rect(toggleRect.xMax + 2f, content.y, content.width - 20f, content.height);
-
-		EditorGUI.BeginChangeCheck();
-		bool enabled = EditorGUI.Toggle(toggleRect, hasValue.boolValue);
-		if (EditorGUI.EndChangeCheck())
-		{
-			hasValue.boolValue = enabled;
-		}
-
-		bool oldEnabled = GUI.enabled;
-		GUI.enabled = oldEnabled && enabled;
-		DrawHexField(valueRect, GUIContent.none, value, enabled);
-		GUI.enabled = oldEnabled;
-	}
-
-	private static void DrawHexField(
-		Rect position,
-		GUIContent label,
-		SerializedProperty property,
-		bool enabled)
-	{
-		ulong current = unchecked((ulong)property.longValue);
-		string text = "0x" + current.ToString("X", CultureInfo.InvariantCulture);
-		EditorGUI.BeginChangeCheck();
-		string newText = EditorGUI.TextField(position, label, text);
-		if (!EditorGUI.EndChangeCheck() || !enabled)
-		{
-			return;
-		}
-
-		string digits = newText.Trim();
-		if (digits.StartsWith("0x", StringComparison.OrdinalIgnoreCase))
-		{
-			digits = digits.Substring(2);
-		}
-		if (ulong.TryParse(digits, NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture, out ulong parsed))
-		{
-			property.longValue = unchecked((long)parsed);
-		}
 	}
 }

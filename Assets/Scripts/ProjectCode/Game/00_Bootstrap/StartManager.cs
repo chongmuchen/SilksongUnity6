@@ -1,5 +1,4 @@
 using System.Collections;
-using InControl;
 using TeamCherry.Localization;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -13,9 +12,6 @@ public class StartManager : MonoBehaviour
 
 	[SerializeField]
 	private StandaloneLoadingSpinner loadSpinnerPrefab;
-
-	[SerializeField]
-	private InControlManager inControlManager;
 
 	[Header("Language Select")]
 	[SerializeField]
@@ -32,10 +28,6 @@ public class StartManager : MonoBehaviour
 
 	private IEnumerator Start()
 	{
-		if (inControlManager != null)
-		{
-			Object.DontDestroyOnLoad(Object.Instantiate(inControlManager).gameObject);
-		}
 		bool hasLoadedLanguageSelector = false;
 		AsyncOperationHandle<GameObject> languageSelectorHandle = default(AsyncOperationHandle<GameObject>);
 		LanguageSelector languageSelector = null;

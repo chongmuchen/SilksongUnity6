@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using InControl;
+using TeamCherry.Input;
 using UnityEngine;
 
 public static class VibrationManager
@@ -112,15 +112,6 @@ public static class VibrationManager
 			if (vibrationMixer != null)
 			{
 				return vibrationMixer;
-			}
-		}
-		InputDevice activeDevice = InputManager.ActiveDevice;
-		if (activeDevice != null && activeDevice.IsAttached && activeDevice is IVibrationMixerProvider vibrationMixerProvider2)
-		{
-			VibrationMixer vibrationMixer2 = vibrationMixerProvider2.GetVibrationMixer();
-			if (vibrationMixer2 != null)
-			{
-				return vibrationMixer2;
 			}
 		}
 		return null;

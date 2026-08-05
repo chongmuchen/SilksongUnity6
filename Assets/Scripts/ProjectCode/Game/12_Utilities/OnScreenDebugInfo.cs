@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using InControl;
+using TeamCherry.Input;
 using TeamCherry.Localization;
 using UnityEngine;
 using UnityEngine.SceneManagement;

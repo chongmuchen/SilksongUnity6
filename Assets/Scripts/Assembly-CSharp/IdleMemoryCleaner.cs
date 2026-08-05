@@ -1,5 +1,5 @@
 using GlobalEnums;
-using InControl;
+using TeamCherry.Input;
 using UnityEngine;
 
 public class IdleMemoryCleaner : MonoBehaviour

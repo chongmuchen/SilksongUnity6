@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using GlobalEnums;
-using InControl;
+using TeamCherry.Input;
 using UnityEngine;
 using UnityEngine.EventSystems;
 

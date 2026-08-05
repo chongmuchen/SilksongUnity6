@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace InControl
+namespace TeamCherry.Input
 {
 	[AddComponentMenu("Event/Hollow Knight Input Module")]
 	public class HollowKnightInputModule : StandaloneInputModule
@@ -81,7 +81,7 @@ namespace InControl
 
 		private bool MouseHasMoved => (thisMousePosition - lastMousePosition).sqrMagnitude > 0f;
 
-		private bool MouseButtonIsPressed => Input.GetMouseButtonDown(0);
+		private bool MouseButtonIsPressed => UnityEngine.Input.GetMouseButtonDown(0);
 
 		protected HollowKnightInputModule()
 		{
@@ -94,7 +94,7 @@ namespace InControl
 		public override void UpdateModule()
 		{
 			lastMousePosition = thisMousePosition;
-			thisMousePosition = Input.mousePosition;
+			thisMousePosition = UnityEngine.Input.mousePosition;
 		}
 
 		public override bool ShouldActivateModule()
@@ -105,18 +105,18 @@ namespace InControl
 			}
 			UpdateInputState();
 			bool flag = false;
-			flag |= SubmitAction.WasPressed;
-			flag |= CancelAction.WasPressed;
-			flag |= JumpAction.WasPressed;
-			flag |= CastAction.WasPressed;
-			flag |= AttackAction.WasPressed;
+			flag |= SubmitAction?.WasPressed ?? false;
+			flag |= CancelAction?.WasPressed ?? false;
+			flag |= JumpAction?.WasPressed ?? false;
+			flag |= CastAction?.WasPressed ?? false;
+			flag |= AttackAction?.WasPressed ?? false;
 			flag |= VectorWasPressed;
 			if (allowMouseInput)
 			{
 				flag |= MouseHasMoved;
 				flag |= MouseButtonIsPressed;
 			}
-			if (Input.touchCount > 0)
+			if (UnityEngine.Input.touchCount > 0)
 			{
 				flag = true;
 			}
@@ -126,8 +126,8 @@ namespace InControl
 		public override void ActivateModule()
 		{
 			base.ActivateModule();
-			thisMousePosition = Input.mousePosition;
-			lastMousePosition = Input.mousePosition;
+			thisMousePosition = UnityEngine.Input.mousePosition;
+			lastMousePosition = UnityEngine.Input.mousePosition;
 			GameObject gameObject = base.eventSystem.currentSelectedGameObject;
 			if (gameObject == null)
 			{
@@ -158,20 +158,29 @@ namespace InControl
 
 		private void SendButtonEventToSelectedObject()
 		{
-			if (base.eventSystem.currentSelectedGameObject == null || UIManager.instance.IsFadingMenu)
+			UIManager uiManager = JumpAction != null ? UIManager.instance : null;
+			if (base.eventSystem.currentSelectedGameObject == null || (uiManager != null && uiManager.IsFadingMenu))
 			{
 				return;
 			}
 			BaseEventData baseEventData = GetBaseEventData();
-			switch (Platform.Current.GetMenuAction(SubmitAction.WasPressed, CancelAction.WasPressed, JumpAction.WasPressed, AttackAction.WasPressed, CastAction.WasPressed))
+			bool submitPressed = SubmitAction?.WasPressed ?? false;
+			bool cancelPressed = CancelAction?.WasPressed ?? false;
+			bool jumpPressed = JumpAction?.WasPressed ?? false;
+			bool attackPressed = AttackAction?.WasPressed ?? false;
+			bool castPressed = CastAction?.WasPressed ?? false;
+			Platform.MenuActions menuAction = Platform.Current != null
+				? Platform.Current.GetMenuAction(submitPressed, cancelPressed, jumpPressed, attackPressed, castPressed)
+				: (submitPressed ? Platform.MenuActions.Submit : (cancelPressed ? Platform.MenuActions.Cancel : Platform.MenuActions.None));
+			switch (menuAction)
 			{
 			case Platform.MenuActions.Submit:
 				ExecuteEvents.Execute(base.eventSystem.currentSelectedGameObject, baseEventData, ExecuteEvents.submitHandler);
 				break;
 			case Platform.MenuActions.Cancel:
 			{
-				PlayerAction playerAction = (AttackAction.WasPressed ? AttackAction : CastAction);
-				if (!playerAction.WasPressed || playerAction.FindBinding(new MouseBindingSource(Mouse.LeftButton)) == null)
+				PlayerAction playerAction = attackPressed ? AttackAction : CastAction;
+				if (playerAction == null || !playerAction.WasPressed || playerAction.FindBinding(new MouseBindingSource(Mouse.LeftButton)) == null)
 				{
 					ExecuteEvents.Execute(base.eventSystem.currentSelectedGameObject, baseEventData, ExecuteEvents.cancelHandler);
 				}
@@ -223,11 +232,11 @@ namespace InControl
 			lastVectorState = thisVectorState;
 			thisVectorState = Vector2.zero;
 			TwoAxisInputControl twoAxisInputControl = MoveAction ?? direction;
-			if (Utility.AbsoluteIsOverThreshold(twoAxisInputControl.X, analogMoveThreshold))
+			if (Mathf.Abs(twoAxisInputControl.X) > analogMoveThreshold)
 			{
 				thisVectorState.x = Mathf.Sign(twoAxisInputControl.X);
 			}
-			if (Utility.AbsoluteIsOverThreshold(twoAxisInputControl.Y, analogMoveThreshold))
+			if (Mathf.Abs(twoAxisInputControl.Y) > analogMoveThreshold)
 			{
 				thisVectorState.y = Mathf.Sign(twoAxisInputControl.Y);
 			}

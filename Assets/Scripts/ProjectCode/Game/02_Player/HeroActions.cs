@@ -1,4 +1,4 @@
-using InControl;
+using TeamCherry.Input;
 
 public class HeroActions : PlayerActionSet
 {

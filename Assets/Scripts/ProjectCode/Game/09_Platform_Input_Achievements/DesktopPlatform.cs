@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using GlobalEnums;
-using InControl;
+using TeamCherry.Input;
 using UnityEngine;
 
 public class DesktopPlatform : Platform, VibrationManager.IVibrationMixerProvider

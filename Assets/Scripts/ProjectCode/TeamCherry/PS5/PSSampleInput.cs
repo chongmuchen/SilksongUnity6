@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using LegacyInput = UnityEngine.Input;
 
 namespace TeamCherry.PS5
 {
@@ -69,87 +70,87 @@ namespace TeamCherry.PS5
 
 		public override Vector2 GetThumbStickLeft()
 		{
-			return new Vector2(Input.GetAxis(leftStickHorizontalAxis), Input.GetAxis(leftStickVerticalAxis));
+			return new Vector2(LegacyInput.GetAxis(leftStickHorizontalAxis), LegacyInput.GetAxis(leftStickVerticalAxis));
 		}
 
 		public override Vector2 GetThumbStickRight()
 		{
-			return new Vector2(Input.GetAxis(rightStickHorizontalAxis), Input.GetAxis(rightStickVerticalAxis));
+			return new Vector2(LegacyInput.GetAxis(rightStickHorizontalAxis), LegacyInput.GetAxis(rightStickVerticalAxis));
 		}
 
 		public override bool GetL3()
 		{
-			return Input.GetKey(L3BtnKeyCode);
+			return LegacyInput.GetKey(L3BtnKeyCode);
 		}
 
 		public override bool GetR3()
 		{
-			return Input.GetKey(R3BtnKeyCode);
+			return LegacyInput.GetKey(R3BtnKeyCode);
 		}
 
 		public override bool GetOptions()
 		{
-			return Input.GetKey(optionsBtnKeyCode);
+			return LegacyInput.GetKey(optionsBtnKeyCode);
 		}
 
 		public override bool GetCross()
 		{
-			return Input.GetKey(CrossBtnKeyCode);
+			return LegacyInput.GetKey(CrossBtnKeyCode);
 		}
 
 		public override bool GetCircle()
 		{
-			return Input.GetKey(CircleBtnKeyCode);
+			return LegacyInput.GetKey(CircleBtnKeyCode);
 		}
 
 		public override bool GetSquare()
 		{
-			return Input.GetKey(SquareBtnKeyCode);
+			return LegacyInput.GetKey(SquareBtnKeyCode);
 		}
 
 		public override bool GetTriangle()
 		{
-			return Input.GetKey(TriangleBtnKeyCode);
+			return LegacyInput.GetKey(TriangleBtnKeyCode);
 		}
 
 		public override bool GetDpadRight()
 		{
-			return Input.GetAxis(DPadRightAxis) > 0f;
+			return LegacyInput.GetAxis(DPadRightAxis) > 0f;
 		}
 
 		public override bool GetDpadLeft()
 		{
-			return Input.GetAxis(DPadLeftAxis) < 0f;
+			return LegacyInput.GetAxis(DPadLeftAxis) < 0f;
 		}
 
 		public override bool GetDpadUp()
 		{
-			return Input.GetAxis(DPadUpAxis) > 0f;
+			return LegacyInput.GetAxis(DPadUpAxis) > 0f;
 		}
 
 		public override bool GetDpadDown()
 		{
-			return Input.GetAxis(DPadDownAxis) < 0f;
+			return LegacyInput.GetAxis(DPadDownAxis) < 0f;
 		}
 
 		public override bool GetR1()
 		{
-			return Input.GetKey(R1BtnKeyCode);
+			return LegacyInput.GetKey(R1BtnKeyCode);
 		}
 
 		public override bool GetR2()
 		{
-			return Input.GetAxis(R2Axis) != 0f;
+			return LegacyInput.GetAxis(R2Axis) != 0f;
 		}
 
 		public override bool GetL1()
 		{
-			return Input.GetKey(L1BtnKeyCode);
+			return LegacyInput.GetKey(L1BtnKeyCode);
 		}
 
 		public override bool GetL2()
 		{
-			return Input.GetAxis(L2Axis) != 0f;
+			return LegacyInput.GetAxis(L2Axis) != 0f;
 		}
 
 		public override bool TouchPadButton()

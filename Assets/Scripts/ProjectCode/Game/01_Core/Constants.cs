@@ -1,5 +1,5 @@
 using GlobalEnums;
-using InControl;
+using TeamCherry.Input;
 
 public static class Constants
 {

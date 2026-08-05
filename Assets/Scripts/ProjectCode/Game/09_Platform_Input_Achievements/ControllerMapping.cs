@@ -1,6 +1,6 @@
 using System;
 using GlobalEnums;
-using InControl;
+using TeamCherry.Input;
 
 [Serializable]
 public class ControllerMapping

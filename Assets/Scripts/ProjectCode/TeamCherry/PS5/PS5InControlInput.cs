@@ -1,4 +1,4 @@
-using InControl;
+using TeamCherry.Input;
 using UnityEngine;
 
 namespace TeamCherry.PS5
@@ -21,12 +21,12 @@ namespace TeamCherry.PS5
 
 		public override bool GetL3()
 		{
-			return InputManager.ActiveDevice.LeftStick.IsPressed;
+			return InputManager.ActiveDevice.GetControl(InputControlType.LeftStickButton).IsPressed;
 		}
 
 		public override bool GetR3()
 		{
-			return InputManager.ActiveDevice.RightStick.IsPressed;
+			return InputManager.ActiveDevice.GetControl(InputControlType.RightStickButton).IsPressed;
 		}
 
 		public override bool GetOptions()

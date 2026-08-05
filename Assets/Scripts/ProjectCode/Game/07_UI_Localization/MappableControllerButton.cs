@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using GlobalEnums;
-using InControl;
+using TeamCherry.Input;
 using TeamCherry.Localization;
 using UnityEngine;
 using UnityEngine.EventSystems;

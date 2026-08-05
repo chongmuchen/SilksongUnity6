@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using GenericVariableExtension;
 using GlobalEnums;
 using GlobalSettings;
-using InControl;
 using TeamCherry.Localization;
 using TeamCherry.SharedUtils;
 using UnityEngine;
@@ -168,9 +167,6 @@ public class GameManager : MonoBehaviour
 
 	[SerializeField]
 	private AudioManager audioManager;
-
-	[SerializeField]
-	private InControlManager inControlManagerPrefab;
 
 	[SerializeField]
 	public GameSettings gameSettings;
@@ -464,22 +460,6 @@ public class GameManager : MonoBehaviour
 	public event SceneTransitionFinishEvent OnFinishedSceneTransition;
 
 	public static event SceneTransitionBeganDelegate SceneTransitionBegan;
-
-	public void SpawnInControlManager()
-	{
-		bool flag = false;
-		try
-		{
-			flag = SingletonMonoBehavior<InControlManager>.Instance != null;
-		}
-		catch
-		{
-		}
-		if (!flag)
-		{
-			UnityEngine.Object.DontDestroyOnLoad(UnityEngine.Object.Instantiate(inControlManagerPrefab).gameObject);
-		}
-	}
 
 	private void Awake()
 	{
@@ -3435,7 +3415,6 @@ public class GameManager : MonoBehaviour
 			gameSettings = new GameSettings();
 			inputHandler = GetComponent<InputHandler>();
 			achievementHandler = GetComponent<AchievementHandler>();
-			SpawnInControlManager();
 			GameObject gameplayChild = gameCams.hudCamera.GetComponent<HUDCamera>().GameplayChild;
 			screenFader_fsm = gameplayChild.LocateMyFSM("Screen Fader");
 			inventoryFSM = gameplayChild.transform.Find("Inventory").gameObject.GetComponent<PlayMakerFSM>();

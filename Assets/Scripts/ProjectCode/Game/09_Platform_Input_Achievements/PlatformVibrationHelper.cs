@@ -1,4 +1,4 @@
-using InControl;
+using TeamCherry.Input;
 using UnityEngine;
 
 public class PlatformVibrationHelper
