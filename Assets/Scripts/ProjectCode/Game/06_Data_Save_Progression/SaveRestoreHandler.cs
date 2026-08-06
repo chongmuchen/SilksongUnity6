@@ -2,11 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using TeamCherry.SharedUtils;
 using UnityEngine;
 
 public abstract class SaveRestoreHandler
@@ -339,32 +336,14 @@ public abstract class SaveRestoreHandler
 
 	protected static string GetJsonForSaveBytes(byte[] fileBytes)
 	{
-		if (GameManager.instance.gameConfig.useSaveEncryption && !Platform.Current.IsFileSystemProtected)
-		{
-			BinaryFormatter binaryFormatter = new BinaryFormatter();
-			MemoryStream serializationStream = new MemoryStream(fileBytes);
-			return Encryption.Decrypt((string)binaryFormatter.Deserialize(serializationStream));
-		}
-		return Encoding.UTF8.GetString(fileBytes);
+		bool legacyUseEncryption = GameManager.instance.gameConfig.useSaveEncryption && !Platform.Current.IsFileSystemProtected;
+		return SaveFileCodec.DecodeJson(fileBytes, legacyUseEncryption);
 	}
 
 	protected static byte[] GetBytesForSaveJson(string jsonData)
 	{
-		byte[] result;
-		if (GameManager.instance.gameConfig.useSaveEncryption && !Platform.Current.IsFileSystemProtected)
-		{
-			string graph = Encryption.Encrypt(jsonData);
-			BinaryFormatter binaryFormatter = new BinaryFormatter();
-			MemoryStream memoryStream = new MemoryStream();
-			binaryFormatter.Serialize(memoryStream, graph);
-			result = memoryStream.ToArray();
-			memoryStream.Close();
-		}
-		else
-		{
-			result = Encoding.UTF8.GetBytes(jsonData);
-		}
-		return result;
+		bool useEncryption = GameManager.instance.gameConfig.useSaveEncryption && !Platform.Current.IsFileSystemProtected;
+		return SaveFileCodec.EncodeJson(jsonData, useEncryption);
 	}
 
 	protected static byte[] GetBytesForSaveData<T>(T data)

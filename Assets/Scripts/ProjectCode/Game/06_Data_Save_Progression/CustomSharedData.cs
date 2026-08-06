@@ -1,10 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using TeamCherry.SharedUtils;
 using UnityEngine;
 
 public abstract class CustomSharedData : Platform.ISharedData
@@ -118,32 +114,12 @@ public abstract class CustomSharedData : Platform.ISharedData
 
 	protected static byte[] JsonToBytes(string jsonData, bool useEncryption)
 	{
-		byte[] result;
-		if (useEncryption)
-		{
-			string graph = Encryption.Encrypt(jsonData);
-			BinaryFormatter binaryFormatter = new BinaryFormatter();
-			MemoryStream memoryStream = new MemoryStream();
-			binaryFormatter.Serialize(memoryStream, graph);
-			result = memoryStream.ToArray();
-			memoryStream.Close();
-		}
-		else
-		{
-			result = Encoding.UTF8.GetBytes(jsonData);
-		}
-		return result;
+		return SaveFileCodec.EncodeJson(jsonData, useEncryption);
 	}
 
 	protected static string BytesToJson(byte[] byteData, bool useEncryption)
 	{
-		if (useEncryption)
-		{
-			BinaryFormatter binaryFormatter = new BinaryFormatter();
-			MemoryStream serializationStream = new MemoryStream(byteData);
-			return Encryption.Decrypt((string)binaryFormatter.Deserialize(serializationStream));
-		}
-		return Encoding.UTF8.GetString(byteData);
+		return SaveFileCodec.DecodeJson(byteData, legacyUseEncryption: useEncryption);
 	}
 
 	public bool HasKey(string key)

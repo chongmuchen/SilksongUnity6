@@ -361,21 +361,27 @@ public class DesktopPlatform : Platform, VibrationManager.IVibrationMixerProvide
 		string saveSlotPath = GetSaveSlotPath(slotIndex, SaveSlotFileNameUsage.Primary);
 		string saveSlotPath2 = GetSaveSlotPath(slotIndex, SaveSlotFileNameUsage.Backup);
 		string text = saveSlotPath + ".new";
-		if (File.Exists(text))
-		{
-			Debug.LogWarning($"Temp file <b>{text}</b> was found and is likely corrupted. The file has been deleted.");
-		}
-		try
-		{
-			File.WriteAllBytes(text, bytes);
-		}
-		catch (Exception exception)
-		{
-			Debug.LogException(exception);
-		}
 		bool successful;
 		try
 		{
+			Directory.CreateDirectory(saveDirPath);
+			if (File.Exists(text))
+			{
+				File.Delete(text);
+				Debug.LogWarning($"Temp file <b>{text}</b> was found and is likely corrupted. The file has been deleted.");
+			}
+			using (FileStream fileStream = new FileStream(text, FileMode.CreateNew, FileAccess.Write, FileShare.None, 4096, FileOptions.WriteThrough))
+			{
+				fileStream.Write(bytes, 0, bytes.Length);
+				try
+				{
+					fileStream.Flush(flushToDisk: true);
+				}
+				catch
+				{
+					fileStream.Flush();
+				}
+			}
 			if (File.Exists(saveSlotPath))
 			{
 				File.Replace(text, saveSlotPath, saveSlotPath2 + GetBackupNumber(saveSlotPath2));
@@ -386,10 +392,21 @@ public class DesktopPlatform : Platform, VibrationManager.IVibrationMixerProvide
 			}
 			successful = true;
 		}
-		catch (Exception exception2)
+		catch (Exception exception)
 		{
-			Debug.LogException(exception2);
+			Debug.LogException(exception);
 			successful = false;
+			try
+			{
+				if (File.Exists(text))
+				{
+					File.Delete(text);
+				}
+			}
+			catch (Exception cleanupException)
+			{
+				Debug.LogException(cleanupException);
+			}
 		}
 		if (callback != null)
 		{

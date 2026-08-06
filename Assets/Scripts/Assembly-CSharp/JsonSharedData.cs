@@ -1,8 +1,5 @@
 using System;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using TeamCherry.SharedUtils;
 using UnityEngine;
 
 public class JsonSharedData : CustomSharedData
@@ -34,20 +31,7 @@ public class JsonSharedData : CustomSharedData
 			try
 			{
 				string text = SaveToJSON();
-				byte[] data;
-				if (useEncryption)
-				{
-					string graph = Encryption.Encrypt(text);
-					BinaryFormatter binaryFormatter = new BinaryFormatter();
-					MemoryStream memoryStream = new MemoryStream();
-					binaryFormatter.Serialize(memoryStream, graph);
-					data = memoryStream.ToArray();
-					memoryStream.Close();
-				}
-				else
-				{
-					data = Encoding.UTF8.GetBytes(text);
-				}
+				byte[] data = SaveFileCodec.EncodeJson(text, useEncryption);
 				if (!Directory.Exists(saveDir))
 				{
 					Directory.CreateDirectory(saveDir);
@@ -160,21 +144,7 @@ public class JsonSharedData : CustomSharedData
 		{
 			return false;
 		}
-		string text2;
-		if (useEncryption)
-		{
-			using MemoryStream serializationStream = new MemoryStream(array);
-			string text = new BinaryFormatter().Deserialize(serializationStream) as string;
-			if (string.IsNullOrEmpty(text))
-			{
-				return false;
-			}
-			text2 = Encryption.Decrypt(text);
-		}
-		else
-		{
-			text2 = Encoding.UTF8.GetString(array);
-		}
+		string text2 = SaveFileCodec.DecodeJson(array, legacyUseEncryption: useEncryption);
 		if (string.IsNullOrEmpty(text2))
 		{
 			return false;

@@ -1,10 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 using System.Threading.Tasks;
 using GenericVariableExtension;
 using GlobalEnums;
@@ -4828,13 +4825,8 @@ public class GameManager : MonoBehaviour
 
 	public string GetJsonForSaveBytes(byte[] fileBytes)
 	{
-		if (gameConfig.useSaveEncryption && !Platform.Current.IsFileSystemProtected)
-		{
-			BinaryFormatter binaryFormatter = new BinaryFormatter();
-			MemoryStream serializationStream = new MemoryStream(fileBytes);
-			return Encryption.Decrypt((string)binaryFormatter.Deserialize(serializationStream));
-		}
-		return Encoding.UTF8.GetString(fileBytes);
+		bool legacyUseEncryption = gameConfig.useSaveEncryption && !Platform.Current.IsFileSystemProtected;
+		return SaveFileCodec.DecodeJson(fileBytes, legacyUseEncryption);
 	}
 
 	public static string GetJsonForSaveBytesStatic(byte[] fileBytes)
@@ -4843,32 +4835,13 @@ public class GameManager : MonoBehaviour
 		{
 			return instance.GetJsonForSaveBytes(fileBytes);
 		}
-		if (!Platform.Current.IsFileSystemProtected)
-		{
-			BinaryFormatter binaryFormatter = new BinaryFormatter();
-			MemoryStream serializationStream = new MemoryStream(fileBytes);
-			return Encryption.Decrypt((string)binaryFormatter.Deserialize(serializationStream));
-		}
-		return Encoding.UTF8.GetString(fileBytes);
+		return SaveFileCodec.DecodeJson(fileBytes, legacyUseEncryption: !Platform.Current.IsFileSystemProtected);
 	}
 
 	public byte[] GetBytesForSaveJson(string jsonData)
 	{
-		byte[] result;
-		if (gameConfig.useSaveEncryption && !Platform.Current.IsFileSystemProtected)
-		{
-			string graph = Encryption.Encrypt(jsonData);
-			BinaryFormatter binaryFormatter = new BinaryFormatter();
-			MemoryStream memoryStream = new MemoryStream();
-			binaryFormatter.Serialize(memoryStream, graph);
-			result = memoryStream.ToArray();
-			memoryStream.Close();
-		}
-		else
-		{
-			result = Encoding.UTF8.GetBytes(jsonData);
-		}
-		return result;
+		bool useEncryption = gameConfig.useSaveEncryption && !Platform.Current.IsFileSystemProtected;
+		return SaveFileCodec.EncodeJson(jsonData, useEncryption);
 	}
 
 	public void GetBytesForSaveJsonAsync(string jsonData, Action<byte[]> callback)
@@ -4893,21 +4866,7 @@ public class GameManager : MonoBehaviour
 			return instance.GetBytesForSaveJson(jsonData);
 		}
 		Debug.LogError("Missing Game Manager. Using fallback get bytes method.");
-		byte[] result;
-		if (!Platform.Current.IsFileSystemProtected)
-		{
-			string graph = Encryption.Encrypt(jsonData);
-			BinaryFormatter binaryFormatter = new BinaryFormatter();
-			MemoryStream memoryStream = new MemoryStream();
-			binaryFormatter.Serialize(memoryStream, graph);
-			result = memoryStream.ToArray();
-			memoryStream.Close();
-		}
-		else
-		{
-			result = Encoding.UTF8.GetBytes(jsonData);
-		}
-		return result;
+		return SaveFileCodec.EncodeJson(jsonData, useEncryption: !Platform.Current.IsFileSystemProtected);
 	}
 
 	public static string GetJson<T>(T dataClassInstance)
