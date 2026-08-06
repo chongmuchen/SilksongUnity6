@@ -494,14 +494,14 @@ namespace InputSystem
 			}
 			string normalized = path.ToLowerInvariant();
 			if (normalized.StartsWith("<gamepad>/", StringComparison.Ordinal) &&
-				(normalized.EndsWith("trigger", StringComparison.Ordinal) || normalized.Contains("stick/")))
+				normalized.EndsWith("trigger", StringComparison.Ordinal))
 			{
 				return string.IsNullOrWhiteSpace(defaultProcessors)
 					? "axisDeadzone(min=0.2,max=0.9)"
 					: defaultProcessors;
 			}
-			// An empty override deliberately removes a deadzone processor when a
-			// trigger/stick slot is rebound to a digital button or key.
+			// Stick controls already carry their official layout processor. An empty
+			// override also removes a trigger processor after rebinding to a button/key.
 			return string.Empty;
 		}
 

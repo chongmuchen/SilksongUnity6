@@ -786,41 +786,69 @@ namespace InputSystem
 			{
 				return;
 			}
-			bool allPathsAssigned = true;
-			string[] bindingGroups = { "Keyboard&Mouse", "Gamepad" };
-			foreach (string bindingGroup in bindingGroups)
+			List<string> keyboardPaths = sourceAction.GetControlPaths("Keyboard&Mouse");
+			List<int> keyboardBindingIndices = new List<int>();
+			for (int i = 0; i < aggregate.Action.bindings.Count; i++)
 			{
-				List<string> paths = sourceAction.GetControlPaths(bindingGroup);
-				List<int> bindingIndices = new List<int>();
-				for (int i = 0; i < aggregate.Action.bindings.Count; i++)
+				InputBinding binding = aggregate.Action.bindings[i];
+				if (binding.isPartOfComposite && string.Equals(binding.name, aggregate.PartName, StringComparison.OrdinalIgnoreCase) &&
+					!string.IsNullOrEmpty(binding.groups) && binding.groups.IndexOf("Keyboard&Mouse", StringComparison.OrdinalIgnoreCase) >= 0)
 				{
-					InputBinding binding = aggregate.Action.bindings[i];
-					if (binding.isPartOfComposite && string.Equals(binding.name, aggregate.PartName, StringComparison.OrdinalIgnoreCase) &&
-						!string.IsNullOrEmpty(binding.groups) && binding.groups.IndexOf(bindingGroup, StringComparison.OrdinalIgnoreCase) >= 0)
-					{
-						bindingIndices.Add(i);
-					}
+					keyboardBindingIndices.Add(i);
 				}
-
-				bool[] assigned = new bool[paths.Count];
-				foreach (int bindingIndex in bindingIndices)
-				{
-					InputBinding binding = aggregate.Action.bindings[bindingIndex];
-					int pathIndex = FindAggregatePath(paths, assigned, BindingPathMapper.GetControlKind(binding.path));
-					string path = pathIndex >= 0 ? paths[pathIndex] : string.Empty;
-					if (pathIndex >= 0)
-					{
-						assigned[pathIndex] = true;
-					}
-					aggregate.Action.ApplyBindingOverride(bindingIndex, new InputBinding
-					{
-						overridePath = path,
-						overrideProcessors = BindingPathMapper.GetOverrideProcessors(path, binding.processors)
-					});
-				}
-				allPathsAssigned &= assigned.All(value => value);
 			}
+
+			bool[] assignedKeyboardPaths = new bool[keyboardPaths.Count];
+			foreach (int bindingIndex in keyboardBindingIndices)
+			{
+				InputBinding binding = aggregate.Action.bindings[bindingIndex];
+				int pathIndex = FindAggregatePath(keyboardPaths, assignedKeyboardPaths, BindingPathMapper.GetControlKind(binding.path));
+				string path = pathIndex >= 0 ? keyboardPaths[pathIndex] : string.Empty;
+				if (pathIndex >= 0)
+				{
+					assignedKeyboardPaths[pathIndex] = true;
+				}
+				aggregate.Action.ApplyBindingOverride(bindingIndex, new InputBinding
+				{
+					overridePath = path,
+					overrideProcessors = BindingPathMapper.GetOverrideProcessors(path, binding.processors)
+				});
+			}
+
+			List<string> currentGamepadPaths = sourceAction.GetControlPaths("Gamepad");
+			List<string> expectedGamepadPaths = GetAggregateGamepadPaths(aggregate.Action, aggregate.PartName);
+			bool allPathsAssigned = assignedKeyboardPaths.All(value => value) &&
+				HaveSameControlPaths(currentGamepadPaths, expectedGamepadPaths);
 			sourceAction.SetAggregateBindingsNativeBacked(allPathsAssigned);
+		}
+
+		private static List<string> GetAggregateGamepadPaths(NativeInputAction action, string partName)
+		{
+			List<string> paths = new List<string>();
+			if (action == null)
+			{
+				return paths;
+			}
+			foreach (InputBinding binding in action.bindings)
+			{
+				if (binding.isComposite || binding.isPartOfComposite ||
+					!string.Equals(BindingPathMapper.GetBindingGroup(binding.path), "Gamepad", StringComparison.OrdinalIgnoreCase))
+				{
+					continue;
+				}
+				int controlKind = BindingPathMapper.GetControlKind(binding.path);
+				if (controlKind == 2 || controlKind == 3)
+				{
+					paths.Add($"{binding.path.TrimEnd('/')}/{partName}");
+				}
+			}
+			return paths;
+		}
+
+		private static bool HaveSameControlPaths(List<string> left, List<string> right)
+		{
+			return left.Count == right.Count && left.All(path => right.Any(other =>
+				string.Equals(path, other, StringComparison.OrdinalIgnoreCase)));
 		}
 
 		private static int FindAggregatePath(List<string> paths, bool[] assigned, int targetControlKind)
