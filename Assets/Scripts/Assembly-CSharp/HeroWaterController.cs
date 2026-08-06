@@ -296,9 +296,10 @@ public class HeroWaterController : MonoBehaviour
 
 	private void OnDestroy()
 	{
-		if ((bool)GameManager.instance)
+		GameManager gameManager = GameManager.UnsafeInstance;
+		if ((bool)gameManager)
 		{
-			GameManager.instance.NextSceneWillActivate -= OnNextSceneLoaded;
+			gameManager.NextSceneWillActivate -= OnNextSceneLoaded;
 		}
 		if ((bool)hc)
 		{

@@ -116,7 +116,7 @@ public abstract class ChangeByLanguageOld<T> : ChangeByLanguageBase where T : Ch
 		if (registeredEvents)
 		{
 			registeredEvents = false;
-			GameManager instance = GameManager.instance;
+			GameManager instance = GameManager.UnsafeInstance;
 			if (instance != null)
 			{
 				instance.RefreshLanguageText -= DoUpdate;

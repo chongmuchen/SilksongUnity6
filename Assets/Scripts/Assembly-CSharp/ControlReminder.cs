@@ -231,9 +231,10 @@ public class ControlReminder : MonoBehaviour
 		{
 			_instance = null;
 		}
-		if ((bool)GameManager.instance)
+		GameManager gameManager = GameManager.UnsafeInstance;
+		if ((bool)gameManager)
 		{
-			GameManager.instance.NextSceneWillActivate -= OnInstanceOnNextSceneWillActivate;
+			gameManager.NextSceneWillActivate -= OnInstanceOnNextSceneWillActivate;
 		}
 	}
 
