@@ -61,9 +61,14 @@ namespace HutongGames.PlayMaker.Actions
 				Finish();
 				return;
 			}
+			Animator targetAnimator = animator;
+			if (!targetAnimator.isActiveAndEnabled || targetAnimator.runtimeAnimatorController == null)
+			{
+				return;
+			}
 			int num = (layer.IsNone ? (-1) : layer.Value);
 			float num2 = (normalizedTime.IsNone ? float.NegativeInfinity : normalizedTime.Value);
-			animator.Play(stateName.Value, num, num2);
+			targetAnimator.Play(stateName.Value, num, num2);
 		}
 	}
 }

@@ -157,7 +157,11 @@ public class StatusVignette : MonoBehaviour
 		Animator[] array = vignettes;
 		for (int i = 0; i < array.Length; i++)
 		{
-			array[i].SetFloat(_playbackTimeProp, 0f);
+			Animator vignette = array[i];
+			if ((bool)vignette && vignette.isActiveAndEnabled && vignette.runtimeAnimatorController != null)
+			{
+				vignette.SetFloat(_playbackTimeProp, 0f);
+			}
 		}
 		for (int j = 0; j < vignettes.Length; j++)
 		{
