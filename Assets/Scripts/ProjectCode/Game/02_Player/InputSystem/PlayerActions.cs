@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using NativeInputAction = UnityEngine.InputSystem.InputAction;
+using NativeInputActionMap = UnityEngine.InputSystem.InputActionMap;
 
 namespace InputSystem
 {
@@ -18,6 +21,7 @@ namespace InputSystem
 		private InputDeviceClass lastDeviceClass;
 		private InputDeviceStyle lastDeviceStyle;
 		private ulong lastInputTypeChangedTick;
+		private readonly NativeInputAction nativeAction;
 
 		public string Name { get; }
 		public PlayerActionSet Owner { get; }
@@ -70,11 +74,15 @@ namespace InputSystem
 
 		internal InputDevice Device => Owner.Device ?? InputManager.ActiveDevice;
 
+		internal NativeInputAction NativeAction => nativeAction;
+
 		internal PlayerAction(string name, PlayerActionSet owner)
 		{
 			Name = name;
 			Owner = owner;
+			nativeAction = owner.GetOrCreateNativeAction(name, InputActionType.Button, "Button");
 			bindings = new ReadOnlyCollection<BindingSource>(regularBindings);
+			ImportDefaultBindingsFromNativeAction();
 			owner.AddPlayerAction(this);
 		}
 
@@ -129,6 +137,7 @@ namespace InputSystem
 			}
 			regularBindings.Remove(existing);
 			existing.BoundTo = null;
+			RebuildNativeBindings();
 		}
 
 		public bool ReplaceBinding(BindingSource findBinding, BindingSource withBinding)
@@ -146,6 +155,7 @@ namespace InputSystem
 			existing.BoundTo = null;
 			regularBindings[index] = withBinding;
 			withBinding.BoundTo = this;
+			RebuildNativeBindings();
 			return true;
 		}
 
@@ -156,6 +166,7 @@ namespace InputSystem
 				binding.BoundTo = null;
 			}
 			regularBindings.Clear();
+			RebuildNativeBindings();
 		}
 
 		public void ResetBindings()
@@ -206,14 +217,16 @@ namespace InputSystem
 			}
 			regularBindings.Add(binding);
 			binding.BoundTo = this;
+			RebuildNativeBindings();
 			return true;
 		}
 
 		private float ReadValue(bool previousFrame)
 		{
-			float result = 0f;
+			float result = previousFrame ? 0f : ReadNativeValue();
 			InputDevice device = Device;
 			BindingSource activityBinding = null;
+			float activityValue = 0f;
 			for (int i = regularBindings.Count - 1; i >= 0; i--)
 			{
 				BindingSource binding = regularBindings[i];
@@ -221,10 +234,11 @@ namespace InputSystem
 				if (Mathf.Abs(value) > Mathf.Abs(result))
 				{
 					result = value;
-					if (!previousFrame)
-					{
-						activityBinding = binding;
-					}
+				}
+				if (!previousFrame && Mathf.Abs(value) > Mathf.Abs(activityValue))
+				{
+					activityValue = value;
+					activityBinding = binding;
 				}
 			}
 			if (!previousFrame && lastActivityFrame != Time.frameCount && activityBinding != null && Mathf.Abs(result) > Mathf.Epsilon)
@@ -233,6 +247,70 @@ namespace InputSystem
 				lastActivityFrame = Time.frameCount;
 			}
 			return result;
+		}
+
+		private float ReadNativeValue()
+		{
+			if (nativeAction == null)
+			{
+				return 0f;
+			}
+			Owner.EnsureNativeActionsEnabled();
+			return nativeAction.ReadValue<float>();
+		}
+
+		private void ImportDefaultBindingsFromNativeAction()
+		{
+			if (nativeAction == null)
+			{
+				return;
+			}
+			foreach (InputBinding inputBinding in nativeAction.bindings)
+			{
+				if (inputBinding.isComposite || inputBinding.isPartOfComposite ||
+					!BindingPathMapper.TryCreateBinding(inputBinding.path, out BindingSource binding) ||
+					defaultBindings.Any(item => item == binding))
+				{
+					continue;
+				}
+				defaultBindings.Add(binding);
+				regularBindings.Add(binding);
+				binding.BoundTo = this;
+			}
+		}
+
+		private void RebuildNativeBindings()
+		{
+			if (nativeAction == null)
+			{
+				return;
+			}
+			bool wasEnabled = nativeAction.enabled;
+			if (wasEnabled)
+			{
+				nativeAction.Disable();
+			}
+			for (int i = nativeAction.bindings.Count - 1; i >= 0; i--)
+			{
+				nativeAction.ChangeBinding(i).Erase();
+			}
+			HashSet<string> paths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+			foreach (BindingSource binding in regularBindings)
+			{
+				foreach (string path in binding.ControlPaths)
+				{
+					if (!string.IsNullOrWhiteSpace(path) && paths.Add(path))
+					{
+						nativeAction.AddBinding(path,
+							processors: BindingPathMapper.GetProcessors(path),
+							groups: BindingPathMapper.GetBindingGroup(path));
+					}
+				}
+			}
+			if (wasEnabled)
+			{
+				nativeAction.Enable();
+			}
 		}
 
 		private void RecordInputActivity(BindingSource binding, InputDevice device)
@@ -352,12 +430,35 @@ namespace InputSystem
 		private ulong lastInputTypeChangedTick;
 		private InputDeviceClass lastDeviceClass;
 		private InputDeviceStyle lastDeviceStyle;
+		private readonly NativeInputActionMap nativeActionMap;
+		private bool nativeActionsEnabled;
+		private bool enabled = true;
 
 		internal PlayerAction ListeningAction { get; set; }
 
 		public InputDevice Device { get; set; }
 		public ReadOnlyCollection<PlayerAction> Actions => readOnlyActions;
-		public bool Enabled { get; set; } = true;
+		public bool Enabled
+		{
+			get => enabled;
+			set
+			{
+				enabled = value;
+				if (nativeActionMap == null)
+				{
+					return;
+				}
+				if (enabled)
+				{
+					EnsureNativeActionsEnabled();
+				}
+				else if (nativeActionsEnabled)
+				{
+					nativeActionMap.Disable();
+					nativeActionsEnabled = false;
+				}
+			}
+		}
 		public bool PreventInputWhileListeningForBinding { get; set; } = true;
 		public object UserData { get; set; }
 		public bool IsListeningForBinding => ListeningAction != null;
@@ -375,9 +476,10 @@ namespace InputSystem
 
 		public PlayerAction this[string actionName] => actionsByName[actionName];
 
-		protected PlayerActionSet()
+		protected PlayerActionSet(string actionMapName = null)
 		{
 			readOnlyActions = new ReadOnlyCollection<PlayerAction>(actions);
+			nativeActionMap = InputManager.CreateActionMapInstance(actionMapName ?? GetType().Name);
 			InputManager.AttachPlayerActionSet(this);
 		}
 
@@ -389,6 +491,12 @@ namespace InputSystem
 				InputManager.StopListening(ListeningAction);
 			}
 			InputManager.DetachPlayerActionSet(this);
+			if (nativeActionMap != null)
+			{
+				nativeActionMap.Disable();
+				nativeActionMap.Dispose();
+				nativeActionsEnabled = false;
+			}
 		}
 
 		protected PlayerAction CreatePlayerAction(string name)
@@ -455,10 +563,46 @@ namespace InputSystem
 
 		internal void PollInputActivity()
 		{
+			EnsureNativeActionsEnabled();
 			foreach (PlayerAction action in actions)
 			{
 				action.PollInputActivity();
 			}
+		}
+
+		internal NativeInputAction GetOrCreateNativeAction(string name, InputActionType type, string expectedControlType)
+		{
+			if (nativeActionMap == null)
+			{
+				return null;
+			}
+			NativeInputAction action = nativeActionMap.FindAction(name, throwIfNotFound: false);
+			if (action != null)
+			{
+				return action;
+			}
+			bool wasEnabled = nativeActionsEnabled;
+			if (wasEnabled)
+			{
+				nativeActionMap.Disable();
+				nativeActionsEnabled = false;
+			}
+			action = nativeActionMap.AddAction(name, type, expectedControlType: expectedControlType);
+			if (wasEnabled)
+			{
+				EnsureNativeActionsEnabled();
+			}
+			return action;
+		}
+
+		internal void EnsureNativeActionsEnabled()
+		{
+			if (!enabled || nativeActionsEnabled || nativeActionMap == null)
+			{
+				return;
+			}
+			nativeActionMap.Enable();
+			nativeActionsEnabled = true;
 		}
 
 		internal void RecordInputActivity(PlayerAction action)

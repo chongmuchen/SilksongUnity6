@@ -715,6 +715,15 @@ public class InputHandler : ManagerSingleton<InputHandler>
 		{
 			gs.ResetGamepadSettings(gamePadType);
 		}
+		RemoveBindingsOfType(inputActions.Jump, BindingSourceType.DeviceBindingSource);
+		RemoveBindingsOfType(inputActions.Attack, BindingSourceType.DeviceBindingSource);
+		RemoveBindingsOfType(inputActions.Dash, BindingSourceType.DeviceBindingSource);
+		RemoveBindingsOfType(inputActions.Cast, BindingSourceType.DeviceBindingSource);
+		RemoveBindingsOfType(inputActions.SuperDash, BindingSourceType.DeviceBindingSource);
+		RemoveBindingsOfType(inputActions.DreamNail, BindingSourceType.DeviceBindingSource);
+		RemoveBindingsOfType(inputActions.QuickMap, BindingSourceType.DeviceBindingSource);
+		RemoveBindingsOfType(inputActions.QuickCast, BindingSourceType.DeviceBindingSource);
+		RemoveBindingsOfType(inputActions.Taunt, BindingSourceType.DeviceBindingSource);
 		inputActions.Jump.AddBinding(new DeviceBindingSource(gs.controllerMapping.jump));
 		inputActions.Attack.AddBinding(new DeviceBindingSource(gs.controllerMapping.attack));
 		inputActions.Dash.AddBinding(new DeviceBindingSource(gs.controllerMapping.dash));
@@ -1171,6 +1180,24 @@ public class InputHandler : ManagerSingleton<InputHandler>
 
 	private void MapKeyboardLayoutFromGameSettings()
 	{
+		RemoveKeyboardAndMouseBindings(inputActions.Jump);
+		RemoveKeyboardAndMouseBindings(inputActions.Attack);
+		RemoveKeyboardAndMouseBindings(inputActions.Dash);
+		RemoveKeyboardAndMouseBindings(inputActions.Cast);
+		RemoveKeyboardAndMouseBindings(inputActions.SuperDash);
+		RemoveKeyboardAndMouseBindings(inputActions.DreamNail);
+		RemoveKeyboardAndMouseBindings(inputActions.QuickMap);
+		RemoveKeyboardAndMouseBindings(inputActions.OpenInventory);
+		RemoveKeyboardAndMouseBindings(inputActions.OpenInventoryMap);
+		RemoveKeyboardAndMouseBindings(inputActions.OpenInventoryJournal);
+		RemoveKeyboardAndMouseBindings(inputActions.OpenInventoryTools);
+		RemoveKeyboardAndMouseBindings(inputActions.OpenInventoryQuests);
+		RemoveKeyboardAndMouseBindings(inputActions.QuickCast);
+		RemoveKeyboardAndMouseBindings(inputActions.Taunt);
+		RemoveKeyboardAndMouseBindings(inputActions.Up);
+		RemoveKeyboardAndMouseBindings(inputActions.Down);
+		RemoveKeyboardAndMouseBindings(inputActions.Left);
+		RemoveKeyboardAndMouseBindings(inputActions.Right);
 		AddKeyBinding(inputActions.Jump, gs.jumpKey, inputActions);
 		AddKeyBinding(inputActions.Attack, gs.attackKey, inputActions);
 		AddKeyBinding(inputActions.Dash, gs.dashKey, inputActions);
@@ -1189,6 +1216,27 @@ public class InputHandler : ManagerSingleton<InputHandler>
 		AddKeyBinding(inputActions.Down, gs.downKey, inputActions);
 		AddKeyBinding(inputActions.Left, gs.leftKey, inputActions);
 		AddKeyBinding(inputActions.Right, gs.rightKey, inputActions);
+	}
+
+	private static void RemoveKeyboardAndMouseBindings(PlayerAction action)
+	{
+		RemoveBindingsOfType(action, BindingSourceType.KeyBindingSource, BindingSourceType.MouseBindingSource);
+	}
+
+	private static void RemoveBindingsOfType(PlayerAction action, params BindingSourceType[] bindingTypes)
+	{
+		for (int i = action.Bindings.Count - 1; i >= 0; i--)
+		{
+			BindingSource binding = action.Bindings[i];
+			for (int j = 0; j < bindingTypes.Length; j++)
+			{
+				if (binding.BindingSourceType == bindingTypes[j])
+				{
+					action.RemoveBinding(binding);
+					break;
+				}
+			}
+		}
 	}
 
 	private static void AddKeyBinding(PlayerAction action, string savedBinding)
@@ -1227,10 +1275,6 @@ public class InputHandler : ManagerSingleton<InputHandler>
 
 	private void SetupNonMappableBindings()
 	{
-		if (!doingSoftReset)
-		{
-			inputActions = new HeroActions();
-		}
 		inputActions.MenuSubmit.AddDefaultBinding(Key.Return);
 		inputActions.MenuCancel.AddDefaultBinding(Key.Escape);
 		inputActions.Left.AddDefaultBinding(InputControlType.DPadLeft);

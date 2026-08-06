@@ -171,8 +171,6 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	public GameSettings gameSettings;
 
-	public TimeScaleIndependentUpdate timeTool;
-
 	public GameMap gameMap;
 
 	[SerializeField]

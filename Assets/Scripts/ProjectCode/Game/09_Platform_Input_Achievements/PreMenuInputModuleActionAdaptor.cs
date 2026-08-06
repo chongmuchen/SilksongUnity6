@@ -21,6 +21,7 @@ public class PreMenuInputModuleActionAdaptor : MonoBehaviour
 		public PlayerTwoAxisAction Move;
 
 		public PreMenuInputModuleActions()
+			: base("UI")
 		{
 			Submit = CreatePlayerAction("Submit");
 			Cancel = CreatePlayerAction("Cancel");

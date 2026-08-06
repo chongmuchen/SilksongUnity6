@@ -2153,7 +2153,7 @@ public class UIManager : MonoBehaviour
 		{
 			menu.HighlightDefault();
 		}
-		yield return StartCoroutine(gm.timeTool.TimeScaleIndependentWaitForSeconds(0.1f));
+		yield return new WaitForSecondsRealtime(0.1f);
 		yield return null;
 		ih.StartUIInput();
 		if (menu.HighlightBehaviour == MenuScreen.HighlightDefaultBehaviours.AfterFade)
@@ -2213,15 +2213,15 @@ public class UIManager : MonoBehaviour
 		saveProfileTopFleur.ResetTrigger(_showProp);
 		saveProfileTopFleur.SetTrigger(_hideProp);
 		StartCoroutine(FadeOutCanvasGroup(saveProfileControls));
-		yield return StartCoroutine(gm.timeTool.TimeScaleIndependentWaitForSeconds(0.165f));
+		yield return new WaitForSecondsRealtime(0.165f);
 		slotOne.HideSaveSlot(updateBlackThread);
-		yield return StartCoroutine(gm.timeTool.TimeScaleIndependentWaitForSeconds(0.165f));
+		yield return new WaitForSecondsRealtime(0.165f);
 		slotTwo.HideSaveSlot(updateBlackThread);
-		yield return StartCoroutine(gm.timeTool.TimeScaleIndependentWaitForSeconds(0.165f));
+		yield return new WaitForSecondsRealtime(0.165f);
 		slotThree.HideSaveSlot(updateBlackThread);
-		yield return StartCoroutine(gm.timeTool.TimeScaleIndependentWaitForSeconds(0.165f));
+		yield return new WaitForSecondsRealtime(0.165f);
 		slotFour.HideSaveSlot(updateBlackThread);
-		yield return StartCoroutine(gm.timeTool.TimeScaleIndependentWaitForSeconds(0.33f));
+		yield return new WaitForSecondsRealtime(0.33f);
 		yield return StartCoroutine(FadeOutCanvasGroup(saveProfileScreen, disable: false, stopBlocking: true));
 	}
 

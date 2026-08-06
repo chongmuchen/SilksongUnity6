@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -57,6 +58,15 @@ namespace InputSystem
 		public abstract InputDeviceStyle DeviceStyle { get; }
 		public abstract BindingSourceType BindingSourceType { get; }
 		internal PlayerAction BoundTo { get; set; }
+
+		/// <summary>
+		/// Official Input System control paths represented by this compatibility binding.
+		/// Custom legacy bindings can leave this empty and continue to use GetValue/GetState.
+		/// </summary>
+		internal virtual IEnumerable<string> ControlPaths
+		{
+			get { yield break; }
+		}
 
 		public abstract float GetValue(InputDevice inputDevice);
 		public abstract bool GetState(InputDevice inputDevice);
@@ -127,6 +137,25 @@ namespace InputSystem
 
 		private Key MappedKey => Control.IncludeCount == 1 ? Control.GetInclude(0) : Key.None;
 
+		internal override IEnumerable<string> ControlPaths
+		{
+			get
+			{
+				if (!KeyMapper.TryToInputSystemKey(MappedKey, out NewKey first, out NewKey second))
+				{
+					yield break;
+				}
+				if (first != NewKey.None)
+				{
+					yield return $"<Keyboard>/{first}";
+				}
+				if (second != NewKey.None && second != first)
+				{
+					yield return $"<Keyboard>/{second}";
+				}
+			}
+		}
+
 		public KeyBindingSource(Key key)
 		{
 			Control = new KeyCombo(key);
@@ -188,6 +217,18 @@ namespace InputSystem
 		public override InputDeviceClass DeviceClass => InputDeviceClass.Mouse;
 		public override InputDeviceStyle DeviceStyle => InputDeviceStyle.Unknown;
 		public override BindingSourceType BindingSourceType => BindingSourceType.MouseBindingSource;
+
+		internal override IEnumerable<string> ControlPaths
+		{
+			get
+			{
+				string path = BindingPathMapper.GetMousePath(Control);
+				if (!string.IsNullOrEmpty(path))
+				{
+					yield return path;
+				}
+			}
+		}
 
 		public MouseBindingSource(Mouse control)
 		{
@@ -274,6 +315,17 @@ namespace InputSystem
 		public override InputDeviceClass DeviceClass => InputDeviceClass.Controller;
 		public override InputDeviceStyle DeviceStyle => (BoundTo?.Device ?? InputManager.ActiveDevice)?.DeviceStyle ?? InputDeviceStyle.Unknown;
 		public override BindingSourceType BindingSourceType => BindingSourceType.DeviceBindingSource;
+
+		internal override IEnumerable<string> ControlPaths
+		{
+			get
+			{
+				foreach (string path in BindingPathMapper.GetGamepadPaths(Control))
+				{
+					yield return path;
+				}
+			}
+		}
 
 		public DeviceBindingSource(InputControlType control)
 		{
@@ -364,7 +416,7 @@ namespace InputSystem
 			}
 		}
 
-		private static bool TryToInputSystemKey(Key key, out NewKey first, out NewKey second)
+		internal static bool TryToInputSystemKey(Key key, out NewKey first, out NewKey second)
 		{
 			first = NewKey.None;
 			second = NewKey.None;
@@ -402,6 +454,205 @@ namespace InputSystem
 			default:
 				return Enum.TryParse(key.ToString(), out first) && first != NewKey.None;
 			}
+		}
+	}
+
+	internal static class BindingPathMapper
+	{
+		internal static string GetBindingGroup(string path)
+		{
+			if (string.IsNullOrWhiteSpace(path))
+			{
+				return null;
+			}
+			if (path.StartsWith("<Gamepad>/", StringComparison.OrdinalIgnoreCase))
+			{
+				return "Gamepad";
+			}
+			if (path.StartsWith("<Keyboard>/", StringComparison.OrdinalIgnoreCase) ||
+				path.StartsWith("<Mouse>/", StringComparison.OrdinalIgnoreCase))
+			{
+				return "Keyboard&Mouse";
+			}
+			return null;
+		}
+
+		internal static string GetProcessors(string path)
+		{
+			if (string.IsNullOrWhiteSpace(path) || !path.StartsWith("<Gamepad>/", StringComparison.OrdinalIgnoreCase))
+			{
+				return null;
+			}
+			string normalized = path.ToLowerInvariant();
+			return normalized.Contains("stick/") || normalized.EndsWith("trigger", StringComparison.Ordinal)
+				? "axisDeadzone(min=0.2,max=0.9)"
+				: null;
+		}
+
+		internal static bool TryCreateBinding(string path, out BindingSource binding)
+		{
+			binding = null;
+			if (string.IsNullOrWhiteSpace(path))
+			{
+				return false;
+			}
+
+			string normalized = path.Trim().ToLowerInvariant();
+			const string keyboardPrefix = "<keyboard>/";
+			if (normalized.StartsWith(keyboardPrefix, StringComparison.Ordinal))
+			{
+				string controlName = path.Trim().Substring(keyboardPrefix.Length);
+				if (Enum.TryParse(controlName, ignoreCase: true, out NewKey inputKey) &&
+					KeyMapper.TryFromInputSystemKey(inputKey, out Key key))
+				{
+					binding = new KeyBindingSource(key);
+					return true;
+				}
+				return false;
+			}
+
+			if (normalized.StartsWith("<mouse>/", StringComparison.Ordinal))
+			{
+				Mouse mouse = normalized switch
+				{
+					"<mouse>/leftbutton" => Mouse.LeftButton,
+					"<mouse>/rightbutton" => Mouse.RightButton,
+					"<mouse>/middlebutton" => Mouse.MiddleButton,
+					"<mouse>/backbutton" => Mouse.Button4,
+					"<mouse>/forwardbutton" => Mouse.Button5,
+					"<mouse>/delta/x" => Mouse.PositiveX,
+					"<mouse>/delta/y" => Mouse.PositiveY,
+					"<mouse>/scroll/y" => Mouse.PositiveScrollWheel,
+					_ => Mouse.None
+				};
+				if (mouse != Mouse.None)
+				{
+					binding = new MouseBindingSource(mouse);
+					return true;
+				}
+				return false;
+			}
+
+			if (normalized.StartsWith("<gamepad>/", StringComparison.Ordinal) &&
+				TryGetGamepadControl(normalized, out InputControlType control))
+			{
+				binding = new DeviceBindingSource(control);
+				return true;
+			}
+			return false;
+		}
+
+		internal static string GetMousePath(Mouse control)
+		{
+			return control switch
+			{
+				Mouse.LeftButton => "<Mouse>/leftButton",
+				Mouse.RightButton => "<Mouse>/rightButton",
+				Mouse.MiddleButton => "<Mouse>/middleButton",
+				Mouse.Button4 => "<Mouse>/backButton",
+				Mouse.Button5 => "<Mouse>/forwardButton",
+				Mouse.NegativeX => "<Mouse>/delta/x",
+				Mouse.PositiveX => "<Mouse>/delta/x",
+				Mouse.NegativeY => "<Mouse>/delta/y",
+				Mouse.PositiveY => "<Mouse>/delta/y",
+				Mouse.PositiveScrollWheel => "<Mouse>/scroll/y",
+				Mouse.NegativeScrollWheel => "<Mouse>/scroll/y",
+				_ => null
+			};
+		}
+
+		internal static IEnumerable<string> GetGamepadPaths(InputControlType control)
+		{
+			if (control == InputControlType.Command)
+			{
+				yield return "<Gamepad>/selectButton";
+				yield return "<Gamepad>/startButton";
+				yield break;
+			}
+
+			string path = control switch
+			{
+				InputControlType.LeftStickUp => "<Gamepad>/leftStick/up",
+				InputControlType.LeftStickDown => "<Gamepad>/leftStick/down",
+				InputControlType.LeftStickLeft => "<Gamepad>/leftStick/left",
+				InputControlType.LeftStickRight => "<Gamepad>/leftStick/right",
+				InputControlType.LeftStickButton => "<Gamepad>/leftStickPress",
+				InputControlType.RightStickUp => "<Gamepad>/rightStick/up",
+				InputControlType.RightStickDown => "<Gamepad>/rightStick/down",
+				InputControlType.RightStickLeft => "<Gamepad>/rightStick/left",
+				InputControlType.RightStickRight => "<Gamepad>/rightStick/right",
+				InputControlType.RightStickButton => "<Gamepad>/rightStickPress",
+				InputControlType.DPadUp => "<Gamepad>/dpad/up",
+				InputControlType.DPadDown => "<Gamepad>/dpad/down",
+				InputControlType.DPadLeft => "<Gamepad>/dpad/left",
+				InputControlType.DPadRight => "<Gamepad>/dpad/right",
+				InputControlType.LeftTrigger => "<Gamepad>/leftTrigger",
+				InputControlType.RightTrigger => "<Gamepad>/rightTrigger",
+				InputControlType.LeftBumper => "<Gamepad>/leftShoulder",
+				InputControlType.RightBumper => "<Gamepad>/rightShoulder",
+				InputControlType.Action1 => "<Gamepad>/buttonSouth",
+				InputControlType.Action2 => "<Gamepad>/buttonEast",
+				InputControlType.Action3 => "<Gamepad>/buttonWest",
+				InputControlType.Action4 => "<Gamepad>/buttonNorth",
+				InputControlType.Back or InputControlType.Select or InputControlType.Share or
+					InputControlType.View or InputControlType.Minus or InputControlType.Create or InputControlType.LeftCommand => "<Gamepad>/selectButton",
+				InputControlType.Start or InputControlType.Options or InputControlType.Pause or
+					InputControlType.Menu or InputControlType.Plus or InputControlType.RightCommand => "<Gamepad>/startButton",
+				InputControlType.System or InputControlType.Home or InputControlType.Guide => "<Gamepad>/systemButton",
+				InputControlType.TouchPadButton => "<Gamepad>/touchpadButton",
+				InputControlType.LeftStickX => "<Gamepad>/leftStick/x",
+				InputControlType.LeftStickY => "<Gamepad>/leftStick/y",
+				InputControlType.RightStickX => "<Gamepad>/rightStick/x",
+				InputControlType.RightStickY => "<Gamepad>/rightStick/y",
+				InputControlType.DPadX => "<Gamepad>/dpad/x",
+				InputControlType.DPadY => "<Gamepad>/dpad/y",
+				_ => null
+			};
+			if (!string.IsNullOrEmpty(path))
+			{
+				yield return path;
+			}
+		}
+
+		private static bool TryGetGamepadControl(string path, out InputControlType control)
+		{
+			control = path switch
+			{
+				"<gamepad>/leftstick/up" => InputControlType.LeftStickUp,
+				"<gamepad>/leftstick/down" => InputControlType.LeftStickDown,
+				"<gamepad>/leftstick/left" => InputControlType.LeftStickLeft,
+				"<gamepad>/leftstick/right" => InputControlType.LeftStickRight,
+				"<gamepad>/leftstickpress" => InputControlType.LeftStickButton,
+				"<gamepad>/rightstick/up" => InputControlType.RightStickUp,
+				"<gamepad>/rightstick/down" => InputControlType.RightStickDown,
+				"<gamepad>/rightstick/left" => InputControlType.RightStickLeft,
+				"<gamepad>/rightstick/right" => InputControlType.RightStickRight,
+				"<gamepad>/rightstickpress" => InputControlType.RightStickButton,
+				"<gamepad>/dpad/up" => InputControlType.DPadUp,
+				"<gamepad>/dpad/down" => InputControlType.DPadDown,
+				"<gamepad>/dpad/left" => InputControlType.DPadLeft,
+				"<gamepad>/dpad/right" => InputControlType.DPadRight,
+				"<gamepad>/lefttrigger" => InputControlType.LeftTrigger,
+				"<gamepad>/righttrigger" => InputControlType.RightTrigger,
+				"<gamepad>/leftshoulder" => InputControlType.LeftBumper,
+				"<gamepad>/rightshoulder" => InputControlType.RightBumper,
+				"<gamepad>/buttonsouth" => InputControlType.Action1,
+				"<gamepad>/buttoneast" => InputControlType.Action2,
+				"<gamepad>/buttonwest" => InputControlType.Action3,
+				"<gamepad>/buttonnorth" => InputControlType.Action4,
+				"<gamepad>/selectbutton" => InputControlType.Select,
+				"<gamepad>/startbutton" => InputControlType.Start,
+				"<gamepad>/systembutton" => InputControlType.System,
+				"<gamepad>/touchpadbutton" => InputControlType.TouchPadButton,
+				"<gamepad>/leftstick/x" => InputControlType.LeftStickX,
+				"<gamepad>/leftstick/y" => InputControlType.LeftStickY,
+				"<gamepad>/rightstick/x" => InputControlType.RightStickX,
+				"<gamepad>/rightstick/y" => InputControlType.RightStickY,
+				"<gamepad>/dpad/x" => InputControlType.DPadX,
+				"<gamepad>/dpad/y" => InputControlType.DPadY,
+				_ => InputControlType.None
+			};
+			return control != InputControlType.None;
 		}
 	}
 }

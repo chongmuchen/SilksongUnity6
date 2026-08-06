@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using NewInputDevice = UnityEngine.InputSystem.InputDevice;
 using NewMouse = UnityEngine.InputSystem.Mouse;
+using NativeInputActionMap = UnityEngine.InputSystem.InputActionMap;
 using UnityInputSystem = UnityEngine.InputSystem.InputSystem;
 
 namespace InputSystem
@@ -97,12 +98,31 @@ namespace InputSystem
 			}
 			UnityInputSystem.onDeviceChange += HandleDeviceChange;
 			UnityInputSystem.onAfterUpdate += HandleAfterUpdate;
+			// Project-wide actions are the source templates. Runtime action sets use private
+			// map instances (the same isolation model used by PlayerInput) so legacy rebinding
+			// cannot mutate the imported asset or another temporary UI action set.
+			UnityInputSystem.actions?.Disable();
 			foreach (Gamepad gamepad in Gamepad.all)
 			{
 				AttachGamepad(gamepad);
 			}
 			IsSetup = true;
 			OnSetupCompleted?.Invoke();
+		}
+
+		internal static NativeInputActionMap CreateActionMapInstance(string actionMapName)
+		{
+			Initialize();
+			if (!string.IsNullOrWhiteSpace(actionMapName))
+			{
+				NativeInputActionMap template = UnityInputSystem.actions?.FindActionMap(actionMapName, throwIfNotFound: false);
+				if (template != null)
+				{
+					return template.Clone();
+				}
+				Debug.LogWarning($"Project-wide Input Actions map '{actionMapName}' was not found. A runtime fallback map was created.");
+			}
+			return new NativeInputActionMap(string.IsNullOrWhiteSpace(actionMapName) ? "Runtime" : actionMapName);
 		}
 
 		internal static void AttachPlayerActionSet(PlayerActionSet actionSet)

@@ -39,7 +39,7 @@ public class MenuAudioController : MonoBehaviour
 		{
 			float startVol = audioSource.volume;
 			audioSource.volume = 0f;
-			yield return GameManager.instance.timeTool.TimeScaleIndependentWaitForSeconds(1f);
+			yield return new WaitForSecondsRealtime(1f);
 			audioSource.volume = startVol;
 		}
 	}

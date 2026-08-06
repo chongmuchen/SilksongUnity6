@@ -61,7 +61,7 @@ public class ResolutionCountdownTimer : MonoBehaviour
 			if (running)
 			{
 				TickDown();
-				yield return GameManager.instance.timeTool.TimeScaleIndependentWaitForSeconds(1f);
+				yield return new WaitForSecondsRealtime(1f);
 			}
 		}
 	}

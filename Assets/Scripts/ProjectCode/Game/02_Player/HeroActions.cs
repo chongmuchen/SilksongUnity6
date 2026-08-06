@@ -75,6 +75,7 @@ public class HeroActions : PlayerActionSet
 	public readonly PlayerAction Pause;
 
 	public HeroActions()
+		: base("Player")
 	{
 		MenuSubmit = CreatePlayerAction("Submit");
 		MenuCancel = CreatePlayerAction("Cancel");
