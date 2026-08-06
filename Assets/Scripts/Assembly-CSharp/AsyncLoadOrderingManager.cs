@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
 public static class AsyncLoadOrderingManager
@@ -11,6 +12,15 @@ public static class AsyncLoadOrderingManager
 	private static int _lastLoadHandle;
 
 	private static Queue<Action> _onLoadsCompleteActionQueue;
+
+	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+	private static void ResetStatics()
+	{
+		_orderedLoads = null;
+		_tempList = null;
+		_lastLoadHandle = 0;
+		_onLoadsCompleteActionQueue = null;
+	}
 
 	public static void OnStartedLoad(AsyncOperationHandle loadQueueItem, out int loadHandle)
 	{
