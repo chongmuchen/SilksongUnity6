@@ -1,6 +1,6 @@
 using System;
 using GlobalEnums;
-using TeamCherry.Input;
+using InputSystem;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]

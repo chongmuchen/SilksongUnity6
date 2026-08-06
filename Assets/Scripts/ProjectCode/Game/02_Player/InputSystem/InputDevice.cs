@@ -9,7 +9,7 @@ using UnityEngine.InputSystem.XInput;
 using NewInputControl = UnityEngine.InputSystem.InputControl;
 using NewInputDevice = UnityEngine.InputSystem.InputDevice;
 
-namespace TeamCherry.Input
+namespace InputSystem
 {
 	public class InputControl
 	{

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using GlobalEnums;
-using TeamCherry.Input;
+using InputSystem;
 using TMProOld;
 using TeamCherry.Localization;
 using TeamCherry.NestedFadeGroup;

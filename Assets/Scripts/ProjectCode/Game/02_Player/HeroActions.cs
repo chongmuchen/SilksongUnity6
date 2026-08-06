@@ -1,4 +1,4 @@
-using TeamCherry.Input;
+using InputSystem;
 
 public class HeroActions : PlayerActionSet
 {

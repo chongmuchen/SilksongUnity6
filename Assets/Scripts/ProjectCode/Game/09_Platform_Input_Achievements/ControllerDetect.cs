@@ -1,5 +1,5 @@
 using GlobalEnums;
-using TeamCherry.Input;
+using InputSystem;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;

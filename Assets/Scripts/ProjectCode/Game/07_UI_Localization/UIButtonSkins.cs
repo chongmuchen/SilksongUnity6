@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using GlobalEnums;
-using TeamCherry.Input;
+using InputSystem;
 using UnityEngine;
 
 public class UIButtonSkins : MonoBehaviour

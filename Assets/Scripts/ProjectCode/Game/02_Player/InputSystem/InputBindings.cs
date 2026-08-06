@@ -6,7 +6,7 @@ using UnityEngine.InputSystem.Controls;
 using NewKey = UnityEngine.InputSystem.Key;
 using NewMouse = UnityEngine.InputSystem.Mouse;
 
-namespace TeamCherry.Input
+namespace InputSystem
 {
 	public sealed class BindingListenOptions
 	{
@@ -125,7 +125,7 @@ namespace TeamCherry.Input
 		public override InputDeviceStyle DeviceStyle => InputDeviceStyle.Unknown;
 		public override BindingSourceType BindingSourceType => BindingSourceType.KeyBindingSource;
 
-		private Key MappedKey => Control.IncludeCount == 1 ? Control.GetInclude(0) : TeamCherry.Input.Key.None;
+		private Key MappedKey => Control.IncludeCount == 1 ? Control.GetInclude(0) : Key.None;
 
 		public KeyBindingSource(Key key)
 		{

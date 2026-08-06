@@ -1,4 +1,4 @@
-using TeamCherry.Input;
+using InputSystem;
 
 namespace HutongGames.PlayMaker.Actions
 {

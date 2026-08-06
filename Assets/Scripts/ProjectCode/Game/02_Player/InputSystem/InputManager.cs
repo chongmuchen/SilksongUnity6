@@ -7,8 +7,9 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using NewInputDevice = UnityEngine.InputSystem.InputDevice;
 using NewMouse = UnityEngine.InputSystem.Mouse;
+using UnityInputSystem = UnityEngine.InputSystem.InputSystem;
 
-namespace TeamCherry.Input
+namespace InputSystem
 {
 	/// <summary>
 	/// Project input runtime backed by Unity's Input System. The public surface mirrors the
@@ -55,8 +56,8 @@ namespace TeamCherry.Input
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
 		private static void ResetRuntime()
 		{
-			InputSystem.onAfterUpdate -= HandleAfterUpdate;
-			InputSystem.onDeviceChange -= HandleDeviceChange;
+			UnityInputSystem.onAfterUpdate -= HandleAfterUpdate;
+			UnityInputSystem.onDeviceChange -= HandleDeviceChange;
 			foreach (InputDevice device in devices)
 			{
 				device.StopVibration();
@@ -94,8 +95,8 @@ namespace TeamCherry.Input
 			{
 				return;
 			}
-			InputSystem.onDeviceChange += HandleDeviceChange;
-			InputSystem.onAfterUpdate += HandleAfterUpdate;
+			UnityInputSystem.onDeviceChange += HandleDeviceChange;
+			UnityInputSystem.onAfterUpdate += HandleAfterUpdate;
 			foreach (Gamepad gamepad in Gamepad.all)
 			{
 				AttachGamepad(gamepad);

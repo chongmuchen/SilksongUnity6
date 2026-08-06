@@ -1,4 +1,4 @@
-using TeamCherry.Input;
+using InputSystem;
 using UnityEngine;
 
 [RequireComponent(typeof(HollowKnightInputModule))]

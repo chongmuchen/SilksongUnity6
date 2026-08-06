@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using UnityEngine;
 
-namespace TeamCherry.Input
+namespace InputSystem
 {
 	public class PlayerAction
 	{

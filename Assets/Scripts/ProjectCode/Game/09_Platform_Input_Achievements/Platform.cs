@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using GlobalEnums;
-using TeamCherry.Input;
+using InputSystem;
 using UnityEngine;
 using UnityEngine.Profiling;
 

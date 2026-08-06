@@ -1,4 +1,4 @@
-using TeamCherry.Input;
+using InputSystem;
 using TeamCherry.Localization;
 using UnityEngine;
 using UnityEngine.UI;

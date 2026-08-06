@@ -1,4 +1,4 @@
-using TeamCherry.Input;
+using InputSystem;
 using UnityEngine;
 
 namespace TeamCherry.PS5

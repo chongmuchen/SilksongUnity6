@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using TeamCherry.Input;
+using InputSystem;
 using UnityEngine;
 
 public static class VibrationManager

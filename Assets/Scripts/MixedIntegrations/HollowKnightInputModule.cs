@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace TeamCherry.Input
+namespace InputSystem
 {
 	[AddComponentMenu("Event/Hollow Knight Input Module")]
 	public class HollowKnightInputModule : StandaloneInputModule

@@ -1,6 +1,6 @@
 using System;
 
-namespace TeamCherry.Input
+namespace InputSystem
 {
 	public enum BindingSourceType
 	{
