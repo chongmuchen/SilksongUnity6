@@ -21,7 +21,7 @@ public class InputModuleBinder : MonoBehaviour
 		public PlayerTwoAxisAction Move;
 
 		public MyActionSet()
-			: base("UI")
+			: base("UI", createPrivateCopy: true)
 		{
 			Submit = CreatePlayerAction("Submit");
 			Cancel = CreatePlayerAction("Cancel");

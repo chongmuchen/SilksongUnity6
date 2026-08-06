@@ -147,11 +147,11 @@ namespace InputSystem
 				}
 				if (first != NewKey.None)
 				{
-					yield return $"<Keyboard>/{first}";
+					yield return $"<Keyboard>/{KeyMapper.GetInputSystemControlName(first)}";
 				}
 				if (second != NewKey.None && second != first)
 				{
-					yield return $"<Keyboard>/{second}";
+					yield return $"<Keyboard>/{KeyMapper.GetInputSystemControlName(second)}";
 				}
 			}
 		}
@@ -416,6 +416,15 @@ namespace InputSystem
 			}
 		}
 
+		internal static string GetInputSystemControlName(NewKey key)
+		{
+			if (key >= NewKey.Digit0 && key <= NewKey.Digit9)
+			{
+				return ((int)key - (int)NewKey.Digit0).ToString();
+			}
+			return key.ToString();
+		}
+
 		internal static bool TryToInputSystemKey(Key key, out NewKey first, out NewKey second)
 		{
 			first = NewKey.None;
@@ -477,16 +486,54 @@ namespace InputSystem
 			return null;
 		}
 
-		internal static string GetProcessors(string path)
+		internal static string GetOverrideProcessors(string path, string defaultProcessors)
 		{
-			if (string.IsNullOrWhiteSpace(path) || !path.StartsWith("<Gamepad>/", StringComparison.OrdinalIgnoreCase))
+			if (string.IsNullOrWhiteSpace(path))
 			{
-				return null;
+				return string.Empty;
 			}
 			string normalized = path.ToLowerInvariant();
-			return normalized.Contains("stick/") || normalized.EndsWith("trigger", StringComparison.Ordinal)
-				? "axisDeadzone(min=0.2,max=0.9)"
-				: null;
+			if (normalized.StartsWith("<gamepad>/", StringComparison.Ordinal) &&
+				(normalized.EndsWith("trigger", StringComparison.Ordinal) || normalized.Contains("stick/")))
+			{
+				return string.IsNullOrWhiteSpace(defaultProcessors)
+					? "axisDeadzone(min=0.2,max=0.9)"
+					: defaultProcessors;
+			}
+			// An empty override deliberately removes a deadzone processor when a
+			// trigger/stick slot is rebound to a digital button or key.
+			return string.Empty;
+		}
+
+		internal static int GetControlKind(string path)
+		{
+			if (string.IsNullOrWhiteSpace(path))
+			{
+				return 0;
+			}
+			string normalized = path.ToLowerInvariant();
+			if (normalized.StartsWith("<keyboard>/", StringComparison.Ordinal) ||
+				normalized.StartsWith("<mouse>/", StringComparison.Ordinal))
+			{
+				return 1;
+			}
+			if (!normalized.StartsWith("<gamepad>/", StringComparison.Ordinal))
+			{
+				return 0;
+			}
+			if (normalized.Contains("/dpad"))
+			{
+				return 2;
+			}
+			if (normalized.Contains("stick/") || normalized.EndsWith("stick", StringComparison.Ordinal))
+			{
+				return 3;
+			}
+			if (normalized.EndsWith("trigger", StringComparison.Ordinal))
+			{
+				return 4;
+			}
+			return 5;
 		}
 
 		internal static bool TryCreateBinding(string path, out BindingSource binding)
@@ -502,7 +549,11 @@ namespace InputSystem
 			if (normalized.StartsWith(keyboardPrefix, StringComparison.Ordinal))
 			{
 				string controlName = path.Trim().Substring(keyboardPrefix.Length);
-				if (Enum.TryParse(controlName, ignoreCase: true, out NewKey inputKey) &&
+				NewKey inputKey;
+				bool parsedKey = controlName.Length == 1 && char.IsDigit(controlName[0])
+					? Enum.TryParse($"Digit{controlName}", out inputKey)
+					: Enum.TryParse(controlName, ignoreCase: true, out inputKey);
+				if (parsedKey &&
 					KeyMapper.TryFromInputSystemKey(inputKey, out Key key))
 				{
 					binding = new KeyBindingSource(key);
@@ -551,12 +602,8 @@ namespace InputSystem
 				Mouse.MiddleButton => "<Mouse>/middleButton",
 				Mouse.Button4 => "<Mouse>/backButton",
 				Mouse.Button5 => "<Mouse>/forwardButton",
-				Mouse.NegativeX => "<Mouse>/delta/x",
-				Mouse.PositiveX => "<Mouse>/delta/x",
-				Mouse.NegativeY => "<Mouse>/delta/y",
-				Mouse.PositiveY => "<Mouse>/delta/y",
-				Mouse.PositiveScrollWheel => "<Mouse>/scroll/y",
-				Mouse.NegativeScrollWheel => "<Mouse>/scroll/y",
+				// Directional mouse bindings need signed processors. Keep those on the
+				// legacy fallback reader instead of creating an incorrect native override.
 				_ => null
 			};
 		}
@@ -565,8 +612,8 @@ namespace InputSystem
 		{
 			if (control == InputControlType.Command)
 			{
-				yield return "<Gamepad>/selectButton";
-				yield return "<Gamepad>/startButton";
+				yield return "<Gamepad>/select";
+				yield return "<Gamepad>/start";
 				yield break;
 			}
 
@@ -595,9 +642,9 @@ namespace InputSystem
 				InputControlType.Action3 => "<Gamepad>/buttonWest",
 				InputControlType.Action4 => "<Gamepad>/buttonNorth",
 				InputControlType.Back or InputControlType.Select or InputControlType.Share or
-					InputControlType.View or InputControlType.Minus or InputControlType.Create or InputControlType.LeftCommand => "<Gamepad>/selectButton",
+					InputControlType.View or InputControlType.Minus or InputControlType.Create or InputControlType.LeftCommand => "<Gamepad>/select",
 				InputControlType.Start or InputControlType.Options or InputControlType.Pause or
-					InputControlType.Menu or InputControlType.Plus or InputControlType.RightCommand => "<Gamepad>/startButton",
+					InputControlType.Menu or InputControlType.Plus or InputControlType.RightCommand => "<Gamepad>/start",
 				InputControlType.System or InputControlType.Home or InputControlType.Guide => "<Gamepad>/systemButton",
 				InputControlType.TouchPadButton => "<Gamepad>/touchpadButton",
 				InputControlType.LeftStickX => "<Gamepad>/leftStick/x",
@@ -640,8 +687,8 @@ namespace InputSystem
 				"<gamepad>/buttoneast" => InputControlType.Action2,
 				"<gamepad>/buttonwest" => InputControlType.Action3,
 				"<gamepad>/buttonnorth" => InputControlType.Action4,
-				"<gamepad>/selectbutton" => InputControlType.Select,
-				"<gamepad>/startbutton" => InputControlType.Start,
+				"<gamepad>/select" => InputControlType.Select,
+				"<gamepad>/start" => InputControlType.Start,
 				"<gamepad>/systembutton" => InputControlType.System,
 				"<gamepad>/touchpadbutton" => InputControlType.TouchPadButton,
 				"<gamepad>/leftstick/x" => InputControlType.LeftStickX,

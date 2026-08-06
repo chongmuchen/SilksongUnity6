@@ -89,7 +89,7 @@ public class HeroActions : PlayerActionSet
 		Up.StateThreshold = 0.5f;
 		Down = CreatePlayerAction("Down");
 		Down.StateThreshold = 0.5f;
-		MoveVector = CreateTwoAxisPlayerAction(Left, Right, Down, Up);
+		MoveVector = CreateTwoAxisPlayerAction(Left, Right, Down, Up, "MoveVector");
 		MoveVector.LowerDeadZone = 0.15f;
 		MoveVector.UpperDeadZone = 0.95f;
 		RsUp = CreatePlayerAction("RS_Up");
@@ -100,7 +100,7 @@ public class HeroActions : PlayerActionSet
 		RsLeft.StateThreshold = 0.3f;
 		RsRight = CreatePlayerAction("RS_Right");
 		RsRight.StateThreshold = 0.3f;
-		RightStick = CreateTwoAxisPlayerAction(RsLeft, RsRight, RsDown, RsUp);
+		RightStick = CreateTwoAxisPlayerAction(RsLeft, RsRight, RsDown, RsUp, "RightStick");
 		RightStick.LowerDeadZone = 0.15f;
 		RightStick.UpperDeadZone = 0.95f;
 		Jump = CreatePlayerAction("Jump");

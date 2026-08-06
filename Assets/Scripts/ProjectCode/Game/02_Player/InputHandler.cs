@@ -656,6 +656,7 @@ public class InputHandler : ManagerSingleton<InputHandler>
 		gs.ResetGamepadSettings(activeGamepadType);
 		gs.SaveGamepadSettings(activeGamepadType);
 		MapControllerButtons(activeGamepadType);
+		SetupGamepadUIInputActions(activeGamepadType);
 	}
 
 	public void ResetAllControllerButtonBindings()
@@ -724,6 +725,7 @@ public class InputHandler : ManagerSingleton<InputHandler>
 		RemoveBindingsOfType(inputActions.QuickMap, BindingSourceType.DeviceBindingSource);
 		RemoveBindingsOfType(inputActions.QuickCast, BindingSourceType.DeviceBindingSource);
 		RemoveBindingsOfType(inputActions.Taunt, BindingSourceType.DeviceBindingSource);
+		RemoveBindingsOfType(inputActions.OpenInventory, BindingSourceType.DeviceBindingSource);
 		inputActions.Jump.AddBinding(new DeviceBindingSource(gs.controllerMapping.jump));
 		inputActions.Attack.AddBinding(new DeviceBindingSource(gs.controllerMapping.attack));
 		inputActions.Dash.AddBinding(new DeviceBindingSource(gs.controllerMapping.dash));
@@ -788,6 +790,7 @@ public class InputHandler : ManagerSingleton<InputHandler>
 		inputActions.MenuSuper.ResetBindings();
 		inputActions.PaneLeft.ResetBindings();
 		inputActions.PaneRight.ResetBindings();
+		SetupGamepadUIInputActions(activeGamepadType);
 	}
 
 	public PlayerAction ActionButtonToPlayerAction(HeroActionButton actionButtonType)
@@ -1041,18 +1044,18 @@ public class InputHandler : ManagerSingleton<InputHandler>
 		switch (acceptRejectInputStyle)
 		{
 		case Platform.AcceptRejectInputStyles.NonJapaneseStyle:
-			inputActions.MenuSubmit.AddDefaultBinding(InputControlType.Action1);
-			inputActions.MenuCancel.AddDefaultBinding(InputControlType.Action2);
+			inputActions.MenuSubmit.AddBinding(new DeviceBindingSource(InputControlType.Action1));
+			inputActions.MenuCancel.AddBinding(new DeviceBindingSource(InputControlType.Action2));
 			break;
 		case Platform.AcceptRejectInputStyles.JapaneseStyle:
-			inputActions.MenuSubmit.AddDefaultBinding(InputControlType.Action2);
-			inputActions.MenuCancel.AddDefaultBinding(InputControlType.Action1);
+			inputActions.MenuSubmit.AddBinding(new DeviceBindingSource(InputControlType.Action2));
+			inputActions.MenuCancel.AddBinding(new DeviceBindingSource(InputControlType.Action1));
 			break;
 		default:
 			throw new ArgumentOutOfRangeException();
 		}
-		inputActions.MenuExtra.AddDefaultBinding(InputControlType.Action3);
-		inputActions.MenuSuper.AddDefaultBinding(InputControlType.Action4);
+		inputActions.MenuExtra.AddBinding(new DeviceBindingSource(InputControlType.Action3));
+		inputActions.MenuSuper.AddBinding(new DeviceBindingSource(InputControlType.Action4));
 		_previousInputStyle = acceptRejectInputStyle;
 	}
 

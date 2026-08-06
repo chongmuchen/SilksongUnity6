@@ -98,10 +98,6 @@ namespace InputSystem
 			}
 			UnityInputSystem.onDeviceChange += HandleDeviceChange;
 			UnityInputSystem.onAfterUpdate += HandleAfterUpdate;
-			// Project-wide actions are the source templates. Runtime action sets use private
-			// map instances (the same isolation model used by PlayerInput) so legacy rebinding
-			// cannot mutate the imported asset or another temporary UI action set.
-			UnityInputSystem.actions?.Disable();
 			foreach (Gamepad gamepad in Gamepad.all)
 			{
 				AttachGamepad(gamepad);
@@ -110,18 +106,27 @@ namespace InputSystem
 			OnSetupCompleted?.Invoke();
 		}
 
-		internal static NativeInputActionMap CreateActionMapInstance(string actionMapName)
+		internal static NativeInputActionMap GetActionMap(string actionMapName, bool createPrivateCopy, out bool ownsActionMap)
 		{
 			Initialize();
 			if (!string.IsNullOrWhiteSpace(actionMapName))
 			{
-				NativeInputActionMap template = UnityInputSystem.actions?.FindActionMap(actionMapName, throwIfNotFound: false);
-				if (template != null)
+				NativeInputActionMap projectMap = UnityInputSystem.actions?.FindActionMap(actionMapName, throwIfNotFound: false);
+				if (projectMap != null)
 				{
-					return template.Clone();
+					if (createPrivateCopy)
+					{
+						ownsActionMap = true;
+						NativeInputActionMap privateMap = projectMap.Clone();
+						privateMap.RemoveAllBindingOverrides();
+						return privateMap;
+					}
+					ownsActionMap = false;
+					return projectMap;
 				}
 				Debug.LogWarning($"Project-wide Input Actions map '{actionMapName}' was not found. A runtime fallback map was created.");
 			}
+			ownsActionMap = true;
 			return new NativeInputActionMap(string.IsNullOrWhiteSpace(actionMapName) ? "Runtime" : actionMapName);
 		}
 
