@@ -24,9 +24,8 @@ public class StartManager : MonoBehaviour
         bool hasLoadedLanguageSelector = false;
         AsyncOperationHandle<GameObject> languageSelectorHandle = default(AsyncOperationHandle<GameObject>);
         LanguageSelector languageSelector = null;
-        bool flag = !CheckIsLanguageSet();
         bool finished = true;
-        bool isLoadingLanguageSelect = flag && Platform.Current.ShowLanguageSelect;
+        bool isLoadingLanguageSelect = !CheckIsLanguageSet() && Platform.Current.ShowLanguageSelect;
         if (isLoadingLanguageSelect)
         {
             finished = false;

@@ -6,9 +6,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 [Serializable]
 public class AddressableReferenceGameObject<T> : AssetReferenceGameObject, IDisposable where T : MonoBehaviour
 {
-	private readonly string address;
-
-	private T component;
+	private T component;	// 组件
 
 	private AsyncOperationHandle<GameObject> loadOperationHandle;
 
@@ -16,7 +14,7 @@ public class AddressableReferenceGameObject<T> : AssetReferenceGameObject, IDisp
 
 	private bool hasLoaded;
 
-	private bool hasInstantiated;
+	private bool hasInstantiated;	// 是否已实例化
 
 	private bool hasCachedComponent;
 
@@ -35,7 +33,7 @@ public class AddressableReferenceGameObject<T> : AssetReferenceGameObject, IDisp
 		}
 	}
 
-	public bool InstantiateSuccess { get; private set; }
+	public bool InstantiateSuccess { get; private set; }	// 是否实例化成功
 
 	public AddressableReferenceGameObject(string guid)
 		: base(guid)
