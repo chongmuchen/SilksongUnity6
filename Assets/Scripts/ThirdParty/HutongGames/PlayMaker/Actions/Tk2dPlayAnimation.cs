@@ -56,8 +56,11 @@ namespace HutongGames.PlayMaker.Actions
 			animLibName.Value.Equals("");
 			if (!string.IsNullOrWhiteSpace(clipName.Value))
 			{
-				tk2dSpriteAnimationClip clip = ((heroAnim != null) ? heroAnim.GetClip(clipName.Value) : _sprite.GetClipByName(clipName.Value));
-				_sprite.Play(clip);
+				tk2dSpriteAnimationClip clip = ((heroAnim != null) ? heroAnim.GetClip(clipName.Value) : _sprite.GetClipByNameCompatible(clipName.Value));
+				if (clip != null)
+				{
+					_sprite.Play(clip);
+				}
 			}
 		}
 	}

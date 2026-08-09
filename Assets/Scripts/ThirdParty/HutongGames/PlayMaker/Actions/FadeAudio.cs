@@ -26,7 +26,7 @@ namespace HutongGames.PlayMaker.Actions
 
 		private VolumeModifier volumeModifier;
 
-		private int lastCacheVersion;
+		private AudioSource blendCacheAudio;
 
 		public override void Reset()
 		{
@@ -123,10 +123,13 @@ namespace HutongGames.PlayMaker.Actions
 
 		private void UpdateBlendCache()
 		{
-			if (lastCacheVersion != cacheVersion)
+			AudioSource currentAudio = base.audio;
+			if (blendCacheAudio != currentAudio)
 			{
-				lastCacheVersion = cacheVersion;
-				VolumeBlendController component = base.audio.GetComponent<VolumeBlendController>();
+				blendCacheAudio = currentAudio;
+				hasBlendController = false;
+				volumeModifier = null;
+				VolumeBlendController component = currentAudio.GetComponent<VolumeBlendController>();
 				if (component != null)
 				{
 					hasBlendController = true;

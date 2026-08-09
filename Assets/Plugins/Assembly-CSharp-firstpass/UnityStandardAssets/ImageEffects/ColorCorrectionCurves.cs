@@ -75,11 +75,25 @@ namespace UnityStandardAssets.ImageEffects
 		{
 			if ((bool)rgbChannelTex)
 			{
-				Object.Destroy(rgbChannelTex);
+				if (Application.isPlaying)
+				{
+					Object.Destroy(rgbChannelTex);
+				}
+				else
+				{
+					Object.DestroyImmediate(rgbChannelTex);
+				}
 			}
 			if ((bool)ccMaterial)
 			{
-				Object.Destroy(ccMaterial);
+				if (Application.isPlaying)
+				{
+					Object.Destroy(ccMaterial);
+				}
+				else
+				{
+					Object.DestroyImmediate(ccMaterial);
+				}
 			}
 		}
 
