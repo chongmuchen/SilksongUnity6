@@ -127,7 +127,14 @@ public class NailSlash : NailAttackBase
 		anim.AnimationEventTriggered = OnAnimationEventTriggered;
 		anim.AnimationCompleted = OnAnimationCompleted;
 		float num = (hc.IsUsingQuickening ? hc.Config.QuickAttackSpeedMult : 1f);
-		tk2dSpriteAnimationClip clipByName = anim.GetClipByName(animName);
+		tk2dSpriteAnimationClip clipByName = anim.GetClipByNameCompatible(animName);
+		if (clipByName == null)
+		{
+			Debug.LogError($"NailSlash could not find animation clip '{animName}' on '{name}'.", this);
+			CancelAttack(forceHide: true);
+			anim.AnimationCompleted = null;
+			return;
+		}
 		anim.Play(clipByName, Mathf.Epsilon, clipByName.fps * num);
 		OnPlaySlash();
 	}

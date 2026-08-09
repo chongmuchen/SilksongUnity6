@@ -271,7 +271,7 @@ public class CameraController : MonoBehaviour
 
 	private void LateUpdate()
 	{
-		if (Time.timeScale <= Mathf.Epsilon)
+		if (Time.timeScale <= Mathf.Epsilon || cameraParent == null || camTarget == null)
 		{
 			return;
 		}

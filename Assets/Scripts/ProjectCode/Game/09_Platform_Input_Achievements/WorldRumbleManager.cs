@@ -608,6 +608,10 @@ public class WorldRumbleManager : MonoBehaviour
 	private bool CanRumbleInScene(WorldRumbleGroup group)
 	{
 		GameManager instance = GameManager.instance;
+		if (instance == null || instance.sm == null)
+		{
+			return false;
+		}
 		switch (instance.sm.WorldRumble)
 		{
 		case CustomSceneManager.WorldRumbleSettings.MapZone:

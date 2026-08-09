@@ -57,7 +57,7 @@ public class PromptMarker : MonoBehaviour
 
 	private void OnEnable()
 	{
-		anim.Play("Blank");
+		anim.PlayCompatible("Blank");
 		group.AlphaSelf = 0f;
 		GameCameras instance = GameCameras.instance;
 		mainCam = instance.mainCamera;
@@ -103,7 +103,7 @@ public class PromptMarker : MonoBehaviour
 
 	public void Show()
 	{
-		anim.Play("Up");
+		anim.PlayCompatible("Up");
 		base.transform.SetPositionZ(0f);
 		group.FadeTo(1f, 0.4f, null, isRealtime: true);
 		IsVisible = true;
@@ -115,7 +115,7 @@ public class PromptMarker : MonoBehaviour
 		IsVisible = false;
 		if (base.gameObject.activeInHierarchy)
 		{
-			anim.Play("Down");
+			anim.PlayCompatible("Down");
 			group.FadeTo(0f, 0.233f, null, isRealtime: true);
 			StartCoroutine(RecycleDelayed(0.233f));
 		}

@@ -718,7 +718,54 @@ public static class Extensions
 		{
 			return false;
 		}
-		return animator.GetClipByName(animName) != null;
+		return animator.GetClipByNameCompatible(animName) != null;
+	}
+
+	public static tk2dSpriteAnimationClip GetClipByNameCompatible(this tk2dSpriteAnimation library, string animName)
+	{
+		if (!library || string.IsNullOrEmpty(animName))
+		{
+			return null;
+		}
+		tk2dSpriteAnimationClip clipByName = library.GetClipByName(animName);
+		if (clipByName != null)
+		{
+			return clipByName;
+		}
+		tk2dSpriteAnimationClip[] clips = library.clips;
+		if (clips != null)
+		{
+			for (int i = 0; i < clips.Length; i++)
+			{
+				tk2dSpriteAnimationClip clip = clips[i];
+				if (clip != null && string.Equals(clip.name, animName, StringComparison.Ordinal))
+				{
+					return clip;
+				}
+			}
+		}
+		return null;
+	}
+
+	public static tk2dSpriteAnimationClip GetClipByNameCompatible(this tk2dSpriteAnimator animator, string animName)
+	{
+		if (!animator || string.IsNullOrEmpty(animName))
+		{
+			return null;
+		}
+		tk2dSpriteAnimationClip clipByName = animator.GetClipByName(animName);
+		return clipByName ?? animator.Library.GetClipByNameCompatible(animName);
+	}
+
+	public static bool PlayCompatible(this tk2dSpriteAnimator animator, string animName)
+	{
+		tk2dSpriteAnimationClip clip = animator.GetClipByNameCompatible(animName);
+		if (clip == null)
+		{
+			return false;
+		}
+		animator.Play(clip);
+		return true;
 	}
 
 	public static bool? IsVariableValid(this PlayMakerFSM fsm, string variableName, bool isRequired)

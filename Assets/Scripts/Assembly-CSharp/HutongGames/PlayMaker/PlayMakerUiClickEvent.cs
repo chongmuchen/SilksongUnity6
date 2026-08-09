@@ -1,41 +1,47 @@
-using UnityEngine;
+﻿#if !PLAYMAKER_NO_UI
+
 using UnityEngine.UI;
+using UnityEngine;
 
 namespace HutongGames.PlayMaker
 {
-	[AddComponentMenu("PlayMaker/UI/UI Click Event")]
-	public class PlayMakerUiClickEvent : PlayMakerUiEventBase
-	{
-		public Button button;
+    [AddComponentMenu("PlayMaker/UI/UI Click Event")]
+    public class PlayMakerUiClickEvent : PlayMakerUiEventBase
+    {
+        public Button button;
 
-		protected override void Initialize()
-		{
-			if (!initialized)
-			{
-				initialized = true;
-				if (button == null)
-				{
-					button = GetComponent<Button>();
-				}
-				if (button != null)
-				{
-					button.onClick.AddListener(DoOnClick);
-				}
-			}
-		}
+        protected override void Initialize()
+        {
+            if (initialized) return;
+            initialized = true;
 
-		protected void OnDisable()
-		{
-			initialized = false;
-			if (button != null)
-			{
-				button.onClick.RemoveListener(DoOnClick);
-			}
-		}
+            if (button == null)
+            {
+                button = GetComponent<Button>();
+            }
 
-		private void DoOnClick()
-		{
-			SendEvent(FsmEvent.UiClick);
-		}
-	}
+            if (button != null)
+            {
+                button.onClick.AddListener(DoOnClick);
+            }
+        }
+
+        protected void OnDisable()
+        {
+            initialized = false;
+
+            if (button != null)
+            {
+                button.onClick.RemoveListener(DoOnClick);
+            }
+        }
+
+        private void DoOnClick()
+        {
+            SendEvent(FsmEvent.UiClick);
+        }
+
+    }
 }
+
+#endif

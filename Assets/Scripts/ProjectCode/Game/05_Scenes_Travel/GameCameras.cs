@@ -108,6 +108,7 @@ public class GameCameras : MonoBehaviour
 		{
 			_instance = this;
 			Object.DontDestroyOnLoad(this);
+			EnsureSingleAudioListener();
 		}
 		else if (this != _instance)
 		{
@@ -124,6 +125,19 @@ public class GameCameras : MonoBehaviour
 
 	private void Start()
 	{
+		if (this != _instance)
+		{
+			return;
+		}
+		if (gs == null)
+		{
+			gm = GameManager.instance;
+			if (gm == null || gm.gameSettings == null)
+			{
+				return;
+			}
+			gs = gm.gameSettings;
+		}
 		gs.LoadOverscanSettings();
 		SetOverscan(gs.overScanAdjustment);
 	}
@@ -132,7 +146,29 @@ public class GameCameras : MonoBehaviour
 	{
 		if (this == _instance)
 		{
+			EnsureSingleAudioListener();
 			StartScene();
+		}
+	}
+
+	private void EnsureSingleAudioListener()
+	{
+		if (mainCamera == null)
+		{
+			return;
+		}
+		AudioListener component = mainCamera.GetComponent<AudioListener>();
+		if (component == null)
+		{
+			return;
+		}
+		component.enabled = true;
+		foreach (AudioListener audioListener in Object.FindObjectsByType<AudioListener>(FindObjectsSortMode.None))
+		{
+			if (audioListener != component)
+			{
+				audioListener.enabled = false;
+			}
 		}
 	}
 

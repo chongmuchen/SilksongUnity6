@@ -12,6 +12,20 @@ public class ForceCameraAspectLite : MonoBehaviour
 
 	private float scaleAdjust;
 
+	private void Awake()
+	{
+		if (sceneCamera == null)
+		{
+			return;
+		}
+		AudioListener component = sceneCamera.GetComponent<AudioListener>();
+		GameCameras silentInstance = GameCameras.SilentInstance;
+		if (component != null)
+		{
+			component.enabled = silentInstance == null || silentInstance.mainCamera == sceneCamera;
+		}
+	}
+
 	private void Start()
 	{
 		AutoScaleViewport();

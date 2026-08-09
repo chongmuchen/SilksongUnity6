@@ -626,6 +626,14 @@ public class UIManager : MonoBehaviour
 		{
 			gameTitle = GameObject.Find("LogoTitle").GetComponent<SpriteRenderer>();
 		}
+		if (gm.IsMenuScene() && subtitleFSM == null)
+		{
+			GameObject gameObject = GameObject.Find("Subtitle");
+			if (gameObject != null)
+			{
+				subtitleFSM = gameObject.GetComponent<PlayMakerFSM>();
+			}
+		}
 		if (UICanvas.worldCamera == null)
 		{
 			UICanvas.worldCamera = GameCameras.instance.mainCamera;
@@ -2272,13 +2280,10 @@ public class UIManager : MonoBehaviour
 		}
 		float loopFailsafe = 0f;
 		cg.alpha = 0f;
+		cg.gameObject.SetActive(value: true);
 		if (alwaysActive)
 		{
 			cg.blocksRaycasts = false;
-		}
-		else
-		{
-			cg.gameObject.SetActive(value: true);
 		}
 		while (cg.alpha < 1f)
 		{

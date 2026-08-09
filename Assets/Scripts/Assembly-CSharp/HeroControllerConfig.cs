@@ -227,7 +227,7 @@ public class HeroControllerConfig : ScriptableObject, IIncludeVariableExtensions
 		{
 			return null;
 		}
-		return heroAnimOverrideLib.GetClipByName(clipName);
+		return heroAnimOverrideLib.GetClipByNameCompatible(clipName);
 	}
 
 	public void OnUpdatedVariable(string variableName)

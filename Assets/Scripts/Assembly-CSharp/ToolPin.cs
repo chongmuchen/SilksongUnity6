@@ -148,7 +148,7 @@ public class ToolPin : MonoBehaviour, ITinkResponder, IProjectile, IBreakablePro
 		spark.SetActive(value: false);
 		slashImpact.SetActive(value: false);
 		throwEffect.SetActive(value: true);
-		animator.Play(flyClip);
+		animator.PlayCompatible(flyClip);
 		breakTimer = 4f;
 		recycleTimer = 0f;
 		meshRenderer.enabled = true;
@@ -401,7 +401,7 @@ public class ToolPin : MonoBehaviour, ITinkResponder, IProjectile, IBreakablePro
 		rigidBody.linearVelocity = new Vector2(0f, 0f);
 		boxCollider.enabled = false;
 		thunkEffect.SetActive(value: true);
-		animator.Play(thunkClip);
+		animator.PlayCompatible(thunkClip);
 		tinker.SetActive(value: false);
 		damageEnemies.doesNotTink = true;
 		tinked = false;
@@ -555,7 +555,7 @@ public class ToolPin : MonoBehaviour, ITinkResponder, IProjectile, IBreakablePro
 		damageEnemies.doesNotTink = true;
 		if (!string.IsNullOrEmpty(tinkClip))
 		{
-			animator.Play(tinkClip);
+			animator.PlayCompatible(tinkClip);
 		}
 	}
 
@@ -590,7 +590,7 @@ public class ToolPin : MonoBehaviour, ITinkResponder, IProjectile, IBreakablePro
 		damageEnemies.doesNotTink = true;
 		if (!string.IsNullOrEmpty(tinkClip))
 		{
-			animator.Play(tinkClip);
+			animator.PlayCompatible(tinkClip);
 		}
 	}
 
@@ -611,7 +611,7 @@ public class ToolPin : MonoBehaviour, ITinkResponder, IProjectile, IBreakablePro
 		}
 		damageEnemies.damageDealt = 5;
 		rigidBody.angularVelocity = 0f;
-		animator.Play(flyClip);
+		animator.PlayCompatible(flyClip);
 		breakTimer = 4f;
 		recycleTimer = 0f;
 		reboundSound.SpawnAndPlayOneShot(base.transform.position);

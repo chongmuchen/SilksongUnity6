@@ -3472,7 +3472,11 @@ public class GameManager : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log("Scene Manager missing from scene " + sceneName);
+			sm = null;
+			if (IsGameplayScene())
+			{
+				Debug.LogWarning("Scene Manager missing from scene " + sceneName);
+			}
 		}
 	}
 

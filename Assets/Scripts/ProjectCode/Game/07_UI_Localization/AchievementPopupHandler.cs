@@ -42,9 +42,13 @@ public class AchievementPopupHandler : MonoBehaviour
 
 	private void OnDestroy()
 	{
-		if (!Platform.Current.HasNativeAchievementsDialog)
+		if (achievements != null && !Platform.Current.HasNativeAchievementsDialog)
 		{
 			achievements.AwardAchievementEvent -= HandleAchievementEvent;
+		}
+		if (Instance == this)
+		{
+			Instance = null;
 		}
 	}
 

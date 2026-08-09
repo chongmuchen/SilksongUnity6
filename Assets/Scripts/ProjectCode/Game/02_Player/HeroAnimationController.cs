@@ -1525,15 +1525,15 @@ public class HeroAnimationController : MonoBehaviour, IHeroAnimationController
 				return animationClip;
 			}
 		}
-		if (heroCtrl.cState.inWindRegion || heroCtrl.cState.inUpdraft)
+		if (heroCtrl != null && (heroCtrl.cState.inWindRegion || heroCtrl.cState.inUpdraft))
 		{
-			tk2dSpriteAnimationClip clipByName = windyAnimLib.GetClipByName(clipName);
+			tk2dSpriteAnimationClip clipByName = windyAnimLib.GetClipByNameCompatible(clipName);
 			if (clipByName != null)
 			{
 				return clipByName;
 			}
 		}
-		tk2dSpriteAnimationClip clipByName2 = animator.GetClipByName(clipName);
+		tk2dSpriteAnimationClip clipByName2 = (animator != null) ? animator.GetClipByNameCompatible(clipName) : null;
 		if (clipByName2 == null)
 		{
 			Debug.LogError($"Could not resolve animation clip: {clipName}", this);

@@ -59,11 +59,11 @@ public class SceneColorManager : MonoBehaviour
 
 	private GameManager gm;
 
-	private static List<Keyframe> _tempA;
+	private static List<Keyframe> _tempA = new List<Keyframe>(128);
 
-	private static List<Keyframe> _tempB;
+	private static List<Keyframe> _tempB = new List<Keyframe>(128);
 
-	private static List<Keyframe> _finalFramesList;
+	private static List<Keyframe> _finalFramesList = new List<Keyframe>(128);
 
 	private bool changesInEditor = true;
 
@@ -100,9 +100,9 @@ public class SceneColorManager : MonoBehaviour
 	{
 		curvesScript = GetComponent<ColorCorrectionCurves>();
 		hasCurvesScript = curvesScript != null;
-		_tempA = new List<Keyframe>(128);
-		_tempB = new List<Keyframe>(128);
-		_finalFramesList = new List<Keyframe>(128);
+		_tempA.Clear();
+		_tempB.Clear();
+		_finalFramesList.Clear();
 		gm = GameManager.instance;
 		gm.UnloadingLevel += OnLevelUnload;
 		UpdateSceneType();
