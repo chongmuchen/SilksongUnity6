@@ -274,6 +274,14 @@ public abstract class Platform : MonoBehaviour
         get
         {
             InputHandler instance = ManagerSingleton<InputHandler>.Instance;
+            // The initial language selector is shown before GameManager creates its InputHandler.
+            // Its own input module already uses desktop-style submit/cancel bindings, so use the
+            // keyboard mapping until the global handler is available.
+            if (!instance)
+            {
+                return true;
+            }
+
             if (instance.lastActiveController != BindingSourceType.KeyBindingSource)
             {
                 return instance.lastActiveController == BindingSourceType.MouseBindingSource;
