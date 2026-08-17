@@ -28,6 +28,7 @@ public class StartManager : MonoBehaviour
         bool isLoadingLanguageSelect = !CheckIsLanguageSet() && Platform.Current.ShowLanguageSelect;
         if (isLoadingLanguageSelect)
         {
+            // 加载 languageSelect 组件 
             finished = false;
             languageSelectorHandle = languageSelectorReference.InstantiateAsyncCustom(base.transform, delegate
             {
@@ -48,7 +49,7 @@ public class StartManager : MonoBehaviour
         }
 
         Platform.Current.SetSceneLoadState(isInProgress: true);
-        QuitToMenu.StartLoadCoreManagers();
+        QuitToMenu.StartLoadCoreManagers(); // 预加载资源
         yield return null;
         AsyncOperationHandle<SceneInstance> loadHandle = default(AsyncOperationHandle<SceneInstance>);
         bool startedLoadingMenu = false;
@@ -100,7 +101,7 @@ public class StartManager : MonoBehaviour
             }
         }
 
-        if (flag2)
+        if (flag2)  // 选择的语言发生变化，刷新资源
         {
             Language.LoadLanguage();
             ChangeFontByLanguage[] array = Object.FindObjectsByType<ChangeFontByLanguage>(FindObjectsSortMode.None);
