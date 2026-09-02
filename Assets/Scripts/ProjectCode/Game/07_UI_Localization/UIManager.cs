@@ -1036,7 +1036,7 @@ public class UIManager : MonoBehaviour
 		IsSelectingProfile = true;
 		isStartingNewGame = false;
 		saveSlot = slot;
-		if (gs.overscanAdjusted == 1 && gs.brightnessAdjusted == 1)
+		if (gs.overscanAdjusted == 1 && gs.brightnessAdjusted == 1)	// 已经调整过关照和亮度
 		{
 			IsSelectingProfile = false;
 			gm.LoadGameFromUI(slot, saveGameData);

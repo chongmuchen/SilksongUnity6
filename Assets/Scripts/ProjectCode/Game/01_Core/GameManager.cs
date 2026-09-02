@@ -4503,7 +4503,7 @@ public class GameManager : MonoBehaviour
 
 	private IEnumerator LoadGameFromUIRoutine(int saveSlot, SaveGameData saveGameData)
 	{
-		ui.ContinueGame();
+		ui.ContinueGame();	// 退出UI
 		bool successfullyLoaded = false;
 		if (saveGameData == null)
 		{
@@ -4533,7 +4533,7 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	public void LoadGame(int saveSlot, Action<bool> callback)
+	public void LoadGame(int saveSlot, Action<bool> callback)	// 加载游戏数据
 	{
 		if (!Platform.IsSaveSlotIndexValid(saveSlot))
 		{
@@ -5168,7 +5168,7 @@ public class GameManager : MonoBehaviour
 
 	public IEnumerator RunContinueGame(bool fromMenu = true)
 	{
-		if (fromMenu)
+		if (fromMenu)	// 退出菜单
 		{
 			ui.FadeScreenOut();
 			noMusicSnapshot.TransitionToSafe(2f);
@@ -5187,8 +5187,10 @@ public class GameManager : MonoBehaviour
 		Platform.Current.SetSceneLoadState(isInProgress: true, isHighPriority: true);
 		isLoading = true;
 		SetState(GameState.LOADING);
+		// 升级存档
 		SaveDataUpgradeHandler.UpgradeSaveData(sceneData, playerData);
 		FixUpSaveState();
+		// 第三幕动画
 		if (playerData.IsAct3IntroQueued)
 		{
 			loadVisualization = SceneLoadVisualizations.Custom;
@@ -5198,7 +5200,7 @@ public class GameManager : MonoBehaviour
 		{
 			loadVisualization = SceneLoadVisualizations.ContinueFromSave;
 		}
-		TimePassesLoadedIn();
+		TimePassesLoadedIn();	// 模拟需要经过一段时间才能完成的任务。(目前是切场景以后刷油漆)
 		AsyncOperationHandle<GameObject> handle = LoadGlobalPoolPrefab();
 		yield return handle;
 		UnityEngine.Object.Instantiate(handle.Result);

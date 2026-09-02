@@ -1930,7 +1930,7 @@ public class HeroController : MonoBehaviour, ITagDamageTakerOwner
 		{
 			FallCheck();
 		}
-		FailSafeChecks();
+		FailSafeChecks();	// 离开异常状态
 		if (hero_state == ActorStates.running && !cState.dashing && !cState.backDashing && !controlReqlinquished)
 		{
 			if (cState.inWalkZone)
