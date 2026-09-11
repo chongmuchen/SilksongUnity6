@@ -32,6 +32,8 @@
 
 ## 2026-09-11 可读性重构
 
-已整理 Cherry、Sprites/Lit、两份 Noise 和 GUIBlendModes 的 84 个 Shader，共 88 个。维护入口、验证方法和边界见 [可读性重构说明](READABILITY.md)，最终文件哈希与验证汇总见 [readability-validation.json](readability-validation.json)。
+两批共整理 111 个 Shader。第一批包括 Cherry、Sprites/Lit、两份 Noise 和 GUIBlendModes 的 84 个 Shader，共 88 个；第二批增加四个遮罩、16 个 TMP Distance Field，以及 ScrollTexture、Water、CameraScrolling，共 23 个。
 
-这些文件现在是维护源码；不要直接用旧的离线 `apply_all_shaders.py` 覆盖，否则会丢失重构。UI 的共享实现位于 `Assets/GUIBlendModes/Shaders/Includes/`，正常导入和打包需要连同这些 include 及其 `.meta` 一起保留。
+维护入口、验证方法与边界分别见 [第一批说明](READABILITY.md) 和 [第二批说明](READABILITY_SECOND.md)；最终文件哈希与验证汇总分别见 [第一批报告](readability-validation.json) 和 [第二批报告](readability-second-validation.json)。两批合计代码从 76,904 行减为 16,003 行，已计入全部共享 include。
+
+这些文件现在是维护源码；不要直接用旧的离线 `apply_all_shaders.py` 覆盖，否则会丢失重构。UI 的 43 个共享实现位于 `Assets/GUIBlendModes/Shaders/Includes/`，TMP 的两个共享实现位于 `Assets/Shader/Includes/`。正常导入和打包需要连同这些 include 及其 `.meta` 一起保留。

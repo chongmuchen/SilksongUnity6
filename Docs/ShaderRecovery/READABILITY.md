@@ -18,7 +18,7 @@ UI 修改混合公式时，先打开对应 `.shader`，沿具名 include 到 `In
 
 Lit 这一轮只改组织结构和接口命名。仍保留局部寄存器式数值代码，是为了让每个关键词组合的运算和编译结果可以严格对照。特别保留 64 个额外组合的旧选择规则：例如仅同时启用 `AMBIENT_LERP` 和 `COLOR_FLASH` 时沿用 ambient 程序；不能把所有效果改成独立叠加。
 
-抖动噪声仍加到 RGBA 四通道；Noise shader 自身仍仅调制 RGB 并保留 alpha。预乘 alpha 顺序、`float` 精度、阈值、采样顺序、`mad` 和实例化布局均按原逻辑保留。其余复杂的 Water、TMP、风摆等 shader 未纳入本次重构。
+抖动噪声仍加到 RGBA 四通道；Noise shader 自身仍仅调制 RGB 并保留 alpha。预乘 alpha 顺序、`float` 精度、阈值、采样顺序、`mad` 和实例化布局均按原逻辑保留。其余复杂的 Water、TMP、风摆等 shader 未纳入第一批；后续完成的遮罩、部分 TMP、水面和滚动 shader 见 [第二批说明](READABILITY_SECOND.md)。
 
 ## 验证证据
 
