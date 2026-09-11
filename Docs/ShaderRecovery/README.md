@@ -29,3 +29,9 @@
 - `analysis/`、`batch-validation/`、`grab-validation/`：详细检查与验证资料。
 
 这些离线资料不参与项目运行或正常打包。
+
+## 2026-09-11 可读性重构
+
+已整理 Cherry、Sprites/Lit、两份 Noise 和 GUIBlendModes 的 84 个 Shader，共 88 个。维护入口、验证方法和边界见 [可读性重构说明](READABILITY.md)，最终文件哈希与验证汇总见 [readability-validation.json](readability-validation.json)。
+
+这些文件现在是维护源码；不要直接用旧的离线 `apply_all_shaders.py` 覆盖，否则会丢失重构。UI 的共享实现位于 `Assets/GUIBlendModes/Shaders/Includes/`，正常导入和打包需要连同这些 include 及其 `.meta` 一起保留。

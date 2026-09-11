@@ -1,0 +1,944 @@
+{
+  "generatedAt": "2026-09-11T03:35:51.674214+00:00",
+  "baselineRevision": "fd1bc3a6c4368a8da50f525bf2f6b68679382d41",
+  "environment": {
+    "unity": "6000.5.4f1",
+    "device": "Apple M4 Pro / Metal",
+    "colorSpace": "Gamma"
+  },
+  "shaderCount": 88,
+  "includeCount": 43,
+  "sourceLines": {
+    "baseline": 33375,
+    "readableIncludingSharedFiles": 8943
+  },
+  "gpu": {
+    "reference": "Git baseline",
+    "variants": 348,
+    "cases": 696,
+    "maxDifference": 0.0,
+    "passed": true
+  },
+  "grabPass": {
+    "shaders": 67,
+    "cases": 138,
+    "maxDifference": 0.0,
+    "passed": true
+  },
+  "compiled": {
+    "stageComparisons": 696,
+    "compileFailures": 0,
+    "rawBytesIdentical": 604,
+    "fragmentStages": 348,
+    "fragmentRawBytesIdentical": 348,
+    "litRawBytesIdentical": 512,
+    "metalSourceMetricsIdentical": 696,
+    "resourceBindingsIdentical": true
+  },
+  "static": {
+    "litKeywordCombinationsEqual": 256,
+    "uiFragmentExpressionTreesEqual": 86,
+    "shaderlabPragmasAndShaderMetasPreserved": true
+  },
+  "limits": [
+    "Two synthetic input profiles on the recorded Metal/Gamma environment; not all scenes or graphics backends.",
+    "Compiled source syntax counts are not measured GPU timings or hardware instruction counts.",
+    "UnityObjectToClipPos changes the floating-point accumulation order in 92 vertex variants; observed image differences are zero."
+  ],
+  "candidateManifestSha256": "65dd80e07b6b732a86e62db80da36b17292dc4b809755047e6c933efae2f83b9",
+  "evidence": {
+    "batch-validation/results/gpu-verified.json": "99069a3c37923dfd1f856acd71e34f94aac46c7ec5e8fd1882978de413c09e24",
+    "batch-validation/results/grab-verified.json": "d496b85af63d71c94e7c1a2a179249e3957355321d3ed3d6469f2f93c23204c5",
+    "batch-validation/results/compiled.json": "abc07b10d255c129a28de3e75f7c3ec00ebe06af07088bd15e7c2e2cd07a8f78",
+    "lit-static.json": "f1e465f7ed30e937a497dc3702cb285ef32e4bf47b4b8e05101daaa3ea4b53bc",
+    "ui-static.json": "89549bc791298be91ef43f13c3f16bedc33526f0ad2d712f4361527642571fa5"
+  },
+  "tools": {
+    "tools/shader_readability/ShaderCompileComparison.cs": "98b7a8cd5acfca863b7898fa7c78b7236e3336400cc2c7d6c13bc60be412f316",
+    "tools/shader_readability/prepare_validation.py": "c63a369197b757b2352a73a21198ed74aba476839d7f708252e2f56286ef997a",
+    "tools/shader_readability/check_lit.py": "5ecf1fa671c32ef9724eb86b1b179b9073fc4e73fcb6e16f43b7eb0ba9f30981",
+    "tools/shader_readability/summarize_validation.py": "6e4aa2a337914fc64692d5b6112081ae46964648f56dbaf5c04265e26dc58bfa",
+    "tools/shader_readability/check_ui.py": "19a3a543adb1146432a9438c6fc06904eb9db9b69e0b077c429aef32ecf942e8",
+    "tools/shader_readability/refactor_ui.py": "b3c94ccec51d566855e1e27ae845089a2cd27693d245d4ef6bc1665ade80e05a"
+  },
+  "shaders": [
+    {
+      "path": "Assets/Shaders/Cherry-Sprites-Default.shader",
+      "baselineSha256": "97a00d7ba5e69f407c357836de760dd17c5511f4f62f990cac2f7f52ae435cc0",
+      "candidateSha256": "92c5156ad298caac3724acc6673c6cbfcc41bd7097e7c132ef2dabf5f479df94",
+      "variants": 4,
+      "baselineLines": 339,
+      "candidateLines": 109
+    },
+    {
+      "path": "Assets/Shaders/Sprites-Lit.shader",
+      "baselineSha256": "c3e1507da3e282fda59e8c3cd6774bfad5a8ffe341a10865712ce0b2420a7d36",
+      "candidateSha256": "1ee6fa855432c010732681ca8c658655f23cde727f4fb25b63c1e35d3e99683d",
+      "variants": 256,
+      "baselineLines": 20439,
+      "candidateLines": 1735
+    },
+    {
+      "path": "Assets/Shaders/Noise.shader",
+      "baselineSha256": "8109340836e32f5c8c35cf8416d3ae25c6b1817bd2b6e8277315d6fd37a7d582",
+      "candidateSha256": "0733b6f83f46167c8be98cd23fe622ba868168f2a8d2f932bfa38e4bb17581eb",
+      "variants": 1,
+      "baselineLines": 129,
+      "candidateLines": 97
+    },
+    {
+      "path": "Assets/Shader/Unlit_Noise New.shader",
+      "baselineSha256": "8109340836e32f5c8c35cf8416d3ae25c6b1817bd2b6e8277315d6fd37a7d582",
+      "candidateSha256": "0733b6f83f46167c8be98cd23fe622ba868168f2a8d2f932bfa38e4bb17581eb",
+      "variants": 1,
+      "baselineLines": 129,
+      "candidateLines": 97
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIBlendColorBurn.shader",
+      "baselineSha256": "03bbd3ed134eea3d9ac324ba615334b4bc91d2e51e9fe05a5f3a83ba58ade122",
+      "candidateSha256": "4f610787a2b3e8a69f8550e196c91fd49b885c61e059b055c57f5d2f1e872460",
+      "variants": 1,
+      "baselineLines": 146,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIBlendColorDodge.shader",
+      "baselineSha256": "653d886d25825f7b19c1cc3da91fe5e4c21780d4690eb31c0754d691a0ba6f31",
+      "candidateSha256": "d4b9b6f004575df50a64fe5d39e0aec75ebde187d45bdd6d771e0306ff46c602",
+      "variants": 1,
+      "baselineLines": 146,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIBlendDarken.shader",
+      "baselineSha256": "4051fe302843108310b3ec63fa0b15dff4ffdc73eff5cd5698bdf0e2c0a9c88a",
+      "candidateSha256": "acb093c7a424605ae863d1ce236a95750e5513f57c9c95bbb9d6ed4db77b9106",
+      "variants": 1,
+      "baselineLines": 126,
+      "candidateLines": 63
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIBlendDarkerColor.shader",
+      "baselineSha256": "52a0409f25876e9034c13acd87d57d7e1749ca5ac268d613a3df23678b3f35e9",
+      "candidateSha256": "44c4a4f04a3ae2513d5e6a432fc8cd8a7ab107516effd576f751bdeac23fd2b2",
+      "variants": 1,
+      "baselineLines": 150,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIBlendDifference.shader",
+      "baselineSha256": "1799b519ecd176a7bc646f4989cb6228776b54122daaeb14bcb4b1037d58225b",
+      "candidateSha256": "9ffacccf2d2eca1a9b7dec7d4bc32962d55df12a019ddc291e74caf480f6cd28",
+      "variants": 1,
+      "baselineLines": 146,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIBlendDivide.shader",
+      "baselineSha256": "7b9dfc945004651cf9924d41e030cdf60b47f4274640aa2fd5adb718cb29ba28",
+      "candidateSha256": "57c94dbb2b748b59dd9aece28a835be5856631c8562056a9ba801ba1faf614e8",
+      "variants": 1,
+      "baselineLines": 144,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIBlendExclusion.shader",
+      "baselineSha256": "5e2875d3c288a8b18a747eacf94fd51493ac477ed64b215a333e8fcb3c8d238d",
+      "candidateSha256": "c4722ed25069cfcaf2edf6fdffa243b1a8396488afd9b88cffbc26e6bb7ab063",
+      "variants": 1,
+      "baselineLines": 150,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIBlendHardLight.shader",
+      "baselineSha256": "7c66e87754bab15fc4594e62fd3501eecf4a605433e1bd73c105bf7f88fba29e",
+      "candidateSha256": "4629122df9859c2a108fdc69c3984dbcdfa9e09004853d3c1e79999a80fe34af",
+      "variants": 1,
+      "baselineLines": 159,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIBlendHardMix.shader",
+      "baselineSha256": "8600c00d8c5ab5411ea4f6461b520b43eccb79baf4b8e26e83b8266f5d15698f",
+      "candidateSha256": "60075e0420c1451244d503196501de1d12f12f39383e0a01eb32a482046674dd",
+      "variants": 1,
+      "baselineLines": 147,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIBlendLighten.shader",
+      "baselineSha256": "c7260db03494d4947d92cd2c489c82e0aefcee4c8247fa4c53a26c4c8794adf9",
+      "candidateSha256": "19e1a23e3d2ef22fd6ddfdc4b551c62fe0fae25c51b80c16eb1819baf8f80623",
+      "variants": 1,
+      "baselineLines": 126,
+      "candidateLines": 63
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIBlendLighterColor.shader",
+      "baselineSha256": "d2dc8b37fbe4a488140e7e10cb16ff8461b243284d29ab09a9a441290ca0120c",
+      "candidateSha256": "0ef8335522f600d771509edbf9f8401000a97db53448acc09640fa3913b40a43",
+      "variants": 1,
+      "baselineLines": 150,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIBlendLinearBurn.shader",
+      "baselineSha256": "619b06c56b7eb0fbfdabfc2e2ec54383479a34f0ad773fd7cace476f2d2cc9f0",
+      "candidateSha256": "09d8c493f26b6143991ad14a58fa31f3e641d611680ba2e83172dfcb69c8c48a",
+      "variants": 1,
+      "baselineLines": 125,
+      "candidateLines": 63
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIBlendLinearDodge.shader",
+      "baselineSha256": "268aa3cd5fbc0a5755c819574ed147a406077d553266fbf5956a31e7db0357a2",
+      "candidateSha256": "bfbd4c5fac342975bd10b6b328c37f7842ab690cec6aa4c9489f28ef4436061d",
+      "variants": 1,
+      "baselineLines": 127,
+      "candidateLines": 64
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIBlendLinearLight.shader",
+      "baselineSha256": "d76826af5ea66659423aa520f5812ad9798fe8d39d49b66c324e24fd8a86ae8d",
+      "candidateSha256": "1649ad8938e79752405ce1a1aff90638394cc86187e7e9639324d5a5dbef7289",
+      "variants": 1,
+      "baselineLines": 153,
+      "candidateLines": 70
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIBlendMultiply.shader",
+      "baselineSha256": "b3e9971ddcd9d01bf8e4d0164f305fb2c5325cf1cf5a3b9fb062abef9e7a13c6",
+      "candidateSha256": "ea80952d52822a4eba58f49601f0c4195e1261dc1c6f8e1796009479834bb8b5",
+      "variants": 1,
+      "baselineLines": 126,
+      "candidateLines": 63
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIBlendOverlay.shader",
+      "baselineSha256": "cbfa7f45dafbcb6e0982cd30a0096dac2a42e79083b21ffe533272f4b87ddb12",
+      "candidateSha256": "3d8765c6d5c48cc0d392602620fd446e60c86e8dce2291eb235846eba0929e78",
+      "variants": 1,
+      "baselineLines": 157,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIBlendPinLight.shader",
+      "baselineSha256": "4400fe1106ac0367a0bcc14fb4eab6bb73278ebfc8633cf2e7bb5bdf712b72e0",
+      "candidateSha256": "f351cab5b465ca616e2790a537a82a8261b394e5a5703cd54fe5ba3f67ce09a3",
+      "variants": 1,
+      "baselineLines": 155,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIBlendScreen.shader",
+      "baselineSha256": "e81a5aed3a6a0ca2603ca0523c3e7048ec9d4057638892ffb448532e79ade2d1",
+      "candidateSha256": "82bd22dc546de91be0950a8be53f956432f62a3ffb6695b0b742a8a0674c2c08",
+      "variants": 1,
+      "baselineLines": 148,
+      "candidateLines": 70
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIBlendSoftLight.shader",
+      "baselineSha256": "a739a2f12375ce3e3a2d88746ec5c9d2f0b156dca7491d4c346a9829b2961357",
+      "candidateSha256": "dc40a265e62e61d7fce0282e3314051bf1f86eaa0c785b87d62da313d10dead8",
+      "variants": 1,
+      "baselineLines": 151,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIBlendSubtract.shader",
+      "baselineSha256": "7e33581af6331b0ba6a86fd3dcede7f30f08e8bb03546831e9082e648117053c",
+      "candidateSha256": "37e48bdcac9e4076ad3ccf366eeb9131810f2491f0929aa9b4bf652f2a948b4f",
+      "variants": 1,
+      "baselineLines": 126,
+      "candidateLines": 63
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIBlendVividLight.shader",
+      "baselineSha256": "acca34e3f52e9666f6c6ffe2e62b7fd1d9279d28a01a91f525413ed89494ecc7",
+      "candidateSha256": "e23daa8b4b5b234136679b225aeb7272a82d580d5220742c8623d336d0651453",
+      "variants": 1,
+      "baselineLines": 157,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIFontBlendColorBurn.shader",
+      "baselineSha256": "e00c6a8ad43cb77e66cdc1b29bcb7ba7e383f41627dcf1341b332a7ab53da16d",
+      "candidateSha256": "a0629a71d380af1a333ca37170f8ab0ad6cd4b8fd1ec1369c5ce7cf307d89242",
+      "variants": 1,
+      "baselineLines": 146,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIFontBlendColorDodge.shader",
+      "baselineSha256": "258a5f4749b2c15c49f3c5f50c986b56c9e6c531e53b014a863a340fc352b1cd",
+      "candidateSha256": "1095be84d08cfef9c0cf359c5fced9f25202434e0bd70829419ca6283b4a22f8",
+      "variants": 1,
+      "baselineLines": 146,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIFontBlendDarken.shader",
+      "baselineSha256": "3feec5d80d47eb13be70bc85cf2f81edbed57dcf0e5faca38396e2a195170264",
+      "candidateSha256": "db3282e2b3874f767da1c1172308ad5445197205950bd65d472ca4dfd417af2a",
+      "variants": 1,
+      "baselineLines": 127,
+      "candidateLines": 63
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIFontBlendDarkerColor.shader",
+      "baselineSha256": "f04db8b27da7bd25ea68e2aaea1226de00b8c93cbc74c92db80840f3e5f45acd",
+      "candidateSha256": "5d614cc17eefb94f2d12f3060a91182db52182945d9bb46ccd389de974b81247",
+      "variants": 1,
+      "baselineLines": 150,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIFontBlendDifference.shader",
+      "baselineSha256": "c1e2d0ddc55b855154290cc48fe41629b6aaa04c9e52226e8d836da265962c26",
+      "candidateSha256": "9c25175e73f092e6d93357b2bb95cbd981876e3ec240b3d53319addccb711bda",
+      "variants": 1,
+      "baselineLines": 145,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIFontBlendDivide.shader",
+      "baselineSha256": "5dafdc896be4561ba8fee7b3e828b07edc70f033408b27ee21b6223256a7dd56",
+      "candidateSha256": "5c32d9119123730d74fd8ffe15e74617fc76f594e6238a1bccd4f61f8db4a96c",
+      "variants": 1,
+      "baselineLines": 144,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIFontBlendExclusion.shader",
+      "baselineSha256": "95b073eb252bba0f7083c3fe2e035e66762ce384947658da6c8f5e41fceb6c62",
+      "candidateSha256": "34058856712f0f0678b1f41e8528a195c2067c953ec55b2f4f14a9551859a6ee",
+      "variants": 1,
+      "baselineLines": 149,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIFontBlendHardLight.shader",
+      "baselineSha256": "6c620b393ee475f37102e7e9c37ab132fb9768cfeb661c79d569f32481b7a396",
+      "candidateSha256": "69478d26bd2f9b5e33dccd1fe8cbed88da176ac877d32e8c26bce2bb89298711",
+      "variants": 1,
+      "baselineLines": 157,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIFontBlendHardMix.shader",
+      "baselineSha256": "fed8dcc3abff1ca242da059bd440f384dfd896a5b47250077389adc472770ad2",
+      "candidateSha256": "5acaca0f846e32cb2169455774e14373ce1aee983928b86e52fc088136f9e596",
+      "variants": 1,
+      "baselineLines": 146,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIFontBlendLighten.shader",
+      "baselineSha256": "648f142a07edb9ce3ba6bfe284c606c5422dd605b51f42e14e8de08f7254173f",
+      "candidateSha256": "a7ebe1120f7256b3b81e02d5b374d556602a109214c20c250d14fb114211a7b6",
+      "variants": 1,
+      "baselineLines": 127,
+      "candidateLines": 63
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIFontBlendLighterColor.shader",
+      "baselineSha256": "0355741a102d05d7d88183a6ab7f3084f9288d1c7b6250f9c28347e07a32b035",
+      "candidateSha256": "2c71d2e0c6b70353dc4d073c39ccc067ebceb1051c21e0fca7e3c7c47d6051c4",
+      "variants": 1,
+      "baselineLines": 150,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIFontBlendLinearBurn.shader",
+      "baselineSha256": "0491881e896ca293a29c158d90555e008e36cafe1c73a27c04a71cf514e0b0cb",
+      "candidateSha256": "e9525540fa4635146faee567e6346763f5d10c2716869c569c9ed53edb0a219e",
+      "variants": 1,
+      "baselineLines": 128,
+      "candidateLines": 63
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIFontBlendLinearDodge.shader",
+      "baselineSha256": "b42c1b1048eb1097807449225efe1e2853e9d26afcdc47decec24c145dcf16a5",
+      "candidateSha256": "84a6e7865f388f026aa4acfc4e9e2dfd9e279ac9ed6901e07c880dab8857b324",
+      "variants": 1,
+      "baselineLines": 127,
+      "candidateLines": 63
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIFontBlendLinearLight.shader",
+      "baselineSha256": "22b4c5a7a57b9a4fff69ecd62ea0467e22714a9971ad2c32e67fcaf3da144742",
+      "candidateSha256": "0a0edb11c09b8fbbe7996545c05799174c2e9166ed997fa05da7ce6ef8103103",
+      "variants": 1,
+      "baselineLines": 153,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIFontBlendMultiply.shader",
+      "baselineSha256": "36895d937cddb5830235e485ebd5cda6c4600c1024d5fb65322d5c1e008f8f65",
+      "candidateSha256": "d1f23b4bfe040c10a16a1d074e65fcb2015baf1a96276e70b4a60bb522722f20",
+      "variants": 1,
+      "baselineLines": 127,
+      "candidateLines": 63
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIFontBlendOverlay.shader",
+      "baselineSha256": "28c172cd4c6c36d7cca908c5e29fe05af8b39fb0c2e729a49db1fe20549f9d09",
+      "candidateSha256": "4e945f7656777bf50eaf74e5db0f32151ec6808342c3c4bf6849c75b85aa0514",
+      "variants": 1,
+      "baselineLines": 158,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIFontBlendPinLight.shader",
+      "baselineSha256": "a9ea6863d4768d13448218ceafd41537b7f0b11ae78b91ce031be635f48f3d8e",
+      "candidateSha256": "320f1ef718823d77e762ea525e56471f9fe43f2a1da6e4dc96b9b3f5302db51f",
+      "variants": 1,
+      "baselineLines": 155,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIFontBlendScreen.shader",
+      "baselineSha256": "2e8c6e97a41f3a71c1527594844d933fc04a8d35faf431286a2e6c0f3711b2a7",
+      "candidateSha256": "fdbf591851a630d77c444b37fe8fe94b960849f124aab94e850170233cc43e1b",
+      "variants": 1,
+      "baselineLines": 147,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIFontBlendSoftLight.shader",
+      "baselineSha256": "2b0e1a02545590f65839ca467e89f8a47ed029f7f55d932855981b01615b4016",
+      "candidateSha256": "e33bf0b4c2f75f19a2f5826d068d776b001f5d8af0bc87ba36b2a771b8c6f002",
+      "variants": 1,
+      "baselineLines": 151,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIFontBlendSubtract.shader",
+      "baselineSha256": "829907eca6d98634050ec31078fc2b54a04641a40b5a269eb1e9b63df27f449c",
+      "candidateSha256": "1a911b3302eba8c100c59c2736f11c317480b8c4e7d450281a2af1d5ac86bf43",
+      "variants": 1,
+      "baselineLines": 127,
+      "candidateLines": 63
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Optimized/UIFontBlendVividLight.shader",
+      "baselineSha256": "6dbdd9d24d25858c8b63d50a8b3250143beef67715396b76eb1d2c2ceb9a692b",
+      "candidateSha256": "2970873669e02b604275e24c3073c829a58075170b62ffd6473e873b37b6846a",
+      "variants": 1,
+      "baselineLines": 157,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIBlendColorBurn.shader",
+      "baselineSha256": "fce245dab3b294cb18ae7d8e58754e7e2a50bf3ccafb87968c5c0dbaf2b392b8",
+      "candidateSha256": "30d171c67bcb978c26ade9a3a42a9b9860cdd4ff5295190f62a41b7402c8dfbb",
+      "variants": 1,
+      "baselineLines": 145,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIBlendColorDodge.shader",
+      "baselineSha256": "ca55650a5b749004f4aa68dd83cd490cd4116d2ce2a16ad0e1815a225befebc6",
+      "candidateSha256": "3de98cabda3b035912be077597e9089fee250fb7a4562758e531e0164439f1e7",
+      "variants": 1,
+      "baselineLines": 145,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIBlendDarken.shader",
+      "baselineSha256": "c472b9b31ff9fa07e0b8ec9798fe9719ec6a06a93bead010efc379a0b1836941",
+      "candidateSha256": "53398acf1d2894f1f39441ced1cdb447558bbf0dde07aeed351adec099eab3e1",
+      "variants": 1,
+      "baselineLines": 143,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIBlendDarkerColor.shader",
+      "baselineSha256": "932518f1cd36df1a69ae8a0088b6cec218e502c193ea78b30ca4d795be25d43b",
+      "candidateSha256": "161a749709eb14cbb77845b9f5392fdf3870742cb59d37e9e1a6c51ba53d4cbd",
+      "variants": 1,
+      "baselineLines": 149,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIBlendDifference.shader",
+      "baselineSha256": "a2940a8645e9ba807d7f307f338c8da0034b0d62bb3a56930b248377daf2e8df",
+      "candidateSha256": "dfbe7ea035b82a6cee800fc961865f4701a7ba7f30b1a77d20e0c0deb3aab3ca",
+      "variants": 1,
+      "baselineLines": 145,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIBlendDivide.shader",
+      "baselineSha256": "c8623ce325295255ac4bd527091767d340d3a6b7e33c58b412ce6452429d8b9a",
+      "candidateSha256": "1ae3cf6de5785af9d57fcd3a8be8b504e23a35e20bc861e6e332618094dd2a0e",
+      "variants": 1,
+      "baselineLines": 143,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIBlendExclusion.shader",
+      "baselineSha256": "5ecb966f6b3b67a19269d4331c6fae15774993c88c17192b11ad3f2b9dd9b344",
+      "candidateSha256": "4ba28eb3c1bc8c08486acbe771b73044680d1f3cf7335d5a2b7a067275198beb",
+      "variants": 1,
+      "baselineLines": 149,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIBlendHardLight.shader",
+      "baselineSha256": "2b952db93eb35c5733af1a9089893f639d15c200b196f6436ccff5c7a57c2e92",
+      "candidateSha256": "a1438659460192632700bd417242f632f9cd705aa989f6ad812ad3270523865a",
+      "variants": 1,
+      "baselineLines": 158,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIBlendHardMix.shader",
+      "baselineSha256": "8645d0df5fa08b580d2a73b6bf478fe840363452c2f3803a84fc53f3c18cebec",
+      "candidateSha256": "ebfb7ebeebd290ebb90cd171d5e91b6f774ffca5e9de46a74fc54f5b8c68a4de",
+      "variants": 1,
+      "baselineLines": 146,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIBlendLighten.shader",
+      "baselineSha256": "c8852bd1af85e067d78dd0879c7c2a0e381ceabd545ca15f966703ffd176e0a4",
+      "candidateSha256": "65f6a828d3caf2e45bb406fde1fb60db4b067ecfd464f0c22a0a4bed1d273048",
+      "variants": 1,
+      "baselineLines": 143,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIBlendLighterColor.shader",
+      "baselineSha256": "0be64815d795aad7b52dd6add84d1ec43ef820f4b7d9e1e161b4adc9b2ce9fd5",
+      "candidateSha256": "84e3686a544d2235b32ea24cd8eca4b6cb88c5c0b2a7c6f7a6d8fc266e46035e",
+      "variants": 1,
+      "baselineLines": 149,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIBlendLinearBurn.shader",
+      "baselineSha256": "b31b059c2fc35b09dc67ba8d7c87a579b4acbc697fbb5819774a53c271e175d8",
+      "candidateSha256": "3e3dc7934b1755c3f097218f0103ceb94d605fba552e01cd95ed7c6b890efc37",
+      "variants": 1,
+      "baselineLines": 145,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIBlendLinearDodge.shader",
+      "baselineSha256": "9a8a5aa7a62ece6eb7eded21ff2a853f3e5e10ab354e56a8ee37e7d79cc4a5ae",
+      "candidateSha256": "fc075c0736dfba40408857be2d2fab2043418b5f95ccd4c074b23afa29d9daad",
+      "variants": 1,
+      "baselineLines": 144,
+      "candidateLines": 69
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIBlendLinearLight.shader",
+      "baselineSha256": "d5dcf764da4ddb4c5952c9dd486655803e816da8e5c289858847eb0df1477423",
+      "candidateSha256": "724697238d64b314a7aa968e59fbc0d73483fb8f87901ee020fd140270bdb2cd",
+      "variants": 2,
+      "baselineLines": 253,
+      "candidateLines": 74
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIBlendMultiply.shader",
+      "baselineSha256": "f4cb5c97b9151b33aa5636b1b86aeca2e6a161959dfb223adb5c01fb31bdcafc",
+      "candidateSha256": "d3b341468957bbe40b3dd20e926413a756b454c8327afece05fd80f91312c828",
+      "variants": 1,
+      "baselineLines": 143,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIBlendOverlay.shader",
+      "baselineSha256": "76672b9dcf6c835b3a9ddead8ddf802da2b3f6202d2fd29886fe6b0af26c66d9",
+      "candidateSha256": "07ca7874c3952360ba5fe525a36773b041333d882e486da6ee190bc041a9d18a",
+      "variants": 1,
+      "baselineLines": 156,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIBlendPinLight.shader",
+      "baselineSha256": "07d39f3f2ff06f70be258163bb7f1c0804a8817419a80446b90f67fbdb15242e",
+      "candidateSha256": "f6a9b87ab811156e1718fe41cfd0ce83b5f787fcefe3574dcd0d5355f5d82937",
+      "variants": 1,
+      "baselineLines": 154,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIBlendScreen.shader",
+      "baselineSha256": "817bbb465cd179a85d31242698fa672d3ff11019b7800af2b50dbcd1b95293ab",
+      "candidateSha256": "7d6ea2d81fdbc7f7b0372d4f42f8b0c1cf1a34cf4e379da4c386eeaf6536fcad",
+      "variants": 2,
+      "baselineLines": 243,
+      "candidateLines": 74
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIBlendSoftLight.shader",
+      "baselineSha256": "aa7db1dc2c6f52279e444d826d0f56f70346c1337226dae74e537ca08d8c8c18",
+      "candidateSha256": "fc1bea668b23d8fe9f315adb0309c589515d0637aa8177d2899f21f87a593ad3",
+      "variants": 1,
+      "baselineLines": 150,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIBlendSubtract.shader",
+      "baselineSha256": "80dedbea6f0713cfaa13133eb484243a686e9cf872c6e80a60c8112bb17f18df",
+      "candidateSha256": "5e304ee30667a125bb6316a59133357214c8cc078f39e660e9f2911948d83d84",
+      "variants": 1,
+      "baselineLines": 143,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIBlendVividLight.shader",
+      "baselineSha256": "3d1663f7844e321141cc8aa4af5f6b44c7270cd5fc00ac89ff9bc103eeff8d1a",
+      "candidateSha256": "e428438958f026e392fb83e5ab556a37231ebab5fd416ff45cba6dce1463c0bb",
+      "variants": 1,
+      "baselineLines": 156,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIFontBlendColorBurn.shader",
+      "baselineSha256": "14d97148fb24a721e82ec4954132a941e44ca3126b5a8b219d0381145d33fca6",
+      "candidateSha256": "43ab3361b853578700eb5c6649abe22aeb2ccb89892091900dc2b8206abc6cb8",
+      "variants": 1,
+      "baselineLines": 145,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIFontBlendColorDodge.shader",
+      "baselineSha256": "ef71517fcb2c80461de01105d9ba8bb491b1f487b865d6e5f3b98080b0263cfe",
+      "candidateSha256": "b0278508ded4e20af2a18e9c136a71b6581bea84af78c058c815ef044170d3b8",
+      "variants": 1,
+      "baselineLines": 145,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIFontBlendDarken.shader",
+      "baselineSha256": "27beaf803040a14b9ccc8f32b05cced4cbd35c9328ab5097ed827a31262d318c",
+      "candidateSha256": "6b0874bce2637be8012aca9f7c9a42a337747c8f271a32a4d752dbeeacb37728",
+      "variants": 1,
+      "baselineLines": 127,
+      "candidateLines": 63
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIFontBlendDarkerColor.shader",
+      "baselineSha256": "e6d82ff619de46782ad0e9b06878542b23fe6e235730fcb6fe4ef2ded8441d0d",
+      "candidateSha256": "68d53cf9f0b131808da383bb771112b0ba65961a08b534a5dbf3cb106b21118c",
+      "variants": 1,
+      "baselineLines": 149,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIFontBlendDifference.shader",
+      "baselineSha256": "053a4df086a5f97b274c38d422fd1e2c40e8ae4ed5ab58873c8b77cfdbb65a13",
+      "candidateSha256": "171fc101ade3703591fd8a8a781c5410e0dfaeaa6f6f512cf38d83193585c7cc",
+      "variants": 1,
+      "baselineLines": 144,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIFontBlendDivide.shader",
+      "baselineSha256": "b8e3ea97f300de1730705b404777166d8df794d40d52e660965d7acd658cb0fc",
+      "candidateSha256": "a1b16c12a2f93cf1ac2c34a0f78b5d5a959245a67a4ce0ff071d6d2021bc3036",
+      "variants": 1,
+      "baselineLines": 143,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIFontBlendExclusion.shader",
+      "baselineSha256": "f37cf8554a7f54f7a46460d0be8aecd812f0bdd4cd37f8e8c628f45bde768909",
+      "candidateSha256": "14ceec8e2b8c586503b231b63640adc7f51e1e96ab95ec10428292f524fd146e",
+      "variants": 1,
+      "baselineLines": 148,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIFontBlendHardLight.shader",
+      "baselineSha256": "82b193a55040e07f241900610ab77c33990eeabdbf4d0f82451e3854cd52b9c0",
+      "candidateSha256": "723705d794acd3d9743ac7eeaeae7b122f4ba4cf3a9d81b84cb11515edd2d338",
+      "variants": 1,
+      "baselineLines": 156,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIFontBlendHardMix.shader",
+      "baselineSha256": "934b7338046f1f0e4428faa09efe1ed2f45724cd73f609de7b30699ff07c8c38",
+      "candidateSha256": "23f59dd93cd27954044f56672e65b031fdbbb574fd93bd15d600576818ecc43a",
+      "variants": 1,
+      "baselineLines": 145,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIFontBlendLighten.shader",
+      "baselineSha256": "fb950153e2ac87db3ed78665584c3b3738db63bae433faf7a5d702c7ca1b12a3",
+      "candidateSha256": "754903523e22320303a7e25cdd8fa33122f50a80eb5adc453f6e11187bbc153f",
+      "variants": 1,
+      "baselineLines": 127,
+      "candidateLines": 63
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIFontBlendLighterColor.shader",
+      "baselineSha256": "c3b1f78371210bfa955b3d72e56249cf25a3425a85cde3b06bb1a3b23ed1117c",
+      "candidateSha256": "6484e18495ca3085953041f77cf17459fc3b8b15d91be93ccd3f538b80b979b0",
+      "variants": 1,
+      "baselineLines": 149,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIFontBlendLinearBurn.shader",
+      "baselineSha256": "b24c746a92490d10631cdb5fb2b53b3fc243c31835ccedd80b8e5610f3495ef2",
+      "candidateSha256": "8688f6def5b2fb00d3e921288069cd505840d069ff1d06e8276da5d9f958d8d3",
+      "variants": 1,
+      "baselineLines": 131,
+      "candidateLines": 66
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIFontBlendLinearDodge.shader",
+      "baselineSha256": "38f5e6344ca156443ce004cd4609900b7f8c10941959a21db20b6bc21486508a",
+      "candidateSha256": "c3c774f43c9014869e7d8c121b93f870d2de6dbfd6b9115eb369ea94854e1caf",
+      "variants": 1,
+      "baselineLines": 127,
+      "candidateLines": 63
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIFontBlendLinearLight.shader",
+      "baselineSha256": "56c6079a7fe6e4bea20593e622595dcd5e7af3b133c09f64ae366428713ea9fd",
+      "candidateSha256": "d4457cd4cb30ae595a1be22024058d6f13b6f31d73f452179330658d37932bc9",
+      "variants": 1,
+      "baselineLines": 152,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIFontBlendMultiply.shader",
+      "baselineSha256": "69d602810cf9c710ae2b0cdeb620f1a8d4d61df9d392c7ebc5e7811dea3a1500",
+      "candidateSha256": "13ab1daddeb38b8385bebf71c151261950f60dfa4295cfb4d2981931ede67782",
+      "variants": 1,
+      "baselineLines": 127,
+      "candidateLines": 63
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIFontBlendOverlay.shader",
+      "baselineSha256": "a92efa57668e2ba2c6517e14e2f5898bd79e415c64b9808f12d2bf8652ff5c78",
+      "candidateSha256": "9de1431da4b324b2b5df41a12fdebd148e3567693401a773b54e4d9228d5a8c1",
+      "variants": 1,
+      "baselineLines": 157,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIFontBlendPinLight.shader",
+      "baselineSha256": "75c56bb7d4fa1aa223b71bf6340c6c2e317ad9c89c6a23c96687918019ced0c8",
+      "candidateSha256": "1409305899359dd4020b470eeda5e60d60a92e35d8eb14f01af2739c31903f13",
+      "variants": 1,
+      "baselineLines": 154,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIFontBlendScreen.shader",
+      "baselineSha256": "fd62406a2a545ce7ee91d580d0752faecfd473e69c4c78a15d2fb5bac5ceea6c",
+      "candidateSha256": "5d8d81e5e7ed52e188bd215bcd975c40b31e65f5554ef0be22e796ab740845e8",
+      "variants": 1,
+      "baselineLines": 146,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIFontBlendSoftLight.shader",
+      "baselineSha256": "0a57295c89500fd0c1a51876c2441b829ad424b45c61f935136c4d765f4ad409",
+      "candidateSha256": "165c185788ef509d0efe3645614c105c2d430ac9c9cbb2537ad71f5fc87b22bc",
+      "variants": 1,
+      "baselineLines": 150,
+      "candidateLines": 68
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIFontBlendSubtract.shader",
+      "baselineSha256": "89394c0d6c88fb293558074163dac5637ecd3edeb7dfcfa1afcc8dce6b500d73",
+      "candidateSha256": "24b824b0e2fe14b16092ba7e0ebbe96cfc88c85bd33638bf35b274f504a40e56",
+      "variants": 1,
+      "baselineLines": 127,
+      "candidateLines": 63
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/UIFontBlendVividLight.shader",
+      "baselineSha256": "61f2a843cc647fc56789c2f3b5a6352c6aa3137473d75db329bc884aa0835b08",
+      "candidateSha256": "f18239039615f877958a27f4c9956c1bc3fab31cbaf730c11df52dd97e3e5251",
+      "variants": 1,
+      "baselineLines": 156,
+      "candidateLines": 68
+    }
+  ],
+  "includes": [
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIFontBlendHardMix.cginc",
+      "sha256": "4f8b5caf3c741cba9fb090eaea4e887ebcc1be052c8d5ddde383fba2b4b50a23"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendColorDodge.cginc",
+      "sha256": "b5e969c03283120e1db5ca5a9067d311b904565aac05e761c4a1f5e613695e15"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIFontBlendScreen.cginc",
+      "sha256": "4bc0150139d35eac2a4e23009ec6e19a797ff6ac8297c4adedf32b41ccdbdfbd"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendHardMix.cginc",
+      "sha256": "be4b08cb5fb34ca6a8d8200c22096fc42d3c8643809bd2d1c823a7d8fc51f366"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendDarken.cginc",
+      "sha256": "0faffea5a820fb04c68bf7b0c2070f9c1226cfa684e0297c8a777572fb74da22"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIFontBlendPinLight.cginc",
+      "sha256": "d1f507e60f9fb3809b05841ebf8729298bc87c50bb034fad5420d1d18aa351aa"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendLinearDodge.cginc",
+      "sha256": "904a8290df3bd7aeb23e0b86637b1fa683b145a72e2f3a1b20a276fbfbaffa86"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendSoftLight.cginc",
+      "sha256": "e2a615dbfc52e9a839c3510a99b787342c61733f15d6c36e429a220e30b3d395"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendLinearBurn.cginc",
+      "sha256": "eeeae0ea47e3d6d96d95446e2d472efc66d7aa2fb8f97c49ba1ceefe1071627d"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendVividLight.cginc",
+      "sha256": "ea3dafb3c4dc3f47d6a1c5c7a8dc0c0c198f741d4e479ff21002ccc4d511cd41"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIFontBlendLighterColor.cginc",
+      "sha256": "5ddecdb646f341780ec3493c7113f05656774b22ae2bd29f98b0b8e62bc431f7"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIFontBlendDifference.cginc",
+      "sha256": "a1677e84da0148f22e5f44faa997981ccfc8ccc617bccd2e95bab94ad5686e5c"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendLinearBurnFixed.cginc",
+      "sha256": "e69a65babb70bd2e8c44a8d11e6a0f2559b64ac73e420f4a1d63abfee32bf712"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendDivide.cginc",
+      "sha256": "c2faa77a03ebb614528487b251a34e0d7a2831a6af442d8439544c41100fddb4"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendSubtract.cginc",
+      "sha256": "982e6bbb81434271fd12d4f3ac7e086e75b170680b4ebf8a2c39ce342bd3db5d"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendScreenDither.cginc",
+      "sha256": "00f6100659c537b465847e8fa0f582228bb22df3f49b6d9d650e6ef7b5d83163"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIFontBlendExclusion.cginc",
+      "sha256": "a596e3a8799d1da84d9654a86232bc79327c3d3747695c244a62766bbc502db4"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendCommon.cginc",
+      "sha256": "0225aa2f49135f48b2ef32a2579d8c6e6f0c9a411eb4fba6bd9cf46c6dd8e5e1"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIFontBlendOverlay.cginc",
+      "sha256": "fb72f1040e61532de6b2235a4d1b398ab6c8b943710215984a105f7f1ef8c949"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendOverlay.cginc",
+      "sha256": "42b454667ac3e81f88bded9c7793b2ecee38223284e5ebef0335ffd38924ebeb"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendColorBurn.cginc",
+      "sha256": "3fc69df88f8ff2a06583d0c6c71a68c094997b524af151f9a5684cca683f6e81"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendLighterColor.cginc",
+      "sha256": "625f57ac9f86c3d0cd90f42b8a68174b5031eb03034a58ba4f9014dccda11b52"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendLinearLightDither.cginc",
+      "sha256": "8451c2d40337cfa66d3bb0511ab71ce242c96b33231184fdb341892a2b1ab847"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIFontBlendHardLight.cginc",
+      "sha256": "ed9bc6fa715ca171d05e365605c6d4672f7e9a2317300bff4853c92e0a5af280"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendScreen.cginc",
+      "sha256": "1ee28a4c51e41a49cfdba4cc7984e573f76ad42ffd91863787d7d92851896b85"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIFontBlendSoftLight.cginc",
+      "sha256": "2da4576aa981c87770e8fa486b820463bf04b14c735c8aef89be015651221582"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendDarkerColor.cginc",
+      "sha256": "72166bc4d2fb1eb5f138743b2906bae5a5b705bcd6dffb0bb7715af0a4d83eea"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendLighten.cginc",
+      "sha256": "1b0d17d04f6681a0e7679e26f31911c6f3557e850c5fcb363ee60f0ce182e61d"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIFontBlendColorDodge.cginc",
+      "sha256": "c9598c88eb7159bdcd2a1fd14d6595de326837938f17ef81a1e6fd8baa60c1fe"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIFontBlendVividLight.cginc",
+      "sha256": "0d5bb3781fd0f59d29d2cc7bfaa19792e4fa120d6d8f8244efcc9164e622dfbc"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIFontBlendLinearBurn.cginc",
+      "sha256": "6be344e4f8c0c14a7145322d0a8af1599e4bab4e8d7750be2fa38ddde8527f29"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendMultiply.cginc",
+      "sha256": "1044f1a21a4a1c58c0573afdf237b6ad8b93d3217704bab07f2c29ca87d3ed2e"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendLinearLight.cginc",
+      "sha256": "61ce9f8fa28779f18fd3e40ea4ea95e51b7d4dda7a61109ca46b055e8670ec2b"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendPinLight.cginc",
+      "sha256": "01394f68e4ce7babb7ba470384fd92d508d003ebbb54ac467e449db9f6184ac0"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendTint.cginc",
+      "sha256": "1b4b11b230be4930da8c383e84cc11f60754c938f8c35868dade79d79fdafad4"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIFontBlendDarkerColor.cginc",
+      "sha256": "3cbb42f0ed05e1b7b8f5db95493776adce68cbe3ba65a5085f53445af434b976"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendDifference.cginc",
+      "sha256": "192cb611ce707eb2eef000292ff5bf4d927f8fdcdae8a10d6473159d212c48aa"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIFontBlendDivide.cginc",
+      "sha256": "e6df6a53fa011195d8dccd27ded263896562cab99fec0cc894653b933875ee5a"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendHardLight.cginc",
+      "sha256": "a7f0ff720786c2e8c5b5951f0f0e649d7eca41c68de5e1fb9ebf76b8c02194a9"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIFontBlendColorBurn.cginc",
+      "sha256": "411d43a8cac110c651044b66efd9ff5a8ca0084e74af11623e04a524d973c4f5"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIBlendExclusion.cginc",
+      "sha256": "b3f6c8f4dbf3732c3d190b9dca4b03aaa18dcb274775323674d63c524ed41991"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIFontBlendTint.cginc",
+      "sha256": "cabebe0395445bdbd611b23e2c6f4e42bdff31fe6028cf0259829c7b636f60a1"
+    },
+    {
+      "path": "Assets/GUIBlendModes/Shaders/Includes/UIFontBlendLinearLight.cginc",
+      "sha256": "1b02d6550bcd64447cf7874f5a52f871958998ef3dce56c10677992f56a657ad"
+    }
+  ]
+}
