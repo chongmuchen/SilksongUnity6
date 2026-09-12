@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEditor.Search;
 using UnityEditor.Search.Providers;
 using UnityEngine;
+using UnityEngine.Search;
 
 // 放到 Assets/Editor/HierarchyFilter.cs。
 // Hierarchy（Advanced 搜索）：customfilter=true
@@ -46,12 +47,82 @@ public static class HierarchyFilter
             material.name, "Crossroads_Material", StringComparison.Ordinal);
     }
 
-    // ===== 以下是固定的搜索入口，通常不需要修改。 =====
+    // ===== 想显示哪些列、先后顺序和宽度，直接修改这里。 =====
+    // 参数依次为：列标题、数据字段、列宽（像素）。位置使用世界坐标。
+    public static SearchColumn[] CreateColumns()
+    {
+        return new[]
+        {
+            CreateColumn("对象名称", "objectName", 200),
+            CreateColumn("Sprite", "sprite", 170),
+            CreateColumn("材质", "material", 190),
+            CreateColumn("位置 X", "positionX", 90),
+            CreateColumn("位置 Y", "positionY", 90),
+            CreateColumn("Sorting Layer", "sortingLayer", 130),
+            CreateColumn("Order in Layer", "sortingOrder", 120),
+        };
+    }
+
+    private static SearchColumn CreateColumn(string title, string field, float width)
+    {
+        return new SearchColumn("Hierarchy Filter/" + field, field,
+            "HierarchyFilter", new GUIContent(title)) { width = width };
+    }
+
+    // 注册列的数据读取方式，让 Unity 在重新加载列配置后仍能读取数据。
+    // 新增一种数据字段时，在下面的 switch 中加一个 case 即可。
+    [SearchColumnProvider("HierarchyFilter")]
+    public static void InitializeColumn(SearchColumn column)
+    {
+        column.getter = args =>
+        {
+            GameObject gameObject = args.item.ToObject<GameObject>();
+            if (gameObject == null)
+                return null;
+
+            switch (args.column.selector)
+            {
+                case "objectName": return gameObject.name;
+                case "positionX": return gameObject.transform.position.x;
+                case "positionY": return gameObject.transform.position.y;
+            }
+
+            SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
+            if (renderer == null)
+                return null;
+
+            switch (args.column.selector)
+            {
+                case "sprite": return renderer.sprite != null ? renderer.sprite.name : "（无）";
+                case "material": return renderer.sharedMaterial != null ? renderer.sharedMaterial.name : "（无）";
+                case "sortingLayer": return renderer.sortingLayerName;
+                case "sortingOrder": return renderer.sortingOrder;
+                default: return null;
+            }
+        };
+    }
+
+    // ===== 一个菜单：打开筛选结果，并在汇总查询完成后打印一次。 =====
     [MenuItem("Tools/Hierarchy Filter")]
     public static void OpenSearch()
     {
-        SearchService.ShowWindow(
-            SearchService.CreateContext("scene", "customfilter=true"));
+        const string query = "customfilter=true";
+
+        var viewState = new SearchViewState(
+            SearchService.CreateContext("scene", query),
+            new SearchTable("Hierarchy Filter", CreateColumns()),
+            SearchViewFlags.TableView);
+        SearchService.ShowWindow(viewState);
+
+        // 显示和汇总分别查询；Matches 只判断条件，不累加计数或打印。
+        SearchService.Request(
+            SearchService.CreateContext("scene", query),
+            (context, results) =>
+            {
+                // 想在检查结束后打印什么，直接修改这里。
+                Debug.Log($"筛选完成，匹配 {results.Count} 个对象。");
+                context.Dispose();
+            });
     }
 }
 #endif
