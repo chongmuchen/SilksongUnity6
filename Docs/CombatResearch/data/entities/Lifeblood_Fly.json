@@ -1,0 +1,1342 @@
+{
+  "schema": "silksong-combat-entity-v1",
+  "journal": {
+    "id": "Lifeblood Fly",
+    "guid": "40046eeda1f353f408b368638050ccc2",
+    "path": "Assets/Data Assets/Enemy Journal/Journal Records/Lifeblood Fly.asset",
+    "key": "NAME_LIFEBLOOD_FLY",
+    "record_type": 0,
+    "kills_required": 8,
+    "required_type": 1,
+    "master_order": 200,
+    "scene_count": 0,
+    "object_names": [
+      "Health Flyer"
+    ],
+    "instance_count": 1
+  },
+  "specimen": {
+    "source": "Assets/Prefabs/Items/Health Flyer.prefab",
+    "line": 699,
+    "name": "Health Flyer",
+    "game_object_id": "1709254077376921",
+    "hp": null,
+    "special_death": null,
+    "invincible": null,
+    "active": null,
+    "damages": [],
+    "fsms": [
+      {
+        "object": "Health Flyer",
+        "game_object_id": "1709254077376921",
+        "component_id": "114875609422105747",
+        "name": "Fly Behaviour",
+        "start": "Idle",
+        "states": [
+          "Idle",
+          "Flip Out",
+          "Fly Away"
+        ],
+        "action_types": [
+          "HutongGames.PlayMaker.Actions.DecelerateV2",
+          "HutongGames.PlayMaker.Actions.DistanceFly",
+          "HutongGames.PlayMaker.Actions.DistanceFlySmooth",
+          "HutongGames.PlayMaker.Actions.FloatCompare",
+          "HutongGames.PlayMaker.Actions.GetVector2Length",
+          "HutongGames.PlayMaker.Actions.GetVelocity2d",
+          "HutongGames.PlayMaker.Actions.RandomFloatV2",
+          "HutongGames.PlayMaker.Actions.SendMessage",
+          "HutongGames.PlayMaker.Actions.SetVelocityAsAngle",
+          "HutongGames.PlayMaker.Actions.ShoveFromWall"
+        ],
+        "line": 757,
+        "lines": 882,
+        "source_sha256": "4c5c450fd1dfa9c04d8d6cef88c4c2ef74948c1a74d0ef39402bf4fe1047bfeb"
+      }
+    ],
+    "components": [
+      "Assets/Scripts/Assembly-CSharp/HealthFlyer.cs",
+      "Assets/Scripts/ProjectCode/Game/04_World_Environment/NonBouncer.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/AudioSourcePitchRandomizerV3.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs"
+    ],
+    "evidence": "journal_reference_component_not_necessarily_body",
+    "is_hornet_scene": false,
+    "is_temp_scene": false
+  },
+  "source_sha256": "9447b0db111776ca4c1e51afaac95e09a19866452bf4e9912105834053fd779e",
+  "fsms": [
+    {
+      "source": "Assets/Prefabs/Items/Health Flyer.prefab",
+      "line": 758,
+      "file_id": 114875609422105747,
+      "owner_id": 1709254077376921,
+      "owner": "Health Flyer",
+      "name": "Fly Behaviour",
+      "start_state": "Idle",
+      "states": [
+        {
+          "name": "Idle",
+          "line": 775,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FLY",
+              "to": "Flip Out"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SendMessage",
+              "full_type": "HutongGames.PlayMaker.Actions.SendMessage",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "delivery": 0,
+                "options": 1,
+                "functionCall": {
+                  "FunctionName": "StopBounce",
+                  "parameterType": "None",
+                  "BoolParameter": 0,
+                  "FloatParameter": 0,
+                  "IntParameter": 0,
+                  "GameObjectParameter": {
+                    "fileID": 0
+                  },
+                  "ObjectParameter": {
+                    "fileID": 0
+                  },
+                  "StringParameter": null,
+                  "Vector2Parameter": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "Vector3Parameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "RectParamater": {
+                    "serializedVersion": 2,
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  },
+                  "QuaternionParameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 0
+                  },
+                  "MaterialParameter": {
+                    "fileID": 0
+                  },
+                  "TextureParameter": {
+                    "fileID": 0
+                  },
+                  "ColorParameter": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 1
+                  },
+                  "EnumParameter": 0,
+                  "ArrayParameter": {
+                    "useVariable": 0,
+                    "name": null,
+                    "tooltip": null,
+                    "showInInspector": 0,
+                    "networkSync": 0,
+                    "type": -1,
+                    "objectTypeName": "UnityEngine.Object",
+                    "floatValues": [],
+                    "intValues": null,
+                    "boolValues": null,
+                    "stringValues": [],
+                    "vector4Values": [],
+                    "objectReferences": []
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Flip Out",
+          "line": 973,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Fly Away"
+            }
+          ],
+          "actions": [
+            {
+              "type": "RandomFloatV2",
+              "full_type": "HutongGames.PlayMaker.Actions.RandomFloatV2",
+              "enabled": true,
+              "params": {
+                "min": 120,
+                "max": 60,
+                "storeResult": {
+                  "var": "Fling Angle",
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "RandomFloatV2",
+              "full_type": "HutongGames.PlayMaker.Actions.RandomFloatV2",
+              "enabled": true,
+              "params": {
+                "min": 5,
+                "max": 8,
+                "storeResult": {
+                  "var": "Fling Speed",
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SetVelocityAsAngle",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocityAsAngle",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "angle": {
+                  "var": "Fling Angle",
+                  "stored": 0
+                },
+                "speed": {
+                  "var": "Fling Speed",
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "DecelerateV2",
+              "full_type": "HutongGames.PlayMaker.Actions.DecelerateV2",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "deceleration": 0.9,
+                "brakeOnExit": false
+              }
+            },
+            {
+              "type": "GetVelocity2d",
+              "full_type": "HutongGames.PlayMaker.Actions.GetVelocity2d",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "var": "Velocity",
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": {
+                  "var": null,
+                  "stored": 0
+                },
+                "space": 0,
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "GetVector2Length",
+              "full_type": "HutongGames.PlayMaker.Actions.GetVector2Length",
+              "enabled": true,
+              "params": {
+                "vector2": {
+                  "var": "Velocity",
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "storeLength": {
+                  "var": "Velocity Magnitude",
+                  "stored": 0
+                },
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "FloatCompare",
+              "full_type": "HutongGames.PlayMaker.Actions.FloatCompare",
+              "enabled": true,
+              "params": {
+                "float1": {
+                  "var": "Velocity Magnitude",
+                  "stored": 0
+                },
+                "float2": 1,
+                "tolerance": 0,
+                "equal": "FINISHED",
+                "lessThan": "FINISHED",
+                "greaterThan": null,
+                "everyFrame": true
+              }
+            }
+          ]
+        },
+        {
+          "name": "Fly Away",
+          "line": 1208,
+          "sequence": 0,
+          "transitions": [],
+          "actions": [
+            {
+              "type": "DistanceFlySmooth",
+              "full_type": "HutongGames.PlayMaker.Actions.DistanceFlySmooth",
+              "enabled": false,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "target": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "distance": 20,
+                "speedMax": 9,
+                "accelerationForce": 1,
+                "targetRadius": 2,
+                "deceleration": 0.9,
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                }
+              }
+            },
+            {
+              "type": "DistanceFly",
+              "full_type": "HutongGames.PlayMaker.Actions.DistanceFly",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "target": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "distance": 30,
+                "speedMax": 6,
+                "acceleration": 0.05,
+                "targetsHeight": false,
+                "height": 0,
+                "minAboveHero": {
+                  "var": null,
+                  "stored": 0
+                }
+              }
+            },
+            {
+              "type": "SendMessage",
+              "full_type": "HutongGames.PlayMaker.Actions.SendMessage",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "delivery": 0,
+                "options": 1,
+                "functionCall": {
+                  "FunctionName": "StartBounce",
+                  "parameterType": "None",
+                  "BoolParameter": 0,
+                  "FloatParameter": 0,
+                  "IntParameter": 0,
+                  "GameObjectParameter": {
+                    "fileID": 0
+                  },
+                  "ObjectParameter": {
+                    "fileID": 0
+                  },
+                  "StringParameter": null,
+                  "Vector2Parameter": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "Vector3Parameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "RectParamater": {
+                    "serializedVersion": 2,
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  },
+                  "QuaternionParameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 0
+                  },
+                  "MaterialParameter": {
+                    "fileID": 0
+                  },
+                  "TextureParameter": {
+                    "fileID": 0
+                  },
+                  "ColorParameter": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 1
+                  },
+                  "EnumParameter": 0,
+                  "ArrayParameter": {
+                    "useVariable": 0,
+                    "name": null,
+                    "tooltip": null,
+                    "showInInspector": 0,
+                    "networkSync": 0,
+                    "type": -1,
+                    "objectTypeName": "UnityEngine.Object",
+                    "floatValues": [],
+                    "intValues": null,
+                    "boolValues": null,
+                    "stringValues": [],
+                    "vector4Values": [],
+                    "objectReferences": []
+                  }
+                }
+              }
+            },
+            {
+              "type": "ShoveFromWall",
+              "full_type": "HutongGames.PlayMaker.Actions.ShoveFromWall",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "shoveForce": 10,
+                "rayLength": 2,
+                "checkUp": true,
+                "checkDown": true,
+                "checkLeft": true,
+                "checkRight": true,
+                "everyFrame": true
+              }
+            }
+          ]
+        }
+      ],
+      "global_transitions": [],
+      "variables": {
+        "floatVariables": [
+          {
+            "useVariable": 1,
+            "name": "Fling Angle",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Fling Speed",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Velocity Magnitude",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          }
+        ],
+        "intVariables": [],
+        "boolVariables": [],
+        "stringVariables": [],
+        "vector2Variables": [
+          {
+            "useVariable": 1,
+            "name": "Velocity",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "x": 0,
+              "y": 0
+            }
+          }
+        ],
+        "vector3Variables": [],
+        "colorVariables": [],
+        "rectVariables": [],
+        "quaternionVariables": [],
+        "gameObjectVariables": [],
+        "objectVariables": [],
+        "materialVariables": [],
+        "textureVariables": [],
+        "arrayVariables": [],
+        "enumVariables": [],
+        "categories": [
+          null
+        ],
+        "variableCategoryIDs": 0
+      },
+      "fsm_metadata": {
+        "dataVersion": 2,
+        "usedInTemplate": {
+          "fileID": 0
+        },
+        "name": "Fly Behaviour",
+        "startState": "Idle",
+        "events": [
+          {
+            "name": "FINISHED",
+            "isSystemEvent": 1,
+            "isGlobal": 0
+          },
+          {
+            "name": "FLY",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          }
+        ],
+        "globalTransitions": [],
+        "description": null,
+        "docUrl": null,
+        "showStateLabel": 0,
+        "maxLoopCount": 0,
+        "watermark": null,
+        "password": null,
+        "locked": 0,
+        "manualUpdate": 0,
+        "outVariableIndices": null,
+        "keepDelayedEventsOnStateExit": 0,
+        "preprocessed": 0,
+        "ExposedEvents": [],
+        "OutputEvents": [],
+        "RestartOnEnable": 1,
+        "ResetVariablesOnEnable": 0,
+        "EnableDebugFlow": 0,
+        "EnableBreakpoints": 1,
+        "editorFlags": 1,
+        "activeStateName": null,
+        "mouseEvents": 0,
+        "handleLevelLoaded": 0,
+        "handleTriggerEnter2D": 0,
+        "handleTriggerExit2D": 0,
+        "handleTriggerStay2D": 0,
+        "handleCollisionEnter2D": 0,
+        "handleCollisionExit2D": 0,
+        "handleCollisionStay2D": 0,
+        "handleTriggerEnter": 0,
+        "handleTriggerExit": 0,
+        "handleTriggerStay": 0,
+        "handleCollisionEnter": 0,
+        "handleCollisionExit": 0,
+        "handleCollisionStay": 0,
+        "handleParticleCollision": 0,
+        "handleControllerColliderHit": 0,
+        "handleJointBreak": 0,
+        "handleJointBreak2D": 0,
+        "handleOnGUI": 0,
+        "handleFixedUpdate": 0,
+        "handleLateUpdate": 0,
+        "handleApplicationEvents": 0,
+        "handleUiEvents": 0,
+        "handleLegacyNetworking": 0,
+        "handleAnimatorMove": 0,
+        "handleAnimatorIK": 0
+      }
+    }
+  ],
+  "game_objects": [
+    {
+      "file_id": "1709254077376921",
+      "name": "Health Flyer",
+      "line": 3,
+      "serialized_yaml": "--- !u!1 &1709254077376921\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4621510681728303}\n  - component: {fileID: 23632457200066912}\n  - component: {fileID: 33634108722742392}\n  - component: {fileID: 114302127217294661}\n  - component: {fileID: 61969106005120503}\n  - component: {fileID: 114642988549198181}\n  - component: {fileID: 50946936116752871}\n  - component: {fileID: 61711914853252429}\n  - component: {fileID: 114918264173551851}\n  - component: {fileID: 114587397909062814}\n  - component: {fileID: 114875609422105747}\n  - component: {fileID: 114371939378208658}\n  - component: {fileID: 82694121525821480}\n  - component: {fileID: 114320256170494724}\n  m_Layer: 11\n  m_Name: Health Flyer\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1730242686860875",
+      "name": "Splat Effect",
+      "line": 32,
+      "serialized_yaml": "--- !u!1 &1730242686860875\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4017697238300914}\n  - component: {fileID: 33733206282342372}\n  - component: {fileID: 23217368724061974}\n  - component: {fileID: 114089843903986396}\n  - component: {fileID: 114672306508523268}\n  - component: {fileID: 114808113985169905}\n  m_Layer: 0\n  m_Name: Splat Effect\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "1724804207875695",
+      "name": "Pool",
+      "line": 53,
+      "serialized_yaml": "--- !u!1 &1724804207875695\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4060945828524476}\n  m_Layer: 11\n  m_Name: Pool\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1618682377417806",
+      "name": "Spatter Blue Heal",
+      "line": 69,
+      "serialized_yaml": "--- !u!1 &1618682377417806\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4900271049623953}\n  - component: {fileID: 212472185465350827}\n  - component: {fileID: 50518489005915545}\n  - component: {fileID: 114220653531496868}\n  - component: {fileID: 114841364053301648}\n  m_Layer: 0\n  m_Name: Spatter Blue Heal\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "1703437598541787",
+      "name": "Pt Health Get",
+      "line": 89,
+      "serialized_yaml": "--- !u!1 &1703437598541787\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4967328832014496}\n  - component: {fileID: 198291844617409189}\n  - component: {fileID: 199344419225485095}\n  m_Layer: 16\n  m_Name: Pt Health Get\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1884547391421755",
+      "name": "Spatter Blue Heal (1)",
+      "line": 107,
+      "serialized_yaml": "--- !u!1 &1884547391421755\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4919942235722503}\n  - component: {fileID: 212107629493147155}\n  - component: {fileID: 50833703512093738}\n  - component: {fileID: 114632746491512912}\n  - component: {fileID: 114719342369648492}\n  m_Layer: 0\n  m_Name: Spatter Blue Heal (1)\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "1099118695303065",
+      "name": "Pt Health Get",
+      "line": 127,
+      "serialized_yaml": "--- !u!1 &1099118695303065\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4726790013014859}\n  - component: {fileID: 198436073260064126}\n  - component: {fileID: 199693329660128220}\n  m_Layer: 16\n  m_Name: Pt Health Get\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1243736805655561",
+      "name": "Spatter Blue Heal (2)",
+      "line": 145,
+      "serialized_yaml": "--- !u!1 &1243736805655561\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4801075752484240}\n  - component: {fileID: 212000955326284023}\n  - component: {fileID: 50397768327470545}\n  - component: {fileID: 114571718729274231}\n  - component: {fileID: 114581786255902400}\n  m_Layer: 0\n  m_Name: Spatter Blue Heal (2)\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "1061268324235159",
+      "name": "Pt Health Get",
+      "line": 165,
+      "serialized_yaml": "--- !u!1 &1061268324235159\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4477046003934300}\n  - component: {fileID: 198045458335737618}\n  - component: {fileID: 199722951815217645}\n  m_Layer: 16\n  m_Name: Pt Health Get\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1587765826080250",
+      "name": "Spatter Blue Heal (3)",
+      "line": 183,
+      "serialized_yaml": "--- !u!1 &1587765826080250\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4924050743934937}\n  - component: {fileID: 212215879266689626}\n  - component: {fileID: 50689364072382846}\n  - component: {fileID: 114043919389829319}\n  - component: {fileID: 114743393880019028}\n  m_Layer: 0\n  m_Name: Spatter Blue Heal (3)\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "1709867586078768",
+      "name": "Pt Health Get",
+      "line": 203,
+      "serialized_yaml": "--- !u!1 &1709867586078768\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4094320201520353}\n  - component: {fileID: 198026196548002408}\n  - component: {fileID: 199572839542275309}\n  m_Layer: 16\n  m_Name: Pt Health Get\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1044625135789424",
+      "name": "Spatter Blue Heal (4)",
+      "line": 221,
+      "serialized_yaml": "--- !u!1 &1044625135789424\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4279359913592680}\n  - component: {fileID: 212384403120170545}\n  - component: {fileID: 50149520701623706}\n  - component: {fileID: 114292246286975720}\n  - component: {fileID: 114693062532245359}\n  m_Layer: 0\n  m_Name: Spatter Blue Heal (4)\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "1589667821646929",
+      "name": "Pt Health Get",
+      "line": 241,
+      "serialized_yaml": "--- !u!1 &1589667821646929\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4630643969539439}\n  - component: {fileID: 198370222726513266}\n  - component: {fileID: 199574304967836189}\n  m_Layer: 16\n  m_Name: Pt Health Get\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1372920208702427",
+      "name": "Spatter Blue Heal (5)",
+      "line": 259,
+      "serialized_yaml": "--- !u!1 &1372920208702427\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4009931292380359}\n  - component: {fileID: 212393105877652414}\n  - component: {fileID: 50799762105739359}\n  - component: {fileID: 114829625606037309}\n  - component: {fileID: 114574190619683098}\n  m_Layer: 0\n  m_Name: Spatter Blue Heal (5)\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "1025901758691103",
+      "name": "Pt Health Get",
+      "line": 279,
+      "serialized_yaml": "--- !u!1 &1025901758691103\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4552309709192268}\n  - component: {fileID: 198571878917323452}\n  - component: {fileID: 199534704304255049}\n  m_Layer: 16\n  m_Name: Pt Health Get\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1985305603660343",
+      "name": "Spatter Blue Heal (6)",
+      "line": 297,
+      "serialized_yaml": "--- !u!1 &1985305603660343\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4651560128206891}\n  - component: {fileID: 212964469411310401}\n  - component: {fileID: 50208575754630950}\n  - component: {fileID: 114431740505123533}\n  - component: {fileID: 114356319167443197}\n  m_Layer: 0\n  m_Name: Spatter Blue Heal (6)\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "1705390221481576",
+      "name": "Pt Health Get",
+      "line": 317,
+      "serialized_yaml": "--- !u!1 &1705390221481576\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4976365255789935}\n  - component: {fileID: 198699617135816954}\n  - component: {fileID: 199264357844037074}\n  m_Layer: 16\n  m_Name: Pt Health Get\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1977153420339851",
+      "name": "Spatter Blue Heal (7)",
+      "line": 335,
+      "serialized_yaml": "--- !u!1 &1977153420339851\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4499726237547504}\n  - component: {fileID: 212658330495870062}\n  - component: {fileID: 50703931505913403}\n  - component: {fileID: 114121005239445321}\n  - component: {fileID: 114806657225351454}\n  m_Layer: 0\n  m_Name: Spatter Blue Heal (7)\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "1336590748365959",
+      "name": "Pt Health Get",
+      "line": 355,
+      "serialized_yaml": "--- !u!1 &1336590748365959\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4704330047573733}\n  - component: {fileID: 198085275382694935}\n  - component: {fileID: 199231814100211528}\n  m_Layer: 16\n  m_Name: Pt Health Get\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1256069497284392",
+      "name": "Spatter Blue Heal (8)",
+      "line": 373,
+      "serialized_yaml": "--- !u!1 &1256069497284392\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4194081240383615}\n  - component: {fileID: 212354824845356902}\n  - component: {fileID: 50770005084341472}\n  - component: {fileID: 114123703392571528}\n  - component: {fileID: 114855482821919830}\n  m_Layer: 0\n  m_Name: Spatter Blue Heal (8)\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "1161607090078389",
+      "name": "Pt Health Get",
+      "line": 393,
+      "serialized_yaml": "--- !u!1 &1161607090078389\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4492842699383957}\n  - component: {fileID: 198150646884989824}\n  - component: {fileID: 199880619614767448}\n  m_Layer: 16\n  m_Name: Pt Health Get\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1002669891404536",
+      "name": "Spatter Blue Heal (9)",
+      "line": 411,
+      "serialized_yaml": "--- !u!1 &1002669891404536\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4167524263268962}\n  - component: {fileID: 212641631609468814}\n  - component: {fileID: 50533803739292891}\n  - component: {fileID: 114601984538237284}\n  - component: {fileID: 114785330607447594}\n  m_Layer: 0\n  m_Name: Spatter Blue Heal (9)\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "1470112387431263",
+      "name": "Pt Health Get",
+      "line": 431,
+      "serialized_yaml": "--- !u!1 &1470112387431263\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4007513189690300}\n  - component: {fileID: 198690175861776792}\n  - component: {fileID: 199969505138979683}\n  m_Layer: 16\n  m_Name: Pt Health Get\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1313026266067498",
+      "name": "Ground Detector",
+      "line": 449,
+      "serialized_yaml": "--- !u!1 &1313026266067498\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4190181876552715}\n  - component: {fileID: 114240571728440943}\n  - component: {fileID: 61617365563186364}\n  m_Layer: 14\n  m_Name: Ground Detector\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    }
+  ],
+  "components": [
+    {
+      "file_id": "4621510681728303",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "4",
+      "line": 467,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4621510681728303\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 158.721, y: 11.827154, z: 0}\n  m_LocalScale: {x: 1.5, y: 1.5, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 4017697238300914}\n  - {fileID: 4060945828524476}\n  - {fileID: 4190181876552715}\n  m_Father: {fileID: 0}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "114302127217294661",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "114",
+      "line": 538,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "serialized_yaml": "--- !u!114 &114302127217294661\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 461acbcb857d4478aaa8e8e64ee6f52a, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  collection: {fileID: 114724804207875695, guid: 03ffe39052e33f440ac4965644c847df, type: 2}\n  _color: {r: 1, g: 1, b: 1, a: 1}\n  _scale: {x: 1, y: 1, z: 1}\n  _spriteId: 71\n  boxCollider2D: {fileID: 61969106005120503}\n  polygonCollider2D: []\n  edgeCollider2D: []\n  boxCollider: {fileID: 0}\n  meshCollider: {fileID: 0}\n  meshColliderPositions: []\n  meshColliderMesh: {fileID: 0}\n  renderLayer: 0\n"
+    },
+    {
+      "file_id": "61969106005120503",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "61",
+      "line": 562,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &61969106005120503\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 0, y: -0.06}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 0.77, y: 0.89}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "114642988549198181",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "114",
+      "line": 608,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs",
+      "serialized_yaml": "--- !u!114 &114642988549198181\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5996133e774984aa7a33c40ed829e17f, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  spriteOverride: {fileID: 0}\n  library: {fileID: 114724804207875695, guid: 5d88a6544bd94fe468db88885e856d04, type: 2}\n  defaultClipId: 6\n  isRealtime: 0\n  playAutomatically: 1\n  playAutomaticallyOnEnable: 0\n"
+    },
+    {
+      "file_id": "50946936116752871",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "50",
+      "line": 626,
+      "script": null,
+      "serialized_yaml": "--- !u!50 &50946936116752871\nRigidbody2D:\n  serializedVersion: 5\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_BodyType: 0\n  m_Simulated: 1\n  m_UseFullKinematicContacts: 0\n  m_UseAutoMass: 0\n  m_Mass: 1\n  m_LinearDamping: 0\n  m_AngularDamping: 0.05\n  m_GravityScale: 0.6\n  m_Material: {fileID: 6200000, guid: abb8fee52a3f3064f9b985c6fc9ee954, type: 2}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_Interpolate: 0\n  m_SleepingMode: 1\n  m_CollisionDetection: 1\n  m_Constraints: 4\n"
+    },
+    {
+      "file_id": "61711914853252429",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "61",
+      "line": 653,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &61711914853252429\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 0, y: -0.06}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 0.77, y: 0.89}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "114918264173551851",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "114",
+      "line": 699,
+      "script": "Assets/Scripts/Assembly-CSharp/HealthFlyer.cs",
+      "serialized_yaml": "--- !u!114 &114918264173551851\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: f4668fb8cdcd92b892815f8a00de39c1, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  fallAnim: Spawn\n  landAnim: Flapper Land\n  flyAnim: Flapper Fly\n  landDetector: {fileID: 114240571728440943}\n  landAudio: {fileID: 11400000, guid: da23078241bbb3444879bff5e7f49ca3, type: 2}\n  corpsePrefab: {fileID: 0}\n  splatEffectChild: {fileID: 1730242686860875}\n  strikeNailPrefab: {fileID: 1709254077376921, guid: 64c20baf394ac9a41b03deea82568445, type: 2}\n  slashImpactPrefab: {fileID: 1709254077376921, guid: 97c9ba031f06bae4681d3fda13c3f87b, type: 2}\n  fireballHitPrefab: {fileID: 1709254077376921, guid: d8b4b2d25606b7d468e78329e4c33875, type: 2}\n  deathSound1:\n    Clip: {fileID: 8300000, guid: cadfc16ee055c944da51081b220f0a1a, type: 3}\n    PitchMin: 0.9\n    PitchMax: 1.1\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  deathSound2:\n    Clip: {fileID: 8300000, guid: d921724037ad76c429becd63cb4c9677, type: 3}\n    PitchMin: 0.9\n    PitchMax: 1.1\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  pool: {fileID: 1724804207875695}\n  screenFlash: {fileID: 1709254077376921, guid: 1ee64b0806ba6b747b7edda956248058, type: 2}\n  bloodColor: {r: 0.1454909, g: 0.6560647, b: 0.8602941, a: 1}\n  killShake:\n    camera: {fileID: 11400000, guid: 9b0888e0916dca544846a2f34304dac9, type: 2}\n    profile: {fileID: 11400000, guid: 279f38013a080f34999cd00fbee1b9c2, type: 2}\n    doFreeze: 1\n    vibrate: 1\n  journalData: {fileID: 11400000, guid: 40046eeda1f353f408b368638050ccc2, type: 2}\n  flyBehaviour: {fileID: 114875609422105747}\n  flyLoopAudio: {fileID: 82694121525821480}\n"
+    },
+    {
+      "file_id": "114587397909062814",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "114",
+      "line": 744,
+      "script": "Assets/Scripts/ProjectCode/Game/04_World_Environment/NonBouncer.cs",
+      "serialized_yaml": "--- !u!114 &114587397909062814\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 1f42ed389da1036c0c3bd14ce50619bc, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  active: 1\n"
+    },
+    {
+      "file_id": "114371939378208658",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "114",
+      "line": 1639,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "serialized_yaml": "--- !u!114 &114371939378208658\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9a4a05480320f7f0c7f74a7198222c9e, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  z: 0.006\n  dontRandomize: 0\n  randomizeFromStartingValue: 0\n  delayBeforeRandomizing: 0.5\n  waitFrames: 0\n  deParent: 0\n"
+    },
+    {
+      "file_id": "82694121525821480",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "82",
+      "line": 1657,
+      "script": null,
+      "serialized_yaml": "--- !u!82 &82694121525821480\nAudioSource:\n  serializedVersion: 4\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  OutputAudioMixerGroup: {fileID: 24300004, guid: d910a835fc4287448b891cc742c2a38a, type: 2}\n  m_audioClip: {fileID: 8300000, guid: f03bc3b0aadea7c4584a746673866fff, type: 3}\n  m_Resource: {fileID: 8300000, guid: f03bc3b0aadea7c4584a746673866fff, type: 3}\n  m_PlayOnAwake: 0\n  m_Volume: 1\n  m_Pitch: 1\n  Loop: 1\n  Mute: 0\n  Spatialize: 0\n  SpatializePostEffects: 0\n  Priority: 128\n  DopplerLevel: 0\n  MinDistance: 39\n  MaxDistance: 60\n  Pan2D: 0\n  rolloffMode: 2\n  BypassEffects: 0\n  BypassListenerEffects: 0\n  BypassReverbZones: 0\n  rolloffCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0.78\n      value: 1\n      inSlope: -7.2560205\n      outSlope: -7.2560205\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    - serializedVersion: 3\n      time: 0.9787131\n      value: 0.007873535\n      inSlope: -2.3973467\n      outSlope: -2.3973467\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  panLevelCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  spreadCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 0\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  reverbZoneMixCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n"
+    },
+    {
+      "file_id": "114320256170494724",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "114",
+      "line": 1754,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/AudioSourcePitchRandomizerV3.cs",
+      "serialized_yaml": "--- !u!114 &114320256170494724\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 60a3cc3382d4b1170b32e24b407e9378, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  pitchLower: 1.1\n  pitchUpper: 1.2\n  playAfterPitchSet: 0\n"
+    },
+    {
+      "file_id": "4017697238300914",
+      "game_object_id": "1730242686860875",
+      "unity_class_id": "4",
+      "line": 1769,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4017697238300914\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1730242686860875}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0.033200584, y: -0.19920349, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4621510681728303}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "114089843903986396",
+      "game_object_id": "1730242686860875",
+      "unity_class_id": "114",
+      "line": 1837,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "serialized_yaml": "--- !u!114 &114089843903986396\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1730242686860875}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 461acbcb857d4478aaa8e8e64ee6f52a, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  collection: {fileID: 114724804207875695, guid: cfc2bbb10f3cbbb4eaa1d587ec2f0fcc, type: 2}\n  _color: {r: 0, g: 1, b: 1, a: 1}\n  _scale: {x: 1, y: 1, z: 1}\n  _spriteId: 76\n  boxCollider2D: {fileID: 0}\n  polygonCollider2D: []\n  edgeCollider2D: []\n  boxCollider: {fileID: 0}\n  meshCollider: {fileID: 0}\n  meshColliderPositions: []\n  meshColliderMesh: {fileID: 0}\n  renderLayer: 0\n"
+    },
+    {
+      "file_id": "114672306508523268",
+      "game_object_id": "1730242686860875",
+      "unity_class_id": "114",
+      "line": 1861,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs",
+      "serialized_yaml": "--- !u!114 &114672306508523268\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1730242686860875}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5996133e774984aa7a33c40ed829e17f, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  spriteOverride: {fileID: 0}\n  library: {fileID: 114724804207875695, guid: 638d37c542639964baa59bc3957cb769, type: 2}\n  defaultClipId: 7\n  isRealtime: 0\n  playAutomatically: 1\n  playAutomaticallyOnEnable: 0\n"
+    },
+    {
+      "file_id": "114808113985169905",
+      "game_object_id": "1730242686860875",
+      "unity_class_id": "114",
+      "line": 1879,
+      "script": "Assets/Scripts/ProjectCode/Game/04_World_Environment/DeactivateAfter2dtkAnimation.cs",
+      "serialized_yaml": "--- !u!114 &114808113985169905\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1730242686860875}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 8e9b1b7625abc2760182cdea46887a86, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  animators:\n  - {fileID: 114672306508523268}\n  stayInPlace: 0\n  matchParentScale: 0\n  randomlyFlipXScale: 0\n  randomlyFlipYScale: 0\n  keepScaleSign: 0\n  myParent: {fileID: 0}\n  deactivateMeshRendererInstead: 0\n  spriteAnimator: {fileID: 0}\n"
+    },
+    {
+      "file_id": "4060945828524476",
+      "game_object_id": "1724804207875695",
+      "unity_class_id": "4",
+      "line": 1901,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4060945828524476\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1724804207875695}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 4900271049623953}\n  - {fileID: 4919942235722503}\n  - {fileID: 4801075752484240}\n  - {fileID: 4924050743934937}\n  - {fileID: 4279359913592680}\n  - {fileID: 4009931292380359}\n  - {fileID: 4651560128206891}\n  - {fileID: 4499726237547504}\n  - {fileID: 4194081240383615}\n  - {fileID: 4167524263268962}\n  m_Father: {fileID: 4621510681728303}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "4900271049623953",
+      "game_object_id": "1618682377417806",
+      "unity_class_id": "4",
+      "line": 1926,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4900271049623953\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1618682377417806}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.5, y: 1.5, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 4967328832014496}\n  m_Father: {fileID: 4060945828524476}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "50518489005915545",
+      "game_object_id": "1618682377417806",
+      "unity_class_id": "50",
+      "line": 1997,
+      "script": null,
+      "serialized_yaml": "--- !u!50 &50518489005915545\nRigidbody2D:\n  serializedVersion: 5\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1618682377417806}\n  m_BodyType: 0\n  m_Simulated: 1\n  m_UseFullKinematicContacts: 0\n  m_UseAutoMass: 0\n  m_Mass: 1\n  m_LinearDamping: 0\n  m_AngularDamping: 0.05\n  m_GravityScale: 0.5\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_Interpolate: 0\n  m_SleepingMode: 1\n  m_CollisionDetection: 0\n  m_Constraints: 0\n"
+    },
+    {
+      "file_id": "114220653531496868",
+      "game_object_id": "1618682377417806",
+      "unity_class_id": "114",
+      "line": 2024,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "serialized_yaml": "--- !u!114 &114220653531496868\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1618682377417806}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9a4a05480320f7f0c7f74a7198222c9e, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  z: 0.001\n  dontRandomize: 0\n  randomizeFromStartingValue: 0\n  delayBeforeRandomizing: 0.5\n  waitFrames: 0\n  deParent: 0\n"
+    },
+    {
+      "file_id": "114841364053301648",
+      "game_object_id": "1618682377417806",
+      "unity_class_id": "114",
+      "line": 2042,
+      "script": "Assets/Scripts/Assembly-CSharp/SpatterHealth.cs",
+      "serialized_yaml": "--- !u!114 &114841364053301648\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1618682377417806}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5e034cf6782eec0a5987350bf8ca9416, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  healthGetEffect: {fileID: 1703437598541787}\n  getAudio:\n    Clips:\n    - {fileID: 8300000, guid: a8a62e9e99766e945ae6a4cf28394598, type: 3}\n    - {fileID: 8300000, guid: 21c77df8c46708147b20a3181b821dcd, type: 3}\n    - {fileID: 8300000, guid: 98a38c830cfcd5b479d234763b082c60, type: 3}\n    PitchMin: 0.9\n    PitchMax: 1.1\n    Volume: 1\n    vibrations: []\n"
+    },
+    {
+      "file_id": "4967328832014496",
+      "game_object_id": "1703437598541787",
+      "unity_class_id": "4",
+      "line": 2064,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4967328832014496\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1703437598541787}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.9634, y: 1.9634, z: 1.9634}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4900271049623953}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "4919942235722503",
+      "game_object_id": "1884547391421755",
+      "unity_class_id": "4",
+      "line": 4393,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4919942235722503\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1884547391421755}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.5, y: 1.5, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 4726790013014859}\n  m_Father: {fileID: 4060945828524476}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "50833703512093738",
+      "game_object_id": "1884547391421755",
+      "unity_class_id": "50",
+      "line": 4464,
+      "script": null,
+      "serialized_yaml": "--- !u!50 &50833703512093738\nRigidbody2D:\n  serializedVersion: 5\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1884547391421755}\n  m_BodyType: 0\n  m_Simulated: 1\n  m_UseFullKinematicContacts: 0\n  m_UseAutoMass: 0\n  m_Mass: 1\n  m_LinearDamping: 0\n  m_AngularDamping: 0.05\n  m_GravityScale: 0.5\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_Interpolate: 0\n  m_SleepingMode: 1\n  m_CollisionDetection: 0\n  m_Constraints: 0\n"
+    },
+    {
+      "file_id": "114632746491512912",
+      "game_object_id": "1884547391421755",
+      "unity_class_id": "114",
+      "line": 4491,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "serialized_yaml": "--- !u!114 &114632746491512912\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1884547391421755}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9a4a05480320f7f0c7f74a7198222c9e, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  z: 0.001\n  dontRandomize: 0\n  randomizeFromStartingValue: 0\n  delayBeforeRandomizing: 0.5\n  waitFrames: 0\n  deParent: 0\n"
+    },
+    {
+      "file_id": "114719342369648492",
+      "game_object_id": "1884547391421755",
+      "unity_class_id": "114",
+      "line": 4509,
+      "script": "Assets/Scripts/Assembly-CSharp/SpatterHealth.cs",
+      "serialized_yaml": "--- !u!114 &114719342369648492\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1884547391421755}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5e034cf6782eec0a5987350bf8ca9416, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  healthGetEffect: {fileID: 1099118695303065}\n  getAudio:\n    Clips:\n    - {fileID: 8300000, guid: a8a62e9e99766e945ae6a4cf28394598, type: 3}\n    - {fileID: 8300000, guid: 21c77df8c46708147b20a3181b821dcd, type: 3}\n    - {fileID: 8300000, guid: 98a38c830cfcd5b479d234763b082c60, type: 3}\n    PitchMin: 0.9\n    PitchMax: 1.1\n    Volume: 1\n    vibrations: []\n"
+    },
+    {
+      "file_id": "4726790013014859",
+      "game_object_id": "1099118695303065",
+      "unity_class_id": "4",
+      "line": 4531,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4726790013014859\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1099118695303065}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.9634, y: 1.9634, z: 1.9634}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4919942235722503}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "4801075752484240",
+      "game_object_id": "1243736805655561",
+      "unity_class_id": "4",
+      "line": 6860,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4801075752484240\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1243736805655561}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.5, y: 1.5, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 4477046003934300}\n  m_Father: {fileID: 4060945828524476}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "50397768327470545",
+      "game_object_id": "1243736805655561",
+      "unity_class_id": "50",
+      "line": 6931,
+      "script": null,
+      "serialized_yaml": "--- !u!50 &50397768327470545\nRigidbody2D:\n  serializedVersion: 5\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1243736805655561}\n  m_BodyType: 0\n  m_Simulated: 1\n  m_UseFullKinematicContacts: 0\n  m_UseAutoMass: 0\n  m_Mass: 1\n  m_LinearDamping: 0\n  m_AngularDamping: 0.05\n  m_GravityScale: 0.5\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_Interpolate: 0\n  m_SleepingMode: 1\n  m_CollisionDetection: 0\n  m_Constraints: 0\n"
+    },
+    {
+      "file_id": "114571718729274231",
+      "game_object_id": "1243736805655561",
+      "unity_class_id": "114",
+      "line": 6958,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "serialized_yaml": "--- !u!114 &114571718729274231\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1243736805655561}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9a4a05480320f7f0c7f74a7198222c9e, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  z: 0.001\n  dontRandomize: 0\n  randomizeFromStartingValue: 0\n  delayBeforeRandomizing: 0.5\n  waitFrames: 0\n  deParent: 0\n"
+    },
+    {
+      "file_id": "114581786255902400",
+      "game_object_id": "1243736805655561",
+      "unity_class_id": "114",
+      "line": 6976,
+      "script": "Assets/Scripts/Assembly-CSharp/SpatterHealth.cs",
+      "serialized_yaml": "--- !u!114 &114581786255902400\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1243736805655561}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5e034cf6782eec0a5987350bf8ca9416, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  healthGetEffect: {fileID: 1061268324235159}\n  getAudio:\n    Clips:\n    - {fileID: 8300000, guid: a8a62e9e99766e945ae6a4cf28394598, type: 3}\n    - {fileID: 8300000, guid: 21c77df8c46708147b20a3181b821dcd, type: 3}\n    - {fileID: 8300000, guid: 98a38c830cfcd5b479d234763b082c60, type: 3}\n    PitchMin: 0.9\n    PitchMax: 1.1\n    Volume: 1\n    vibrations: []\n"
+    },
+    {
+      "file_id": "4477046003934300",
+      "game_object_id": "1061268324235159",
+      "unity_class_id": "4",
+      "line": 6998,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4477046003934300\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1061268324235159}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.9634, y: 1.9634, z: 1.9634}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4801075752484240}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "4924050743934937",
+      "game_object_id": "1587765826080250",
+      "unity_class_id": "4",
+      "line": 9327,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4924050743934937\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1587765826080250}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.5, y: 1.5, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 4094320201520353}\n  m_Father: {fileID: 4060945828524476}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "50689364072382846",
+      "game_object_id": "1587765826080250",
+      "unity_class_id": "50",
+      "line": 9398,
+      "script": null,
+      "serialized_yaml": "--- !u!50 &50689364072382846\nRigidbody2D:\n  serializedVersion: 5\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1587765826080250}\n  m_BodyType: 0\n  m_Simulated: 1\n  m_UseFullKinematicContacts: 0\n  m_UseAutoMass: 0\n  m_Mass: 1\n  m_LinearDamping: 0\n  m_AngularDamping: 0.05\n  m_GravityScale: 0.5\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_Interpolate: 0\n  m_SleepingMode: 1\n  m_CollisionDetection: 0\n  m_Constraints: 0\n"
+    },
+    {
+      "file_id": "114043919389829319",
+      "game_object_id": "1587765826080250",
+      "unity_class_id": "114",
+      "line": 9425,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "serialized_yaml": "--- !u!114 &114043919389829319\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1587765826080250}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9a4a05480320f7f0c7f74a7198222c9e, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  z: 0.001\n  dontRandomize: 0\n  randomizeFromStartingValue: 0\n  delayBeforeRandomizing: 0.5\n  waitFrames: 0\n  deParent: 0\n"
+    },
+    {
+      "file_id": "114743393880019028",
+      "game_object_id": "1587765826080250",
+      "unity_class_id": "114",
+      "line": 9443,
+      "script": "Assets/Scripts/Assembly-CSharp/SpatterHealth.cs",
+      "serialized_yaml": "--- !u!114 &114743393880019028\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1587765826080250}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5e034cf6782eec0a5987350bf8ca9416, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  healthGetEffect: {fileID: 1709867586078768}\n  getAudio:\n    Clips:\n    - {fileID: 8300000, guid: a8a62e9e99766e945ae6a4cf28394598, type: 3}\n    - {fileID: 8300000, guid: 21c77df8c46708147b20a3181b821dcd, type: 3}\n    - {fileID: 8300000, guid: 98a38c830cfcd5b479d234763b082c60, type: 3}\n    PitchMin: 0.9\n    PitchMax: 1.1\n    Volume: 1\n    vibrations: []\n"
+    },
+    {
+      "file_id": "4094320201520353",
+      "game_object_id": "1709867586078768",
+      "unity_class_id": "4",
+      "line": 9465,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4094320201520353\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709867586078768}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.9634, y: 1.9634, z: 1.9634}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4924050743934937}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "4279359913592680",
+      "game_object_id": "1044625135789424",
+      "unity_class_id": "4",
+      "line": 11794,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4279359913592680\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1044625135789424}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.5, y: 1.5, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 4630643969539439}\n  m_Father: {fileID: 4060945828524476}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "50149520701623706",
+      "game_object_id": "1044625135789424",
+      "unity_class_id": "50",
+      "line": 11865,
+      "script": null,
+      "serialized_yaml": "--- !u!50 &50149520701623706\nRigidbody2D:\n  serializedVersion: 5\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1044625135789424}\n  m_BodyType: 0\n  m_Simulated: 1\n  m_UseFullKinematicContacts: 0\n  m_UseAutoMass: 0\n  m_Mass: 1\n  m_LinearDamping: 0\n  m_AngularDamping: 0.05\n  m_GravityScale: 0.5\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_Interpolate: 0\n  m_SleepingMode: 1\n  m_CollisionDetection: 0\n  m_Constraints: 0\n"
+    },
+    {
+      "file_id": "114292246286975720",
+      "game_object_id": "1044625135789424",
+      "unity_class_id": "114",
+      "line": 11892,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "serialized_yaml": "--- !u!114 &114292246286975720\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1044625135789424}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9a4a05480320f7f0c7f74a7198222c9e, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  z: 0.001\n  dontRandomize: 0\n  randomizeFromStartingValue: 0\n  delayBeforeRandomizing: 0.5\n  waitFrames: 0\n  deParent: 0\n"
+    },
+    {
+      "file_id": "114693062532245359",
+      "game_object_id": "1044625135789424",
+      "unity_class_id": "114",
+      "line": 11910,
+      "script": "Assets/Scripts/Assembly-CSharp/SpatterHealth.cs",
+      "serialized_yaml": "--- !u!114 &114693062532245359\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1044625135789424}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5e034cf6782eec0a5987350bf8ca9416, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  healthGetEffect: {fileID: 1589667821646929}\n  getAudio:\n    Clips:\n    - {fileID: 8300000, guid: a8a62e9e99766e945ae6a4cf28394598, type: 3}\n    - {fileID: 8300000, guid: 21c77df8c46708147b20a3181b821dcd, type: 3}\n    - {fileID: 8300000, guid: 98a38c830cfcd5b479d234763b082c60, type: 3}\n    PitchMin: 0.9\n    PitchMax: 1.1\n    Volume: 1\n    vibrations: []\n"
+    },
+    {
+      "file_id": "4630643969539439",
+      "game_object_id": "1589667821646929",
+      "unity_class_id": "4",
+      "line": 11932,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4630643969539439\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1589667821646929}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.9634, y: 1.9634, z: 1.9634}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4279359913592680}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "4009931292380359",
+      "game_object_id": "1372920208702427",
+      "unity_class_id": "4",
+      "line": 14261,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4009931292380359\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1372920208702427}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.5, y: 1.5, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 4552309709192268}\n  m_Father: {fileID: 4060945828524476}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "50799762105739359",
+      "game_object_id": "1372920208702427",
+      "unity_class_id": "50",
+      "line": 14332,
+      "script": null,
+      "serialized_yaml": "--- !u!50 &50799762105739359\nRigidbody2D:\n  serializedVersion: 5\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1372920208702427}\n  m_BodyType: 0\n  m_Simulated: 1\n  m_UseFullKinematicContacts: 0\n  m_UseAutoMass: 0\n  m_Mass: 1\n  m_LinearDamping: 0\n  m_AngularDamping: 0.05\n  m_GravityScale: 0.5\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_Interpolate: 0\n  m_SleepingMode: 1\n  m_CollisionDetection: 0\n  m_Constraints: 0\n"
+    },
+    {
+      "file_id": "114829625606037309",
+      "game_object_id": "1372920208702427",
+      "unity_class_id": "114",
+      "line": 14359,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "serialized_yaml": "--- !u!114 &114829625606037309\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1372920208702427}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9a4a05480320f7f0c7f74a7198222c9e, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  z: 0.001\n  dontRandomize: 0\n  randomizeFromStartingValue: 0\n  delayBeforeRandomizing: 0.5\n  waitFrames: 0\n  deParent: 0\n"
+    },
+    {
+      "file_id": "114574190619683098",
+      "game_object_id": "1372920208702427",
+      "unity_class_id": "114",
+      "line": 14377,
+      "script": "Assets/Scripts/Assembly-CSharp/SpatterHealth.cs",
+      "serialized_yaml": "--- !u!114 &114574190619683098\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1372920208702427}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5e034cf6782eec0a5987350bf8ca9416, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  healthGetEffect: {fileID: 1025901758691103}\n  getAudio:\n    Clips:\n    - {fileID: 8300000, guid: a8a62e9e99766e945ae6a4cf28394598, type: 3}\n    - {fileID: 8300000, guid: 21c77df8c46708147b20a3181b821dcd, type: 3}\n    - {fileID: 8300000, guid: 98a38c830cfcd5b479d234763b082c60, type: 3}\n    PitchMin: 0.9\n    PitchMax: 1.1\n    Volume: 1\n    vibrations: []\n"
+    },
+    {
+      "file_id": "4552309709192268",
+      "game_object_id": "1025901758691103",
+      "unity_class_id": "4",
+      "line": 14399,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4552309709192268\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1025901758691103}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.9634, y: 1.9634, z: 1.9634}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4009931292380359}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "4651560128206891",
+      "game_object_id": "1985305603660343",
+      "unity_class_id": "4",
+      "line": 16728,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4651560128206891\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1985305603660343}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.5, y: 1.5, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 4976365255789935}\n  m_Father: {fileID: 4060945828524476}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "50208575754630950",
+      "game_object_id": "1985305603660343",
+      "unity_class_id": "50",
+      "line": 16799,
+      "script": null,
+      "serialized_yaml": "--- !u!50 &50208575754630950\nRigidbody2D:\n  serializedVersion: 5\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1985305603660343}\n  m_BodyType: 0\n  m_Simulated: 1\n  m_UseFullKinematicContacts: 0\n  m_UseAutoMass: 0\n  m_Mass: 1\n  m_LinearDamping: 0\n  m_AngularDamping: 0.05\n  m_GravityScale: 0.5\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_Interpolate: 0\n  m_SleepingMode: 1\n  m_CollisionDetection: 0\n  m_Constraints: 0\n"
+    },
+    {
+      "file_id": "114431740505123533",
+      "game_object_id": "1985305603660343",
+      "unity_class_id": "114",
+      "line": 16826,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "serialized_yaml": "--- !u!114 &114431740505123533\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1985305603660343}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9a4a05480320f7f0c7f74a7198222c9e, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  z: 0.001\n  dontRandomize: 0\n  randomizeFromStartingValue: 0\n  delayBeforeRandomizing: 0.5\n  waitFrames: 0\n  deParent: 0\n"
+    },
+    {
+      "file_id": "114356319167443197",
+      "game_object_id": "1985305603660343",
+      "unity_class_id": "114",
+      "line": 16844,
+      "script": "Assets/Scripts/Assembly-CSharp/SpatterHealth.cs",
+      "serialized_yaml": "--- !u!114 &114356319167443197\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1985305603660343}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5e034cf6782eec0a5987350bf8ca9416, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  healthGetEffect: {fileID: 1705390221481576}\n  getAudio:\n    Clips:\n    - {fileID: 8300000, guid: a8a62e9e99766e945ae6a4cf28394598, type: 3}\n    - {fileID: 8300000, guid: 21c77df8c46708147b20a3181b821dcd, type: 3}\n    - {fileID: 8300000, guid: 98a38c830cfcd5b479d234763b082c60, type: 3}\n    PitchMin: 0.9\n    PitchMax: 1.1\n    Volume: 1\n    vibrations: []\n"
+    },
+    {
+      "file_id": "4976365255789935",
+      "game_object_id": "1705390221481576",
+      "unity_class_id": "4",
+      "line": 16866,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4976365255789935\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1705390221481576}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.9634, y: 1.9634, z: 1.9634}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4651560128206891}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "4499726237547504",
+      "game_object_id": "1977153420339851",
+      "unity_class_id": "4",
+      "line": 19195,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4499726237547504\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1977153420339851}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.5, y: 1.5, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 4704330047573733}\n  m_Father: {fileID: 4060945828524476}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "50703931505913403",
+      "game_object_id": "1977153420339851",
+      "unity_class_id": "50",
+      "line": 19266,
+      "script": null,
+      "serialized_yaml": "--- !u!50 &50703931505913403\nRigidbody2D:\n  serializedVersion: 5\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1977153420339851}\n  m_BodyType: 0\n  m_Simulated: 1\n  m_UseFullKinematicContacts: 0\n  m_UseAutoMass: 0\n  m_Mass: 1\n  m_LinearDamping: 0\n  m_AngularDamping: 0.05\n  m_GravityScale: 0.5\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_Interpolate: 0\n  m_SleepingMode: 1\n  m_CollisionDetection: 0\n  m_Constraints: 0\n"
+    },
+    {
+      "file_id": "114121005239445321",
+      "game_object_id": "1977153420339851",
+      "unity_class_id": "114",
+      "line": 19293,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "serialized_yaml": "--- !u!114 &114121005239445321\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1977153420339851}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9a4a05480320f7f0c7f74a7198222c9e, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  z: 0.001\n  dontRandomize: 0\n  randomizeFromStartingValue: 0\n  delayBeforeRandomizing: 0.5\n  waitFrames: 0\n  deParent: 0\n"
+    },
+    {
+      "file_id": "114806657225351454",
+      "game_object_id": "1977153420339851",
+      "unity_class_id": "114",
+      "line": 19311,
+      "script": "Assets/Scripts/Assembly-CSharp/SpatterHealth.cs",
+      "serialized_yaml": "--- !u!114 &114806657225351454\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1977153420339851}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5e034cf6782eec0a5987350bf8ca9416, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  healthGetEffect: {fileID: 1336590748365959}\n  getAudio:\n    Clips:\n    - {fileID: 8300000, guid: a8a62e9e99766e945ae6a4cf28394598, type: 3}\n    - {fileID: 8300000, guid: 21c77df8c46708147b20a3181b821dcd, type: 3}\n    - {fileID: 8300000, guid: 98a38c830cfcd5b479d234763b082c60, type: 3}\n    PitchMin: 0.9\n    PitchMax: 1.1\n    Volume: 1\n    vibrations: []\n"
+    },
+    {
+      "file_id": "4704330047573733",
+      "game_object_id": "1336590748365959",
+      "unity_class_id": "4",
+      "line": 19333,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4704330047573733\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1336590748365959}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.9634, y: 1.9634, z: 1.9634}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4499726237547504}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "4194081240383615",
+      "game_object_id": "1256069497284392",
+      "unity_class_id": "4",
+      "line": 21662,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4194081240383615\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1256069497284392}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.5, y: 1.5, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 4492842699383957}\n  m_Father: {fileID: 4060945828524476}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "50770005084341472",
+      "game_object_id": "1256069497284392",
+      "unity_class_id": "50",
+      "line": 21733,
+      "script": null,
+      "serialized_yaml": "--- !u!50 &50770005084341472\nRigidbody2D:\n  serializedVersion: 5\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1256069497284392}\n  m_BodyType: 0\n  m_Simulated: 1\n  m_UseFullKinematicContacts: 0\n  m_UseAutoMass: 0\n  m_Mass: 1\n  m_LinearDamping: 0\n  m_AngularDamping: 0.05\n  m_GravityScale: 0.5\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_Interpolate: 0\n  m_SleepingMode: 1\n  m_CollisionDetection: 0\n  m_Constraints: 0\n"
+    },
+    {
+      "file_id": "114123703392571528",
+      "game_object_id": "1256069497284392",
+      "unity_class_id": "114",
+      "line": 21760,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "serialized_yaml": "--- !u!114 &114123703392571528\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1256069497284392}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9a4a05480320f7f0c7f74a7198222c9e, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  z: 0.001\n  dontRandomize: 0\n  randomizeFromStartingValue: 0\n  delayBeforeRandomizing: 0.5\n  waitFrames: 0\n  deParent: 0\n"
+    },
+    {
+      "file_id": "114855482821919830",
+      "game_object_id": "1256069497284392",
+      "unity_class_id": "114",
+      "line": 21778,
+      "script": "Assets/Scripts/Assembly-CSharp/SpatterHealth.cs",
+      "serialized_yaml": "--- !u!114 &114855482821919830\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1256069497284392}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5e034cf6782eec0a5987350bf8ca9416, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  healthGetEffect: {fileID: 1161607090078389}\n  getAudio:\n    Clips:\n    - {fileID: 8300000, guid: a8a62e9e99766e945ae6a4cf28394598, type: 3}\n    - {fileID: 8300000, guid: 21c77df8c46708147b20a3181b821dcd, type: 3}\n    - {fileID: 8300000, guid: 98a38c830cfcd5b479d234763b082c60, type: 3}\n    PitchMin: 0.9\n    PitchMax: 1.1\n    Volume: 1\n    vibrations: []\n"
+    },
+    {
+      "file_id": "4492842699383957",
+      "game_object_id": "1161607090078389",
+      "unity_class_id": "4",
+      "line": 21800,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4492842699383957\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1161607090078389}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.9634, y: 1.9634, z: 1.9634}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4194081240383615}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "4167524263268962",
+      "game_object_id": "1002669891404536",
+      "unity_class_id": "4",
+      "line": 24129,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4167524263268962\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1002669891404536}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.5, y: 1.5, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 4007513189690300}\n  m_Father: {fileID: 4060945828524476}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "50533803739292891",
+      "game_object_id": "1002669891404536",
+      "unity_class_id": "50",
+      "line": 24200,
+      "script": null,
+      "serialized_yaml": "--- !u!50 &50533803739292891\nRigidbody2D:\n  serializedVersion: 5\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1002669891404536}\n  m_BodyType: 0\n  m_Simulated: 1\n  m_UseFullKinematicContacts: 0\n  m_UseAutoMass: 0\n  m_Mass: 1\n  m_LinearDamping: 0\n  m_AngularDamping: 0.05\n  m_GravityScale: 0.5\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_Interpolate: 0\n  m_SleepingMode: 1\n  m_CollisionDetection: 0\n  m_Constraints: 0\n"
+    },
+    {
+      "file_id": "114601984538237284",
+      "game_object_id": "1002669891404536",
+      "unity_class_id": "114",
+      "line": 24227,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "serialized_yaml": "--- !u!114 &114601984538237284\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1002669891404536}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9a4a05480320f7f0c7f74a7198222c9e, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  z: 0.001\n  dontRandomize: 0\n  randomizeFromStartingValue: 0\n  delayBeforeRandomizing: 0.5\n  waitFrames: 0\n  deParent: 0\n"
+    },
+    {
+      "file_id": "114785330607447594",
+      "game_object_id": "1002669891404536",
+      "unity_class_id": "114",
+      "line": 24245,
+      "script": "Assets/Scripts/Assembly-CSharp/SpatterHealth.cs",
+      "serialized_yaml": "--- !u!114 &114785330607447594\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1002669891404536}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5e034cf6782eec0a5987350bf8ca9416, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  healthGetEffect: {fileID: 1470112387431263}\n  getAudio:\n    Clips:\n    - {fileID: 8300000, guid: a8a62e9e99766e945ae6a4cf28394598, type: 3}\n    - {fileID: 8300000, guid: 21c77df8c46708147b20a3181b821dcd, type: 3}\n    - {fileID: 8300000, guid: 98a38c830cfcd5b479d234763b082c60, type: 3}\n    PitchMin: 0.9\n    PitchMax: 1.1\n    Volume: 1\n    vibrations: []\n"
+    },
+    {
+      "file_id": "4007513189690300",
+      "game_object_id": "1470112387431263",
+      "unity_class_id": "4",
+      "line": 24267,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4007513189690300\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1470112387431263}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.9634, y: 1.9634, z: 1.9634}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4167524263268962}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "4190181876552715",
+      "game_object_id": "1313026266067498",
+      "unity_class_id": "4",
+      "line": 26596,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4190181876552715\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1313026266067498}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4621510681728303}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "114240571728440943",
+      "game_object_id": "1313026266067498",
+      "unity_class_id": "114",
+      "line": 26611,
+      "script": "Assets/Scripts/ProjectCode/Game/04_World_Environment/CollisionEnterEvent.cs",
+      "serialized_yaml": "--- !u!114 &114240571728440943\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1313026266067498}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 7d3cdfda15c55e00f54262104a6e992e, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  checkDirection: 1\n  ignoreTriggers: 1\n  otherLayer: 8\n  OnCollisionEntered:\n    m_PersistentCalls:\n      m_Calls: []\n  OnCollisionExited:\n    m_PersistentCalls:\n      m_Calls: []\n"
+    },
+    {
+      "file_id": "61617365563186364",
+      "game_object_id": "1313026266067498",
+      "unity_class_id": "61",
+      "line": 26632,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &61617365563186364\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1313026266067498}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 0\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 0, y: 0.012438059}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 0.58, y: 0.73880327}\n  m_EdgeRadius: 0\n"
+    }
+  ],
+  "recording_references": [
+    {
+      "source": "Assets/Prefabs/Items/Health Flyer.prefab",
+      "line": 699,
+      "name": "Health Flyer",
+      "game_object_id": "1709254077376921",
+      "hp": null,
+      "special_death": null,
+      "invincible": null,
+      "active": null,
+      "damages": [],
+      "fsms": [
+        {
+          "object": "Health Flyer",
+          "game_object_id": "1709254077376921",
+          "component_id": "114875609422105747",
+          "name": "Fly Behaviour",
+          "start": "Idle",
+          "states": [
+            "Idle",
+            "Flip Out",
+            "Fly Away"
+          ],
+          "action_types": [
+            "HutongGames.PlayMaker.Actions.DecelerateV2",
+            "HutongGames.PlayMaker.Actions.DistanceFly",
+            "HutongGames.PlayMaker.Actions.DistanceFlySmooth",
+            "HutongGames.PlayMaker.Actions.FloatCompare",
+            "HutongGames.PlayMaker.Actions.GetVector2Length",
+            "HutongGames.PlayMaker.Actions.GetVelocity2d",
+            "HutongGames.PlayMaker.Actions.RandomFloatV2",
+            "HutongGames.PlayMaker.Actions.SendMessage",
+            "HutongGames.PlayMaker.Actions.SetVelocityAsAngle",
+            "HutongGames.PlayMaker.Actions.ShoveFromWall"
+          ],
+          "line": 757,
+          "lines": 882,
+          "source_sha256": "4c5c450fd1dfa9c04d8d6cef88c4c2ef74948c1a74d0ef39402bf4fe1047bfeb"
+        }
+      ],
+      "components": [
+        "Assets/Scripts/Assembly-CSharp/HealthFlyer.cs",
+        "Assets/Scripts/ProjectCode/Game/04_World_Environment/NonBouncer.cs",
+        "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/AudioSourcePitchRandomizerV3.cs",
+        "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+        "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+        "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs"
+      ],
+      "evidence": "journal_reference_component_not_necessarily_body",
+      "is_hornet_scene": false,
+      "is_temp_scene": false
+    }
+  ],
+  "limits": [
+    "Static serialized specimen; no runtime timing capture.",
+    "Scene variants may override values; see catalog.json instances.",
+    "External fileID/GUID dependencies remain explicit; do not replace with guessed values."
+  ]
+}

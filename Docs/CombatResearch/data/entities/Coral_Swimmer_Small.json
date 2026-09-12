@@ -1,0 +1,906 @@
+{
+  "schema": "silksong-combat-entity-v1",
+  "journal": {
+    "id": "Coral Swimmer Small",
+    "guid": "92a7516a902f08a4fb1127ca118412e7",
+    "path": "Assets/Data Assets/Enemy Journal/Journal Records/Coral Swimmer Small.asset",
+    "key": "NAME_CORAL_SWIMMER_SMALL",
+    "record_type": 0,
+    "kills_required": 16,
+    "required_type": 1,
+    "master_order": 131,
+    "scene_count": 1,
+    "object_names": [
+      "Coral Swimmer Small",
+      "Coral Swimmer Small (1)",
+      "Coral Swimmer Small (10)",
+      "Coral Swimmer Small (11)",
+      "Coral Swimmer Small (2)",
+      "Coral Swimmer Small (3)",
+      "Coral Swimmer Small (5)",
+      "Coral Swimmer Small (6)",
+      "Coral Swimmer Small (7)",
+      "Coral Swimmer Small (8)",
+      "Coral Swimmer Small (9)"
+    ],
+    "instance_count": 20
+  },
+  "specimen": {
+    "source": "Assets/Scenes/Hornet/Memory_Coral_Tower.unity",
+    "line": 8543816,
+    "game_object_id": "13541",
+    "name": "Coral Swimmer Small (11)",
+    "active": "1",
+    "hp": "5",
+    "special_death": "0",
+    "invincible": "0",
+    "fsms": [
+      {
+        "object": "Coral Swimmer Small (11)",
+        "game_object_id": "13541",
+        "component_id": "61897",
+        "name": "Control",
+        "start": "Init",
+        "states": [
+          "Init",
+          "New Idle",
+          "Burst Out?"
+        ],
+        "action_types": [
+          "HutongGames.PlayMaker.Actions.DecelerateV2",
+          "HutongGames.PlayMaker.Actions.FloatAddRandom",
+          "HutongGames.PlayMaker.Actions.GetDefaultTk2dClipName",
+          "HutongGames.PlayMaker.Actions.GetRotation",
+          "HutongGames.PlayMaker.Actions.IdleBuzzV2",
+          "HutongGames.PlayMaker.Actions.RandomFloat",
+          "HutongGames.PlayMaker.Actions.RandomInt",
+          "HutongGames.PlayMaker.Actions.RandomlyFlipScale",
+          "HutongGames.PlayMaker.Actions.SetParent",
+          "HutongGames.PlayMaker.Actions.SetRotation",
+          "HutongGames.PlayMaker.Actions.SetScale",
+          "HutongGames.PlayMaker.Actions.SetVelocityAsAngle",
+          "HutongGames.PlayMaker.Actions.StringCompare",
+          "HutongGames.PlayMaker.Actions.Tk2dPlayAnimation",
+          "HutongGames.PlayMaker.Actions.Tk2dPlayFrame",
+          "HutongGames.PlayMaker.Actions.Tk2dWatchAnimationEvents"
+        ],
+        "line": 8146195,
+        "lines": 911,
+        "source_sha256": "ebe56f262e5a7a2f710ec5a670c777c21d07100f886a7073b3ac7c2eb1fc7d61"
+      }
+    ],
+    "components": [
+      "Assets/Scripts/Assembly-CSharp/EnemyDeathEffectsRegular.cs",
+      "Assets/Scripts/Assembly-CSharp/EnemyHitEffectsRegular.cs",
+      "Assets/Scripts/Assembly-CSharp/NeedolinTextOwner.cs",
+      "Assets/Scripts/Assembly-CSharp/RandomlyFlipScale.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/HealthManager.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/Recoil.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/AudioLoopRandom.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SpriteFlash.cs",
+      "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs"
+    ],
+    "damages": [],
+    "evidence": "journal_guid",
+    "is_hornet_scene": true,
+    "is_temp_scene": false
+  },
+  "source_sha256": "85b8ac96f76523c0c953d03f33283ce9b0641a76b4bf766416ed4ace9500551e",
+  "fsms": [
+    {
+      "source": "Assets/Scenes/Hornet/Memory_Coral_Tower.unity",
+      "line": 8146196,
+      "file_id": 61897,
+      "owner_id": 13541,
+      "owner": "Coral Swimmer Small (11)",
+      "name": "Control",
+      "start_state": "Init",
+      "states": [
+        {
+          "name": "Init",
+          "line": 8146213,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Burst Out?"
+            }
+          ],
+          "actions": [
+            {
+              "type": "RandomFloat",
+              "full_type": "HutongGames.PlayMaker.Actions.RandomFloat",
+              "enabled": false,
+              "params": {
+                "min": 1,
+                "max": 1.2,
+                "storeResult": {
+                  "var": "Scale",
+                  "stored": 0
+                }
+              }
+            },
+            {
+              "type": "SetScale",
+              "full_type": "HutongGames.PlayMaker.Actions.SetScale",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  }
+                },
+                "x": 1,
+                "y": {
+                  "var": null,
+                  "stored": 0
+                },
+                "z": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false,
+                "lateUpdate": false
+              }
+            },
+            {
+              "type": "RandomlyFlipScale",
+              "full_type": "HutongGames.PlayMaker.Actions.RandomlyFlipScale",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                }
+              }
+            },
+            {
+              "type": "SetParent",
+              "full_type": "HutongGames.PlayMaker.Actions.SetParent",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Patrol Point",
+                    "stored": {
+                      "fileID": 19142
+                    }
+                  }
+                },
+                "parent": {
+                  "fileID": 0
+                },
+                "resetLocalPosition": 0,
+                "resetLocalRotation": 0
+              }
+            },
+            {
+              "type": "SetParent",
+              "full_type": "HutongGames.PlayMaker.Actions.SetParent",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Start Point",
+                    "stored": {
+                      "fileID": 18789
+                    }
+                  }
+                },
+                "parent": {
+                  "fileID": 0
+                },
+                "resetLocalPosition": 0,
+                "resetLocalRotation": 0
+              }
+            }
+          ]
+        },
+        {
+          "name": "New Idle",
+          "line": 8146413,
+          "sequence": 0,
+          "transitions": [],
+          "actions": [
+            {
+              "type": "Tk2dPlayAnimation",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimation",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Sprite",
+                    "stored": {
+                      "fileID": 16402
+                    }
+                  }
+                },
+                "animLibName": null,
+                "clipName": "Shiny Swim"
+              }
+            },
+            {
+              "type": "RandomInt",
+              "full_type": "HutongGames.PlayMaker.Actions.RandomInt",
+              "enabled": true,
+              "params": {
+                "min": 0,
+                "max": 6,
+                "storeResult": {
+                  "var": "Start Frame",
+                  "stored": 0
+                },
+                "inclusiveMax": true,
+                "noRepeat": 0
+              }
+            },
+            {
+              "type": "Tk2dPlayFrame",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayFrame",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "frame": {
+                  "var": "Start Frame",
+                  "stored": 0
+                }
+              }
+            },
+            {
+              "type": "IdleBuzzV2",
+              "full_type": "HutongGames.PlayMaker.Actions.IdleBuzzV2",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "waitMin": 0.75,
+                "waitMax": 1,
+                "speedMax": 5,
+                "accelerationMax": 10,
+                "roamingRangeX": 1,
+                "roamingRangeY": 1,
+                "manualStartPos": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Burst Out?",
+          "line": 8146599,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "New Idle"
+            }
+          ],
+          "actions": [
+            {
+              "type": "GetDefaultTk2dClipName",
+              "full_type": "HutongGames.PlayMaker.Actions.GetDefaultTk2dClipName",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Sprite",
+                    "stored": {
+                      "fileID": 16402
+                    }
+                  }
+                },
+                "storeName": {
+                  "var": "Default Clip",
+                  "stored": null
+                }
+              }
+            },
+            {
+              "type": "StringCompare",
+              "full_type": "HutongGames.PlayMaker.Actions.StringCompare",
+              "enabled": true,
+              "params": {
+                "stringVariable": {
+                  "var": "Default Clip",
+                  "stored": null
+                },
+                "compareTo": "Shiny AppearToSwim",
+                "equalEvent": null,
+                "notEqualEvent": "FINISHED",
+                "storeResult": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SetParent",
+              "full_type": "HutongGames.PlayMaker.Actions.SetParent",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "parent": {
+                  "fileID": 0
+                },
+                "resetLocalPosition": 0,
+                "resetLocalRotation": 0
+              }
+            },
+            {
+              "type": "GetRotation",
+              "full_type": "HutongGames.PlayMaker.Actions.GetRotation",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "quaternion": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 0
+                  }
+                },
+                "vector": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  }
+                },
+                "xAngle": {
+                  "var": null,
+                  "stored": 0
+                },
+                "yAngle": {
+                  "var": null,
+                  "stored": 0
+                },
+                "zAngle": {
+                  "var": "Angle",
+                  "stored": 0
+                },
+                "space": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SetRotation",
+              "full_type": "HutongGames.PlayMaker.Actions.SetRotation",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "quaternion": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 0
+                  }
+                },
+                "vector": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  }
+                },
+                "xAngle": {
+                  "var": null,
+                  "stored": 0
+                },
+                "yAngle": {
+                  "var": null,
+                  "stored": 0
+                },
+                "zAngle": 0,
+                "space": 0,
+                "everyFrame": false,
+                "lateUpdate": false
+              }
+            },
+            {
+              "type": "FloatAddRandom",
+              "full_type": "HutongGames.PlayMaker.Actions.FloatAddRandom",
+              "enabled": false,
+              "params": {
+                "floatVariable": {
+                  "var": "Angle",
+                  "stored": 0
+                },
+                "addMin": -40,
+                "addMax": 40
+              }
+            },
+            {
+              "type": "RandomFloat",
+              "full_type": "HutongGames.PlayMaker.Actions.RandomFloat",
+              "enabled": false,
+              "params": {
+                "min": 16,
+                "max": 32,
+                "storeResult": {
+                  "var": "Speed",
+                  "stored": 0
+                }
+              }
+            },
+            {
+              "type": "FloatAddRandom",
+              "full_type": "HutongGames.PlayMaker.Actions.FloatAddRandom",
+              "enabled": true,
+              "params": {
+                "floatVariable": {
+                  "var": "Angle",
+                  "stored": 0
+                },
+                "addMin": 0,
+                "addMax": 360
+              }
+            },
+            {
+              "type": "RandomFloat",
+              "full_type": "HutongGames.PlayMaker.Actions.RandomFloat",
+              "enabled": true,
+              "params": {
+                "min": 2,
+                "max": 32,
+                "storeResult": {
+                  "var": "Speed",
+                  "stored": 0
+                }
+              }
+            },
+            {
+              "type": "SetVelocityAsAngle",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocityAsAngle",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "angle": {
+                  "var": "Angle",
+                  "stored": 0
+                },
+                "speed": {
+                  "var": "Speed",
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "DecelerateV2",
+              "full_type": "HutongGames.PlayMaker.Actions.DecelerateV2",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "deceleration": 0.88,
+                "brakeOnExit": false
+              }
+            },
+            {
+              "type": "Tk2dWatchAnimationEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dWatchAnimationEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Sprite",
+                    "stored": {
+                      "fileID": 16402
+                    }
+                  }
+                },
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            }
+          ]
+        }
+      ],
+      "global_transitions": [],
+      "variables": {
+        "floatVariables": [
+          {
+            "useVariable": 1,
+            "name": "Scale",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Angle",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Speed",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          }
+        ],
+        "intVariables": [
+          {
+            "useVariable": 1,
+            "name": "Start Frame",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          }
+        ],
+        "boolVariables": [],
+        "stringVariables": [
+          {
+            "useVariable": 1,
+            "name": "Default Clip",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": null
+          }
+        ],
+        "vector2Variables": [],
+        "vector3Variables": [],
+        "colorVariables": [],
+        "rectVariables": [],
+        "quaternionVariables": [],
+        "gameObjectVariables": [
+          {
+            "useVariable": 1,
+            "name": "Patrol Point",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 19142
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Start Point",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 18789
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Sprite",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 16402
+            }
+          }
+        ],
+        "objectVariables": [],
+        "materialVariables": [],
+        "textureVariables": [],
+        "arrayVariables": [],
+        "enumVariables": [],
+        "categories": [
+          null
+        ],
+        "variableCategoryIDs": 0
+      },
+      "fsm_metadata": {
+        "dataVersion": 2,
+        "usedInTemplate": {
+          "fileID": 0
+        },
+        "name": "Control",
+        "startState": "Init",
+        "events": [
+          {
+            "name": "FINISHED",
+            "isSystemEvent": 1,
+            "isGlobal": 0
+          }
+        ],
+        "globalTransitions": [],
+        "description": null,
+        "docUrl": null,
+        "showStateLabel": 0,
+        "maxLoopCount": 0,
+        "watermark": null,
+        "password": null,
+        "locked": 0,
+        "manualUpdate": 0,
+        "outVariableIndices": null,
+        "keepDelayedEventsOnStateExit": 0,
+        "preprocessed": 1,
+        "ExposedEvents": [],
+        "OutputEvents": [],
+        "RestartOnEnable": 1,
+        "ResetVariablesOnEnable": 0,
+        "EnableDebugFlow": 0,
+        "EnableBreakpoints": 1,
+        "editorFlags": 1,
+        "activeStateName": null,
+        "mouseEvents": 0,
+        "handleLevelLoaded": 0,
+        "handleTriggerEnter2D": 0,
+        "handleTriggerExit2D": 0,
+        "handleTriggerStay2D": 0,
+        "handleCollisionEnter2D": 0,
+        "handleCollisionExit2D": 0,
+        "handleCollisionStay2D": 0,
+        "handleTriggerEnter": 0,
+        "handleTriggerExit": 0,
+        "handleTriggerStay": 0,
+        "handleCollisionEnter": 0,
+        "handleCollisionExit": 0,
+        "handleCollisionStay": 0,
+        "handleParticleCollision": 0,
+        "handleControllerColliderHit": 0,
+        "handleJointBreak": 0,
+        "handleJointBreak2D": 0,
+        "handleOnGUI": 0,
+        "handleFixedUpdate": 1,
+        "handleLateUpdate": 0,
+        "handleApplicationEvents": 0,
+        "handleUiEvents": 0,
+        "handleLegacyNetworking": 0,
+        "handleAnimatorMove": 0,
+        "handleAnimatorIK": 0
+      }
+    }
+  ],
+  "game_objects": [
+    {
+      "file_id": "13541",
+      "name": "Coral Swimmer Small (11)",
+      "line": 235037,
+      "serialized_yaml": "--- !u!1 &13541\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 24814}\n  - component: {fileID: 39884}\n  - component: {fileID: 61241}\n  - component: {fileID: 63073}\n  - component: {fileID: 62502}\n  - component: {fileID: 62116}\n  - component: {fileID: 61987}\n  - component: {fileID: 63309}\n  - component: {fileID: 61897}\n  - component: {fileID: 60976}\n  - component: {fileID: 41852}\n  - component: {fileID: 61223}\n  - component: {fileID: 63310}\n  m_Layer: 11\n  m_Name: Coral Swimmer Small (11)\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "16402",
+      "name": "Sprite",
+      "line": 285166,
+      "serialized_yaml": "--- !u!1 &16402\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 36273}\n  - component: {fileID: 38992}\n  - component: {fileID: 39700}\n  - component: {fileID: 59124}\n  - component: {fileID: 59673}\n  - component: {fileID: 40183}\n  - component: {fileID: 65349}\n  m_Layer: 11\n  m_Name: Sprite\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "16953",
+      "name": "Shove Detector",
+      "line": 295063,
+      "serialized_yaml": "--- !u!1 &16953\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 37365}\n  - component: {fileID: 40202}\n  - component: {fileID: 63795}\n  m_Layer: 13\n  m_Name: Shove Detector\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "18789",
+      "name": "Start Point",
+      "line": 327162,
+      "serialized_yaml": "--- !u!1 &18789\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 36312}\n  m_Layer: 0\n  m_Name: Start Point\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "19142",
+      "name": "Patrol Point",
+      "line": 333399,
+      "serialized_yaml": "--- !u!1 &19142\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 35950}\n  m_Layer: 0\n  m_Name: Patrol Point\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    }
+  ],
+  "components": [
+    {
+      "file_id": "24814",
+      "game_object_id": "13541",
+      "unity_class_id": "4",
+      "line": 424272,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &24814\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 13541}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 5.13, y: 0.62, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 36312}\n  - {fileID: 35950}\n  - {fileID: 36273}\n  m_Father: {fileID: 23466}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "35950",
+      "game_object_id": "19142",
+      "unity_class_id": "4",
+      "line": 602617,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &35950\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 19142}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: -10, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 24814}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "36273",
+      "game_object_id": "16402",
+      "unity_class_id": "4",
+      "line": 607470,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &36273\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 16402}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 37365}\n  m_Father: {fileID: 24814}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "36312",
+      "game_object_id": "18789",
+      "unity_class_id": "4",
+      "line": 608063,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &36312\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 18789}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 24814}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "37365",
+      "game_object_id": "16953",
+      "unity_class_id": "4",
+      "line": 624117,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &37365\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 16953}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 36273}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "39884",
+      "game_object_id": "13541",
+      "unity_class_id": "50",
+      "line": 681463,
+      "script": null,
+      "serialized_yaml": "--- !u!50 &39884\nRigidbody2D:\n  serializedVersion: 5\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 13541}\n  m_BodyType: 0\n  m_Simulated: 1\n  m_UseFullKinematicContacts: 0\n  m_UseAutoMass: 0\n  m_Mass: 1\n  m_LinearDamping: 0\n  m_AngularDamping: 0.05\n  m_GravityScale: 0\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_Interpolate: 0\n  m_SleepingMode: 1\n  m_CollisionDetection: 1\n  m_Constraints: 4\n"
+    },
+    {
+      "file_id": "40183",
+      "game_object_id": "16402",
+      "unity_class_id": "58",
+      "line": 692083,
+      "script": null,
+      "serialized_yaml": "--- !u!58 &40183\nCircleCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 16402}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 0\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: -0.00781247, y: 0.09}\n  m_Radius: 0.7\n"
+    },
+    {
+      "file_id": "40202",
+      "game_object_id": "16953",
+      "unity_class_id": "58",
+      "line": 692767,
+      "script": null,
+      "serialized_yaml": "--- !u!58 &40202\nCircleCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 16953}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 16777216\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: -0.00781247, y: 0.09}\n  m_Radius: 0.7\n"
+    },
+    {
+      "file_id": "41852",
+      "game_object_id": "13541",
+      "unity_class_id": "82",
+      "line": 778886,
+      "script": null,
+      "serialized_yaml": "--- !u!82 &41852\nAudioSource:\n  serializedVersion: 4\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 13541}\n  m_Enabled: 1\n  OutputAudioMixerGroup: {fileID: 24300004, guid: d910a835fc4287448b891cc742c2a38a, type: 2}\n  m_audioClip: {fileID: 8300000, guid: 28bf22f8066fd1c44890982089789cfa, type: 3}\n  m_Resource: {fileID: 8300000, guid: 28bf22f8066fd1c44890982089789cfa, type: 3}\n  m_PlayOnAwake: 1\n  m_Volume: 1\n  m_Pitch: 1\n  Loop: 1\n  Mute: 0\n  Spatialize: 0\n  SpatializePostEffects: 0\n  Priority: 128\n  DopplerLevel: 0\n  MinDistance: 39\n  MaxDistance: 50\n  Pan2D: 0\n  rolloffMode: 2\n  BypassEffects: 0\n  BypassListenerEffects: 0\n  BypassReverbZones: 0\n  rolloffCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0.78\n      value: 1\n      inSlope: -7.2560205\n      outSlope: -7.2560205\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    - serializedVersion: 3\n      time: 0.9787131\n      value: 0\n      inSlope: -2.3973467\n      outSlope: -2.3973467\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  panLevelCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  spreadCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 0\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  reverbZoneMixCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n"
+    },
+    {
+      "file_id": "59124",
+      "game_object_id": "16402",
+      "unity_class_id": "114",
+      "line": 7363185,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "serialized_yaml": "--- !u!114 &59124\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 16402}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 461acbcb857d4478aaa8e8e64ee6f52a, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  collection: {fileID: 114724804207875695, guid: 1e167675ff5dab04fae4e6562b181929, type: 2}\n  _color: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}\n  _scale: {x: 1, y: 1, z: 1}\n  _spriteId: 24\n  boxCollider2D: {fileID: 0}\n  polygonCollider2D: []\n  edgeCollider2D: []\n  boxCollider: {fileID: 0}\n  meshCollider: {fileID: 0}\n  meshColliderPositions: []\n  meshColliderMesh: {fileID: 0}\n  renderLayer: 0\n"
+    },
+    {
+      "file_id": "59673",
+      "game_object_id": "16402",
+      "unity_class_id": "114",
+      "line": 7373331,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs",
+      "serialized_yaml": "--- !u!114 &59673\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 16402}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5996133e774984aa7a33c40ed829e17f, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  spriteOverride: {fileID: 0}\n  library: {fileID: 114724804207875695, guid: c55ca74a78bc200469a5eb3d0598b4e7, type: 2}\n  defaultClipId: 6\n  isRealtime: 0\n  playAutomatically: 1\n  playAutomaticallyOnEnable: 0\n"
+    },
+    {
+      "file_id": "60976",
+      "game_object_id": "13541",
+      "unity_class_id": "114",
+      "line": 7672523,
+      "script": "Assets/Scripts/Assembly-CSharp/NeedolinTextOwner.cs",
+      "serialized_yaml": "--- !u!114 &60976\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 13541}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 31fc0cd4445f01d3a6cd3001ad153725, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  rangeCheck: 0\n  customRange: 0\n  insideTrigger: {fileID: 0}\n  text:\n    collection: {fileID: 11400000, guid: 2b958a9b60592ea45bcb2b1b0420ef3f, type: 2}\n    customData:\n      template:\n        Sheet:\n        Key:\n      configOverride: {fileID: 0}\n      alternatives: []\n      doNotPlay: 0\n  mapZoneOverrides: []\n  OnAddText:\n    m_PersistentCalls:\n      m_Calls: []\n  OnRemoveText:\n    m_PersistentCalls:\n      m_Calls: []\n"
+    },
+    {
+      "file_id": "61223",
+      "game_object_id": "13541",
+      "unity_class_id": "114",
+      "line": 7686212,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/AudioLoopRandom.cs",
+      "serialized_yaml": "--- !u!114 &61223\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 13541}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 54f9eb390b55768ae45e5cde26a7e874, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  dontAutoPlay: 0\n  setRandomClips: []\n"
+    },
+    {
+      "file_id": "61241",
+      "game_object_id": "13541",
+      "unity_class_id": "114",
+      "line": 7686816,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "serialized_yaml": "--- !u!114 &61241\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 13541}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9a4a05480320f7f0c7f74a7198222c9e, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  z: 0.006\n  dontRandomize: 0\n  randomizeFromStartingValue: 0\n  delayBeforeRandomizing: 0.5\n  waitFrames: 0\n  deParent: 0\n"
+    },
+    {
+      "file_id": "61987",
+      "game_object_id": "13541",
+      "unity_class_id": "114",
+      "line": 8253338,
+      "script": "Assets/Scripts/Assembly-CSharp/EnemyDeathEffectsRegular.cs",
+      "serialized_yaml": "--- !u!114 &61987\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 13541}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 2730b6b2b2abd535272d044bb7d8942f, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  corpsePrefab: {fileID: 1709254077376921, guid: aa9b428656bed2149ad4369ab9059847, type: 2}\n  altCorpses: []\n  isCorpseRecyclable: 0\n  manualPreInstantiate: 0\n  corpseFacesRight: 0\n  overrideDeathDirection: 0\n  corpseFlingSpeed: 15\n  corpseSpawnPoint: {x: 0, y: 0, z: 0}\n  effectOrigin: {x: 0, y: 0, z: 0}\n  lowCorpseArc: 0\n  recycle: 0\n  rotateCorpse: 0\n  corpseMatchesEnemyScale: 0\n  audioSnapshotOnDeath: {fileID: 0}\n  sendEventRegister:\n  deathSounds:\n  - Clip: {fileID: 8300000, guid: cadfc16ee055c944da51081b220f0a1a, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  - Clip: {fileID: 8300000, guid: d921724037ad76c429becd63cb4c9677, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  enemyDeathSwordAudio:\n    Clip: {fileID: 0}\n    PitchMin: 0\n    PitchMax: 0\n    Volume: 0\n    vibrationDataAsset: {fileID: 0}\n  enemyDamageAudio:\n    Clip: {fileID: 0}\n    PitchMin: 0\n    PitchMax: 0\n    Volume: 0\n    vibrationDataAsset: {fileID: 0}\n  deathCameraShake:\n    camera: {fileID: 11400000, guid: 9b0888e0916dca544846a2f34304dac9, type: 2}\n    profile: {fileID: 11400000, guid: 279f38013a080f34999cd00fbee1b9c2, type: 2}\n    doFreeze: 1\n    vibrate: 1\n  journalRecord: {fileID: 11400000, guid: 92a7516a902f08a4fb1127ca118412e7, type: 2}\n  awardFullJournalEntry: 0\n  setPlayerDataBool:\n  awardAchievement:\n  doNotSetHasKilled: 0\n  doNotSpawnCorpse: 0\n  profile: {fileID: 11400000, guid: 3cec05b7aa79ab6448eb0c94fcb2e909, type: 2}\n"
+    },
+    {
+      "file_id": "62116",
+      "game_object_id": "13541",
+      "unity_class_id": "114",
+      "line": 8259012,
+      "script": "Assets/Scripts/Assembly-CSharp/EnemyHitEffectsRegular.cs",
+      "serialized_yaml": "--- !u!114 &62116\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 13541}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 688cf27c991077549cc7e1e5fa656b3d, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  effectOrigin: {x: 0, y: 0, z: 0}\n  sendDamageFlashEvent: 1\n  profile: {fileID: 11400000, guid: b4a2f08cd3ae0434292d732f1920d499, type: 2}\n  overrideBloodColor: 0\n  bloodColorOverride: {r: 0, g: 0, b: 0, a: 0}\n  forceMinimalEffects: 0\n"
+    },
+    {
+      "file_id": "62502",
+      "game_object_id": "13541",
+      "unity_class_id": "114",
+      "line": 8281648,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/Recoil.cs",
+      "serialized_yaml": "--- !u!114 &62502\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 13541}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9dce17883e836a8b91b054fcaef81958, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  FreezeInPlace: 0\n  recoilSpeedBase: 10\n  recoilDuration: 0.15\n  IsUpBlocked: 0\n  IsDownBlocked: 0\n  IsLeftBlocked: 0\n  IsRightBlocked: 0\n"
+    },
+    {
+      "file_id": "63073",
+      "game_object_id": "13541",
+      "unity_class_id": "114",
+      "line": 8384034,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SpriteFlash.cs",
+      "serialized_yaml": "--- !u!114 &63073\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 13541}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 3760009a589b001159b0ab5c0e83a2db, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  children: []\n  parents: []\n  getParent: 0\n  doHitFlashOnEnable: 0\n  startFlashes: 0\n"
+    },
+    {
+      "file_id": "63309",
+      "game_object_id": "13541",
+      "unity_class_id": "114",
+      "line": 8543816,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/HealthManager.cs",
+      "serialized_yaml": "--- !u!114 &63309\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 13541}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 7e0b9799fb0157646caefd91bc67f0a6, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  audioPlayerPrefab: {fileID: 82724804207875695, guid: 99068b2a95bddff419cb6f176648d4e6, type: 2}\n  regularInvincibleAudio:\n    Clip: {fileID: 8300000, guid: 6447a975892e6ac42be7525d74803f40, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 0\n    vibrationDataAsset: {fileID: 0}\n  blockHitPrefab: {fileID: 1709254077376921, guid: a7a57900a8a415a4387938611b64e586, type: 2}\n  strikeNailPrefab: {fileID: 1709254077376921, guid: 64c20baf394ac9a41b03deea82568445, type: 2}\n  slashImpactPrefab: {fileID: 1709254077376921, guid: 97c9ba031f06bae4681d3fda13c3f87b, type: 2}\n  corpseSplatPrefab: {fileID: 0}\n  hp: 5\n  damageScaling:\n    Level1Mult: 1\n    Level2Mult: 1\n    Level3Mult: 1\n    Level4Mult: 1\n    Level5Mult: 1\n  enemyType: 0\n  doNotGiveSilk: 0\n  ignoreFlags: 0\n  reaperBundles: 0\n  effectOrigin: {x: 0, y: -0.2, z: 0}\n  ignoreKillAll: 0\n  sendDamageTo: {fileID: 0}\n  isPartOfSendToTarget: 0\n  tagDamageTakerIgnoreColliderState: 0\n  takeTagDamageWhileInvincible: 0\n  targetPointOverride: {fileID: 0}\n  battleScene: {fileID: 0}\n  sendHitTo: {fileID: 0}\n  sendKilledToObject: {fileID: 0}\n  sendKilledToName:\n  smallGeoDrops: 0\n  mediumGeoDrops: 0\n  largeGeoDrops: 0\n  largeSmoothGeoDrops: 0\n  megaFlingGeo: 0\n  shellShardDrops: 0\n  flingSilkOrbsDown: 0\n  flingSilkOrbsAimObject: {fileID: 0}\n  itemDropGroups: []\n  _itemDropProbability: 0\n  _itemDrops: []\n  hasAlternateHitAnimation: 0\n  alternateHitAnimation: True\n  invincible: 0\n  piercable: 0\n  invincibleFromDirection: 0\n  preventInvincibleEffect: 0\n  preventInvincibleShake: 0\n  preventInvincibleAttackBlock: 0\n  invincibleRecoil: 0\n  dontSendTinkToDamager: 0\n  hasAlternateInvincibleSound: 0\n  alternateInvincibleSound: {fileID: 0}\n  immuneToNailAttacks: 0\n  immuneToExplosions: 0\n  immuneToBeams: 0\n  immuneToHunterWeapon: 0\n  immuneToCoal: 0\n  immuneToTraps: 0\n  immuneToWater: 0\n  immuneToSpikes: 0\n  immuneToLava: 0\n  isMossExtractable: 0\n  isSwampExtractable: 0\n  isBluebloodExtractable: 0\n  deathAudioSnapshot: {fileID: 0}\n  hasSpecialDeath: 0\n  deathReset: 0\n  damageOverride: 0\n  ignoreAcid: 0\n  ignoreWater: 0\n  zeroHPEventOverride: {fileID: 0}\n  dontDropMeat: 0\n  enemySize: 1\n  bigEnemyDeath: 0\n  preventDeathAfterHero: 0\n  ignoreHazards: 0\n  invulnerableTime: 0.25\n  semiPersistent: 0\n  isDead: 0\n  ignorePersistence: 0\n  tinkTimer: 0\n"
+    },
+    {
+      "file_id": "63310",
+      "game_object_id": "13541",
+      "unity_class_id": "114",
+      "line": 8543913,
+      "script": null,
+      "serialized_yaml": "--- !u!114 &63310\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 13541}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: -664232604, guid: daca89c25bd1813ceecbbbb8555342a7, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  TargetFSMs:\n  - {fileID: 61897}\n"
+    },
+    {
+      "file_id": "63795",
+      "game_object_id": "16953",
+      "unity_class_id": "114",
+      "line": 8659704,
+      "script": null,
+      "serialized_yaml": "--- !u!114 &63795\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 16953}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: -501658088, guid: daca89c25bd1813ceecbbbb8555342a7, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  TargetFSMs: []\n"
+    },
+    {
+      "file_id": "65349",
+      "game_object_id": "16402",
+      "unity_class_id": "114",
+      "line": 8919026,
+      "script": "Assets/Scripts/Assembly-CSharp/RandomlyFlipScale.cs",
+      "serialized_yaml": "--- !u!114 &65349\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 16402}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: de6357afb694d64827e6c37cc3466d79, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  flipX: 1\n  flipY: 0\n  flipChance: 50\n  doOnEnable: 0\n"
+    }
+  ],
+  "recording_references": [],
+  "limits": [
+    "Static serialized specimen; no runtime timing capture.",
+    "Scene variants may override values; see catalog.json instances.",
+    "External fileID/GUID dependencies remain explicit; do not replace with guessed values."
+  ]
+}

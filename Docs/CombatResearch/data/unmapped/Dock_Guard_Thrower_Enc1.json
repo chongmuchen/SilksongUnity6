@@ -1,0 +1,4075 @@
+{
+  "schema": "silksong-combat-entity-v1",
+  "journal": {
+    "id": "Dock Guard Thrower Enc1",
+    "record_kind": "unmapped_health_object_not_an_additional_species_count"
+  },
+  "specimen": {
+    "source": "Assets/Scenes/Hornet/Dock_02b.unity",
+    "line": 1512486,
+    "game_object_id": "3412",
+    "name": "Dock Guard Thrower Enc1",
+    "active": "1",
+    "hp": "9999",
+    "special_death": "1",
+    "invincible": "0",
+    "fsms": [
+      {
+        "object": "Dock Guard Thrower Enc1",
+        "game_object_id": "3412",
+        "component_id": "15218",
+        "name": "Control",
+        "start": "Pause",
+        "states": [
+          "Pause",
+          "Unalert",
+          "Startle",
+          "Jump Up Antic",
+          "Jump Up",
+          "Throw",
+          "Land",
+          "Idle",
+          "Alert Pause",
+          "Ready",
+          "Jump Away Antic",
+          "Init",
+          "Jump Away",
+          "Jump Leave Antic",
+          "Leave",
+          "Throw and Deactivate",
+          "Throw Antic",
+          "Throw 2",
+          "Throw Antic 2",
+          "Deactivate",
+          "Choose Target",
+          "Choose Target 2",
+          "Sing"
+        ],
+        "action_types": [
+          "HutongGames.PlayMaker.Actions.ActivateGameObject",
+          "HutongGames.PlayMaker.Actions.ActivateGameObjectDelay",
+          "HutongGames.PlayMaker.Actions.ArrayGet",
+          "HutongGames.PlayMaker.Actions.ArrayGetNext",
+          "HutongGames.PlayMaker.Actions.AudioPlayRandomVoiceFromTableV2",
+          "HutongGames.PlayMaker.Actions.AudioPlayerOneShotSingle",
+          "HutongGames.PlayMaker.Actions.AudioStop",
+          "HutongGames.PlayMaker.Actions.CalculateProjectileVelocity",
+          "HutongGames.PlayMaker.Actions.CheckCollisionSide",
+          "HutongGames.PlayMaker.Actions.CheckCollisionSideEnter",
+          "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegionV2",
+          "HutongGames.PlayMaker.Actions.CheckTargetDirection",
+          "HutongGames.PlayMaker.Actions.DecelerateV2",
+          "HutongGames.PlayMaker.Actions.EnemySingControl",
+          "HutongGames.PlayMaker.Actions.FaceObjectV2",
+          "HutongGames.PlayMaker.Actions.FlingObjectsFromGlobalPool",
+          "HutongGames.PlayMaker.Actions.FloatOperator",
+          "HutongGames.PlayMaker.Actions.GetAngleToTarget2D",
+          "HutongGames.PlayMaker.Actions.GetPosition2D",
+          "HutongGames.PlayMaker.Actions.IntAdd",
+          "HutongGames.PlayMaker.Actions.IntCompare",
+          "HutongGames.PlayMaker.Actions.NextFrameEvent",
+          "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+          "HutongGames.PlayMaker.Actions.PlayRandomAudioClipTable",
+          "HutongGames.PlayMaker.Actions.SendEventByScale",
+          "HutongGames.PlayMaker.Actions.SetGameObject",
+          "HutongGames.PlayMaker.Actions.SetGravity2dScale",
+          "HutongGames.PlayMaker.Actions.SetIntValue",
+          "HutongGames.PlayMaker.Actions.SetIsKinematic2d",
+          "HutongGames.PlayMaker.Actions.SetParent",
+          "HutongGames.PlayMaker.Actions.SetVelocity2d",
+          "HutongGames.PlayMaker.Actions.Tk2dPlayAnimation",
+          "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+          "HutongGames.PlayMaker.Actions.Wait"
+        ],
+        "line": 1592023,
+        "lines": 5730,
+        "source_sha256": "d5c8d30ec65935c8082ea9584373ff4ed767dff2dc2299b2510b9b369fa7fcc0"
+      }
+    ],
+    "components": [
+      "Assets/Scripts/Assembly-CSharp/EnemyDeathEffectsRegular.cs",
+      "Assets/Scripts/Assembly-CSharp/EnemyHitEffectsRegular.cs",
+      "Assets/Scripts/Assembly-CSharp/EnemySingDuration.cs",
+      "Assets/Scripts/Assembly-CSharp/NeedolinTextOwner.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/AlertRange.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/DamageHero.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/HealthManager.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/Recoil.cs",
+      "Assets/Scripts/ProjectCode/Game/04_World_Environment/DeactivateAfter2dtkAnimation.cs",
+      "Assets/Scripts/ProjectCode/Game/06_Data_Save_Progression/PersistentBoolItem.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/AudioSourceGamePause.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SpriteFlash.cs",
+      "Assets/Scripts/ProjectCode/Game/12_Utilities/PersonalObjectPool.cs",
+      "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs"
+    ],
+    "damages": [
+      {
+        "object": "Dock Guard Thrower Enc1",
+        "damage": "1",
+        "line": 1621319
+      }
+    ],
+    "evidence": "unmapped_health_actor",
+    "is_hornet_scene": true,
+    "is_temp_scene": false
+  },
+  "source_sha256": "3b0eb830d5f1fc1bf73739e3446104903b1ef52925245d7c08dcb56e4d3fe6a4",
+  "fsms": [
+    {
+      "source": "Assets/Scenes/Hornet/Dock_02b.unity",
+      "line": 1592024,
+      "file_id": 15218,
+      "owner_id": 3412,
+      "owner": "Dock Guard Thrower Enc1",
+      "name": "Control",
+      "start_state": "Pause",
+      "states": [
+        {
+          "name": "Pause",
+          "line": 1592041,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Init"
+            }
+          ],
+          "actions": [
+            {
+              "type": "NextFrameEvent",
+              "full_type": "HutongGames.PlayMaker.Actions.NextFrameEvent",
+              "enabled": true,
+              "params": {
+                "sendEvent": "FINISHED"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Unalert",
+          "line": 1592106,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "BLOCKED HIT",
+              "to": "Startle"
+            },
+            {
+              "event": "TOOK DAMAGE",
+              "to": "Startle"
+            },
+            {
+              "event": "ALERT",
+              "to": "Alert Pause"
+            },
+            {
+              "event": "DEACTIVATE",
+              "to": "Deactivate"
+            }
+          ],
+          "actions": [
+            {
+              "type": "CheckAlertRangeByName",
+              "full_type": "CheckAlertRangeByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 0,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "alertRangeName": "Alert Range",
+                "storeResult": 0,
+                "sendEvent": "ALERT",
+                "outOfRangeEvent": null,
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "CheckAlertRangeByName",
+              "full_type": "CheckAlertRangeByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 0,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "alertRangeName": "Inactive Range",
+                "storeResult": 0,
+                "sendEvent": "DEACTIVATE",
+                "outOfRangeEvent": null,
+                "everyFrame": true
+              }
+            }
+          ]
+        },
+        {
+          "name": "Startle",
+          "line": 1592312,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Jump Up Antic"
+            }
+          ],
+          "actions": [
+            {
+              "type": "PlayAudioEvent",
+              "full_type": "PlayAudioEvent",
+              "enabled": true,
+              "params": {
+                "audioClip": {
+                  "fileID": 8300000,
+                  "guid": "7d5b41d99a32ec3448078a37fc58c26b",
+                  "type": 3
+                },
+                "pitchMin": 1,
+                "pitchMax": 1,
+                "volume": 1,
+                "audioPlayerPrefab": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spawnPoint": {
+                  "owner": "self"
+                },
+                "spawnPosition": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "SpawnedPlayerRef": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "FaceObjectV2",
+              "full_type": "HutongGames.PlayMaker.Actions.FaceObjectV2",
+              "enabled": true,
+              "params": {
+                "objectA": {
+                  "owner": "self"
+                },
+                "objectB": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spriteFacesRight": 0,
+                "playNewAnimation": false,
+                "newAnimationClip": null,
+                "resetFrame": false,
+                "everyFrame": false,
+                "pauseBetweenTurns": 0.5
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "TurnToStartle",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            },
+            {
+              "type": "AudioPlayRandomVoiceFromTableV2",
+              "full_type": "HutongGames.PlayMaker.Actions.AudioPlayRandomVoiceFromTableV2",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Audio Loop Voice",
+                    "stored": {
+                      "fileID": 4466
+                    }
+                  }
+                },
+                "audioClipTable": {
+                  "fileID": 11400000,
+                  "guid": "318f481e3506a5d478e27a7b47c3c83c",
+                  "type": 2
+                },
+                "pitchOffset": 0,
+                "stopPreviousSound": true,
+                "forcePlay": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Jump Up Antic",
+          "line": 1592521,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Jump Up"
+            }
+          ],
+          "actions": [
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Jump Antic",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            },
+            {
+              "type": "PlayRandomAudioClipTable",
+              "full_type": "HutongGames.PlayMaker.Actions.PlayRandomAudioClipTable",
+              "enabled": true,
+              "params": {
+                "Table": {
+                  "fileID": 11400000,
+                  "guid": "95314536f2b5d2b47bcb6fccf5abd20c",
+                  "type": 2
+                },
+                "AudioPlayerPrefab": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "SpawnPoint": {
+                  "owner": "self"
+                },
+                "SpawnPosition": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                }
+              }
+            },
+            {
+              "type": "FaceObjectV2",
+              "full_type": "HutongGames.PlayMaker.Actions.FaceObjectV2",
+              "enabled": true,
+              "params": {
+                "objectA": {
+                  "owner": "self"
+                },
+                "objectB": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spriteFacesRight": 0,
+                "playNewAnimation": false,
+                "newAnimationClip": null,
+                "resetFrame": false,
+                "everyFrame": false,
+                "pauseBetweenTurns": 0.5
+              }
+            },
+            {
+              "type": "AudioPlayRandomVoiceFromTableV2",
+              "full_type": "HutongGames.PlayMaker.Actions.AudioPlayRandomVoiceFromTableV2",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Audio Loop Voice",
+                    "stored": {
+                      "fileID": 4466
+                    }
+                  }
+                },
+                "audioClipTable": {
+                  "fileID": 11400000,
+                  "guid": "d03ec19f85c5c0d4a803bb1fce7ae3f2",
+                  "type": 2
+                },
+                "pitchOffset": 0,
+                "stopPreviousSound": true,
+                "forcePlay": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Jump Up",
+          "line": 1592702,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Throw Antic"
+            }
+          ],
+          "actions": [
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Fall",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            },
+            {
+              "type": "SetVelocity2d",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocity2d",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": 26,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "Wait",
+              "full_type": "HutongGames.PlayMaker.Actions.Wait",
+              "enabled": true,
+              "params": {
+                "time": 0.25,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            },
+            {
+              "type": "PlayAudioEvent",
+              "full_type": "PlayAudioEvent",
+              "enabled": true,
+              "params": {
+                "audioClip": {
+                  "fileID": 8300000,
+                  "guid": "cd2b3ab51dfd58848aee3de29db95298",
+                  "type": 3
+                },
+                "pitchMin": 1.5,
+                "pitchMax": 1.5,
+                "volume": 1,
+                "audioPlayerPrefab": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spawnPoint": {
+                  "owner": "self"
+                },
+                "spawnPosition": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "SpawnedPlayerRef": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "FaceObjectV2",
+              "full_type": "HutongGames.PlayMaker.Actions.FaceObjectV2",
+              "enabled": true,
+              "params": {
+                "objectA": {
+                  "owner": "self"
+                },
+                "objectB": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spriteFacesRight": 0,
+                "playNewAnimation": false,
+                "newAnimationClip": null,
+                "resetFrame": false,
+                "everyFrame": false,
+                "pauseBetweenTurns": 0.5
+              }
+            }
+          ]
+        },
+        {
+          "name": "Throw",
+          "line": 1592928,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "LAND",
+              "to": "Land"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetVelocity2d",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocity2d",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": 5,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "AudioPlayRandomVoiceFromTableV2",
+              "full_type": "HutongGames.PlayMaker.Actions.AudioPlayRandomVoiceFromTableV2",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Audio Loop Voice",
+                    "stored": {
+                      "fileID": 4466
+                    }
+                  }
+                },
+                "audioClipTable": {
+                  "fileID": 11400000,
+                  "guid": "cdeaf6b6b8896784db4adcfdda307a7b",
+                  "type": 2
+                },
+                "pitchOffset": 0,
+                "stopPreviousSound": true,
+                "forcePlay": false
+              }
+            },
+            {
+              "type": "SetGravity2dScale",
+              "full_type": "HutongGames.PlayMaker.Actions.SetGravity2dScale",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "gravityScale": {
+                  "var": "Gravity",
+                  "stored": 1
+                }
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Throw",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            },
+            {
+              "type": "CheckCollisionSideEnter",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckCollisionSideEnter",
+              "enabled": true,
+              "params": {
+                "topHit": {
+                  "var": null,
+                  "stored": 0
+                },
+                "rightHit": {
+                  "var": null,
+                  "stored": 0
+                },
+                "bottomHit": {
+                  "var": null,
+                  "stored": 0
+                },
+                "leftHit": {
+                  "var": null,
+                  "stored": 0
+                },
+                "topHitEvent": null,
+                "rightHitEvent": null,
+                "bottomHitEvent": "LAND",
+                "leftHitEvent": null,
+                "otherLayer": false,
+                "otherLayerNumber": 0,
+                "ignoreTriggers": 0
+              }
+            },
+            {
+              "type": "CheckCollisionSide",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckCollisionSide",
+              "enabled": true,
+              "params": {
+                "collidingObject": {
+                  "owner": "self"
+                },
+                "topHit": {
+                  "var": null,
+                  "stored": 0
+                },
+                "rightHit": {
+                  "var": null,
+                  "stored": 0
+                },
+                "bottomHit": {
+                  "var": null,
+                  "stored": 0
+                },
+                "leftHit": {
+                  "var": null,
+                  "stored": 0
+                },
+                "topHitEvent": null,
+                "rightHitEvent": null,
+                "bottomHitEvent": "LAND",
+                "leftHitEvent": null,
+                "otherLayer": false,
+                "otherLayerNumber": 0,
+                "ignoreTriggers": 0
+              }
+            },
+            {
+              "type": "PlayAudioEvent",
+              "full_type": "PlayAudioEvent",
+              "enabled": true,
+              "params": {
+                "audioClip": {
+                  "fileID": 8300000,
+                  "guid": "7a14f917470aee944ac31527b0b6cae3",
+                  "type": 3
+                },
+                "pitchMin": 0.95,
+                "pitchMax": 1.05,
+                "volume": 1,
+                "audioPlayerPrefab": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spawnPoint": {
+                  "owner": "self"
+                },
+                "spawnPosition": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "SpawnedPlayerRef": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "GetAngleToTarget2D",
+              "full_type": "HutongGames.PlayMaker.Actions.GetAngleToTarget2D",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "target": {
+                  "var": "Target",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "offsetX": 0,
+                "offsetY": 0,
+                "storeAngle": {
+                  "var": "Angle",
+                  "stored": 0
+                },
+                "pause": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "FloatOperator",
+              "full_type": "HutongGames.PlayMaker.Actions.FloatOperator",
+              "enabled": true,
+              "params": {
+                "float1": {
+                  "var": "Angle",
+                  "stored": 0
+                },
+                "float2": -5,
+                "operation": 0,
+                "storeResult": {
+                  "var": "Angle Min",
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "FloatOperator",
+              "full_type": "HutongGames.PlayMaker.Actions.FloatOperator",
+              "enabled": true,
+              "params": {
+                "float1": {
+                  "var": "Angle",
+                  "stored": 0
+                },
+                "float2": 5,
+                "operation": 0,
+                "storeResult": {
+                  "var": "Angle Max",
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "FlingObjectsFromGlobalPool",
+              "full_type": "HutongGames.PlayMaker.Actions.FlingObjectsFromGlobalPool",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "fileID": 1709254077376921,
+                  "guid": "89956436a61e86e4194218eb228d81c7",
+                  "type": 2
+                },
+                "spawnPoint": {
+                  "var": "Throw Point",
+                  "stored": {
+                    "fileID": 2804
+                  }
+                },
+                "position": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  }
+                },
+                "spawnMin": 1,
+                "spawnMax": 1,
+                "speedMin": 32,
+                "speedMax": 32,
+                "angleMin": {
+                  "var": "Angle Min",
+                  "stored": 0
+                },
+                "angleMax": {
+                  "var": "Angle Max",
+                  "stored": 0
+                },
+                "originVariationX": 0,
+                "originVariationY": 0,
+                "FSM": {
+                  "var": null,
+                  "stored": null
+                },
+                "FSMEvent": {
+                  "var": null,
+                  "stored": null
+                }
+              }
+            },
+            {
+              "type": "IntAdd",
+              "full_type": "HutongGames.PlayMaker.Actions.IntAdd",
+              "enabled": true,
+              "params": {
+                "intVariable": {
+                  "var": "Throws In Place",
+                  "stored": 0
+                },
+                "add": 1,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "AudioPlayerOneShotSingle",
+              "full_type": "HutongGames.PlayMaker.Actions.AudioPlayerOneShotSingle",
+              "enabled": true,
+              "params": {
+                "audioPlayer": {
+                  "fileID": 1709254077376921,
+                  "guid": "99068b2a95bddff419cb6f176648d4e6",
+                  "type": 2
+                },
+                "spawnPoint": {
+                  "var": "Throw Point",
+                  "stored": {
+                    "fileID": 2804
+                  }
+                },
+                "audioClip": {
+                  "fileID": 8300000,
+                  "guid": "715484db4a1d2004ca53c7a07d596a2b",
+                  "type": 3
+                },
+                "pitchMin": 1,
+                "pitchMax": 1,
+                "volume": 1,
+                "delay": 0.2,
+                "storePlayer": {
+                  "var": "Spin Player",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Land",
+          "line": 1593521,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Idle"
+            }
+          ],
+          "actions": [
+            {
+              "type": "AudioStop",
+              "full_type": "HutongGames.PlayMaker.Actions.AudioStop",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Spin Player",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "fadeTime": 0
+              }
+            },
+            {
+              "type": "SetVelocity2d",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocity2d",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "x": 0,
+                "y": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Recover",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            },
+            {
+              "type": "PlayAudioEvent",
+              "full_type": "PlayAudioEvent",
+              "enabled": true,
+              "params": {
+                "audioClip": {
+                  "fileID": 8300000,
+                  "guid": "b82b952b628d6224baad5c297f675a81",
+                  "type": 3
+                },
+                "pitchMin": 1.2,
+                "pitchMax": 1.3,
+                "volume": 1,
+                "audioPlayerPrefab": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spawnPoint": {
+                  "owner": "self"
+                },
+                "spawnPosition": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "SpawnedPlayerRef": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Idle",
+          "line": 1593717,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Ready"
+            },
+            {
+              "event": "JUMP AWAY",
+              "to": "Jump Away Antic"
+            }
+          ],
+          "actions": [
+            {
+              "type": "Tk2dPlayAnimation",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimation",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "animLibName": null,
+                "clipName": "Idle"
+              }
+            },
+            {
+              "type": "Wait",
+              "full_type": "HutongGames.PlayMaker.Actions.Wait",
+              "enabled": true,
+              "params": {
+                "time": 0.5,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            },
+            {
+              "type": "CheckAlertRangeByName",
+              "full_type": "CheckAlertRangeByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 0,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "alertRangeName": "Close Range",
+                "storeResult": 0,
+                "sendEvent": "JUMP AWAY",
+                "outOfRangeEvent": null,
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "CheckTargetDirection",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckTargetDirection",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "target": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "aboveEvent": null,
+                "belowEvent": null,
+                "rightEvent": null,
+                "leftEvent": "FINISHED",
+                "aboveBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "belowBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "rightBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "leftBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "selfOffsetX": 0,
+                "selfOffsetY": 0,
+                "reverseIfNegativeScale": false,
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "FaceObjectV2",
+              "full_type": "HutongGames.PlayMaker.Actions.FaceObjectV2",
+              "enabled": true,
+              "params": {
+                "objectA": {
+                  "owner": "self"
+                },
+                "objectB": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spriteFacesRight": 0,
+                "playNewAnimation": true,
+                "newAnimationClip": "TurnToIdle",
+                "resetFrame": true,
+                "everyFrame": true,
+                "pauseBetweenTurns": 0.25
+              }
+            }
+          ]
+        },
+        {
+          "name": "Alert Pause",
+          "line": 1593989,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Startle"
+            }
+          ],
+          "actions": [
+            {
+              "type": "Wait",
+              "full_type": "HutongGames.PlayMaker.Actions.Wait",
+              "enabled": true,
+              "params": {
+                "time": 0.25,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Ready",
+          "line": 1594062,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "JUMP UP",
+              "to": "Jump Up Antic"
+            },
+            {
+              "event": "JUMP AWAY",
+              "to": "Jump Away Antic"
+            },
+            {
+              "event": "SING",
+              "to": "Sing"
+            }
+          ],
+          "actions": [
+            {
+              "type": "CheckHeroPerformanceRegionV2",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegionV2",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "Radius": {
+                  "var": "Needolin Radius",
+                  "stored": 5
+                },
+                "MinReactDelay": 0.4,
+                "MaxReactDelay": 0.6,
+                "None": null,
+                "ActiveInner": "SING",
+                "ActiveOuter": null,
+                "IgnoreNeedolinRange": 0,
+                "UseActiveBool": 0,
+                "ActiveBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "StoreState": {
+                  "var": null,
+                  "stored": 0
+                },
+                "EveryFrame": false
+              }
+            },
+            {
+              "type": "IntCompare",
+              "full_type": "HutongGames.PlayMaker.Actions.IntCompare",
+              "enabled": true,
+              "params": {
+                "integer1": {
+                  "var": "Throws In Place",
+                  "stored": 0
+                },
+                "integer2": 1,
+                "equal": null,
+                "lessThan": null,
+                "greaterThan": "JUMP AWAY",
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "CheckTargetDirection",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckTargetDirection",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "target": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "aboveEvent": null,
+                "belowEvent": null,
+                "rightEvent": null,
+                "leftEvent": "JUMP AWAY",
+                "aboveBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "belowBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "rightBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "leftBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "selfOffsetX": 0,
+                "selfOffsetY": 0,
+                "reverseIfNegativeScale": false,
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "CheckAlertRangeByName",
+              "full_type": "CheckAlertRangeByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 0,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "alertRangeName": "JumpAway Range",
+                "storeResult": 0,
+                "sendEvent": "JUMP AWAY",
+                "outOfRangeEvent": null,
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "CheckAlertRangeByName",
+              "full_type": "CheckAlertRangeByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 0,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "alertRangeName": "Throw Range",
+                "storeResult": 0,
+                "sendEvent": "JUMP UP",
+                "outOfRangeEvent": null,
+                "everyFrame": true
+              }
+            }
+          ]
+        },
+        {
+          "name": "Jump Away Antic",
+          "line": 1594420,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Jump Away"
+            },
+            {
+              "event": "END",
+              "to": "Jump Leave Antic"
+            }
+          ],
+          "actions": [
+            {
+              "type": "FaceObjectV2",
+              "full_type": "HutongGames.PlayMaker.Actions.FaceObjectV2",
+              "enabled": true,
+              "params": {
+                "objectA": {
+                  "owner": "self"
+                },
+                "objectB": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spriteFacesRight": 0,
+                "playNewAnimation": false,
+                "newAnimationClip": null,
+                "resetFrame": false,
+                "everyFrame": false,
+                "pauseBetweenTurns": 0.5
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Jump Antic",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            },
+            {
+              "type": "ArrayGetNext",
+              "full_type": "HutongGames.PlayMaker.Actions.ArrayGetNext",
+              "enabled": true,
+              "params": {
+                "array": {
+                  "useVariable": 1,
+                  "name": "Jump Points",
+                  "tooltip": null,
+                  "showInInspector": 1,
+                  "networkSync": 0,
+                  "type": 3,
+                  "objectTypeName": "UnityEngine.GameObject",
+                  "floatValues": [],
+                  "intValues": null,
+                  "boolValues": null,
+                  "stringValues": [],
+                  "vector4Values": [],
+                  "objectReferences": [
+                    {
+                      "fileID": 3169
+                    },
+                    {
+                      "fileID": 3670
+                    },
+                    {
+                      "fileID": 2782
+                    }
+                  ]
+                },
+                "startIndex": 0,
+                "endIndex": 0,
+                "loopEvent": null,
+                "resetFlag": {
+                  "var": null,
+                  "stored": 0
+                },
+                "finishedEvent": "END",
+                "result": {
+                  "variableName": "Next Jump Point",
+                  "objectType": "UnityEngine.GameObject",
+                  "useVariable": 1,
+                  "type": 3,
+                  "floatValue": 0,
+                  "intValue": 0,
+                  "boolValue": 0,
+                  "stringValue": null,
+                  "vector4Value": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 0
+                  },
+                  "objectReference": {
+                    "fileID": 0
+                  },
+                  "arrayValue": {
+                    "useVariable": 0,
+                    "name": null,
+                    "tooltip": null,
+                    "showInInspector": 0,
+                    "networkSync": 0,
+                    "type": -1,
+                    "objectTypeName": null,
+                    "floatValues": [],
+                    "intValues": null,
+                    "boolValues": null,
+                    "stringValues": [],
+                    "vector4Values": [],
+                    "objectReferences": []
+                  }
+                },
+                "currentIndex": {
+                  "var": null,
+                  "stored": 0
+                }
+              }
+            },
+            {
+              "type": "GetPosition2D",
+              "full_type": "HutongGames.PlayMaker.Actions.GetPosition2D",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Next Jump Point",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "vector": {
+                  "var": "Jump Pos",
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": {
+                  "var": null,
+                  "stored": 0
+                },
+                "space": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "CalculateProjectileVelocity",
+              "full_type": "HutongGames.PlayMaker.Actions.CalculateProjectileVelocity",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "TargetPosition": {
+                  "var": "Jump Pos",
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "FireAngle": 40,
+                "ImpulseVelocity": {
+                  "var": "Jump Velocity",
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "EveryFrame": false
+              }
+            },
+            {
+              "type": "AudioPlayRandomVoiceFromTableV2",
+              "full_type": "HutongGames.PlayMaker.Actions.AudioPlayRandomVoiceFromTableV2",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Audio Loop Voice",
+                    "stored": {
+                      "fileID": 4466
+                    }
+                  }
+                },
+                "audioClipTable": {
+                  "fileID": 11400000,
+                  "guid": "d03ec19f85c5c0d4a803bb1fce7ae3f2",
+                  "type": 2
+                },
+                "pitchOffset": 0,
+                "stopPreviousSound": true,
+                "forcePlay": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Init",
+          "line": 1594719,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Unalert"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetParent",
+              "full_type": "HutongGames.PlayMaker.Actions.SetParent",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Jump Points Folder",
+                    "stored": {
+                      "fileID": 2919
+                    }
+                  }
+                },
+                "parent": {
+                  "fileID": 0
+                },
+                "resetLocalPosition": 0,
+                "resetLocalRotation": 0
+              }
+            },
+            {
+              "type": "SetParent",
+              "full_type": "HutongGames.PlayMaker.Actions.SetParent",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Target Points Folder",
+                    "stored": {
+                      "fileID": 3195
+                    }
+                  }
+                },
+                "parent": {
+                  "fileID": 0
+                },
+                "resetLocalPosition": 0,
+                "resetLocalRotation": 0
+              }
+            }
+          ]
+        },
+        {
+          "name": "Jump Away",
+          "line": 1594844,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Throw Antic 2"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetIntValue",
+              "full_type": "HutongGames.PlayMaker.Actions.SetIntValue",
+              "enabled": true,
+              "params": {
+                "intVariable": {
+                  "var": "Throws In Place",
+                  "stored": 0
+                },
+                "intValue": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "IntAdd",
+              "full_type": "HutongGames.PlayMaker.Actions.IntAdd",
+              "enabled": true,
+              "params": {
+                "intVariable": {
+                  "var": "Current Target",
+                  "stored": 0
+                },
+                "add": 1,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Fall",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            },
+            {
+              "type": "SetVelocity2d",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocity2d",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "var": "Jump Velocity",
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "GetAngleToTarget2D",
+              "full_type": "HutongGames.PlayMaker.Actions.GetAngleToTarget2D",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "target": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "offsetX": 0,
+                "offsetY": 0,
+                "storeAngle": {
+                  "var": "Angle",
+                  "stored": 0
+                },
+                "pause": 0.35,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "Wait",
+              "full_type": "HutongGames.PlayMaker.Actions.Wait",
+              "enabled": true,
+              "params": {
+                "time": 0.25,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            },
+            {
+              "type": "PlayAudioEvent",
+              "full_type": "PlayAudioEvent",
+              "enabled": true,
+              "params": {
+                "audioClip": {
+                  "fileID": 8300000,
+                  "guid": "cd2b3ab51dfd58848aee3de29db95298",
+                  "type": 3
+                },
+                "pitchMin": 1.5,
+                "pitchMax": 1.5,
+                "volume": 1,
+                "audioPlayerPrefab": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spawnPoint": {
+                  "owner": "self"
+                },
+                "spawnPosition": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "SpawnedPlayerRef": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "FaceObjectV2",
+              "full_type": "HutongGames.PlayMaker.Actions.FaceObjectV2",
+              "enabled": true,
+              "params": {
+                "objectA": {
+                  "owner": "self"
+                },
+                "objectB": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spriteFacesRight": 0,
+                "playNewAnimation": false,
+                "newAnimationClip": null,
+                "resetFrame": false,
+                "everyFrame": false,
+                "pauseBetweenTurns": 0.5
+              }
+            }
+          ]
+        },
+        {
+          "name": "Jump Leave Antic",
+          "line": 1595151,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Leave"
+            }
+          ],
+          "actions": [
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Leave Antic",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            },
+            {
+              "type": "AudioPlayRandomVoiceFromTableV2",
+              "full_type": "HutongGames.PlayMaker.Actions.AudioPlayRandomVoiceFromTableV2",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Audio Loop Voice",
+                    "stored": {
+                      "fileID": 4466
+                    }
+                  }
+                },
+                "audioClipTable": {
+                  "fileID": 11400000,
+                  "guid": "e43563272fcd10f408b897b3a856848f",
+                  "type": 2
+                },
+                "pitchOffset": 0,
+                "stopPreviousSound": true,
+                "forcePlay": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Leave",
+          "line": 1595262,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Throw and Deactivate"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetIsKinematic2d",
+              "full_type": "HutongGames.PlayMaker.Actions.SetIsKinematic2d",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "isKinematic": 1
+              }
+            },
+            {
+              "type": "Wait",
+              "full_type": "HutongGames.PlayMaker.Actions.Wait",
+              "enabled": true,
+              "params": {
+                "time": 0.225,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            },
+            {
+              "type": "SetVelocity2d",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocity2d",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "x": -20,
+                "y": 50,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimation",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimation",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "animLibName": null,
+                "clipName": "Evade"
+              }
+            },
+            {
+              "type": "PlayAudioEvent",
+              "full_type": "PlayAudioEvent",
+              "enabled": true,
+              "params": {
+                "audioClip": {
+                  "fileID": 8300000,
+                  "guid": "cd2b3ab51dfd58848aee3de29db95298",
+                  "type": 3
+                },
+                "pitchMin": 1.5,
+                "pitchMax": 1.5,
+                "volume": 1,
+                "audioPlayerPrefab": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spawnPoint": {
+                  "owner": "self"
+                },
+                "spawnPosition": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "SpawnedPlayerRef": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "AudioPlayRandomVoiceFromTableV2",
+              "full_type": "HutongGames.PlayMaker.Actions.AudioPlayRandomVoiceFromTableV2",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Audio Loop Voice",
+                    "stored": {
+                      "fileID": 4466
+                    }
+                  }
+                },
+                "audioClipTable": {
+                  "fileID": 11400000,
+                  "guid": "cdeaf6b6b8896784db4adcfdda307a7b",
+                  "type": 2
+                },
+                "pitchOffset": 0,
+                "stopPreviousSound": true,
+                "forcePlay": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Throw and Deactivate",
+          "line": 1595501,
+          "sequence": 0,
+          "transitions": [],
+          "actions": [
+            {
+              "type": "ActivateGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.ActivateGameObject",
+              "enabled": false,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "activate": 0,
+                "recursive": 0,
+                "resetOnExit": false,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "ActivateGameObjectDelay",
+              "full_type": "HutongGames.PlayMaker.Actions.ActivateGameObjectDelay",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "activate": 0,
+                "resetOnExit": false,
+                "delay": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "name": "Throw Antic",
+          "line": 1595606,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Choose Target"
+            }
+          ],
+          "actions": [
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Throw Antic Q",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            },
+            {
+              "type": "SetGravity2dScale",
+              "full_type": "HutongGames.PlayMaker.Actions.SetGravity2dScale",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "gravityScale": 0
+              }
+            },
+            {
+              "type": "DecelerateV2",
+              "full_type": "HutongGames.PlayMaker.Actions.DecelerateV2",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "deceleration": 0.85,
+                "brakeOnExit": false
+              }
+            },
+            {
+              "type": "ActivateGameObjectDelay",
+              "full_type": "HutongGames.PlayMaker.Actions.ActivateGameObjectDelay",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "ThrowAntic Flash 1",
+                    "stored": {
+                      "fileID": 4046
+                    }
+                  }
+                },
+                "activate": 1,
+                "resetOnExit": false,
+                "delay": 0.17
+              }
+            },
+            {
+              "type": "ActivateGameObjectDelay",
+              "full_type": "HutongGames.PlayMaker.Actions.ActivateGameObjectDelay",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "ThrowAntic Flash 2",
+                    "stored": {
+                      "fileID": 4087
+                    }
+                  }
+                },
+                "activate": 1,
+                "resetOnExit": false,
+                "delay": 0.17
+              }
+            },
+            {
+              "type": "PlayParticleEmitter",
+              "full_type": "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Pt Slash Antic",
+                    "stored": {
+                      "fileID": 4284
+                    }
+                  }
+                },
+                "emit": 0,
+                "resetIfPlaying": false
+              }
+            },
+            {
+              "type": "AudioPlayerOneShotSingle",
+              "full_type": "HutongGames.PlayMaker.Actions.AudioPlayerOneShotSingle",
+              "enabled": true,
+              "params": {
+                "audioPlayer": {
+                  "fileID": 1709254077376921,
+                  "guid": "99068b2a95bddff419cb6f176648d4e6",
+                  "type": 2
+                },
+                "spawnPoint": {
+                  "var": "Self",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "audioClip": {
+                  "fileID": 8300000,
+                  "guid": "e869e1d497f847f408587c5585b2a5c3",
+                  "type": 3
+                },
+                "pitchMin": 1.15,
+                "pitchMax": 1.35,
+                "volume": 0.75,
+                "delay": 0.17,
+                "storePlayer": {
+                  "fileID": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Throw 2",
+          "line": 1595856,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "LAND",
+              "to": "Land"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetVelocity2d",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocity2d",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": 5,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SetGravity2dScale",
+              "full_type": "HutongGames.PlayMaker.Actions.SetGravity2dScale",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "gravityScale": {
+                  "var": "Gravity",
+                  "stored": 1
+                }
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Throw",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            },
+            {
+              "type": "CheckCollisionSideEnter",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckCollisionSideEnter",
+              "enabled": true,
+              "params": {
+                "topHit": {
+                  "var": null,
+                  "stored": 0
+                },
+                "rightHit": {
+                  "var": null,
+                  "stored": 0
+                },
+                "bottomHit": {
+                  "var": null,
+                  "stored": 0
+                },
+                "leftHit": {
+                  "var": null,
+                  "stored": 0
+                },
+                "topHitEvent": null,
+                "rightHitEvent": null,
+                "bottomHitEvent": "LAND",
+                "leftHitEvent": null,
+                "otherLayer": false,
+                "otherLayerNumber": 0,
+                "ignoreTriggers": 0
+              }
+            },
+            {
+              "type": "CheckCollisionSide",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckCollisionSide",
+              "enabled": true,
+              "params": {
+                "collidingObject": {
+                  "owner": "self"
+                },
+                "topHit": {
+                  "var": null,
+                  "stored": 0
+                },
+                "rightHit": {
+                  "var": null,
+                  "stored": 0
+                },
+                "bottomHit": {
+                  "var": null,
+                  "stored": 0
+                },
+                "leftHit": {
+                  "var": null,
+                  "stored": 0
+                },
+                "topHitEvent": null,
+                "rightHitEvent": null,
+                "bottomHitEvent": "LAND",
+                "leftHitEvent": null,
+                "otherLayer": false,
+                "otherLayerNumber": 0,
+                "ignoreTriggers": 0
+              }
+            },
+            {
+              "type": "PlayAudioEvent",
+              "full_type": "PlayAudioEvent",
+              "enabled": true,
+              "params": {
+                "audioClip": {
+                  "fileID": 8300000,
+                  "guid": "7a14f917470aee944ac31527b0b6cae3",
+                  "type": 3
+                },
+                "pitchMin": 0.95,
+                "pitchMax": 1.05,
+                "volume": 1,
+                "audioPlayerPrefab": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spawnPoint": {
+                  "owner": "self"
+                },
+                "spawnPosition": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "SpawnedPlayerRef": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "GetAngleToTarget2D",
+              "full_type": "HutongGames.PlayMaker.Actions.GetAngleToTarget2D",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "target": {
+                  "var": "Target",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "offsetX": 0,
+                "offsetY": 0,
+                "storeAngle": {
+                  "var": "Angle",
+                  "stored": 0
+                },
+                "pause": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "FloatOperator",
+              "full_type": "HutongGames.PlayMaker.Actions.FloatOperator",
+              "enabled": true,
+              "params": {
+                "float1": {
+                  "var": "Angle",
+                  "stored": 0
+                },
+                "float2": -5,
+                "operation": 0,
+                "storeResult": {
+                  "var": "Angle Min",
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "FloatOperator",
+              "full_type": "HutongGames.PlayMaker.Actions.FloatOperator",
+              "enabled": true,
+              "params": {
+                "float1": {
+                  "var": "Angle",
+                  "stored": 0
+                },
+                "float2": 5,
+                "operation": 0,
+                "storeResult": {
+                  "var": "Angle Max",
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "FlingObjectsFromGlobalPool",
+              "full_type": "HutongGames.PlayMaker.Actions.FlingObjectsFromGlobalPool",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "fileID": 1709254077376921,
+                  "guid": "89956436a61e86e4194218eb228d81c7",
+                  "type": 2
+                },
+                "spawnPoint": {
+                  "var": "Throw Point",
+                  "stored": {
+                    "fileID": 2804
+                  }
+                },
+                "position": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  }
+                },
+                "spawnMin": 1,
+                "spawnMax": 1,
+                "speedMin": 32,
+                "speedMax": 32,
+                "angleMin": {
+                  "var": "Angle Min",
+                  "stored": 0
+                },
+                "angleMax": {
+                  "var": "Angle Max",
+                  "stored": 0
+                },
+                "originVariationX": 0,
+                "originVariationY": 0,
+                "FSM": {
+                  "var": null,
+                  "stored": null
+                },
+                "FSMEvent": {
+                  "var": null,
+                  "stored": null
+                }
+              }
+            },
+            {
+              "type": "IntAdd",
+              "full_type": "HutongGames.PlayMaker.Actions.IntAdd",
+              "enabled": true,
+              "params": {
+                "intVariable": {
+                  "var": "Throws In Place",
+                  "stored": 0
+                },
+                "add": 1,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "GetPosition2D",
+              "full_type": "HutongGames.PlayMaker.Actions.GetPosition2D",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Next Jump Point",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "vector": {
+                  "var": "Jump Pos",
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": {
+                  "var": null,
+                  "stored": 0
+                },
+                "space": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "CalculateProjectileVelocity",
+              "full_type": "HutongGames.PlayMaker.Actions.CalculateProjectileVelocity",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "TargetPosition": {
+                  "var": "Jump Pos",
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "FireAngle": 40,
+                "ImpulseVelocity": {
+                  "var": "Jump Velocity",
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "EveryFrame": false
+              }
+            },
+            {
+              "type": "SetVelocity2d",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocity2d",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "var": "Jump Velocity",
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "AudioPlayerOneShotSingle",
+              "full_type": "HutongGames.PlayMaker.Actions.AudioPlayerOneShotSingle",
+              "enabled": true,
+              "params": {
+                "audioPlayer": {
+                  "fileID": 1709254077376921,
+                  "guid": "99068b2a95bddff419cb6f176648d4e6",
+                  "type": 2
+                },
+                "spawnPoint": {
+                  "var": "Throw Point",
+                  "stored": {
+                    "fileID": 2804
+                  }
+                },
+                "audioClip": {
+                  "fileID": 8300000,
+                  "guid": "715484db4a1d2004ca53c7a07d596a2b",
+                  "type": 3
+                },
+                "pitchMin": 1,
+                "pitchMax": 1,
+                "volume": 1,
+                "delay": 0.2,
+                "storePlayer": {
+                  "var": "Spin Player",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "AudioPlayRandomVoiceFromTableV2",
+              "full_type": "HutongGames.PlayMaker.Actions.AudioPlayRandomVoiceFromTableV2",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Audio Loop Voice",
+                    "stored": {
+                      "fileID": 4466
+                    }
+                  }
+                },
+                "audioClipTable": {
+                  "fileID": 11400000,
+                  "guid": "cdeaf6b6b8896784db4adcfdda307a7b",
+                  "type": 2
+                },
+                "pitchOffset": 0,
+                "stopPreviousSound": true,
+                "forcePlay": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Throw Antic 2",
+          "line": 1596549,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Choose Target 2"
+            }
+          ],
+          "actions": [
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Throw Antic Q",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            },
+            {
+              "type": "SetGravity2dScale",
+              "full_type": "HutongGames.PlayMaker.Actions.SetGravity2dScale",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "gravityScale": 0
+              }
+            },
+            {
+              "type": "DecelerateV2",
+              "full_type": "HutongGames.PlayMaker.Actions.DecelerateV2",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "deceleration": 0.85,
+                "brakeOnExit": false
+              }
+            },
+            {
+              "type": "ActivateGameObjectDelay",
+              "full_type": "HutongGames.PlayMaker.Actions.ActivateGameObjectDelay",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "ThrowAntic Flash 1",
+                    "stored": {
+                      "fileID": 4046
+                    }
+                  }
+                },
+                "activate": 1,
+                "resetOnExit": false,
+                "delay": 0.17
+              }
+            },
+            {
+              "type": "ActivateGameObjectDelay",
+              "full_type": "HutongGames.PlayMaker.Actions.ActivateGameObjectDelay",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "ThrowAntic Flash 2",
+                    "stored": {
+                      "fileID": 4087
+                    }
+                  }
+                },
+                "activate": 1,
+                "resetOnExit": false,
+                "delay": 0.17
+              }
+            },
+            {
+              "type": "PlayParticleEmitter",
+              "full_type": "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Pt Slash Antic",
+                    "stored": {
+                      "fileID": 4284
+                    }
+                  }
+                },
+                "emit": 0,
+                "resetIfPlaying": false
+              }
+            },
+            {
+              "type": "AudioPlayerOneShotSingle",
+              "full_type": "HutongGames.PlayMaker.Actions.AudioPlayerOneShotSingle",
+              "enabled": true,
+              "params": {
+                "audioPlayer": {
+                  "fileID": 1709254077376921,
+                  "guid": "99068b2a95bddff419cb6f176648d4e6",
+                  "type": 2
+                },
+                "spawnPoint": {
+                  "var": "Self",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "audioClip": {
+                  "fileID": 8300000,
+                  "guid": "e869e1d497f847f408587c5585b2a5c3",
+                  "type": 3
+                },
+                "pitchMin": 1.15,
+                "pitchMax": 1.35,
+                "volume": 0.75,
+                "delay": 0.17,
+                "storePlayer": {
+                  "fileID": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Deactivate",
+          "line": 1596799,
+          "sequence": 0,
+          "transitions": [],
+          "actions": [
+            {
+              "type": "ActivateGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.ActivateGameObject",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "activate": 0,
+                "recursive": 0,
+                "resetOnExit": false,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Choose Target",
+          "line": 1596878,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Throw"
+            }
+          ],
+          "actions": [
+            {
+              "type": "ArrayGet",
+              "full_type": "HutongGames.PlayMaker.Actions.ArrayGet",
+              "enabled": true,
+              "params": {
+                "array": {
+                  "useVariable": 1,
+                  "name": "Target Points",
+                  "tooltip": null,
+                  "showInInspector": 1,
+                  "networkSync": 0,
+                  "type": 3,
+                  "objectTypeName": "UnityEngine.GameObject",
+                  "floatValues": [],
+                  "intValues": null,
+                  "boolValues": null,
+                  "stringValues": [],
+                  "vector4Values": [],
+                  "objectReferences": [
+                    {
+                      "fileID": 3843
+                    },
+                    {
+                      "fileID": 3255
+                    },
+                    {
+                      "fileID": 3230
+                    }
+                  ]
+                },
+                "index": {
+                  "var": "Current Target",
+                  "stored": 0
+                },
+                "storeValue": {
+                  "variableName": "Target Point Crt",
+                  "objectType": "UnityEngine.GameObject",
+                  "useVariable": 1,
+                  "type": 3,
+                  "floatValue": 0,
+                  "intValue": 0,
+                  "boolValue": 0,
+                  "stringValue": null,
+                  "vector4Value": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 0
+                  },
+                  "objectReference": {
+                    "fileID": 0
+                  },
+                  "arrayValue": {
+                    "useVariable": 0,
+                    "name": null,
+                    "tooltip": null,
+                    "showInInspector": 0,
+                    "networkSync": 0,
+                    "type": -1,
+                    "objectTypeName": null,
+                    "floatValues": [],
+                    "intValues": null,
+                    "boolValues": null,
+                    "stringValues": [],
+                    "vector4Values": [],
+                    "objectReferences": []
+                  }
+                },
+                "everyFrame": false,
+                "indexOutOfRange": null
+              }
+            },
+            {
+              "type": "SetGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.SetGameObject",
+              "enabled": true,
+              "params": {
+                "variable": {
+                  "var": "Target",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "gameObject": {
+                  "var": "Target Point Crt",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SendEventByScale",
+              "full_type": "HutongGames.PlayMaker.Actions.SendEventByScale",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "eventTarget": {
+                  "target": 0,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "xScale": true,
+                "positiveEvent": null,
+                "negativeEvent": "FINISHED",
+                "space": 0
+              }
+            },
+            {
+              "type": "SetGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.SetGameObject",
+              "enabled": true,
+              "params": {
+                "variable": {
+                  "var": "Target",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "gameObject": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Choose Target 2",
+          "line": 1597077,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Throw 2"
+            }
+          ],
+          "actions": [
+            {
+              "type": "ArrayGet",
+              "full_type": "HutongGames.PlayMaker.Actions.ArrayGet",
+              "enabled": true,
+              "params": {
+                "array": {
+                  "useVariable": 1,
+                  "name": "Target Points",
+                  "tooltip": null,
+                  "showInInspector": 1,
+                  "networkSync": 0,
+                  "type": 3,
+                  "objectTypeName": "UnityEngine.GameObject",
+                  "floatValues": [],
+                  "intValues": null,
+                  "boolValues": null,
+                  "stringValues": [],
+                  "vector4Values": [],
+                  "objectReferences": [
+                    {
+                      "fileID": 3843
+                    },
+                    {
+                      "fileID": 3255
+                    },
+                    {
+                      "fileID": 3230
+                    }
+                  ]
+                },
+                "index": {
+                  "var": "Current Target",
+                  "stored": 0
+                },
+                "storeValue": {
+                  "variableName": "Target Point Crt",
+                  "objectType": "UnityEngine.GameObject",
+                  "useVariable": 1,
+                  "type": 3,
+                  "floatValue": 0,
+                  "intValue": 0,
+                  "boolValue": 0,
+                  "stringValue": null,
+                  "vector4Value": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 0
+                  },
+                  "objectReference": {
+                    "fileID": 0
+                  },
+                  "arrayValue": {
+                    "useVariable": 0,
+                    "name": null,
+                    "tooltip": null,
+                    "showInInspector": 0,
+                    "networkSync": 0,
+                    "type": -1,
+                    "objectTypeName": null,
+                    "floatValues": [],
+                    "intValues": null,
+                    "boolValues": null,
+                    "stringValues": [],
+                    "vector4Values": [],
+                    "objectReferences": []
+                  }
+                },
+                "everyFrame": false,
+                "indexOutOfRange": null
+              }
+            },
+            {
+              "type": "SetGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.SetGameObject",
+              "enabled": true,
+              "params": {
+                "variable": {
+                  "var": "Target",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "gameObject": {
+                  "var": "Target Point Crt",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SendEventByScale",
+              "full_type": "HutongGames.PlayMaker.Actions.SendEventByScale",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "eventTarget": {
+                  "target": 0,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "xScale": true,
+                "positiveEvent": null,
+                "negativeEvent": "FINISHED",
+                "space": 0
+              }
+            },
+            {
+              "type": "SetGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.SetGameObject",
+              "enabled": true,
+              "params": {
+                "variable": {
+                  "var": "Target",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "gameObject": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Sing",
+          "line": 1597276,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "SING DURATION END",
+              "to": "Ready"
+            }
+          ],
+          "actions": [
+            {
+              "type": "Tk2dPlayAnimation",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimation",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "animLibName": null,
+                "clipName": "Sing"
+              }
+            },
+            {
+              "type": "EnemySingControl",
+              "full_type": "HutongGames.PlayMaker.Actions.EnemySingControl",
+              "enabled": true,
+              "params": {
+                "enemyGameObject": {
+                  "owner": "self"
+                },
+                "audioPlayer": {
+                  "var": "Audio Loop Voice",
+                  "stored": {
+                    "fileID": 4466
+                  }
+                },
+                "singAudioTable": {
+                  "fileID": 11400000,
+                  "guid": "d4880f4a37176734c8e7c18ffc159a03",
+                  "type": 2
+                },
+                "noThreadEffects": 0,
+                "noPuppetString": 0,
+                "randomSingStartTime": 0,
+                "dontStopAudioOnExit": 0,
+                "altThreadSpawnPoint": {
+                  "fileID": 0
+                }
+              }
+            },
+            {
+              "type": "CheckHeroPerformanceRegionV2",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegionV2",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "Radius": {
+                  "var": "Needolin Radius",
+                  "stored": 5
+                },
+                "MinReactDelay": 0.4,
+                "MaxReactDelay": 0.6,
+                "None": "SING DURATION END",
+                "ActiveInner": null,
+                "ActiveOuter": null,
+                "IgnoreNeedolinRange": 0,
+                "UseActiveBool": 0,
+                "ActiveBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "StoreState": {
+                  "var": null,
+                  "stored": 0
+                },
+                "EveryFrame": true
+              }
+            }
+          ]
+        }
+      ],
+      "global_transitions": [],
+      "variables": {
+        "floatVariables": [
+          {
+            "useVariable": 1,
+            "name": "Angle",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Angle Min",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Angle Max",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Gravity",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 1
+          },
+          {
+            "useVariable": 1,
+            "name": "Needolin Radius",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 5
+          }
+        ],
+        "intVariables": [
+          {
+            "useVariable": 1,
+            "name": "Current Target",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Throws In Place",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          }
+        ],
+        "boolVariables": [],
+        "stringVariables": [],
+        "vector2Variables": [
+          {
+            "useVariable": 1,
+            "name": "Jump Pos",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Jump Velocity",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "x": 0,
+              "y": 0
+            }
+          }
+        ],
+        "vector3Variables": [],
+        "colorVariables": [],
+        "rectVariables": [],
+        "quaternionVariables": [],
+        "gameObjectVariables": [
+          {
+            "useVariable": 1,
+            "name": "Jump Points Folder",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 2919
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Next Jump Point",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Spin Player",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Target Point Crt",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Target Points Folder",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 3195
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Throw Point",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 2804
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Pt Slash Antic",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 4284
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "ThrowAntic Flash 1",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 4046
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "ThrowAntic Flash 2",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 4087
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Self",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Target",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Audio Loop Voice",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 4466
+            }
+          }
+        ],
+        "objectVariables": [],
+        "materialVariables": [],
+        "textureVariables": [],
+        "arrayVariables": [
+          {
+            "useVariable": 1,
+            "name": "Jump Points",
+            "tooltip": null,
+            "showInInspector": 1,
+            "networkSync": 0,
+            "type": 3,
+            "objectTypeName": "UnityEngine.GameObject",
+            "floatValues": [],
+            "intValues": null,
+            "boolValues": null,
+            "stringValues": [],
+            "vector4Values": [],
+            "objectReferences": [
+              {
+                "fileID": 3169
+              },
+              {
+                "fileID": 3670
+              },
+              {
+                "fileID": 2782
+              }
+            ]
+          },
+          {
+            "useVariable": 1,
+            "name": "Target Points",
+            "tooltip": null,
+            "showInInspector": 1,
+            "networkSync": 0,
+            "type": 3,
+            "objectTypeName": "UnityEngine.GameObject",
+            "floatValues": [],
+            "intValues": null,
+            "boolValues": null,
+            "stringValues": [],
+            "vector4Values": [],
+            "objectReferences": [
+              {
+                "fileID": 3843
+              },
+              {
+                "fileID": 3255
+              },
+              {
+                "fileID": 3230
+              }
+            ]
+          }
+        ],
+        "enumVariables": [],
+        "categories": [
+          null
+        ],
+        "variableCategoryIDs": 0
+      },
+      "fsm_metadata": {
+        "dataVersion": 2,
+        "usedInTemplate": {
+          "fileID": 0
+        },
+        "name": "Control",
+        "startState": "Pause",
+        "events": [
+          {
+            "name": "FINISHED",
+            "isSystemEvent": 1,
+            "isGlobal": 0
+          },
+          {
+            "name": "ALERT",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "BLOCKED HIT",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "END",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "JUMP AWAY",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "JUMP UP",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "LAND",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "LEAVE",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "TOOK DAMAGE",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "DEACTIVATE",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "SING DURATION END",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "SING",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          }
+        ],
+        "globalTransitions": [],
+        "description": null,
+        "docUrl": null,
+        "showStateLabel": 0,
+        "maxLoopCount": 0,
+        "watermark": null,
+        "password": null,
+        "locked": 0,
+        "manualUpdate": 0,
+        "outVariableIndices": null,
+        "keepDelayedEventsOnStateExit": 0,
+        "preprocessed": 1,
+        "ExposedEvents": [],
+        "OutputEvents": [],
+        "RestartOnEnable": 1,
+        "ResetVariablesOnEnable": 0,
+        "EnableDebugFlow": 0,
+        "EnableBreakpoints": 1,
+        "editorFlags": 35,
+        "activeStateName": null,
+        "mouseEvents": 0,
+        "handleLevelLoaded": 0,
+        "handleTriggerEnter2D": 0,
+        "handleTriggerExit2D": 0,
+        "handleTriggerStay2D": 0,
+        "handleCollisionEnter2D": 1,
+        "handleCollisionExit2D": 1,
+        "handleCollisionStay2D": 0,
+        "handleTriggerEnter": 0,
+        "handleTriggerExit": 0,
+        "handleTriggerStay": 0,
+        "handleCollisionEnter": 0,
+        "handleCollisionExit": 0,
+        "handleCollisionStay": 0,
+        "handleParticleCollision": 0,
+        "handleControllerColliderHit": 0,
+        "handleJointBreak": 0,
+        "handleJointBreak2D": 0,
+        "handleOnGUI": 0,
+        "handleFixedUpdate": 1,
+        "handleLateUpdate": 0,
+        "handleApplicationEvents": 0,
+        "handleUiEvents": 0,
+        "handleLegacyNetworking": 0,
+        "handleAnimatorMove": 0,
+        "handleAnimatorIK": 0
+      }
+    }
+  ],
+  "game_objects": [
+    {
+      "file_id": "2782",
+      "name": "Point 3",
+      "line": 47764,
+      "serialized_yaml": "--- !u!1 &2782\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 7868}\n  m_Layer: 11\n  m_Name: Point 3\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2804",
+      "name": "Throw Point",
+      "line": 48140,
+      "serialized_yaml": "--- !u!1 &2804\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 7546}\n  m_Layer: 11\n  m_Name: Throw Point\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2872",
+      "name": "Point 4",
+      "line": 49357,
+      "serialized_yaml": "--- !u!1 &2872\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 7747}\n  m_Layer: 11\n  m_Name: Point 4\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2919",
+      "name": "Jump Points",
+      "line": 50172,
+      "serialized_yaml": "--- !u!1 &2919\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 7814}\n  m_Layer: 11\n  m_Name: Jump Points\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2944",
+      "name": "JumpAway Range",
+      "line": 50616,
+      "serialized_yaml": "--- !u!1 &2944\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 7331}\n  - component: {fileID: 15096}\n  - component: {fileID: 9714}\n  m_Layer: 13\n  m_Name: JumpAway Range\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "3169",
+      "name": "Point 1",
+      "line": 54781,
+      "serialized_yaml": "--- !u!1 &3169\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 8032}\n  m_Layer: 11\n  m_Name: Point 1\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "3195",
+      "name": "Target Points",
+      "line": 55253,
+      "serialized_yaml": "--- !u!1 &3195\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 8351}\n  m_Layer: 11\n  m_Name: Target Points\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "3230",
+      "name": "Target Point 3",
+      "line": 55920,
+      "serialized_yaml": "--- !u!1 &3230\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 8207}\n  m_Layer: 11\n  m_Name: Target Point 3\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "3255",
+      "name": "Target Point 2",
+      "line": 56345,
+      "serialized_yaml": "--- !u!1 &3255\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 7222}\n  m_Layer: 11\n  m_Name: Target Point 2\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "3295",
+      "name": "Hurt Box",
+      "line": 57054,
+      "serialized_yaml": "--- !u!1 &3295\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 8287}\n  - component: {fileID: 9680}\n  m_Layer: 11\n  m_Name: Hurt Box\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "3374",
+      "name": "Point 7",
+      "line": 58398,
+      "serialized_yaml": "--- !u!1 &3374\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 8031}\n  m_Layer: 11\n  m_Name: Point 7\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "3412",
+      "name": "Dock Guard Thrower Enc1",
+      "line": 59076,
+      "serialized_yaml": "--- !u!1 &3412\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 7450}\n  - component: {fileID: 9047}\n  - component: {fileID: 9136}\n  - component: {fileID: 14041}\n  - component: {fileID: 9215}\n  - component: {fileID: 14080}\n  - component: {fileID: 9790}\n  - component: {fileID: 14711}\n  - component: {fileID: 14502}\n  - component: {fileID: 14695}\n  - component: {fileID: 14824}\n  - component: {fileID: 14592}\n  - component: {fileID: 9634}\n  - component: {fileID: 15981}\n  - component: {fileID: 16109}\n  - component: {fileID: 15130}\n  - component: {fileID: 15218}\n  - component: {fileID: 16100}\n  - component: {fileID: 15259}\n  - component: {fileID: 15519}\n  - component: {fileID: 15522}\n  - component: {fileID: 15521}\n  - component: {fileID: 15520}\n  m_Layer: 11\n  m_Name: Dock Guard Thrower Enc1\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "3446",
+      "name": "Point 6",
+      "line": 59707,
+      "serialized_yaml": "--- !u!1 &3446\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 7500}\n  m_Layer: 11\n  m_Name: Point 6\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "3670",
+      "name": "Point 2",
+      "line": 63722,
+      "serialized_yaml": "--- !u!1 &3670\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 7443}\n  m_Layer: 11\n  m_Name: Point 2\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "3714",
+      "name": "Alert Range",
+      "line": 64534,
+      "serialized_yaml": "--- !u!1 &3714\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 8099}\n  - component: {fileID: 14593}\n  - component: {fileID: 9639}\n  m_Layer: 13\n  m_Name: Alert Range\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "3720",
+      "name": "Throw Range",
+      "line": 64657,
+      "serialized_yaml": "--- !u!1 &3720\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 7452}\n  - component: {fileID: 15101}\n  - component: {fileID: 9606}\n  m_Layer: 13\n  m_Name: Throw Range\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "3784",
+      "name": "Close Range",
+      "line": 65789,
+      "serialized_yaml": "--- !u!1 &3784\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 7928}\n  - component: {fileID: 14649}\n  - component: {fileID: 9652}\n  m_Layer: 13\n  m_Name: Close Range\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "3843",
+      "name": "Target Point 1",
+      "line": 66833,
+      "serialized_yaml": "--- !u!1 &3843\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 7439}\n  m_Layer: 11\n  m_Name: Target Point 1\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "3870",
+      "name": "Point 5",
+      "line": 67332,
+      "serialized_yaml": "--- !u!1 &3870\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 8004}\n  m_Layer: 11\n  m_Name: Point 5\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "3913",
+      "name": "Inactive Range",
+      "line": 68078,
+      "serialized_yaml": "--- !u!1 &3913\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 8707}\n  - component: {fileID: 15491}\n  - component: {fileID: 9733}\n  m_Layer: 13\n  m_Name: Inactive Range\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "4046",
+      "name": "ThrowAntic Flash 1",
+      "line": 70607,
+      "serialized_yaml": "--- !u!1 &4046\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 8501}\n  - component: {fileID: 9142}\n  - component: {fileID: 9078}\n  - component: {fileID: 14055}\n  - component: {fileID: 14095}\n  - component: {fileID: 15453}\n  m_Layer: 13\n  m_Name: ThrowAntic Flash 1\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "4087",
+      "name": "ThrowAntic Flash 2",
+      "line": 71365,
+      "serialized_yaml": "--- !u!1 &4087\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 8436}\n  - component: {fileID: 9150}\n  - component: {fileID: 9056}\n  - component: {fileID: 14054}\n  - component: {fileID: 14092}\n  - component: {fileID: 15391}\n  m_Layer: 13\n  m_Name: ThrowAntic Flash 2\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "4236",
+      "name": "Flame Trail (2)",
+      "line": 74142,
+      "serialized_yaml": "--- !u!1 &4236\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 8520}\n  - component: {fileID: 10381}\n  - component: {fileID: 10748}\n  m_Layer: 0\n  m_Name: Flame Trail (2)\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "4284",
+      "name": "Pt Slash Antic",
+      "line": 75038,
+      "serialized_yaml": "--- !u!1 &4284\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 8477}\n  - component: {fileID: 10235}\n  - component: {fileID: 10749}\n  m_Layer: 0\n  m_Name: Pt Slash Antic\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "4466",
+      "name": "Audio Loop Voice",
+      "line": 78499,
+      "serialized_yaml": "--- !u!1 &4466\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 8935}\n  - component: {fileID: 9864}\n  - component: {fileID: 15907}\n  m_Layer: 0\n  m_Name: Audio Loop Voice\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    }
+  ],
+  "components": [
+    {
+      "file_id": "7222",
+      "game_object_id": "3255",
+      "unity_class_id": "4",
+      "line": 120810,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &7222\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3255}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0.07, y: -1.7, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 8351}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "7331",
+      "game_object_id": "2944",
+      "unity_class_id": "4",
+      "line": 122505,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &7331\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2944}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.43049, y: 1.43049, z: 1.43049}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7450}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "7439",
+      "game_object_id": "3843",
+      "unity_class_id": "4",
+      "line": 124202,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &7439\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3843}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 12.62, y: -5.92, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 8351}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "7443",
+      "game_object_id": "3670",
+      "unity_class_id": "4",
+      "line": 124268,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &7443\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3670}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: -25.22, y: -4.48, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7814}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "7450",
+      "game_object_id": "3412",
+      "unity_class_id": "4",
+      "line": 124373,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &7450\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3412}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 53.440384, y: 10.696991, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 8099}\n  - {fileID: 8707}\n  - {fileID: 7546}\n  - {fileID: 7331}\n  - {fileID: 7452}\n  - {fileID: 7928}\n  - {fileID: 7814}\n  - {fileID: 8501}\n  - {fileID: 8436}\n  - {fileID: 8477}\n  - {fileID: 8287}\n  - {fileID: 8351}\n  - {fileID: 8935}\n  m_Father: {fileID: 4637}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "7452",
+      "game_object_id": "3720",
+      "unity_class_id": "4",
+      "line": 124416,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &7452\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3720}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 2.78, z: 0}\n  m_LocalScale: {x: 1.43049, y: 1.43049, z: 1.43049}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7450}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "7500",
+      "game_object_id": "3446",
+      "unity_class_id": "4",
+      "line": 125182,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &7500\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3446}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: -71.52, y: -3.38, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7814}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "7546",
+      "game_object_id": "2804",
+      "unity_class_id": "4",
+      "line": 125970,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &7546\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2804}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: -1.28, y: -0.94, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7450}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "7747",
+      "game_object_id": "2872",
+      "unity_class_id": "4",
+      "line": 129146,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &7747\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2872}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: -51.13, y: -4.4, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7814}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "7814",
+      "game_object_id": "2919",
+      "unity_class_id": "4",
+      "line": 130176,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &7814\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2919}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 8032}\n  - {fileID: 7443}\n  - {fileID: 7868}\n  - {fileID: 7747}\n  - {fileID: 8004}\n  - {fileID: 7500}\n  - {fileID: 8031}\n  m_Father: {fileID: 7450}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "7868",
+      "game_object_id": "2782",
+      "unity_class_id": "4",
+      "line": 131059,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &7868\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2782}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: -33.56, y: -4.36, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7814}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "7928",
+      "game_object_id": "3784",
+      "unity_class_id": "4",
+      "line": 132004,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &7928\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3784}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.43049, y: 1.43049, z: 1.43049}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7450}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "8004",
+      "game_object_id": "3870",
+      "unity_class_id": "4",
+      "line": 133165,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &8004\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3870}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: -57.87, y: -4.4, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7814}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "8031",
+      "game_object_id": "3374",
+      "unity_class_id": "4",
+      "line": 133581,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &8031\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3374}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: -85.22, y: -0.94, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7814}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "8032",
+      "game_object_id": "3169",
+      "unity_class_id": "4",
+      "line": 133596,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &8032\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3169}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: -11.55, y: -2.13, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7814}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "8099",
+      "game_object_id": "3714",
+      "unity_class_id": "4",
+      "line": 134657,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &8099\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3714}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.4304862, y: 1.4304863, z: 1.4304863}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7450}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "8207",
+      "game_object_id": "3230",
+      "unity_class_id": "4",
+      "line": 136384,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &8207\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3230}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: -11.44, y: -3.7, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 8351}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "8287",
+      "game_object_id": "3295",
+      "unity_class_id": "4",
+      "line": 137699,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &8287\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3295}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7450}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "8351",
+      "game_object_id": "3195",
+      "unity_class_id": "4",
+      "line": 138761,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &8351\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3195}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 7439}\n  - {fileID: 7222}\n  - {fileID: 8207}\n  m_Father: {fileID: 7450}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "8436",
+      "game_object_id": "4087",
+      "unity_class_id": "4",
+      "line": 140100,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &8436\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 4087}\n  m_LocalRotation: {x: -0, y: -0, z: -0.5864283, w: 0.8100012}\n  m_LocalPosition: {x: 0.41999817, y: -0.40999985, z: 0.0029000002}\n  m_LocalScale: {x: -2.0284488, y: -2.0284488, z: -2.0284488}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7450}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 71.80791}\n"
+    },
+    {
+      "file_id": "8477",
+      "game_object_id": "4284",
+      "unity_class_id": "4",
+      "line": 140728,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &8477\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 4284}\n  m_LocalRotation: {x: -0, y: -0, z: -0.3097489, w: 0.9508184}\n  m_LocalPosition: {x: 0.47499847, y: -0.4109993, z: 0.0048}\n  m_LocalScale: {x: -1.0177, y: 1.0177, z: 1.0177}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 8520}\n  m_Father: {fileID: 7450}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 36.088196}\n"
+    },
+    {
+      "file_id": "8501",
+      "game_object_id": "4046",
+      "unity_class_id": "4",
+      "line": 141112,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &8501\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 4046}\n  m_LocalRotation: {x: -0, y: -0, z: -0.5864283, w: 0.8100012}\n  m_LocalPosition: {x: 0.42, y: -0.41, z: -0.0030999994}\n  m_LocalScale: {x: -2.0284488, y: -2.0284488, z: -2.0284488}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7450}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 71.80791}\n"
+    },
+    {
+      "file_id": "8520",
+      "game_object_id": "4236",
+      "unity_class_id": "4",
+      "line": 141399,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &8520\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 4236}\n  m_LocalRotation: {x: -0, y: -0, z: 1, w: -1.937151E-07}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 8477}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: 179.99998}\n"
+    },
+    {
+      "file_id": "8707",
+      "game_object_id": "3913",
+      "unity_class_id": "4",
+      "line": 144343,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &8707\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3913}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 60.7, z: 0}\n  m_LocalScale: {x: 1.4304862, y: 1.4304863, z: 1.4304863}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7450}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "8935",
+      "game_object_id": "4466",
+      "unity_class_id": "4",
+      "line": 147960,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &8935\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 4466}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7450}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "9215",
+      "game_object_id": "3412",
+      "unity_class_id": "50",
+      "line": 154779,
+      "script": null,
+      "serialized_yaml": "--- !u!50 &9215\nRigidbody2D:\n  serializedVersion: 5\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3412}\n  m_BodyType: 0\n  m_Simulated: 1\n  m_UseFullKinematicContacts: 0\n  m_UseAutoMass: 0\n  m_Mass: 1\n  m_LinearDamping: 0\n  m_AngularDamping: 0.05\n  m_GravityScale: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_Interpolate: 0\n  m_SleepingMode: 0\n  m_CollisionDetection: 1\n  m_Constraints: 4\n"
+    },
+    {
+      "file_id": "9606",
+      "game_object_id": "3720",
+      "unity_class_id": "61",
+      "line": 171042,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &9606\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3720}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 0, y: 0.7172909}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 24.18, y: 39.89}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "9634",
+      "game_object_id": "3412",
+      "unity_class_id": "61",
+      "line": 172330,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &9634\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3412}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 0\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: -0.034873962, y: -1.1043582}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 0.9018402, y: 2.8560553}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "9639",
+      "game_object_id": "3714",
+      "unity_class_id": "61",
+      "line": 172560,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &9639\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3714}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 4.9016905, y: 0.7172909}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 10.803381, y: 16.176327}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "9652",
+      "game_object_id": "3784",
+      "unity_class_id": "61",
+      "line": 173158,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &9652\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3784}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 0, y: 7.900442}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 11.7, y: 54.256306}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "9680",
+      "game_object_id": "3295",
+      "unity_class_id": "61",
+      "line": 174446,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &9680\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3295}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: -0.034873962, y: -0.2192812}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 0.9018402, y: 2.9993324}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "9714",
+      "game_object_id": "2944",
+      "unity_class_id": "61",
+      "line": 176010,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &9714\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2944}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 0, y: 9.05488}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 14.2, y: 56.565174}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "9733",
+      "game_object_id": "3913",
+      "unity_class_id": "61",
+      "line": 176884,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &9733\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3913}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 8.19818, y: -3.4469092}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 25.461763, y: 7.8479266}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "9790",
+      "game_object_id": "3412",
+      "unity_class_id": "82",
+      "line": 180426,
+      "script": null,
+      "serialized_yaml": "--- !u!82 &9790\nAudioSource:\n  serializedVersion: 4\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3412}\n  m_Enabled: 1\n  OutputAudioMixerGroup: {fileID: 24300004, guid: d910a835fc4287448b891cc742c2a38a, type: 2}\n  m_audioClip: {fileID: 0}\n  m_Resource: {fileID: 0}\n  m_PlayOnAwake: 1\n  m_Volume: 1\n  m_Pitch: 1\n  Loop: 1\n  Mute: 0\n  Spatialize: 0\n  SpatializePostEffects: 0\n  Priority: 128\n  DopplerLevel: 0\n  MinDistance: 39\n  MaxDistance: 50\n  Pan2D: 0\n  rolloffMode: 2\n  BypassEffects: 0\n  BypassListenerEffects: 0\n  BypassReverbZones: 0\n  rolloffCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0.8068195\n      value: 0.072960496\n      inSlope: -0.47960794\n      outSlope: -0.47960794\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    - serializedVersion: 3\n      time: 1\n      value: 0\n      inSlope: -0.46973643\n      outSlope: -0.46973643\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 4\n  panLevelCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  spreadCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 0\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  reverbZoneMixCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n"
+    },
+    {
+      "file_id": "9864",
+      "game_object_id": "4466",
+      "unity_class_id": "82",
+      "line": 187604,
+      "script": null,
+      "serialized_yaml": "--- !u!82 &9864\nAudioSource:\n  serializedVersion: 4\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 4466}\n  m_Enabled: 1\n  OutputAudioMixerGroup: {fileID: 24300004, guid: d910a835fc4287448b891cc742c2a38a, type: 2}\n  m_audioClip: {fileID: 0}\n  m_Resource: {fileID: 0}\n  m_PlayOnAwake: 0\n  m_Volume: 1\n  m_Pitch: 1\n  Loop: 1\n  Mute: 0\n  Spatialize: 0\n  SpatializePostEffects: 0\n  Priority: 127\n  DopplerLevel: 0\n  MinDistance: 39\n  MaxDistance: 70\n  Pan2D: 0\n  rolloffMode: 2\n  BypassEffects: 0\n  BypassListenerEffects: 0\n  BypassReverbZones: 0\n  rolloffCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0.55770993\n      value: 1\n      inSlope: -11.035242\n      outSlope: -11.035242\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.077779464\n    - serializedVersion: 3\n      time: 0.76478577\n      value: 0\n      inSlope: -0.02625977\n      outSlope: -0.02625977\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.45610875\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  panLevelCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  spreadCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 0\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  reverbZoneMixCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n"
+    },
+    {
+      "file_id": "14041",
+      "game_object_id": "3412",
+      "unity_class_id": "114",
+      "line": 1470973,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "serialized_yaml": "--- !u!114 &14041\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3412}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 461acbcb857d4478aaa8e8e64ee6f52a, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  collection: {fileID: 114724804207875695, guid: b73a2c2486d0bce4093e683e05b49777, type: 2}\n  _color: {r: 1, g: 1, b: 1, a: 1}\n  _scale: {x: 1, y: 1, z: 1}\n  _spriteId: 48\n  boxCollider2D: {fileID: 0}\n  polygonCollider2D: []\n  edgeCollider2D: []\n  boxCollider: {fileID: 0}\n  meshCollider: {fileID: 0}\n  meshColliderPositions: []\n  meshColliderMesh: {fileID: 0}\n  renderLayer: 0\n"
+    },
+    {
+      "file_id": "14054",
+      "game_object_id": "4087",
+      "unity_class_id": "114",
+      "line": 1471285,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "serialized_yaml": "--- !u!114 &14054\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 4087}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 461acbcb857d4478aaa8e8e64ee6f52a, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  collection: {fileID: 114724804207875695, guid: cfc2bbb10f3cbbb4eaa1d587ec2f0fcc, type: 2}\n  _color: {r: 0.9490197, g: 0.6666667, b: 0.23529413, a: 1}\n  _scale: {x: 1, y: 1, z: 1}\n  _spriteId: 19\n  boxCollider2D: {fileID: 0}\n  polygonCollider2D: []\n  edgeCollider2D: []\n  boxCollider: {fileID: 0}\n  meshCollider: {fileID: 0}\n  meshColliderPositions: []\n  meshColliderMesh: {fileID: 0}\n  renderLayer: 0\n"
+    },
+    {
+      "file_id": "14055",
+      "game_object_id": "4046",
+      "unity_class_id": "114",
+      "line": 1471309,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "serialized_yaml": "--- !u!114 &14055\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 4046}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 461acbcb857d4478aaa8e8e64ee6f52a, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  collection: {fileID: 114724804207875695, guid: cfc2bbb10f3cbbb4eaa1d587ec2f0fcc, type: 2}\n  _color: {r: 1, g: 1, b: 1, a: 1}\n  _scale: {x: 1, y: 1, z: 1}\n  _spriteId: 19\n  boxCollider2D: {fileID: 0}\n  polygonCollider2D: []\n  edgeCollider2D: []\n  boxCollider: {fileID: 0}\n  meshCollider: {fileID: 0}\n  meshColliderPositions: []\n  meshColliderMesh: {fileID: 0}\n  renderLayer: 0\n"
+    },
+    {
+      "file_id": "14080",
+      "game_object_id": "3412",
+      "unity_class_id": "114",
+      "line": 1471843,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs",
+      "serialized_yaml": "--- !u!114 &14080\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3412}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5996133e774984aa7a33c40ed829e17f, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  spriteOverride: {fileID: 0}\n  library: {fileID: 114724804207875695, guid: e29513a1758225346b845c08073707ae, type: 2}\n  defaultClipId: 9\n  isRealtime: 0\n  playAutomatically: 1\n  playAutomaticallyOnEnable: 0\n"
+    },
+    {
+      "file_id": "14092",
+      "game_object_id": "4087",
+      "unity_class_id": "114",
+      "line": 1472059,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs",
+      "serialized_yaml": "--- !u!114 &14092\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 4087}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5996133e774984aa7a33c40ed829e17f, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  spriteOverride: {fileID: 0}\n  library: {fileID: 114724804207875695, guid: 638d37c542639964baa59bc3957cb769, type: 2}\n  defaultClipId: 24\n  isRealtime: 0\n  playAutomatically: 0\n  playAutomaticallyOnEnable: 0\n"
+    },
+    {
+      "file_id": "14095",
+      "game_object_id": "4046",
+      "unity_class_id": "114",
+      "line": 1472113,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs",
+      "serialized_yaml": "--- !u!114 &14095\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 4046}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5996133e774984aa7a33c40ed829e17f, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  spriteOverride: {fileID: 0}\n  library: {fileID: 114724804207875695, guid: 638d37c542639964baa59bc3957cb769, type: 2}\n  defaultClipId: 24\n  isRealtime: 0\n  playAutomatically: 0\n  playAutomaticallyOnEnable: 0\n"
+    },
+    {
+      "file_id": "14502",
+      "game_object_id": "3412",
+      "unity_class_id": "114",
+      "line": 1496997,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/Recoil.cs",
+      "serialized_yaml": "--- !u!114 &14502\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3412}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9dce17883e836a8b91b054fcaef81958, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  FreezeInPlace: 0\n  recoilSpeedBase: 0\n  recoilDuration: 0.15\n  IsUpBlocked: 0\n  IsDownBlocked: 0\n  IsLeftBlocked: 0\n  IsRightBlocked: 0\n"
+    },
+    {
+      "file_id": "14592",
+      "game_object_id": "3412",
+      "unity_class_id": "114",
+      "line": 1512486,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/HealthManager.cs",
+      "serialized_yaml": "--- !u!114 &14592\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3412}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 7e0b9799fb0157646caefd91bc67f0a6, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  audioPlayerPrefab: {fileID: 82724804207875695, guid: 99068b2a95bddff419cb6f176648d4e6, type: 2}\n  regularInvincibleAudio:\n    Clip: {fileID: 8300000, guid: 6447a975892e6ac42be7525d74803f40, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  blockHitPrefab: {fileID: 1709254077376921, guid: a7a57900a8a415a4387938611b64e586, type: 2}\n  strikeNailPrefab: {fileID: 1709254077376921, guid: 64c20baf394ac9a41b03deea82568445, type: 2}\n  slashImpactPrefab: {fileID: 1709254077376921, guid: 97c9ba031f06bae4681d3fda13c3f87b, type: 2}\n  corpseSplatPrefab: {fileID: 1709254077376921, guid: ee26d04f9efdaa7458f4fcea07e485df, type: 2}\n  hp: 9999\n  damageScaling:\n    Level1Mult: 0.1\n    Level2Mult: 0.1\n    Level3Mult: 0.1\n    Level4Mult: 0.1\n    Level5Mult: 0.1\n  enemyType: 0\n  doNotGiveSilk: 0\n  ignoreFlags: 0\n  reaperBundles: 0\n  effectOrigin: {x: 0, y: -0.2, z: 0}\n  ignoreKillAll: 0\n  sendDamageTo: {fileID: 0}\n  isPartOfSendToTarget: 0\n  tagDamageTakerIgnoreColliderState: 0\n  takeTagDamageWhileInvincible: 0\n  targetPointOverride: {fileID: 0}\n  battleScene: {fileID: 0}\n  sendHitTo: {fileID: 0}\n  sendKilledToObject: {fileID: 0}\n  sendKilledToName:\n  smallGeoDrops: 0\n  mediumGeoDrops: 0\n  largeGeoDrops: 0\n  largeSmoothGeoDrops: 0\n  megaFlingGeo: 0\n  shellShardDrops: 0\n  flingSilkOrbsDown: 0\n  flingSilkOrbsAimObject: {fileID: 0}\n  itemDropGroups:\n  - TotalProbability: 0.075\n    Drops: []\n  _itemDropProbability: 0\n  _itemDrops: []\n  hasAlternateHitAnimation: 0\n  alternateHitAnimation: False\n  invincible: 0\n  piercable: 0\n  invincibleFromDirection: 4\n  preventInvincibleEffect: 0\n  preventInvincibleShake: 0\n  preventInvincibleAttackBlock: 0\n  invincibleRecoil: 0\n  dontSendTinkToDamager: 0\n  hasAlternateInvincibleSound: 0\n  alternateInvincibleSound: {fileID: 0}\n  immuneToNailAttacks: 0\n  immuneToExplosions: 0\n  immuneToBeams: 0\n  immuneToHunterWeapon: 0\n  immuneToCoal: 0\n  immuneToTraps: 0\n  immuneToWater: 0\n  immuneToSpikes: 0\n  immuneToLava: 0\n  isMossExtractable: 0\n  isSwampExtractable: 0\n  isBluebloodExtractable: 0\n  deathAudioSnapshot: {fileID: 0}\n  hasSpecialDeath: 1\n  deathReset: 0\n  damageOverride: 0\n  ignoreAcid: 0\n  ignoreWater: 0\n  zeroHPEventOverride: {fileID: 0}\n  dontDropMeat: 0\n  enemySize: 1\n  bigEnemyDeath: 0\n  preventDeathAfterHero: 0\n  ignoreHazards: 0\n  invulnerableTime: 0.25\n  semiPersistent: 0\n  isDead: 0\n  ignorePersistence: 0\n  tinkTimer: 0\n"
+    },
+    {
+      "file_id": "14593",
+      "game_object_id": "3714",
+      "unity_class_id": "114",
+      "line": 1512585,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/AlertRange.cs",
+      "serialized_yaml": "--- !u!114 &14593\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3714}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: e667676c1e2581f78ac6219259c46fde, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  ignoreLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  tagIncludeList: []\n  tagExcludeList: []\n  checkParentSight: 0\n  lineOfSight: 0\n  countUnalertTime: 0\n"
+    },
+    {
+      "file_id": "14649",
+      "game_object_id": "3784",
+      "unity_class_id": "114",
+      "line": 1521852,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/AlertRange.cs",
+      "serialized_yaml": "--- !u!114 &14649\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3784}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: e667676c1e2581f78ac6219259c46fde, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  ignoreLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  tagIncludeList: []\n  tagExcludeList: []\n  checkParentSight: 0\n  lineOfSight: 0\n  countUnalertTime: 0\n"
+    },
+    {
+      "file_id": "14695",
+      "game_object_id": "3412",
+      "unity_class_id": "114",
+      "line": 1538882,
+      "script": "Assets/Scripts/Assembly-CSharp/EnemyHitEffectsRegular.cs",
+      "serialized_yaml": "--- !u!114 &14695\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3412}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 688cf27c991077549cc7e1e5fa656b3d, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  effectOrigin: {x: -0.05, y: -0.22, z: 0}\n  sendDamageFlashEvent: 1\n  profile: {fileID: 11400000, guid: 4230e63efb0c45141b8a9672418ea98b, type: 2}\n  overrideBloodColor: 0\n  bloodColorOverride: {r: 0, g: 0, b: 0, a: 0}\n  forceMinimalEffects: 0\n"
+    },
+    {
+      "file_id": "14711",
+      "game_object_id": "3412",
+      "unity_class_id": "114",
+      "line": 1539133,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SpriteFlash.cs",
+      "serialized_yaml": "--- !u!114 &14711\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3412}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 3760009a589b001159b0ab5c0e83a2db, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  children: []\n  parents: []\n  getParent: 0\n  doHitFlashOnEnable: 0\n  startFlashes: 0\n"
+    },
+    {
+      "file_id": "14824",
+      "game_object_id": "3412",
+      "unity_class_id": "114",
+      "line": 1567446,
+      "script": "Assets/Scripts/Assembly-CSharp/EnemyDeathEffectsRegular.cs",
+      "serialized_yaml": "--- !u!114 &14824\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3412}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 2730b6b2b2abd535272d044bb7d8942f, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  corpsePrefab: {fileID: 0}\n  altCorpses: []\n  isCorpseRecyclable: 0\n  manualPreInstantiate: 0\n  corpseFacesRight: 0\n  overrideDeathDirection: 0\n  corpseFlingSpeed: 15\n  corpseSpawnPoint: {x: 0, y: -0.2, z: 0}\n  effectOrigin: {x: -0.06, y: -0.19, z: 0}\n  lowCorpseArc: 0\n  recycle: 0\n  rotateCorpse: 0\n  corpseMatchesEnemyScale: 0\n  audioSnapshotOnDeath: {fileID: 0}\n  sendEventRegister:\n  deathSounds:\n  - Clip: {fileID: 8300000, guid: cadfc16ee055c944da51081b220f0a1a, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  - Clip: {fileID: 8300000, guid: d921724037ad76c429becd63cb4c9677, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  enemyDeathSwordAudio:\n    Clip: {fileID: 0}\n    PitchMin: 0\n    PitchMax: 0\n    Volume: 0\n    vibrationDataAsset: {fileID: 0}\n  enemyDamageAudio:\n    Clip: {fileID: 0}\n    PitchMin: 0\n    PitchMax: 0\n    Volume: 0\n    vibrationDataAsset: {fileID: 0}\n  deathCameraShake:\n    camera: {fileID: 11400000, guid: 9b0888e0916dca544846a2f34304dac9, type: 2}\n    profile: {fileID: 11400000, guid: 279f38013a080f34999cd00fbee1b9c2, type: 2}\n    doFreeze: 1\n    vibrate: 1\n  journalRecord: {fileID: 0}\n  awardFullJournalEntry: 0\n  setPlayerDataBool:\n  awardAchievement:\n  doNotSetHasKilled: 0\n  doNotSpawnCorpse: 0\n  profile: {fileID: 11400000, guid: 0e2a9aa909fe46044a4b97744eed6794, type: 2}\n"
+    },
+    {
+      "file_id": "15096",
+      "game_object_id": "2944",
+      "unity_class_id": "114",
+      "line": 1588687,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/AlertRange.cs",
+      "serialized_yaml": "--- !u!114 &15096\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2944}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: e667676c1e2581f78ac6219259c46fde, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  ignoreLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  tagIncludeList: []\n  tagExcludeList: []\n  checkParentSight: 0\n  lineOfSight: 0\n  countUnalertTime: 0\n"
+    },
+    {
+      "file_id": "15101",
+      "game_object_id": "3720",
+      "unity_class_id": "114",
+      "line": 1588797,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/AlertRange.cs",
+      "serialized_yaml": "--- !u!114 &15101\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3720}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: e667676c1e2581f78ac6219259c46fde, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  ignoreLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  tagIncludeList: []\n  tagExcludeList: []\n  checkParentSight: 0\n  lineOfSight: 1\n  countUnalertTime: 0\n"
+    },
+    {
+      "file_id": "15130",
+      "game_object_id": "3412",
+      "unity_class_id": "114",
+      "line": 1589965,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "serialized_yaml": "--- !u!114 &15130\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3412}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9a4a05480320f7f0c7f74a7198222c9e, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  z: 0.006\n  dontRandomize: 0\n  randomizeFromStartingValue: 0\n  delayBeforeRandomizing: 0.5\n  waitFrames: 0\n  deParent: 0\n"
+    },
+    {
+      "file_id": "15259",
+      "game_object_id": "3412",
+      "unity_class_id": "114",
+      "line": 1598572,
+      "script": "Assets/Scripts/Assembly-CSharp/EnemySingDuration.cs",
+      "serialized_yaml": "--- !u!114 &15259\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3412}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: b60c10cda6dbb2924cd52756ec15ead9, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n"
+    },
+    {
+      "file_id": "15391",
+      "game_object_id": "4087",
+      "unity_class_id": "114",
+      "line": 1602609,
+      "script": "Assets/Scripts/ProjectCode/Game/04_World_Environment/DeactivateAfter2dtkAnimation.cs",
+      "serialized_yaml": "--- !u!114 &15391\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 4087}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 8e9b1b7625abc2760182cdea46887a86, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  animators: []\n  stayInPlace: 1\n  matchParentScale: 0\n  randomlyFlipXScale: 0\n  randomlyFlipYScale: 0\n  keepScaleSign: 0\n  myParent: {fileID: 0}\n  deactivateMeshRendererInstead: 0\n  spriteAnimator: {fileID: 0}\n"
+    },
+    {
+      "file_id": "15453",
+      "game_object_id": "4046",
+      "unity_class_id": "114",
+      "line": 1603889,
+      "script": "Assets/Scripts/ProjectCode/Game/04_World_Environment/DeactivateAfter2dtkAnimation.cs",
+      "serialized_yaml": "--- !u!114 &15453\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 4046}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 8e9b1b7625abc2760182cdea46887a86, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  animators: []\n  stayInPlace: 1\n  matchParentScale: 0\n  randomlyFlipXScale: 0\n  randomlyFlipYScale: 0\n  keepScaleSign: 0\n  myParent: {fileID: 0}\n  deactivateMeshRendererInstead: 0\n  spriteAnimator: {fileID: 0}\n"
+    },
+    {
+      "file_id": "15491",
+      "game_object_id": "3913",
+      "unity_class_id": "114",
+      "line": 1604671,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/AlertRange.cs",
+      "serialized_yaml": "--- !u!114 &15491\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3913}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: e667676c1e2581f78ac6219259c46fde, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  ignoreLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  tagIncludeList: []\n  tagExcludeList: []\n  checkParentSight: 0\n  lineOfSight: 0\n  countUnalertTime: 0\n"
+    },
+    {
+      "file_id": "15519",
+      "game_object_id": "3412",
+      "unity_class_id": "114",
+      "line": 1606096,
+      "script": "Assets/Scripts/Assembly-CSharp/NeedolinTextOwner.cs",
+      "serialized_yaml": "--- !u!114 &15519\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3412}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 31fc0cd4445f01d3a6cd3001ad153725, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  rangeCheck: 3\n  customRange: 0\n  insideTrigger: {fileID: 0}\n  text:\n    collection: {fileID: 11400000, guid: 9b4ef47cacaf74c40830c34a7cb746fd, type: 2}\n    customData:\n      template:\n        Sheet:\n        Key:\n      configOverride: {fileID: 0}\n      alternatives: []\n      doNotPlay: 0\n  mapZoneOverrides: []\n  OnAddText:\n    m_PersistentCalls:\n      m_Calls: []\n  OnRemoveText:\n    m_PersistentCalls:\n      m_Calls: []\n"
+    },
+    {
+      "file_id": "15520",
+      "game_object_id": "3412",
+      "unity_class_id": "114",
+      "line": 1606127,
+      "script": null,
+      "serialized_yaml": "--- !u!114 &15520\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3412}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: -664232604, guid: daca89c25bd1813ceecbbbb8555342a7, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  TargetFSMs:\n  - {fileID: 15218}\n"
+    },
+    {
+      "file_id": "15521",
+      "game_object_id": "3412",
+      "unity_class_id": "114",
+      "line": 1606141,
+      "script": null,
+      "serialized_yaml": "--- !u!114 &15521\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3412}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: -215411683, guid: daca89c25bd1813ceecbbbb8555342a7, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  TargetFSMs:\n  - {fileID: 15218}\n"
+    },
+    {
+      "file_id": "15522",
+      "game_object_id": "3412",
+      "unity_class_id": "114",
+      "line": 1606155,
+      "script": null,
+      "serialized_yaml": "--- !u!114 &15522\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3412}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: -967985445, guid: daca89c25bd1813ceecbbbb8555342a7, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  TargetFSMs:\n  - {fileID: 15218}\n"
+    },
+    {
+      "file_id": "15907",
+      "game_object_id": "4466",
+      "unity_class_id": "114",
+      "line": 1619591,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/AudioSourceGamePause.cs",
+      "serialized_yaml": "--- !u!114 &15907\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 4466}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: bec75353ea8e29e3c36e5a5845d5030a, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n"
+    },
+    {
+      "file_id": "15981",
+      "game_object_id": "3412",
+      "unity_class_id": "114",
+      "line": 1621319,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/DamageHero.cs",
+      "serialized_yaml": "--- !u!114 &15981\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3412}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 49c386a20fdaa83a59c1a091a909e14c, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  damageDealt: 1\n  hazardType: 1\n  damageAsset: {fileID: 0}\n  damagePropertyFlags: 0\n  resetOnEnable: 0\n  canClashTink: 0\n  forceParry: 0\n  noClashFreeze: 0\n  noTerrainThunk: 0\n  noTerrainRecoil: 0\n  noCorpseSpikeStick: 0\n  noBounceCooldown: 0\n  overrideCollisionSide: 0\n  collisionSide: 0\n  invertCollisionSide: 0\n  HeroDamagedFSM: {fileID: 0}\n  AlwaysSendDamaged: 0\n  HeroDamagedFSMEvent:\n  HeroDamagedFSMBool:\n  HeroDamagedFSMGameObject:\n  ClashEvents:\n    OnClashUp:\n      m_PersistentCalls:\n        m_Calls: []\n    OnClashDown:\n      m_PersistentCalls:\n        m_Calls: []\n    OnClashLeft:\n      m_PersistentCalls:\n        m_Calls: []\n    OnClashRight:\n      m_PersistentCalls:\n        m_Calls: []\n  OnDamagedHero:\n    m_PersistentCalls:\n      m_Calls: []\n"
+    },
+    {
+      "file_id": "16100",
+      "game_object_id": "3412",
+      "unity_class_id": "114",
+      "line": 1629345,
+      "script": "Assets/Scripts/ProjectCode/Game/12_Utilities/PersonalObjectPool.cs",
+      "serialized_yaml": "--- !u!114 &16100\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3412}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5b2ef5c5e57f7fd8e1e9fc2db016e6f0, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  startupPool:\n  - size: 4\n    prefab: {fileID: 1709254077376921, guid: 89956436a61e86e4194218eb228d81c7, type: 2}\n    initialiseSpawnedObjects: 0\n    shared: 0\n  stealFromParent: {fileID: 0}\n"
+    },
+    {
+      "file_id": "16109",
+      "game_object_id": "3412",
+      "unity_class_id": "114",
+      "line": 1629667,
+      "script": "Assets/Scripts/ProjectCode/Game/06_Data_Save_Progression/PersistentBoolItem.cs",
+      "serialized_yaml": "--- !u!114 &16109\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3412}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 087a94ec5288c627922d9bede0894295, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  saveCondition:\n    TestGroups: []\n  dontSave: 0\n  itemData:\n    ID:\n    SceneName:\n    IsSemiPersistent: 1\n    Value: 0\n    Mutator: 0\n  disableIfActivated: 0\n  disablePrefabIfActivated: {fileID: 0}\n"
+    }
+  ],
+  "recording_references": [],
+  "limits": [
+    "Static serialized specimen; no runtime timing capture.",
+    "Scene variants may override values; see catalog.json instances.",
+    "External fileID/GUID dependencies remain explicit; do not replace with guessed values."
+  ]
+}

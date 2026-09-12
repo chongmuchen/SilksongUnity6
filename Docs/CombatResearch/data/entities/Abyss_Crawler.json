@@ -1,0 +1,665 @@
+{
+  "schema": "silksong-combat-entity-v1",
+  "journal": {
+    "id": "Abyss Crawler",
+    "guid": "341d24650c7527e45a55f459e32d3c48",
+    "path": "Assets/Data Assets/Enemy Journal/Journal Records/Abyss Crawler.asset",
+    "key": "NAME_ABYSS_CRAWLER",
+    "record_type": 0,
+    "kills_required": 16,
+    "required_type": 1,
+    "master_order": 215,
+    "scene_count": 6,
+    "object_names": [
+      "Abyss Crawler",
+      "Abyss Crawler (1)",
+      "Abyss Crawler (2)",
+      "Abyss Crawler (4)"
+    ],
+    "instance_count": 7
+  },
+  "specimen": {
+    "source": "Assets/Scenes/Hornet/Abyss_01.unity",
+    "line": 319316,
+    "game_object_id": "1192",
+    "name": "Abyss Crawler (2)",
+    "active": "1",
+    "hp": "40",
+    "special_death": "0",
+    "invincible": "0",
+    "fsms": [
+      {
+        "object": "Abyss Crawler (2)",
+        "game_object_id": "1192",
+        "component_id": "6455",
+        "name": "Fall",
+        "start": "Check",
+        "states": [
+          "Check",
+          "Fall",
+          "Land",
+          "Restart Crawler"
+        ],
+        "action_types": [
+          "HutongGames.PlayMaker.Actions.BoolTestMulti",
+          "HutongGames.PlayMaker.Actions.DecelerateXY",
+          "HutongGames.PlayMaker.Actions.FloatTestToBool",
+          "HutongGames.PlayMaker.Actions.GetRotation",
+          "HutongGames.PlayMaker.Actions.PlayRandomAudioClipTable",
+          "HutongGames.PlayMaker.Actions.Tk2dPlayAnimation",
+          "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+          "HutongGames.PlayMaker.FsmBool"
+        ],
+        "line": 329568,
+        "lines": 741,
+        "source_sha256": "f87e1f7de2b02e10ce7090ceb98a2123cbee9ca16bd7a37b33b627468e7dcb74"
+      }
+    ],
+    "components": [
+      "Assets/Scripts/Assembly-CSharp/EnemyDeathEffectsRegular.cs",
+      "Assets/Scripts/Assembly-CSharp/EnemyHitEffectsRegular.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/DamageHero.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/HealthManager.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/Recoil.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/RandomAudioStart.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SpriteFlash.cs",
+      "Assets/Scripts/ProjectCode/Game/11_Actors_Quests/Crawler.cs",
+      "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs"
+    ],
+    "damages": [
+      {
+        "object": "Abyss Crawler (2)",
+        "damage": "1",
+        "line": 334497
+      }
+    ],
+    "evidence": "journal_guid",
+    "is_hornet_scene": true,
+    "is_temp_scene": false
+  },
+  "source_sha256": "a88e99ce20c8a900b5362bd6f127863daf7d5961f313c811cff7a918ab9d5823",
+  "fsms": [
+    {
+      "source": "Assets/Scenes/Hornet/Abyss_01.unity",
+      "line": 329569,
+      "file_id": 6455,
+      "owner_id": 1192,
+      "owner": "Abyss Crawler (2)",
+      "name": "Fall",
+      "start_state": "Check",
+      "states": [
+        {
+          "name": "Check",
+          "line": 329586,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FALL",
+              "to": "Fall"
+            }
+          ],
+          "actions": [
+            {
+              "type": "GetRotation",
+              "full_type": "HutongGames.PlayMaker.Actions.GetRotation",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "quaternion": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 0
+                  }
+                },
+                "vector": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  }
+                },
+                "xAngle": {
+                  "var": null,
+                  "stored": 0
+                },
+                "yAngle": {
+                  "var": null,
+                  "stored": 0
+                },
+                "zAngle": {
+                  "var": "Rotation",
+                  "stored": 0
+                },
+                "space": 0,
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "FloatTestToBool",
+              "full_type": "HutongGames.PlayMaker.Actions.FloatTestToBool",
+              "enabled": true,
+              "params": {
+                "float1": {
+                  "var": "Rotation",
+                  "stored": 0
+                },
+                "float2": 0,
+                "tolerance": 0.1,
+                "equalBool": {
+                  "var": "Ground Crawler",
+                  "stored": 0
+                },
+                "lessThanBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "greaterThanBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "CheckIsCharacterGrounded",
+              "full_type": "CheckIsCharacterGrounded",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "RayCount": 3,
+                "GroundDistance": 2,
+                "SkinWidth": -0.05,
+                "SkinHeight": 0.1,
+                "StoreResult": {
+                  "var": "Grounded",
+                  "stored": 0
+                },
+                "GroundedEvent": null,
+                "NotGroundedEvent": null,
+                "EveryFrame": true
+              }
+            },
+            {
+              "type": "BoolTestMulti",
+              "full_type": "HutongGames.PlayMaker.Actions.BoolTestMulti",
+              "enabled": true,
+              "params": {
+                "boolVariables": [
+                  {
+                    "var": "Ground Crawler",
+                    "stored": 0
+                  },
+                  {
+                    "var": "Grounded",
+                    "stored": 0
+                  }
+                ],
+                "boolStates": [
+                  1,
+                  0
+                ],
+                "trueEvent": "FALL",
+                "falseEvent": null,
+                "storeResult": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": true
+              }
+            }
+          ]
+        },
+        {
+          "name": "Fall",
+          "line": 329837,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "LAND",
+              "to": "Land"
+            }
+          ],
+          "actions": [
+            {
+              "type": "StopCrawler",
+              "full_type": "StopCrawler",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "WaitForTurn": 0
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimation",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimation",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "animLibName": null,
+                "clipName": "Death Air"
+              }
+            },
+            {
+              "type": "DecelerateXY",
+              "full_type": "HutongGames.PlayMaker.Actions.DecelerateXY",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "decelerationX": 0.98,
+                "decelerationY": {
+                  "var": null,
+                  "stored": 0
+                },
+                "brakeOnExit": false
+              }
+            },
+            {
+              "type": "CheckIsCharacterGrounded",
+              "full_type": "CheckIsCharacterGrounded",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "RayCount": 3,
+                "GroundDistance": 0.2,
+                "SkinWidth": -0.05,
+                "SkinHeight": 0.1,
+                "StoreResult": {
+                  "var": null,
+                  "stored": 0
+                },
+                "GroundedEvent": "LAND",
+                "NotGroundedEvent": null,
+                "EveryFrame": true
+              }
+            }
+          ]
+        },
+        {
+          "name": "Land",
+          "line": 330018,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Restart Crawler"
+            }
+          ],
+          "actions": [
+            {
+              "type": "PlayRandomAudioClipTable",
+              "full_type": "HutongGames.PlayMaker.Actions.PlayRandomAudioClipTable",
+              "enabled": true,
+              "params": {
+                "Table": {
+                  "fileID": 11400000,
+                  "guid": "7e5d319f67c4f1c45ae9694796a4edf3",
+                  "type": 2
+                },
+                "AudioPlayerPrefab": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "SpawnPoint": {
+                  "owner": "self"
+                },
+                "SpawnPosition": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                }
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Land",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Restart Crawler",
+          "line": 330135,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Check"
+            }
+          ],
+          "actions": [
+            {
+              "type": "StartCrawler",
+              "full_type": "StartCrawler",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "ScheduleTurn": 0
+              }
+            }
+          ]
+        }
+      ],
+      "global_transitions": [],
+      "variables": {
+        "floatVariables": [
+          {
+            "useVariable": 1,
+            "name": "Rotation",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          }
+        ],
+        "intVariables": [],
+        "boolVariables": [
+          {
+            "useVariable": 1,
+            "name": "Ground Crawler",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Grounded",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          }
+        ],
+        "stringVariables": [],
+        "vector2Variables": [],
+        "vector3Variables": [],
+        "colorVariables": [],
+        "rectVariables": [],
+        "quaternionVariables": [],
+        "gameObjectVariables": [],
+        "objectVariables": [],
+        "materialVariables": [],
+        "textureVariables": [],
+        "arrayVariables": [],
+        "enumVariables": [],
+        "categories": [
+          null
+        ],
+        "variableCategoryIDs": 0
+      },
+      "fsm_metadata": {
+        "dataVersion": 2,
+        "usedInTemplate": {
+          "fileID": 0
+        },
+        "name": "Fall",
+        "startState": "Check",
+        "events": [
+          {
+            "name": "FALL",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "LAND",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "FINISHED",
+            "isSystemEvent": 1,
+            "isGlobal": 0
+          }
+        ],
+        "globalTransitions": [],
+        "description": null,
+        "docUrl": null,
+        "showStateLabel": 0,
+        "maxLoopCount": 0,
+        "watermark": null,
+        "password": null,
+        "locked": 0,
+        "manualUpdate": 0,
+        "outVariableIndices": null,
+        "keepDelayedEventsOnStateExit": 0,
+        "preprocessed": 1,
+        "ExposedEvents": [],
+        "OutputEvents": [],
+        "RestartOnEnable": 1,
+        "ResetVariablesOnEnable": 0,
+        "EnableDebugFlow": 0,
+        "EnableBreakpoints": 1,
+        "editorFlags": 225,
+        "activeStateName": null,
+        "mouseEvents": 0,
+        "handleLevelLoaded": 0,
+        "handleTriggerEnter2D": 0,
+        "handleTriggerExit2D": 0,
+        "handleTriggerStay2D": 0,
+        "handleCollisionEnter2D": 0,
+        "handleCollisionExit2D": 0,
+        "handleCollisionStay2D": 0,
+        "handleTriggerEnter": 0,
+        "handleTriggerExit": 0,
+        "handleTriggerStay": 0,
+        "handleCollisionEnter": 0,
+        "handleCollisionExit": 0,
+        "handleCollisionStay": 0,
+        "handleParticleCollision": 0,
+        "handleControllerColliderHit": 0,
+        "handleJointBreak": 0,
+        "handleJointBreak2D": 0,
+        "handleOnGUI": 0,
+        "handleFixedUpdate": 1,
+        "handleLateUpdate": 0,
+        "handleApplicationEvents": 0,
+        "handleUiEvents": 0,
+        "handleLegacyNetworking": 0,
+        "handleAnimatorMove": 0,
+        "handleAnimatorIK": 0
+      }
+    }
+  ],
+  "game_objects": [
+    {
+      "file_id": "1190",
+      "name": "Edge Range",
+      "line": 20166,
+      "serialized_yaml": "--- !u!1 &1190\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 3200}\n  m_Layer: 14\n  m_Name: Edge Range\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1191",
+      "name": "Wall Range",
+      "line": 20182,
+      "serialized_yaml": "--- !u!1 &1191\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 3199}\n  m_Layer: 14\n  m_Name: Wall Range\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1192",
+      "name": "Abyss Crawler (2)",
+      "line": 20198,
+      "serialized_yaml": "--- !u!1 &1192\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 3201}\n  - component: {fileID: 4034}\n  - component: {fileID: 4073}\n  - component: {fileID: 6056}\n  - component: {fileID: 4101}\n  - component: {fileID: 6057}\n  - component: {fileID: 4281}\n  - component: {fileID: 6083}\n  - component: {fileID: 4191}\n  - component: {fileID: 6084}\n  - component: {fileID: 6193}\n  - component: {fileID: 6126}\n  - component: {fileID: 6612}\n  - component: {fileID: 6234}\n  - component: {fileID: 6224}\n  - component: {fileID: 6285}\n  - component: {fileID: 6120}\n  - component: {fileID: 6455}\n  - component: {fileID: 6456}\n  m_Layer: 11\n  m_Name: Abyss Crawler (2)\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    }
+  ],
+  "components": [
+    {
+      "file_id": "3199",
+      "game_object_id": "1191",
+      "unity_class_id": "4",
+      "line": 53482,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &3199\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1191}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: -0.51, y: -0.13, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 3201}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "3200",
+      "game_object_id": "1190",
+      "unity_class_id": "4",
+      "line": 53497,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &3200\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1190}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: -1.03, y: -0.73, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 3201}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "3201",
+      "game_object_id": "1192",
+      "unity_class_id": "4",
+      "line": 53512,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &3201\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1192}\n  m_LocalRotation: {x: -0, y: -0, z: -6.1094755E-07, w: 1}\n  m_LocalPosition: {x: 29.75, y: 92.229996, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 3200}\n  - {fileID: 3199}\n  m_Father: {fileID: 0}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 7.000943E-05}\n"
+    },
+    {
+      "file_id": "4101",
+      "game_object_id": "1192",
+      "unity_class_id": "50",
+      "line": 68794,
+      "script": null,
+      "serialized_yaml": "--- !u!50 &4101\nRigidbody2D:\n  serializedVersion: 5\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1192}\n  m_BodyType: 0\n  m_Simulated: 1\n  m_UseFullKinematicContacts: 0\n  m_UseAutoMass: 0\n  m_Mass: 1\n  m_LinearDamping: 0\n  m_AngularDamping: 0.05\n  m_GravityScale: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_Interpolate: 0\n  m_SleepingMode: 0\n  m_CollisionDetection: 1\n  m_Constraints: 4\n"
+    },
+    {
+      "file_id": "4191",
+      "game_object_id": "1192",
+      "unity_class_id": "61",
+      "line": 72362,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &4191\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1192}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 0\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: -0.07709885, y: -0.43323898}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 1.52909, y: 1.0807962}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "4281",
+      "game_object_id": "1192",
+      "unity_class_id": "82",
+      "line": 76716,
+      "script": null,
+      "serialized_yaml": "--- !u!82 &4281\nAudioSource:\n  serializedVersion: 4\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1192}\n  m_Enabled: 1\n  OutputAudioMixerGroup: {fileID: 24300004, guid: d910a835fc4287448b891cc742c2a38a, type: 2}\n  m_audioClip: {fileID: 8300000, guid: c18626a518d248c4d87bb9fdcd413503, type: 3}\n  m_Resource: {fileID: 8300000, guid: c18626a518d248c4d87bb9fdcd413503, type: 3}\n  m_PlayOnAwake: 0\n  m_Volume: 1\n  m_Pitch: 1\n  Loop: 1\n  Mute: 0\n  Spatialize: 0\n  SpatializePostEffects: 0\n  Priority: 128\n  DopplerLevel: 0\n  MinDistance: 39\n  MaxDistance: 50\n  Pan2D: 0\n  rolloffMode: 2\n  BypassEffects: 0\n  BypassListenerEffects: 0\n  BypassReverbZones: 0\n  rolloffCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0.7214862\n      value: 0.99617475\n      inSlope: -0.47960794\n      outSlope: -0.47960794\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    - serializedVersion: 3\n      time: 0.928\n      value: 0.0039285715\n      inSlope: -6.7994523\n      outSlope: -6.7994523\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  panLevelCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  spreadCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 0\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  reverbZoneMixCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n"
+    },
+    {
+      "file_id": "6056",
+      "game_object_id": "1192",
+      "unity_class_id": "114",
+      "line": 317384,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "serialized_yaml": "--- !u!114 &6056\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1192}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 461acbcb857d4478aaa8e8e64ee6f52a, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  collection: {fileID: 114724804207875695, guid: a0940f2338cccc945a3553394086a26a, type: 2}\n  _color: {r: 0.7294118, g: 0.7294118, b: 0.7294118, a: 1}\n  _scale: {x: 1, y: 1, z: 1}\n  _spriteId: 2\n  boxCollider2D: {fileID: 4191}\n  polygonCollider2D: []\n  edgeCollider2D: []\n  boxCollider: {fileID: 0}\n  meshCollider: {fileID: 0}\n  meshColliderPositions: []\n  meshColliderMesh: {fileID: 0}\n  renderLayer: 0\n"
+    },
+    {
+      "file_id": "6057",
+      "game_object_id": "1192",
+      "unity_class_id": "114",
+      "line": 317408,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs",
+      "serialized_yaml": "--- !u!114 &6057\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1192}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5996133e774984aa7a33c40ed829e17f, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  spriteOverride: {fileID: 0}\n  library: {fileID: 114724804207875695, guid: 68c4349a9b4872747a5621a6d0b63201, type: 2}\n  defaultClipId: 0\n  isRealtime: 0\n  playAutomatically: 1\n  playAutomaticallyOnEnable: 0\n"
+    },
+    {
+      "file_id": "6083",
+      "game_object_id": "1192",
+      "unity_class_id": "114",
+      "line": 318157,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "serialized_yaml": "--- !u!114 &6083\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1192}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9a4a05480320f7f0c7f74a7198222c9e, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  z: 0.006\n  dontRandomize: 0\n  randomizeFromStartingValue: 0\n  delayBeforeRandomizing: 0.5\n  waitFrames: 0\n  deParent: 0\n"
+    },
+    {
+      "file_id": "6084",
+      "game_object_id": "1192",
+      "unity_class_id": "114",
+      "line": 318175,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SpriteFlash.cs",
+      "serialized_yaml": "--- !u!114 &6084\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1192}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 3760009a589b001159b0ab5c0e83a2db, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  children: []\n  parents: []\n  getParent: 0\n  doHitFlashOnEnable: 0\n  startFlashes: 0\n"
+    },
+    {
+      "file_id": "6120",
+      "game_object_id": "1192",
+      "unity_class_id": "114",
+      "line": 319194,
+      "script": "Assets/Scripts/Assembly-CSharp/EnemyDeathEffectsRegular.cs",
+      "serialized_yaml": "--- !u!114 &6120\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1192}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 2730b6b2b2abd535272d044bb7d8942f, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  corpsePrefab: {fileID: 1709254077376921, guid: 22f571e1bbf4934429652bf79198ad32, type: 2}\n  altCorpses: []\n  isCorpseRecyclable: 0\n  manualPreInstantiate: 0\n  corpseFacesRight: 0\n  overrideDeathDirection: 0\n  corpseFlingSpeed: 20\n  corpseSpawnPoint: {x: 0, y: 0.25, z: 0}\n  effectOrigin: {x: 0, y: 0, z: 0}\n  lowCorpseArc: 0\n  recycle: 0\n  rotateCorpse: 0\n  corpseMatchesEnemyScale: 0\n  audioSnapshotOnDeath: {fileID: 0}\n  sendEventRegister:\n  deathSounds:\n  - Clip: {fileID: 8300000, guid: cadfc16ee055c944da51081b220f0a1a, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  - Clip: {fileID: 8300000, guid: d921724037ad76c429becd63cb4c9677, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  enemyDeathSwordAudio:\n    Clip: {fileID: 0}\n    PitchMin: 0\n    PitchMax: 0\n    Volume: 0\n    vibrationDataAsset: {fileID: 0}\n  enemyDamageAudio:\n    Clip: {fileID: 0}\n    PitchMin: 0\n    PitchMax: 0\n    Volume: 0\n    vibrationDataAsset: {fileID: 0}\n  deathCameraShake:\n    camera: {fileID: 11400000, guid: 9b0888e0916dca544846a2f34304dac9, type: 2}\n    profile: {fileID: 11400000, guid: 279f38013a080f34999cd00fbee1b9c2, type: 2}\n    doFreeze: 1\n    vibrate: 1\n  journalRecord: {fileID: 11400000, guid: 341d24650c7527e45a55f459e32d3c48, type: 2}\n  awardFullJournalEntry: 0\n  setPlayerDataBool:\n  awardAchievement:\n  doNotSetHasKilled: 0\n  doNotSpawnCorpse: 0\n  profile: {fileID: 11400000, guid: 3cec05b7aa79ab6448eb0c94fcb2e909, type: 2}\n"
+    },
+    {
+      "file_id": "6126",
+      "game_object_id": "1192",
+      "unity_class_id": "114",
+      "line": 319316,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/HealthManager.cs",
+      "serialized_yaml": "--- !u!114 &6126\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1192}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 7e0b9799fb0157646caefd91bc67f0a6, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  audioPlayerPrefab: {fileID: 82724804207875695, guid: 99068b2a95bddff419cb6f176648d4e6, type: 2}\n  regularInvincibleAudio:\n    Clip: {fileID: 8300000, guid: 6447a975892e6ac42be7525d74803f40, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 0\n    vibrationDataAsset: {fileID: 0}\n  blockHitPrefab: {fileID: 1709254077376921, guid: a7a57900a8a415a4387938611b64e586, type: 2}\n  strikeNailPrefab: {fileID: 1709254077376921, guid: 64c20baf394ac9a41b03deea82568445, type: 2}\n  slashImpactPrefab: {fileID: 1709254077376921, guid: 97c9ba031f06bae4681d3fda13c3f87b, type: 2}\n  corpseSplatPrefab: {fileID: 1709254077376921, guid: ee26d04f9efdaa7458f4fcea07e485df, type: 2}\n  hp: 40\n  damageScaling:\n    Level1Mult: 2\n    Level2Mult: 1.2\n    Level3Mult: 1\n    Level4Mult: 1\n    Level5Mult: 1\n  enemyType: 0\n  doNotGiveSilk: 0\n  ignoreFlags: 0\n  reaperBundles: 0\n  effectOrigin: {x: 0, y: -0.2, z: 0}\n  ignoreKillAll: 0\n  sendDamageTo: {fileID: 0}\n  isPartOfSendToTarget: 0\n  tagDamageTakerIgnoreColliderState: 0\n  takeTagDamageWhileInvincible: 0\n  targetPointOverride: {fileID: 0}\n  battleScene: {fileID: 0}\n  sendHitTo: {fileID: 0}\n  sendKilledToObject: {fileID: 0}\n  sendKilledToName:\n  smallGeoDrops: 0\n  mediumGeoDrops: 0\n  largeGeoDrops: 0\n  largeSmoothGeoDrops: 0\n  megaFlingGeo: 0\n  shellShardDrops: 3\n  flingSilkOrbsDown: 0\n  flingSilkOrbsAimObject: {fileID: 0}\n  itemDropGroups: []\n  _itemDropProbability: 0\n  _itemDrops: []\n  hasAlternateHitAnimation: 0\n  alternateHitAnimation: False\n  invincible: 0\n  piercable: 0\n  invincibleFromDirection: 0\n  preventInvincibleEffect: 1\n  preventInvincibleShake: 0\n  preventInvincibleAttackBlock: 0\n  invincibleRecoil: 0\n  dontSendTinkToDamager: 0\n  hasAlternateInvincibleSound: 0\n  alternateInvincibleSound: {fileID: 0}\n  immuneToNailAttacks: 0\n  immuneToExplosions: 0\n  immuneToBeams: 0\n  immuneToHunterWeapon: 0\n  immuneToCoal: 0\n  immuneToTraps: 0\n  immuneToWater: 0\n  immuneToSpikes: 0\n  immuneToLava: 0\n  isMossExtractable: 0\n  isSwampExtractable: 0\n  isBluebloodExtractable: 0\n  deathAudioSnapshot: {fileID: 0}\n  hasSpecialDeath: 0\n  deathReset: 0\n  damageOverride: 0\n  ignoreAcid: 0\n  ignoreWater: 0\n  zeroHPEventOverride: {fileID: 0}\n  dontDropMeat: 0\n  enemySize: 1\n  bigEnemyDeath: 0\n  preventDeathAfterHero: 0\n  ignoreHazards: 0\n  invulnerableTime: 0.25\n  semiPersistent: 0\n  isDead: 0\n  ignorePersistence: 0\n  tinkTimer: 0\n"
+    },
+    {
+      "file_id": "6193",
+      "game_object_id": "1192",
+      "unity_class_id": "114",
+      "line": 321270,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/Recoil.cs",
+      "serialized_yaml": "--- !u!114 &6193\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1192}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9dce17883e836a8b91b054fcaef81958, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  FreezeInPlace: 1\n  recoilSpeedBase: 15\n  recoilDuration: 0.15\n  IsUpBlocked: 0\n  IsDownBlocked: 0\n  IsLeftBlocked: 0\n  IsRightBlocked: 0\n"
+    },
+    {
+      "file_id": "6224",
+      "game_object_id": "1192",
+      "unity_class_id": "114",
+      "line": 322149,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/RandomAudioStart.cs",
+      "serialized_yaml": "--- !u!114 &6224\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1192}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: fcca684b2b285588b91ba32abdd74fbc, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  audioSource: {fileID: 4281}\n  timeMin: 0\n  timeMax: 1\n  pitchMin: 1\n  pitchMax: 1\n  waitForHeroInPosition: 0\n"
+    },
+    {
+      "file_id": "6234",
+      "game_object_id": "1192",
+      "unity_class_id": "114",
+      "line": 322516,
+      "script": "Assets/Scripts/ProjectCode/Game/11_Actors_Quests/Crawler.cs",
+      "serialized_yaml": "--- !u!114 &6234\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1192}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 27bf723bcc6f23b405b5cbb546fb71c8, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  speed: 2\n  rayFrontDistance: 0.2\n  rayDownFrontPadding: 0.2\n  crawlAnimName: Walk\n  spriteFacesRight: 0\n  flipBeforeTurn: 0\n  moveWhileTurning: 0\n  doTurnAnim: 1\n  turnAnimName: Turn\n  keepSpriteFacing: 0\n  startInactive: 0\n  ambientIdle: 0\n  allowRoofRecoil: 0\n  idleAnimName: Ambient Idle\n  loopAudioSource: {fileID: 0}\n  pauseLoopDontStop: 0\n  ambientLoopAudioSource: {fileID: 0}\n"
+    },
+    {
+      "file_id": "6285",
+      "game_object_id": "1192",
+      "unity_class_id": "114",
+      "line": 323297,
+      "script": "Assets/Scripts/Assembly-CSharp/EnemyHitEffectsRegular.cs",
+      "serialized_yaml": "--- !u!114 &6285\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1192}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 688cf27c991077549cc7e1e5fa656b3d, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  effectOrigin: {x: 0, y: 0, z: 0}\n  sendDamageFlashEvent: 1\n  profile: {fileID: 11400000, guid: b4a2f08cd3ae0434292d732f1920d499, type: 2}\n  overrideBloodColor: 0\n  bloodColorOverride: {r: 0, g: 0, b: 0, a: 0}\n  forceMinimalEffects: 0\n"
+    },
+    {
+      "file_id": "6456",
+      "game_object_id": "1192",
+      "unity_class_id": "114",
+      "line": 330309,
+      "script": null,
+      "serialized_yaml": "--- !u!114 &6456\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1192}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: -664232604, guid: daca89c25bd1813ceecbbbb8555342a7, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  TargetFSMs:\n  - {fileID: 6455}\n"
+    },
+    {
+      "file_id": "6612",
+      "game_object_id": "1192",
+      "unity_class_id": "114",
+      "line": 334497,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/DamageHero.cs",
+      "serialized_yaml": "--- !u!114 &6612\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1192}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 49c386a20fdaa83a59c1a091a909e14c, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  damageDealt: 1\n  hazardType: 1\n  damageAsset: {fileID: 0}\n  damagePropertyFlags: 0\n  resetOnEnable: 0\n  canClashTink: 0\n  forceParry: 0\n  noClashFreeze: 0\n  noTerrainThunk: 0\n  noTerrainRecoil: 0\n  noCorpseSpikeStick: 0\n  noBounceCooldown: 0\n  overrideCollisionSide: 0\n  collisionSide: 0\n  invertCollisionSide: 0\n  HeroDamagedFSM: {fileID: 0}\n  AlwaysSendDamaged: 0\n  HeroDamagedFSMEvent:\n  HeroDamagedFSMBool:\n  HeroDamagedFSMGameObject:\n  ClashEvents:\n    OnClashUp:\n      m_PersistentCalls:\n        m_Calls: []\n    OnClashDown:\n      m_PersistentCalls:\n        m_Calls: []\n    OnClashLeft:\n      m_PersistentCalls:\n        m_Calls: []\n    OnClashRight:\n      m_PersistentCalls:\n        m_Calls: []\n  OnDamagedHero:\n    m_PersistentCalls:\n      m_Calls: []\n"
+    }
+  ],
+  "recording_references": [],
+  "limits": [
+    "Static serialized specimen; no runtime timing capture.",
+    "Scene variants may override values; see catalog.json instances.",
+    "External fileID/GUID dependencies remain explicit; do not replace with guessed values."
+  ]
+}

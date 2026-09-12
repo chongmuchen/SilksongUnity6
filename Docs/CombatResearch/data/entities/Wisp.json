@@ -1,0 +1,2741 @@
+{
+  "schema": "silksong-combat-entity-v1",
+  "journal": {
+    "id": "Wisp",
+    "guid": "8b17e243b0d0e724ea50adad832b7005",
+    "path": "Assets/Data Assets/Enemy Journal/Journal Records/Wisp.asset",
+    "key": "NAME_WISP",
+    "record_type": 0,
+    "kills_required": 15,
+    "required_type": 1,
+    "master_order": 69,
+    "scene_count": 3,
+    "object_names": [
+      "Wisp Flame Lantern",
+      "Wisp Flame Lantern (1)",
+      "Wisp Flame Lantern (2)"
+    ],
+    "instance_count": 7
+  },
+  "specimen": {
+    "source": "Assets/Scenes/Hornet/Wisp_02.unity",
+    "line": 1020914,
+    "name": "Wisp Flame Lantern (1)",
+    "game_object_id": "2229",
+    "hp": null,
+    "special_death": null,
+    "invincible": null,
+    "active": null,
+    "damages": [],
+    "fsms": [
+      {
+        "object": "Wisp Flame Lantern (1)",
+        "game_object_id": "2229",
+        "component_id": "10244",
+        "name": "Control",
+        "start": "Init",
+        "states": [
+          "Init",
+          "Idle",
+          "In Range",
+          "Summon",
+          "Asleep",
+          "Broken",
+          "Summon Antic",
+          "Friendly",
+          "Death Spawn?",
+          "Inert Broken",
+          "Witch Check",
+          "Witch Fix"
+        ],
+        "action_types": [
+          "HutongGames.PlayMaker.Actions.AddForce2dAsAngle",
+          "HutongGames.PlayMaker.Actions.CheckIfCrestEquipped",
+          "HutongGames.PlayMaker.Actions.CheckIfToolEquipped",
+          "HutongGames.PlayMaker.Actions.EnableFsmSelf",
+          "HutongGames.PlayMaker.Actions.FloatAdd",
+          "HutongGames.PlayMaker.Actions.FloatClamp",
+          "HutongGames.PlayMaker.Actions.FloatCompare",
+          "HutongGames.PlayMaker.Actions.GetOwner",
+          "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+          "HutongGames.PlayMaker.Actions.RandomFloat",
+          "HutongGames.PlayMaker.Actions.SendEventByName",
+          "HutongGames.PlayMaker.Actions.SetFloatValue",
+          "HutongGames.PlayMaker.Actions.SetFsmBool",
+          "HutongGames.PlayMaker.Actions.SetFsmGameObject",
+          "HutongGames.PlayMaker.Actions.SetLayer",
+          "HutongGames.PlayMaker.Actions.SetVelocityAsAngle",
+          "HutongGames.PlayMaker.Actions.SpawnObjectFromGlobalPool",
+          "HutongGames.PlayMaker.Actions.Wait"
+        ],
+        "line": 1020914,
+        "lines": 2254,
+        "source_sha256": "091db0e409b6bcb7750cdcc58463ecbdf1e5d649dda4c1c85b3ea8de41e0b4a8"
+      }
+    ],
+    "components": [
+      "Assets/Scripts/Assembly-CSharp/ChainPushReaction.cs",
+      "Assets/Scripts/Assembly-CSharp/IdleForceAnimator.cs",
+      "Assets/Scripts/ProjectCode/Game/06_Data_Save_Progression/PersistentBoolItem.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "Assets/Scripts/ProjectCode/Game/12_Utilities/PersonalObjectPool.cs"
+    ],
+    "evidence": "journal_reference_component_not_necessarily_body",
+    "is_hornet_scene": true,
+    "is_temp_scene": false
+  },
+  "source_sha256": "120580f8247d9fd0084e1872e592c3d53710258aa67dfdc6224dc1027e42fea6",
+  "fsms": [
+    {
+      "source": "Assets/Scenes/Hornet/Wisp_02.unity",
+      "line": 1020915,
+      "file_id": 10244,
+      "owner_id": 2229,
+      "owner": "Wisp Flame Lantern (1)",
+      "name": "Control",
+      "start_state": "Init",
+      "states": [
+        {
+          "name": "Init",
+          "line": 1020932,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Witch Check"
+            },
+            {
+              "event": "FRIENDLY",
+              "to": "Friendly"
+            }
+          ],
+          "actions": [
+            {
+              "type": "GetOwner",
+              "full_type": "HutongGames.PlayMaker.Actions.GetOwner",
+              "enabled": true,
+              "params": {
+                "storeGameObject": {
+                  "var": "Self",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "CheckIfToolEquipped",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckIfToolEquipped",
+              "enabled": true,
+              "params": {
+                "Tool": {
+                  "fileID": 11400000,
+                  "guid": "837a8f53d2b1aea45a016b9d9ff94ed6",
+                  "type": 2
+                },
+                "RequiredAmountLeft": {
+                  "var": null,
+                  "stored": 0
+                },
+                "trueEvent": null,
+                "falseEvent": null,
+                "storeValue": {
+                  "var": null,
+                  "stored": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Idle",
+          "line": 1021039,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "ENTER",
+              "to": "In Range"
+            }
+          ],
+          "actions": [
+            {
+              "type": "CheckAlertRangeByName",
+              "full_type": "CheckAlertRangeByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 0,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "alertRangeName": "Alert Range",
+                "storeResult": 0,
+                "sendEvent": "ENTER",
+                "outOfRangeEvent": null,
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "SetFloatValue",
+              "full_type": "HutongGames.PlayMaker.Actions.SetFloatValue",
+              "enabled": true,
+              "params": {
+                "floatVariable": {
+                  "var": "Time Since Last Spawn",
+                  "stored": 100
+                },
+                "floatValue": 0,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "In Range",
+          "line": 1021176,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "EXIT",
+              "to": "Idle"
+            },
+            {
+              "event": "FINISHED",
+              "to": "Summon Antic"
+            }
+          ],
+          "actions": [
+            {
+              "type": "CheckAlertRangeByName",
+              "full_type": "CheckAlertRangeByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 0,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "alertRangeName": "Alert Range",
+                "storeResult": 0,
+                "sendEvent": null,
+                "outOfRangeEvent": "EXIT",
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "Wait",
+              "full_type": "HutongGames.PlayMaker.Actions.Wait",
+              "enabled": true,
+              "params": {
+                "time": 0.25,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            },
+            {
+              "type": "FloatAdd",
+              "full_type": "HutongGames.PlayMaker.Actions.FloatAdd",
+              "enabled": true,
+              "params": {
+                "floatVariable": {
+                  "var": "Time Since Last Spawn",
+                  "stored": 100
+                },
+                "add": 1,
+                "everyFrame": true,
+                "perSecond": true
+              }
+            },
+            {
+              "type": "FloatClamp",
+              "full_type": "HutongGames.PlayMaker.Actions.FloatClamp",
+              "enabled": true,
+              "params": {
+                "floatVariable": {
+                  "var": "Time Since Last Spawn",
+                  "stored": 100
+                },
+                "minValue": 0,
+                "maxValue": 100,
+                "everyFrame": true
+              }
+            }
+          ]
+        },
+        {
+          "name": "Summon",
+          "line": 1021359,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "In Range"
+            },
+            {
+              "event": "TOOK DAMAGE",
+              "to": "In Range"
+            }
+          ],
+          "actions": [
+            {
+              "type": "Wait",
+              "full_type": "HutongGames.PlayMaker.Actions.Wait",
+              "enabled": true,
+              "params": {
+                "time": 1.65,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            },
+            {
+              "type": "SpawnObjectFromGlobalPool",
+              "full_type": "HutongGames.PlayMaker.Actions.SpawnObjectFromGlobalPool",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "fileID": 1709254077376921,
+                  "guid": "f72e802ae143b324f9b8d3df576c0ede",
+                  "type": 2
+                },
+                "spawnPoint": {
+                  "var": "Pod",
+                  "stored": {
+                    "fileID": 2676
+                  }
+                },
+                "position": {
+                  "x": 0,
+                  "y": 0,
+                  "z": -0.002
+                },
+                "rotation": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  }
+                },
+                "storeObject": {
+                  "var": "Wisp",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "SetFsmGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.SetFsmGameObject",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Wisp",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "fsmName": "Control",
+                "variableName": "Wisp Fireball Master",
+                "setValue": {
+                  "var": "Wisp Fireball Master",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SendEventByName",
+              "full_type": "HutongGames.PlayMaker.Actions.SendEventByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 1,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": {
+                      "var": "Wisp",
+                      "stored": {
+                        "fileID": 0
+                      }
+                    }
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "sendEvent": "FLAME IN",
+                "delay": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SetFsmBool",
+              "full_type": "HutongGames.PlayMaker.Actions.SetFsmBool",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Wisp",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "fsmName": "Control",
+                "variableName": "Flame In",
+                "setValue": 1,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "RandomFloat",
+              "full_type": "HutongGames.PlayMaker.Actions.RandomFloat",
+              "enabled": true,
+              "params": {
+                "min": 60,
+                "max": 120,
+                "storeResult": {
+                  "var": "Spawn Angle",
+                  "stored": 0
+                }
+              }
+            },
+            {
+              "type": "SetVelocityAsAngle",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocityAsAngle",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Wisp",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "angle": {
+                  "var": "Spawn Angle",
+                  "stored": 0
+                },
+                "speed": 4,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "AddForce2dAsAngle",
+              "full_type": "HutongGames.PlayMaker.Actions.AddForce2dAsAngle",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Lamp",
+                    "stored": {
+                      "fileID": 2676
+                    }
+                  }
+                },
+                "forceMode": 1,
+                "atPosition": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "angle": {
+                  "var": "Spawn Angle",
+                  "stored": 0
+                },
+                "speed": -20,
+                "maxSpeed": {
+                  "var": null,
+                  "stored": 0
+                },
+                "maxSpeedX": {
+                  "var": null,
+                  "stored": 0
+                },
+                "maxSpeedY": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "PlayAudioEvent",
+              "full_type": "PlayAudioEvent",
+              "enabled": true,
+              "params": {
+                "audioClip": {
+                  "fileID": 8300000,
+                  "guid": "79e08b0c15241ad47a94fd921e13cfb2",
+                  "type": 3
+                },
+                "pitchMin": 1.1,
+                "pitchMax": 1.1,
+                "volume": 0.75,
+                "audioPlayerPrefab": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spawnPoint": {
+                  "owner": "self"
+                },
+                "spawnPosition": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "SpawnedPlayerRef": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "SetFloatValue",
+              "full_type": "HutongGames.PlayMaker.Actions.SetFloatValue",
+              "enabled": true,
+              "params": {
+                "floatVariable": {
+                  "var": "Time Since Last Spawn",
+                  "stored": 100
+                },
+                "floatValue": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "FloatAdd",
+              "full_type": "HutongGames.PlayMaker.Actions.FloatAdd",
+              "enabled": true,
+              "params": {
+                "floatVariable": {
+                  "var": "Time Since Last Spawn",
+                  "stored": 100
+                },
+                "add": 1,
+                "everyFrame": true,
+                "perSecond": true
+              }
+            },
+            {
+              "type": "FloatClamp",
+              "full_type": "HutongGames.PlayMaker.Actions.FloatClamp",
+              "enabled": true,
+              "params": {
+                "floatVariable": {
+                  "var": "Time Since Last Spawn",
+                  "stored": 100
+                },
+                "minValue": 0,
+                "maxValue": 100,
+                "everyFrame": true
+              }
+            }
+          ]
+        },
+        {
+          "name": "Asleep",
+          "line": 1021819,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "WAKE",
+              "to": "Idle"
+            }
+          ],
+          "actions": [
+            {
+              "type": "CheckAlertRangeByName",
+              "full_type": "CheckAlertRangeByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 0,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "alertRangeName": "Wake Range",
+                "storeResult": 0,
+                "sendEvent": "WAKE",
+                "outOfRangeEvent": null,
+                "everyFrame": true
+              }
+            }
+          ]
+        },
+        {
+          "name": "Broken",
+          "line": 1021939,
+          "sequence": 0,
+          "transitions": [],
+          "actions": [
+            {
+              "type": "RecordJournalKill",
+              "full_type": "RecordJournalKill",
+              "enabled": true,
+              "params": {
+                "Record": {
+                  "fileID": 11400000,
+                  "guid": "8b17e243b0d0e724ea50adad832b7005",
+                  "type": 2
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Summon Antic",
+          "line": 1022001,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Summon"
+            }
+          ],
+          "actions": [
+            {
+              "type": "PlayParticleEmitter",
+              "full_type": "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Pt Antic",
+                    "stored": {
+                      "fileID": 2528
+                    }
+                  }
+                },
+                "emit": 0,
+                "resetIfPlaying": false
+              }
+            },
+            {
+              "type": "Wait",
+              "full_type": "HutongGames.PlayMaker.Actions.Wait",
+              "enabled": true,
+              "params": {
+                "time": 0.4,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            },
+            {
+              "type": "PlayAudioEvent",
+              "full_type": "PlayAudioEvent",
+              "enabled": true,
+              "params": {
+                "audioClip": {
+                  "fileID": 8300000,
+                  "guid": "3baab6a63e44f5744854b3da587ed5c3",
+                  "type": 3
+                },
+                "pitchMin": 1,
+                "pitchMax": 1,
+                "volume": 1,
+                "audioPlayerPrefab": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spawnPoint": {
+                  "owner": "self"
+                },
+                "spawnPosition": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "SpawnedPlayerRef": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "FloatAdd",
+              "full_type": "HutongGames.PlayMaker.Actions.FloatAdd",
+              "enabled": true,
+              "params": {
+                "floatVariable": {
+                  "var": "Time Since Last Spawn",
+                  "stored": 100
+                },
+                "add": 1,
+                "everyFrame": true,
+                "perSecond": true
+              }
+            },
+            {
+              "type": "FloatClamp",
+              "full_type": "HutongGames.PlayMaker.Actions.FloatClamp",
+              "enabled": true,
+              "params": {
+                "floatVariable": {
+                  "var": "Time Since Last Spawn",
+                  "stored": 100
+                },
+                "minValue": 0,
+                "maxValue": 100,
+                "everyFrame": true
+              }
+            }
+          ]
+        },
+        {
+          "name": "Friendly",
+          "line": 1022197,
+          "sequence": 0,
+          "transitions": [],
+          "actions": []
+        },
+        {
+          "name": "Death Spawn?",
+          "line": 1022249,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Broken"
+            }
+          ],
+          "actions": [
+            {
+              "type": "FloatCompare",
+              "full_type": "HutongGames.PlayMaker.Actions.FloatCompare",
+              "enabled": true,
+              "params": {
+                "float1": {
+                  "var": "Time Since Last Spawn",
+                  "stored": 100
+                },
+                "float2": 0.25,
+                "tolerance": 0,
+                "equal": null,
+                "lessThan": "FINISHED",
+                "greaterThan": null,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SpawnObjectFromGlobalPool",
+              "full_type": "HutongGames.PlayMaker.Actions.SpawnObjectFromGlobalPool",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "fileID": 1709254077376921,
+                  "guid": "f72e802ae143b324f9b8d3df576c0ede",
+                  "type": 2
+                },
+                "spawnPoint": {
+                  "var": "Pod",
+                  "stored": {
+                    "fileID": 2676
+                  }
+                },
+                "position": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  }
+                },
+                "rotation": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  }
+                },
+                "storeObject": {
+                  "var": "Wisp",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "SetFsmGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.SetFsmGameObject",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Wisp",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "fsmName": "Control",
+                "variableName": "Wisp Fireball Master",
+                "setValue": {
+                  "var": "Wisp Fireball Master",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SendEventByName",
+              "full_type": "HutongGames.PlayMaker.Actions.SendEventByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 1,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": {
+                      "var": "Wisp",
+                      "stored": {
+                        "fileID": 0
+                      }
+                    }
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "sendEvent": "FLAME IN",
+                "delay": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SetFsmBool",
+              "full_type": "HutongGames.PlayMaker.Actions.SetFsmBool",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Wisp",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "fsmName": "Control",
+                "variableName": "Flame In",
+                "setValue": 1,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "RandomFloat",
+              "full_type": "HutongGames.PlayMaker.Actions.RandomFloat",
+              "enabled": true,
+              "params": {
+                "min": 60,
+                "max": 120,
+                "storeResult": {
+                  "var": "Spawn Angle",
+                  "stored": 0
+                }
+              }
+            },
+            {
+              "type": "SetVelocityAsAngle",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocityAsAngle",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Wisp",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "angle": {
+                  "var": "Spawn Angle",
+                  "stored": 0
+                },
+                "speed": 4,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "AddForce2dAsAngle",
+              "full_type": "HutongGames.PlayMaker.Actions.AddForce2dAsAngle",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Lamp",
+                    "stored": {
+                      "fileID": 2676
+                    }
+                  }
+                },
+                "forceMode": 1,
+                "atPosition": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "angle": {
+                  "var": "Spawn Angle",
+                  "stored": 0
+                },
+                "speed": -20,
+                "maxSpeed": {
+                  "var": null,
+                  "stored": 0
+                },
+                "maxSpeedX": {
+                  "var": null,
+                  "stored": 0
+                },
+                "maxSpeedY": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "PlayAudioEvent",
+              "full_type": "PlayAudioEvent",
+              "enabled": true,
+              "params": {
+                "audioClip": {
+                  "fileID": 8300000,
+                  "guid": "5dbfed9d5ea54f941929dfaaa44bb0d0",
+                  "type": 3
+                },
+                "pitchMin": 1,
+                "pitchMax": 1,
+                "volume": 1,
+                "audioPlayerPrefab": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spawnPoint": {
+                  "owner": "self"
+                },
+                "spawnPosition": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "SpawnedPlayerRef": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Inert Broken",
+          "line": 1022659,
+          "sequence": 0,
+          "transitions": [],
+          "actions": [
+            {
+              "type": "EnableFsmSelf",
+              "full_type": "HutongGames.PlayMaker.Actions.EnableFsmSelf",
+              "enabled": true,
+              "params": {
+                "SetEnabled": 0
+              }
+            }
+          ]
+        },
+        {
+          "name": "Witch Check",
+          "line": 1022720,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "WITCH",
+              "to": "Witch Fix"
+            },
+            {
+              "event": "FINISHED",
+              "to": "Asleep"
+            }
+          ],
+          "actions": [
+            {
+              "type": "CheckIfCrestEquipped",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckIfCrestEquipped",
+              "enabled": true,
+              "params": {
+                "Crest": {
+                  "fileID": 11400000,
+                  "guid": "baf82bfc40226d34f95d8cadd0e910c4",
+                  "type": 2
+                },
+                "trueEvent": "WITCH",
+                "falseEvent": null,
+                "storeValue": {
+                  "var": null,
+                  "stored": 0
+                }
+              }
+            },
+            {
+              "type": "CheckIfCrestEquipped",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckIfCrestEquipped",
+              "enabled": true,
+              "params": {
+                "Crest": {
+                  "fileID": 11400000,
+                  "guid": "cd913c21831a51044b527474c52a2504",
+                  "type": 2
+                },
+                "trueEvent": "WITCH",
+                "falseEvent": null,
+                "storeValue": {
+                  "var": null,
+                  "stored": 0
+                }
+              }
+            },
+            {
+              "type": "CheckIfCrestEquipped",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckIfCrestEquipped",
+              "enabled": true,
+              "params": {
+                "Crest": {
+                  "fileID": 11400000,
+                  "guid": "e9fd4ea2f667299448ad79c6730831a9",
+                  "type": 2
+                },
+                "trueEvent": "WITCH",
+                "falseEvent": null,
+                "storeValue": {
+                  "var": null,
+                  "stored": 0
+                }
+              }
+            },
+            {
+              "type": "CheckIfCrestEquipped",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckIfCrestEquipped",
+              "enabled": true,
+              "params": {
+                "Crest": {
+                  "fileID": 11400000,
+                  "guid": "ff3cc747418453a48bfdd6e238c70f19",
+                  "type": 2
+                },
+                "trueEvent": "WITCH",
+                "falseEvent": null,
+                "storeValue": {
+                  "var": null,
+                  "stored": 0
+                }
+              }
+            },
+            {
+              "type": "CheckIfCrestEquipped",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckIfCrestEquipped",
+              "enabled": true,
+              "params": {
+                "Crest": {
+                  "fileID": 11400000,
+                  "guid": "9da542edf5383a9458f59c0fd8e59ebb",
+                  "type": 2
+                },
+                "trueEvent": "WITCH",
+                "falseEvent": null,
+                "storeValue": {
+                  "var": null,
+                  "stored": 0
+                }
+              }
+            },
+            {
+              "type": "CheckIfCrestEquipped",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckIfCrestEquipped",
+              "enabled": true,
+              "params": {
+                "Crest": {
+                  "fileID": 11400000,
+                  "guid": "8eb62b4bbc607ed48b7a7ae2243747be",
+                  "type": 2
+                },
+                "trueEvent": "WITCH",
+                "falseEvent": null,
+                "storeValue": {
+                  "var": null,
+                  "stored": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Witch Fix",
+          "line": 1022916,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Asleep"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetLayer",
+              "full_type": "HutongGames.PlayMaker.Actions.SetLayer",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "fileID": 2204
+                  }
+                },
+                "layer": 19
+              }
+            }
+          ]
+        }
+      ],
+      "global_transitions": [
+        {
+          "fsmEvent": {
+            "name": "BREAK",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          "toState": "Death Spawn?",
+          "linkStyle": 0,
+          "linkConstraint": 0,
+          "linkTarget": 0,
+          "colorIndex": 0
+        },
+        {
+          "fsmEvent": {
+            "name": "BROKEN",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          "toState": "Inert Broken",
+          "linkStyle": 0,
+          "linkConstraint": 0,
+          "linkTarget": 0,
+          "colorIndex": 0
+        }
+      ],
+      "variables": {
+        "floatVariables": [
+          {
+            "useVariable": 1,
+            "name": "Spawn Angle",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Angle",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Time Since Last Spawn",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 100
+          }
+        ],
+        "intVariables": [],
+        "boolVariables": [
+          {
+            "useVariable": 1,
+            "name": "Woken",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 1
+          }
+        ],
+        "stringVariables": [],
+        "vector2Variables": [],
+        "vector3Variables": [],
+        "colorVariables": [],
+        "rectVariables": [],
+        "quaternionVariables": [],
+        "gameObjectVariables": [
+          {
+            "useVariable": 1,
+            "name": "Wisp",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Self",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Pod",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 2676
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Wake Effects",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 1466
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Lamp",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 2676
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Pt Antic",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 2528
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Wisp Fireball Master",
+            "tooltip": null,
+            "showInInspector": 1,
+            "networkSync": 0,
+            "value": {
+              "fileID": 3138
+            }
+          }
+        ],
+        "objectVariables": [],
+        "materialVariables": [],
+        "textureVariables": [],
+        "arrayVariables": [],
+        "enumVariables": [],
+        "categories": [
+          null
+        ],
+        "variableCategoryIDs": 0
+      },
+      "fsm_metadata": {
+        "dataVersion": 2,
+        "usedInTemplate": {
+          "fileID": 0
+        },
+        "name": "Control",
+        "startState": "Init",
+        "events": [
+          {
+            "name": "FINISHED",
+            "isSystemEvent": 1,
+            "isGlobal": 0
+          },
+          {
+            "name": "BREAK",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "ENTER",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "EXIT",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "WAKE",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "FRIENDLY",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "TOOK DAMAGE",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "BROKEN",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "WITCH",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          }
+        ],
+        "globalTransitions": [
+          {
+            "fsmEvent": {
+              "name": "BREAK",
+              "isSystemEvent": 0,
+              "isGlobal": 0
+            },
+            "toState": "Death Spawn?",
+            "linkStyle": 0,
+            "linkConstraint": 0,
+            "linkTarget": 0,
+            "colorIndex": 0
+          },
+          {
+            "fsmEvent": {
+              "name": "BROKEN",
+              "isSystemEvent": 0,
+              "isGlobal": 0
+            },
+            "toState": "Inert Broken",
+            "linkStyle": 0,
+            "linkConstraint": 0,
+            "linkTarget": 0,
+            "colorIndex": 0
+          }
+        ],
+        "description": null,
+        "docUrl": null,
+        "showStateLabel": 0,
+        "maxLoopCount": 0,
+        "watermark": null,
+        "password": null,
+        "locked": 0,
+        "manualUpdate": 0,
+        "outVariableIndices": null,
+        "keepDelayedEventsOnStateExit": 0,
+        "preprocessed": 1,
+        "ExposedEvents": [],
+        "OutputEvents": [],
+        "RestartOnEnable": 1,
+        "ResetVariablesOnEnable": 0,
+        "EnableDebugFlow": 0,
+        "EnableBreakpoints": 1,
+        "editorFlags": 33,
+        "activeStateName": null,
+        "mouseEvents": 0,
+        "handleLevelLoaded": 0,
+        "handleTriggerEnter2D": 0,
+        "handleTriggerExit2D": 0,
+        "handleTriggerStay2D": 0,
+        "handleCollisionEnter2D": 0,
+        "handleCollisionExit2D": 0,
+        "handleCollisionStay2D": 0,
+        "handleTriggerEnter": 0,
+        "handleTriggerExit": 0,
+        "handleTriggerStay": 0,
+        "handleCollisionEnter": 0,
+        "handleCollisionExit": 0,
+        "handleCollisionStay": 0,
+        "handleParticleCollision": 0,
+        "handleControllerColliderHit": 0,
+        "handleJointBreak": 0,
+        "handleJointBreak2D": 0,
+        "handleOnGUI": 0,
+        "handleFixedUpdate": 1,
+        "handleLateUpdate": 0,
+        "handleApplicationEvents": 0,
+        "handleUiEvents": 0,
+        "handleLegacyNetworking": 0,
+        "handleAnimatorMove": 0,
+        "handleAnimatorIK": 0
+      }
+    }
+  ],
+  "game_objects": [
+    {
+      "file_id": "1344",
+      "name": "Pt Explode",
+      "line": 22775,
+      "serialized_yaml": "--- !u!1 &1344\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4705}\n  - component: {fileID: 7144}\n  - component: {fileID: 7423}\n  m_Layer: 0\n  m_Name: Pt Explode\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "1346",
+      "name": "Appear Flash",
+      "line": 22811,
+      "serialized_yaml": "--- !u!1 &1346\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5559}\n  - component: {fileID: 9553}\n  - component: {fileID: 10414}\n  m_Layer: 0\n  m_Name: Appear Flash\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1353",
+      "name": "Wake Range",
+      "line": 22928,
+      "serialized_yaml": "--- !u!1 &1353\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4554}\n  - component: {fileID: 10187}\n  - component: {fileID: 6755}\n  m_Layer: 13\n  m_Name: Wake Range\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1442",
+      "name": "Pt Hit",
+      "line": 24514,
+      "serialized_yaml": "--- !u!1 &1442\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4847}\n  - component: {fileID: 7211}\n  - component: {fileID: 7486}\n  m_Layer: 8\n  m_Name: Pt Hit\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1466",
+      "name": "Wake Effects",
+      "line": 24928,
+      "serialized_yaml": "--- !u!1 &1466\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4603}\n  m_Layer: 11\n  m_Name: Wake Effects\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "1483",
+      "name": "Attach Joint",
+      "line": 25218,
+      "serialized_yaml": "--- !u!1 &1483\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4584}\n  - component: {fileID: 6576}\n  - component: {fileID: 9945}\n  m_Layer: 30\n  m_Name: Attach Joint\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1498",
+      "name": "Alert Range",
+      "line": 25475,
+      "serialized_yaml": "--- !u!1 &1498\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5046}\n  - component: {fileID: 10397}\n  - component: {fileID: 6853}\n  m_Layer: 13\n  m_Name: Alert Range\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1499",
+      "name": "Smoke",
+      "line": 25493,
+      "serialized_yaml": "--- !u!1 &1499\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5303}\n  - component: {fileID: 7209}\n  - component: {fileID: 7519}\n  m_Layer: 0\n  m_Name: Smoke\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1545",
+      "name": "Pt Wisp Cloud",
+      "line": 26284,
+      "serialized_yaml": "--- !u!1 &1545\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5466}\n  - component: {fileID: 7157}\n  - component: {fileID: 7405}\n  m_Layer: 0\n  m_Name: Pt Wisp Cloud\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1581",
+      "name": "Pinned Joint",
+      "line": 26909,
+      "serialized_yaml": "--- !u!1 &1581\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5555}\n  - component: {fileID: 6560}\n  - component: {fileID: 9938}\n  - component: {fileID: 10211}\n  m_Layer: 19\n  m_Name: Pinned Joint\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1642",
+      "name": "Physical Push React",
+      "line": 27963,
+      "serialized_yaml": "--- !u!1 &1642\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5428}\n  - component: {fileID: 10474}\n  - component: {fileID: 6616}\n  m_Layer: 30\n  m_Name: Physical Push React\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1796",
+      "name": "Haze",
+      "line": 30626,
+      "serialized_yaml": "--- !u!1 &1796\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5383}\n  - component: {fileID: 8970}\n  - component: {fileID: 10164}\n  m_Layer: 0\n  m_Name: Haze\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1799",
+      "name": "Hit Pt Pool",
+      "line": 30679,
+      "serialized_yaml": "--- !u!1 &1799\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5013}\n  - component: {fileID: 10511}\n  m_Layer: 8\n  m_Name: Hit Pt Pool\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1836",
+      "name": "Smoke",
+      "line": 31327,
+      "serialized_yaml": "--- !u!1 &1836\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5184}\n  - component: {fileID: 7128}\n  - component: {fileID: 7429}\n  m_Layer: 0\n  m_Name: Smoke\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1841",
+      "name": "Pt Idle",
+      "line": 31420,
+      "serialized_yaml": "--- !u!1 &1841\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5190}\n  - component: {fileID: 7094}\n  - component: {fileID: 7469}\n  m_Layer: 8\n  m_Name: Pt Idle\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1975",
+      "name": "Idle Effects",
+      "line": 33696,
+      "serialized_yaml": "--- !u!1 &1975\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4843}\n  - component: {fileID: 7052}\n  m_Layer: 0\n  m_Name: Idle Effects\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1977",
+      "name": "Smoke",
+      "line": 33730,
+      "serialized_yaml": "--- !u!1 &1977\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5788}\n  - component: {fileID: 7145}\n  - component: {fileID: 7468}\n  m_Layer: 0\n  m_Name: Smoke\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1980",
+      "name": "Appear Flash",
+      "line": 33784,
+      "serialized_yaml": "--- !u!1 &1980\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4932}\n  - component: {fileID: 9495}\n  - component: {fileID: 10457}\n  m_Layer: 0\n  m_Name: Appear Flash\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1983",
+      "name": "Pt Shatter",
+      "line": 33838,
+      "serialized_yaml": "--- !u!1 &1983\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5916}\n  - component: {fileID: 7130}\n  - component: {fileID: 7536}\n  m_Layer: 11\n  m_Name: Pt Shatter\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2028",
+      "name": "Broken",
+      "line": 34617,
+      "serialized_yaml": "--- !u!1 &2028\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4934}\n  - component: {fileID: 9772}\n  - component: {fileID: 6711}\n  - component: {fileID: 10427}\n  - component: {fileID: 10460}\n  - component: {fileID: 10314}\n  m_Layer: 19\n  m_Name: Broken\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "2201",
+      "name": "Physical Push React",
+      "line": 37651,
+      "serialized_yaml": "--- !u!1 &2201\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5561}\n  - component: {fileID: 10402}\n  - component: {fileID: 6619}\n  m_Layer: 30\n  m_Name: Physical Push React\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2204",
+      "name": "Active",
+      "line": 37709,
+      "serialized_yaml": "--- !u!1 &2204\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4612}\n  - component: {fileID: 9213}\n  - component: {fileID: 6717}\n  - component: {fileID: 10413}\n  - component: {fileID: 10206}\n  - component: {fileID: 10860}\n  - component: {fileID: 10813}\n  m_Layer: 19\n  m_Name: Active\n  m_TagString: Recoiler\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2229",
+      "name": "Wisp Flame Lantern (1)",
+      "line": 38149,
+      "serialized_yaml": "--- !u!1 &2229\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5620}\n  - component: {fileID: 10157}\n  - component: {fileID: 10405}\n  - component: {fileID: 10185}\n  - component: {fileID: 10244}\n  - component: {fileID: 10969}\n  - component: {fileID: 10954}\n  - component: {fileID: 10722}\n  m_Layer: 11\n  m_Name: Wisp Flame Lantern (1)\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2347",
+      "name": "rope",
+      "line": 40237,
+      "serialized_yaml": "--- !u!1 &2347\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5580}\n  - component: {fileID: 6449}\n  - component: {fileID: 6510}\n  - component: {fileID: 10506}\n  - component: {fileID: 10411}\n  m_Layer: 0\n  m_Name: rope\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2351",
+      "name": "Haze Hit (1)",
+      "line": 40312,
+      "serialized_yaml": "--- !u!1 &2351\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5899}\n  - component: {fileID: 9271}\n  - component: {fileID: 10124}\n  m_Layer: 0\n  m_Name: Haze Hit (1)\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2360",
+      "name": "Pt Appear",
+      "line": 40464,
+      "serialized_yaml": "--- !u!1 &2360\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5138}\n  - component: {fileID: 7166}\n  - component: {fileID: 7431}\n  m_Layer: 0\n  m_Name: Pt Appear\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2410",
+      "name": "Vignette Cutout",
+      "line": 41320,
+      "serialized_yaml": "--- !u!1 &2410\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5866}\n  - component: {fileID: 9498}\n  - component: {fileID: 10108}\n  m_Layer: 1\n  m_Name: Vignette Cutout\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2445",
+      "name": "Pt Hit (1)",
+      "line": 41927,
+      "serialized_yaml": "--- !u!1 &2445\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5767}\n  - component: {fileID: 7110}\n  - component: {fileID: 7426}\n  m_Layer: 8\n  m_Name: Pt Hit (1)\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2528",
+      "name": "Pt Antic",
+      "line": 43387,
+      "serialized_yaml": "--- !u!1 &2528\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5644}\n  - component: {fileID: 7176}\n  - component: {fileID: 7442}\n  m_Layer: 0\n  m_Name: Pt Antic\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2532",
+      "name": "Smoke",
+      "line": 43457,
+      "serialized_yaml": "--- !u!1 &2532\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5064}\n  - component: {fileID: 7216}\n  - component: {fileID: 7428}\n  m_Layer: 0\n  m_Name: Smoke\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2547",
+      "name": "Haze Hit",
+      "line": 43717,
+      "serialized_yaml": "--- !u!1 &2547\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5346}\n  - component: {fileID: 9684}\n  - component: {fileID: 10376}\n  m_Layer: 0\n  m_Name: Haze Hit\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2616",
+      "name": "Flame Effect 1",
+      "line": 44925,
+      "serialized_yaml": "--- !u!1 &2616\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5642}\n  - component: {fileID: 9500}\n  - component: {fileID: 10514}\n  m_Layer: 0\n  m_Name: Flame Effect 1\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2634",
+      "name": "Break Effects",
+      "line": 45260,
+      "serialized_yaml": "--- !u!1 &2634\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5103}\n  m_Layer: 0\n  m_Name: Break Effects\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "2676",
+      "name": "lamp",
+      "line": 46027,
+      "serialized_yaml": "--- !u!1 &2676\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5926}\n  - component: {fileID: 6566}\n  m_Layer: 11\n  m_Name: lamp\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2824",
+      "name": "Pt Shatter (1)",
+      "line": 48693,
+      "serialized_yaml": "--- !u!1 &2824\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 6269}\n  - component: {fileID: 7344}\n  - component: {fileID: 7712}\n  m_Layer: 11\n  m_Name: Pt Shatter (1)\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2953",
+      "name": "Needolin Owner",
+      "line": 51060,
+      "serialized_yaml": "--- !u!1 &2953\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 6035}\n  - component: {fileID: 10683}\n  m_Layer: 11\n  m_Name: Needolin Owner\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    }
+  ],
+  "components": [
+    {
+      "file_id": "4554",
+      "game_object_id": "1353",
+      "unity_class_id": "4",
+      "line": 76989,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4554\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1353}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0.1499939, y: 2.4500008, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 5620}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "4584",
+      "game_object_id": "1483",
+      "unity_class_id": "4",
+      "line": 77447,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4584\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1483}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: -0.236, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 5580}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "4603",
+      "game_object_id": "1466",
+      "unity_class_id": "4",
+      "line": 77734,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4603\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1466}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 4932}\n  - {fileID: 5138}\n  m_Father: {fileID: 5620}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "4612",
+      "game_object_id": "2204",
+      "unity_class_id": "4",
+      "line": 77871,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4612\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2204}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 5428}\n  - {fileID: 4843}\n  - {fileID: 6035}\n  m_Father: {fileID: 5926}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "4705",
+      "game_object_id": "1344",
+      "unity_class_id": "4",
+      "line": 79435,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4705\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1344}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: -0.4}\n  m_LocalScale: {x: 0.5, y: 0.6, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4843}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "4843",
+      "game_object_id": "1975",
+      "unity_class_id": "4",
+      "line": 81584,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4843\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1975}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 5383}\n  - {fileID: 5190}\n  - {fileID: 4705}\n  - {fileID: 5559}\n  - {fileID: 5642}\n  m_Father: {fileID: 4612}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "4847",
+      "game_object_id": "1442",
+      "unity_class_id": "4",
+      "line": 81650,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4847\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1442}\n  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}\n  m_LocalPosition: {x: -0.010002136, y: -0.049999237, z: -0.4}\n  m_LocalScale: {x: 1.600001, y: 1.500001, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 5303}\n  m_Father: {fileID: 5013}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}\n"
+    },
+    {
+      "file_id": "4932",
+      "game_object_id": "1980",
+      "unity_class_id": "4",
+      "line": 83017,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4932\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1980}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: -0.08999634, y: 0.010002136, z: -0.1935}\n  m_LocalScale: {x: 2.85491, y: 2.26669, z: 2.25843}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4603}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "4934",
+      "game_object_id": "2028",
+      "unity_class_id": "4",
+      "line": 83047,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4934\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2028}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 5561}\n  m_Father: {fileID: 5926}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "5013",
+      "game_object_id": "1799",
+      "unity_class_id": "4",
+      "line": 84279,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5013\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1799}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 4847}\n  m_Father: {fileID: 5926}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "5046",
+      "game_object_id": "1498",
+      "unity_class_id": "4",
+      "line": 84777,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5046\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1498}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0.15, y: 2.45, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 5620}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "5064",
+      "game_object_id": "2532",
+      "unity_class_id": "4",
+      "line": 85047,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5064\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2532}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0.001}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 5644}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "5103",
+      "game_object_id": "2634",
+      "unity_class_id": "4",
+      "line": 85811,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5103\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2634}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: -0.015}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 5767}\n  - {fileID: 5346}\n  - {fileID: 5899}\n  m_Father: {fileID: 5926}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "5138",
+      "game_object_id": "2360",
+      "unity_class_id": "4",
+      "line": 86342,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5138\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2360}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: -0.06, y: -0.26, z: -0.0020000003}\n  m_LocalScale: {x: 0.6013, y: 0.6013, z: 0.6013}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4603}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "5184",
+      "game_object_id": "1836",
+      "unity_class_id": "4",
+      "line": 87033,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5184\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1836}\n  m_LocalRotation: {x: -0, y: -0, z: 0.7071282, w: -0.7070854}\n  m_LocalPosition: {x: -0.025, y: 0.031, z: 0.5}\n  m_LocalScale: {x: 1.3777462, y: 1.3677074, z: 1.3677069}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 5190}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: 90.00348}\n"
+    },
+    {
+      "file_id": "5190",
+      "game_object_id": "1841",
+      "unity_class_id": "4",
+      "line": 87125,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5190\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1841}\n  m_LocalRotation: {x: -0, y: -0, z: -0.70708585, w: 0.7071278}\n  m_LocalPosition: {x: 0, y: 0, z: -0.47999996}\n  m_LocalScale: {x: 1.6, y: 1.4, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 5184}\n  - {fileID: 5466}\n  m_Father: {fileID: 4843}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.9966}\n"
+    },
+    {
+      "file_id": "5303",
+      "game_object_id": "1499",
+      "unity_class_id": "4",
+      "line": 89147,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5303\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1499}\n  m_LocalRotation: {x: -0, y: -0, z: 0.7071282, w: -0.7070854}\n  m_LocalPosition: {x: -0.025, y: 0.031, z: 0.001}\n  m_LocalScale: {x: 1.3777462, y: 1.3677074, z: 1.3677069}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4847}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: 90.00348}\n"
+    },
+    {
+      "file_id": "5346",
+      "game_object_id": "2547",
+      "unity_class_id": "4",
+      "line": 89829,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5346\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2547}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: -1}\n  m_LocalScale: {x: 2.6, y: 2.75, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 5103}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "5383",
+      "game_object_id": "1796",
+      "unity_class_id": "4",
+      "line": 90428,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5383\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1796}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: -0.5}\n  m_LocalScale: {x: 1.7, y: 1.7, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 5866}\n  m_Father: {fileID: 4843}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "5428",
+      "game_object_id": "1642",
+      "unity_class_id": "4",
+      "line": 91114,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5428\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1642}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0.04, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4612}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "5466",
+      "game_object_id": "1545",
+      "unity_class_id": "4",
+      "line": 91694,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5466\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1545}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0.04, y: 0, z: -0.6666987}\n  m_LocalScale: {x: 1.3932015, y: 1.2049654, z: 0.84143656}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 5190}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "5555",
+      "game_object_id": "1581",
+      "unity_class_id": "4",
+      "line": 93052,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5555\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1581}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 5.15, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 5580}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "5559",
+      "game_object_id": "1346",
+      "unity_class_id": "4",
+      "line": 93115,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5559\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1346}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: -1}\n  m_LocalScale: {x: 1.18, y: 1.5, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4843}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "5561",
+      "game_object_id": "2201",
+      "unity_class_id": "4",
+      "line": 93145,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5561\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2201}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0.4, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4934}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "5580",
+      "game_object_id": "2347",
+      "unity_class_id": "4",
+      "line": 93472,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5580\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2347}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0.641, z: 0.0001}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 5555}\n  - {fileID: 4584}\n  m_Father: {fileID: 5620}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "5620",
+      "game_object_id": "2229",
+      "unity_class_id": "4",
+      "line": 94117,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5620\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2229}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 117.4, y: 29.78, z: 0.007}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 5580}\n  - {fileID: 5046}\n  - {fileID: 4554}\n  - {fileID: 5926}\n  - {fileID: 4603}\n  - {fileID: 5644}\n  m_Father: {fileID: 4173}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "5642",
+      "game_object_id": "2616",
+      "unity_class_id": "4",
+      "line": 94462,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5642\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2616}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: -0.046, y: -0.02, z: -0.0001}\n  m_LocalScale: {x: 1.15, y: 1.15, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4843}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "5644",
+      "game_object_id": "2528",
+      "unity_class_id": "4",
+      "line": 94493,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5644\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2528}\n  m_LocalRotation: {x: -0, y: -0, z: 0.35780323, w: 0.933797}\n  m_LocalPosition: {x: 0.01, y: -0.31, z: -0.002}\n  m_LocalScale: {x: 1.3650298, y: 1.3650298, z: 1.3650299}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 5064}\n  m_Father: {fileID: 5620}\n  m_LocalEulerAnglesHint: {x: -0, y: -0, z: -41.93069}\n"
+    },
+    {
+      "file_id": "5767",
+      "game_object_id": "2445",
+      "unity_class_id": "4",
+      "line": 96428,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5767\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2445}\n  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}\n  m_LocalPosition: {x: 0, y: -0.036, z: -0.47999996}\n  m_LocalScale: {x: 1.6, y: 1.4, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 5788}\n  - {fileID: 5916}\n  - {fileID: 6269}\n  m_Father: {fileID: 5103}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: 90}\n"
+    },
+    {
+      "file_id": "5788",
+      "game_object_id": "1977",
+      "unity_class_id": "4",
+      "line": 96809,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5788\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1977}\n  m_LocalRotation: {x: -0, y: -0, z: 0.7071282, w: -0.7070854}\n  m_LocalPosition: {x: -0.025, y: 0.031, z: 0.001}\n  m_LocalScale: {x: 1.3777462, y: 1.3677074, z: 1.3677069}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 5767}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: 90.00348}\n"
+    },
+    {
+      "file_id": "5866",
+      "game_object_id": "2410",
+      "unity_class_id": "4",
+      "line": 97991,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5866\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2410}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: -0, y: -0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 5383}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "5899",
+      "game_object_id": "2351",
+      "unity_class_id": "4",
+      "line": 98516,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5899\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2351}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: -1}\n  m_LocalScale: {x: 2.6, y: 2.75, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 5103}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "5916",
+      "game_object_id": "1983",
+      "unity_class_id": "4",
+      "line": 98777,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5916\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1983}\n  m_LocalRotation: {x: -0, y: -0, z: -0.7771274, w: -0.62934333}\n  m_LocalPosition: {x: -0.012346932, y: 0.01395322, z: -0.66484433}\n  m_LocalScale: {x: 0.22688536, y: 0.2367048, z: 0.21361852}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 5767}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -101.99662}\n"
+    },
+    {
+      "file_id": "5926",
+      "game_object_id": "2676",
+      "unity_class_id": "4",
+      "line": 98931,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5926\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2676}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: -0.239, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 4612}\n  - {fileID: 4934}\n  - {fileID: 5013}\n  - {fileID: 5103}\n  m_Father: {fileID: 5620}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "6035",
+      "game_object_id": "2953",
+      "unity_class_id": "4",
+      "line": 100690,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &6035\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2953}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4612}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "6269",
+      "game_object_id": "2824",
+      "unity_class_id": "4",
+      "line": 104409,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &6269\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2824}\n  m_LocalRotation: {x: -0, y: -0, z: -0.7771274, w: -0.62934333}\n  m_LocalPosition: {x: -0.012346932, y: 0.01395322, z: -0.665}\n  m_LocalScale: {x: 0.22688536, y: 0.2367048, z: 0.21361852}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 5767}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -101.99662}\n"
+    },
+    {
+      "file_id": "6560",
+      "game_object_id": "1581",
+      "unity_class_id": "50",
+      "line": 110425,
+      "script": null,
+      "serialized_yaml": "--- !u!50 &6560\nRigidbody2D:\n  serializedVersion: 5\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1581}\n  m_BodyType: 1\n  m_Simulated: 1\n  m_UseFullKinematicContacts: 0\n  m_UseAutoMass: 0\n  m_Mass: 1\n  m_LinearDamping: 0\n  m_AngularDamping: 0.05\n  m_GravityScale: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_Interpolate: 0\n  m_SleepingMode: 1\n  m_CollisionDetection: 0\n  m_Constraints: 0\n"
+    },
+    {
+      "file_id": "6566",
+      "game_object_id": "2676",
+      "unity_class_id": "50",
+      "line": 110587,
+      "script": null,
+      "serialized_yaml": "--- !u!50 &6566\nRigidbody2D:\n  serializedVersion: 5\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2676}\n  m_BodyType: 0\n  m_Simulated: 1\n  m_UseFullKinematicContacts: 0\n  m_UseAutoMass: 0\n  m_Mass: 5\n  m_LinearDamping: 1\n  m_AngularDamping: 1\n  m_GravityScale: 2\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_Interpolate: 0\n  m_SleepingMode: 2\n  m_CollisionDetection: 0\n  m_Constraints: 0\n"
+    },
+    {
+      "file_id": "6576",
+      "game_object_id": "1483",
+      "unity_class_id": "50",
+      "line": 110857,
+      "script": null,
+      "serialized_yaml": "--- !u!50 &6576\nRigidbody2D:\n  serializedVersion: 5\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1483}\n  m_BodyType: 0\n  m_Simulated: 1\n  m_UseFullKinematicContacts: 0\n  m_UseAutoMass: 0\n  m_Mass: 1\n  m_LinearDamping: 0.5\n  m_AngularDamping: 1\n  m_GravityScale: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_Interpolate: 0\n  m_SleepingMode: 2\n  m_CollisionDetection: 0\n  m_Constraints: 0\n"
+    },
+    {
+      "file_id": "6616",
+      "game_object_id": "1642",
+      "unity_class_id": "58",
+      "line": 111991,
+      "script": null,
+      "serialized_yaml": "--- !u!58 &6616\nCircleCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1642}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 0\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 0, y: -0.15}\n  m_Radius: 0.55\n"
+    },
+    {
+      "file_id": "6619",
+      "game_object_id": "2201",
+      "unity_class_id": "58",
+      "line": 112099,
+      "script": null,
+      "serialized_yaml": "--- !u!58 &6619\nCircleCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2201}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 0\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 0, y: -0.15}\n  m_Radius: 0.31\n"
+    },
+    {
+      "file_id": "6711",
+      "game_object_id": "2028",
+      "unity_class_id": "61",
+      "line": 116484,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &6711\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2028}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 0\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 0, y: -0.05}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0.5, y: 0.5}\n    oldSize: {x: 1.90625, y: 1.953125}\n    newSize: {x: 1.21875, y: 2.171875}\n    adaptiveTilingThreshold: 0.5\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 1.21875, y: 1.22}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "6717",
+      "game_object_id": "2204",
+      "unity_class_id": "61",
+      "line": 116760,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &6717\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2204}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 0\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 0, y: -0.10517311}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0.5, y: 0.5}\n    oldSize: {x: 1.65625, y: 1.921875}\n    newSize: {x: 3.265625, y: 9.875}\n    adaptiveTilingThreshold: 0.5\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 1.21875, y: 1.3817787}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "6755",
+      "game_object_id": "1353",
+      "unity_class_id": "61",
+      "line": 118508,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &6755\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1353}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: -1.3209763, y: -1.4470472}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 19.270523, y: 8.336905}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "6853",
+      "game_object_id": "1498",
+      "unity_class_id": "61",
+      "line": 123016,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &6853\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1498}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: -0.9635582, y: -1.4231682}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 19.584358, y: 8.860397}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "7052",
+      "game_object_id": "1975",
+      "unity_class_id": "82",
+      "line": 137863,
+      "script": null,
+      "serialized_yaml": "--- !u!82 &7052\nAudioSource:\n  serializedVersion: 4\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1975}\n  m_Enabled: 1\n  OutputAudioMixerGroup: {fileID: 24300004, guid: d910a835fc4287448b891cc742c2a38a, type: 2}\n  m_audioClip: {fileID: 8300000, guid: d5e9ba4bc1c7c8a4ea4757306b8a4109, type: 3}\n  m_Resource: {fileID: 8300000, guid: d5e9ba4bc1c7c8a4ea4757306b8a4109, type: 3}\n  m_PlayOnAwake: 1\n  m_Volume: 1\n  m_Pitch: 1\n  Loop: 1\n  Mute: 0\n  Spatialize: 0\n  SpatializePostEffects: 0\n  Priority: 127\n  DopplerLevel: 0\n  MinDistance: 39\n  MaxDistance: 70\n  Pan2D: 0\n  rolloffMode: 2\n  BypassEffects: 0\n  BypassListenerEffects: 0\n  BypassReverbZones: 0\n  rolloffCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0.5552075\n      value: 1\n      inSlope: -7.7956157\n      outSlope: -7.7956157\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    - serializedVersion: 3\n      time: 1\n      value: 0.003753662\n      inSlope: -0.5529247\n      outSlope: -0.5529247\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  panLevelCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  spreadCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 0\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  reverbZoneMixCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n"
+    },
+    {
+      "file_id": "9938",
+      "game_object_id": "1581",
+      "unity_class_id": "233",
+      "line": 1008439,
+      "script": null,
+      "serialized_yaml": "--- !u!233 &9938\nHingeJoint2D:\n  serializedVersion: 4\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1581}\n  m_Enabled: 1\n  m_EnableCollision: 0\n  m_ConnectedRigidBody: {fileID: 6576}\n  m_BreakForce: Infinity\n  m_BreakTorque: Infinity\n  m_BreakAction: 3\n  m_AutoConfigureConnectedAnchor: 1\n  m_Anchor: {x: 0, y: 0}\n  m_ConnectedAnchor: {x: 0, y: 5.385998}\n  m_UseConnectedAnchor: 1\n  m_UseMotor: 0\n  m_Motor:\n    m_MotorSpeed: 0\n    m_MaximumMotorForce: 10000\n  m_UseLimits: 1\n  m_AngleLimits:\n    m_LowerAngle: -50\n    m_UpperAngle: 50\n"
+    },
+    {
+      "file_id": "9945",
+      "game_object_id": "1483",
+      "unity_class_id": "233",
+      "line": 1008621,
+      "script": null,
+      "serialized_yaml": "--- !u!233 &9945\nHingeJoint2D:\n  serializedVersion: 4\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1483}\n  m_Enabled: 1\n  m_EnableCollision: 0\n  m_ConnectedRigidBody: {fileID: 6566}\n  m_BreakForce: Infinity\n  m_BreakTorque: Infinity\n  m_BreakAction: 3\n  m_AutoConfigureConnectedAnchor: 1\n  m_Anchor: {x: 0, y: 0}\n  m_ConnectedAnchor: {x: 0, y: 0.644001}\n  m_UseConnectedAnchor: 1\n  m_UseMotor: 0\n  m_Motor:\n    m_MotorSpeed: 0\n    m_MaximumMotorForce: 10000\n  m_UseLimits: 1\n  m_AngleLimits:\n    m_LowerAngle: -10\n    m_UpperAngle: 10\n"
+    },
+    {
+      "file_id": "10108",
+      "game_object_id": "2410",
+      "unity_class_id": "114",
+      "line": 1015506,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SimpleSpriteFade.cs",
+      "serialized_yaml": "--- !u!114 &10108\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2410}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 7cb9910ab89ebe9f43c1152789b9f929, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  spriteRenderer: {fileID: 0}\n  fadeInColor: {r: 1, g: 0, b: 0, a: 0.716}\n  fadeDuration: 0.2\n  fadeInOnStart: 1\n  deactivateOnFadeIn: 0\n  recycleOnFadeIn: 0\n  isRealtime: 0\n"
+    },
+    {
+      "file_id": "10124",
+      "game_object_id": "2351",
+      "unity_class_id": "114",
+      "line": 1015898,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SimpleFadeOut.cs",
+      "serialized_yaml": "--- !u!114 &10124\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2351}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: fc9cdbb8c1e55a8585215f8c2e251e2d, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  fadeDuration: 0.15\n  waitForCall: 0\n  resetOnEnable: 0\n  isRealtime: 0\n"
+    },
+    {
+      "file_id": "10157",
+      "game_object_id": "2229",
+      "unity_class_id": "114",
+      "line": 1016672,
+      "script": "Assets/Scripts/Assembly-CSharp/ChainPushReaction.cs",
+      "serialized_yaml": "--- !u!114 &10157\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2229}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: ea2367d2e83f1e8e99083012aeb63ffc, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  touchTime: 0.025\n  playerRangeEnable: 2\n  playerRangeEnableDelay: 0.5\n  OnTouchedLink:\n    m_PersistentCalls:\n      m_Calls: []\n"
+    },
+    {
+      "file_id": "10164",
+      "game_object_id": "1796",
+      "unity_class_id": "114",
+      "line": 1017046,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SpriteFadePulse.cs",
+      "serialized_yaml": "--- !u!114 &10164\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1796}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: cd3455fc1226cff4f667c459754404ed, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  lowAlpha: 0.4\n  highAlpha: 0.6\n  fadeDuration: 1\n  startPaused: 0\n"
+    },
+    {
+      "file_id": "10185",
+      "game_object_id": "2229",
+      "unity_class_id": "114",
+      "line": 1017974,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "serialized_yaml": "--- !u!114 &10185\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2229}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9a4a05480320f7f0c7f74a7198222c9e, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  z: 0.007\n  dontRandomize: 0\n  randomizeFromStartingValue: 0\n  delayBeforeRandomizing: 0\n  waitFrames: 1\n  deParent: 0\n"
+    },
+    {
+      "file_id": "10187",
+      "game_object_id": "1353",
+      "unity_class_id": "114",
+      "line": 1018012,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/AlertRange.cs",
+      "serialized_yaml": "--- !u!114 &10187\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1353}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: e667676c1e2581f78ac6219259c46fde, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  ignoreLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  tagIncludeList: []\n  tagExcludeList: []\n  checkParentSight: 0\n  lineOfSight: 0\n  countUnalertTime: 0\n"
+    },
+    {
+      "file_id": "10206",
+      "game_object_id": "2204",
+      "unity_class_id": "114",
+      "line": 1018619,
+      "script": "Assets/Scripts/ProjectCode/Game/04_World_Environment/Breakable.cs",
+      "serialized_yaml": "--- !u!114 &10206\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2204}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 4f65be78153c74c6561f06b97414323c, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  persistent: {fileID: 10969}\n  ignorePersistence: 0\n  resetOnEnable: 0\n  useAltDebris: 0\n  altDebrisChance: 100\n  wholeRenderer: {fileID: 9213}\n  wholeParts:\n  - {fileID: 1975}\n  - {fileID: 1642}\n  - {fileID: 2953}\n  remnantParts:\n  - {fileID: 2028}\n  flingDrops: []\n  debrisParts:\n  - {fileID: 2634}\n  debrisPartsAlt: []\n  angleOffset: -60\n  inertBackgroundThreshold: 1\n  inertForegroundThreshold: -1\n  useHeroPlane: 0\n  effectOffset: {x: 0, y: -0.12, z: 0}\n  audioSourcePrefab: {fileID: 82724804207875695, guid: 99068b2a95bddff419cb6f176648d4e6, type: 2}\n  hitAudioEvent:\n    Clip: {fileID: 0}\n    PitchMin: 0\n    PitchMax: 0\n    Volume: 0\n    vibrationDataAsset: {fileID: 0}\n  hitAudioClipTable: {fileID: 11400000, guid: 712772608f3604b498e0352cdf125cb8, type: 2}\n  breakAudioEvent:\n    Clip: {fileID: 8300000, guid: 2f56ee8f308266840b4fbed0abd4ef26, type: 3}\n    PitchMin: 0.95\n    PitchMax: 1.05\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  breakAudioClipTable: {fileID: 11400000, guid: 0c60e56d19cbd2c48844d33b153b3f9f, type: 2}\n  dustHitRegularPrefab: {fileID: 4730242686860875, guid: 806ee877a7ce1164badfa29f4aa1cfe7, type: 2}\n  dustHitDownPrefab: {fileID: 4730242686860875, guid: 8530ebd13c4d58d4785dfb9ffd5b0c10, type: 2}\n  breakEffectPrefab: {fileID: 0}\n  flingSpeedMin: 10\n  flingSpeedMax: 17\n  flingSelfOnHit: 0\n  strikeEffectPrefab: {fileID: 0}\n  nailHitEffectPrefab: {fileID: 0}\n  spellHitEffectPrefab: {fileID: 0}\n  preventParticleRotation: 0\n  hitEventReciever: {fileID: 0}\n  forwardBreakEvent: 0\n  ignoreDamagers: 0\n  passHitToEffects: {fileID: 0}\n  hitsToBreak: 4\n  hitCoolDown: 0.1\n  firstHitOnly: 0\n  emitNoise: 0\n  noiseRadius: 0\n  autoAddJitterComponent: 0\n  breakableRange: {fileID: 0}\n  hitShake:\n    camera: {fileID: 11400000, guid: 9b0888e0916dca544846a2f34304dac9, type: 2}\n    profile: {fileID: 11400000, guid: 279f38013a080f34999cd00fbee1b9c2, type: 2}\n    doFreeze: 0\n    vibrate: 1\n  breakShake:\n    camera: {fileID: 11400000, guid: 9b0888e0916dca544846a2f34304dac9, type: 2}\n    profile: {fileID: 11400000, guid: 3e660b394608b7a4e822f55cc03492d7, type: 2}\n    doFreeze: 0\n    vibrate: 1\n  freezeMoment: 0\n  hitFreezeMoment: -1\n  breakFreezeMoment: 1\n  containingParticles: []\n  flingObjectRegister: []\n  smallGeoDrops:\n    Start: 0\n    End: 0\n  mediumGeoDrops:\n    Start: 0\n    End: 0\n  largeGeoDrops:\n    Start: 0\n    End: 0\n  largeSmoothGeoDrops:\n    Start: 0\n    End: 0\n  megaFlingGeo: 0\n  shellShardDrops:\n    Start: 0\n    End: 0\n  silkGain: 0\n  itemDropGroups: []\n  silkDrops:\n    Start: 0\n    End: 0\n  silkDropEffect: {fileID: 0}\n  silkGetEffect: {fileID: 0}\n  silkDropsCondition: {fileID: 0}\n  threadThinObject: {fileID: 0}\n  silkDropsPersistent: {fileID: 0}\n  deparentOnBreak: 0\n  immuneToBreakableBreaker: 1\n  requireBroken: []\n  onHit:\n    m_PersistentCalls:\n      m_Calls:\n      - m_Target: {fileID: 10511}\n        m_TargetAssemblyTypeName:\n        m_MethodName: PlayParticles\n        m_Mode: 1\n        m_Arguments:\n          m_ObjectArgument: {fileID: 0}\n          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine\n          m_IntArgument: 0\n          m_FloatArgument: 0\n          m_StringArgument:\n          m_BoolArgument: 0\n        m_CallState: 2\n      - m_Target: {fileID: 10244}\n        m_TargetAssemblyTypeName: PlayMakerFSM, PlayMaker\n        m_MethodName: SendEvent\n        m_Mode: 5\n        m_Arguments:\n          m_ObjectArgument: {fileID: 0}\n          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine\n          m_IntArgument: 0\n          m_FloatArgument: 0\n          m_StringArgument: TOOK DAMAGE\n          m_BoolArgument: 0\n        m_CallState: 2\n  onBreak:\n    m_PersistentCalls:\n      m_Calls:\n      - m_Target: {fileID: 10244}\n        m_TargetAssemblyTypeName:\n        m_MethodName: SendEvent\n        m_Mode: 5\n        m_Arguments:\n          m_ObjectArgument: {fileID: 0}\n          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine\n          m_IntArgument: 0\n          m_FloatArgument: 0\n          m_StringArgument: BREAK\n          m_BoolArgument: 0\n        m_CallState: 2\n  onBroken:\n    m_PersistentCalls:\n      m_Calls:\n      - m_Target: {fileID: 10244}\n        m_TargetAssemblyTypeName: PlayMakerFSM, PlayMaker\n        m_MethodName: SendEvent\n        m_Mode: 5\n        m_Arguments:\n          m_ObjectArgument: {fileID: 0}\n          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine\n          m_IntArgument: 0\n          m_FloatArgument: 0\n          m_StringArgument: BROKEN\n          m_BoolArgument: 0\n        m_CallState: 2\n"
+    },
+    {
+      "file_id": "10211",
+      "game_object_id": "1581",
+      "unity_class_id": "114",
+      "line": 1018868,
+      "script": "Assets/Scripts/Assembly-CSharp/FixParentedJoints.cs",
+      "serialized_yaml": "--- !u!114 &10211\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1581}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: ffe84d92a3b079805a03ffe9d9a920e1, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  selfParent: {fileID: 5620}\n  kinematicBody: {fileID: 6560}\n  existingTargetBody: {fileID: 0}\n  delayBodyDynamicFrames: 0\n  isActive: 1\n"
+    },
+    {
+      "file_id": "10314",
+      "game_object_id": "2028",
+      "unity_class_id": "114",
+      "line": 1082143,
+      "script": "Assets/Scripts/Assembly-CSharp/RandomlyFlipScale.cs",
+      "serialized_yaml": "--- !u!114 &10314\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2028}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: de6357afb694d64827e6c37cc3466d79, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  flipX: 1\n  flipY: 0\n  flipChance: 50\n  doOnEnable: 1\n"
+    },
+    {
+      "file_id": "10376",
+      "game_object_id": "2547",
+      "unity_class_id": "114",
+      "line": 1083465,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SimpleFadeOut.cs",
+      "serialized_yaml": "--- !u!114 &10376\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2547}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: fc9cdbb8c1e55a8585215f8c2e251e2d, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  fadeDuration: 0.15\n  waitForCall: 0\n  resetOnEnable: 0\n  isRealtime: 0\n"
+    },
+    {
+      "file_id": "10397",
+      "game_object_id": "1498",
+      "unity_class_id": "114",
+      "line": 1083744,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/AlertRange.cs",
+      "serialized_yaml": "--- !u!114 &10397\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1498}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: e667676c1e2581f78ac6219259c46fde, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  ignoreLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  tagIncludeList: []\n  tagExcludeList: []\n  checkParentSight: 0\n  lineOfSight: 0\n  countUnalertTime: 0\n"
+    },
+    {
+      "file_id": "10402",
+      "game_object_id": "2201",
+      "unity_class_id": "114",
+      "line": 1084178,
+      "script": "Assets/Scripts/Assembly-CSharp/ChainLinkInteraction.cs",
+      "serialized_yaml": "--- !u!114 &10402\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2201}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: e84de0ddfc17908f690887f9df5f2856, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n"
+    },
+    {
+      "file_id": "10405",
+      "game_object_id": "2229",
+      "unity_class_id": "114",
+      "line": 1084296,
+      "script": "Assets/Scripts/Assembly-CSharp/IdleForceAnimator.cs",
+      "serialized_yaml": "--- !u!114 &10405\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2229}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9fcb1f8864169f5dfc624ba4810ced0d, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  idleSwingForceMagnitude: 3\n  torqueMagnitude: 0\n  idleSwingForceCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: -0.14783487\n      inSlope: 0\n      outSlope: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    - serializedVersion: 3\n      time: 0.9958761\n      value: 0.25209764\n      inSlope: 0\n      outSlope: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    - serializedVersion: 3\n      time: 2.8344162\n      value: -0.35229653\n      inSlope: -0.034160912\n      outSlope: -0.034160912\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    - serializedVersion: 3\n      time: 4.302695\n      value: 0.9893873\n      inSlope: 0.011734664\n      outSlope: 0.011734664\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    - serializedVersion: 3\n      time: 5.577966\n      value: 0.017199246\n      inSlope: -0.15940517\n      outSlope: -0.15940517\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    - serializedVersion: 3\n      time: 6.869502\n      value: 0.6496777\n      inSlope: -0.048084185\n      outSlope: -0.048084185\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    - serializedVersion: 3\n      time: 8.046749\n      value: -0.982975\n      inSlope: -0.26889145\n      outSlope: -0.26889145\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    - serializedVersion: 3\n      time: 9.920458\n      value: -0.14783487\n      inSlope: 0\n      outSlope: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 1\n    m_PostInfinity: 1\n    m_RotationOrder: 4\n  worldXTimeOffsetAmount: 1\n  useChildren: 0\n  bodies:\n  - {fileID: 6566}\n  disableCamShakeEventHandling: 0\n  ignoreExistingCamEventReceiver: 0\n  resetVelocityAfterSimulation: 0\n  shakeReactionDiminishingReturn: 0\n  SpeedMultiplier: 1\n  ExtraHorizontalSpeed: 0\n"
+    },
+    {
+      "file_id": "10411",
+      "game_object_id": "2347",
+      "unity_class_id": "114",
+      "line": 1084638,
+      "script": "Assets/Scripts/Assembly-CSharp/AutoGenerateHangingRope.cs",
+      "serialized_yaml": "--- !u!114 &10411\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2347}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5b7b520969a8dff893724bab6b2ccdeb, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  template: {fileID: 10506}\n  pinnedControlPoint: {fileID: 6560}\n  hangingControlPoint: {fileID: 6576}\n  controlPointDistance: 2\n  subdivisions: 3\n  autoTextureTiling: 0\n  midPointTemplate: {fileID: 0}\n  scaleColliderToMatch: {fileID: 0}\n"
+    },
+    {
+      "file_id": "10413",
+      "game_object_id": "2204",
+      "unity_class_id": "114",
+      "line": 1084724,
+      "script": "Assets/Scripts/Assembly-CSharp/HitRigidbody2D.cs",
+      "serialized_yaml": "--- !u!114 &10413\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2204}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: f0aa92a0aeab89f9c6ed8798fbd975e1, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  body: {fileID: 6566}\n  groupRoot: {fileID: 0}\n  alwaysRespondToHit: 1\n  origin: {x: 0, y: -0.15, z: 0}\n  force: {x: 40, y: 5}\n  recoilHero: 0\n  resetVelocity: 0\n  useHitDirectionX: 1\n  useHitDirectionY: 0\n  magnitudeMultiplierCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      weightedMode: 0\n      inWeight: 0\n      outWeight: 0\n    - serializedVersion: 3\n      time: 1\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      weightedMode: 0\n      inWeight: 0\n      outWeight: 0\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 4\n  cameraShake:\n    camera: {fileID: 11400000, guid: 9b0888e0916dca544846a2f34304dac9, type: 2}\n    profile: {fileID: 0}\n    doFreeze: 0\n    vibrate: 1\n  hitEffect: {fileID: 1709254077376921, guid: 64c20baf394ac9a41b03deea82568445, type: 2}\n  hitEffectScale: 1\n  hitAudio:\n    Clips:\n    - {fileID: 8300000, guid: b43074708e0ba8645b9ad6b3b93c0d57, type: 3}\n    - {fileID: 8300000, guid: 265644b4461aae84795748879826be56, type: 3}\n    PitchMin: 0.9\n    PitchMax: 1.1\n    Volume: 1\n    vibrations: []\n  dontPlayHitOnBreak: 0\n  passHitToBreakable: {fileID: 10206}\n  breakReactBody: {fileID: 6566}\n  breakReactForce: {x: 50, y: 10}\n  hitEventRegister:\n  OnHit:\n    m_PersistentCalls:\n      m_Calls: []\n"
+    },
+    {
+      "file_id": "10414",
+      "game_object_id": "1346",
+      "unity_class_id": "114",
+      "line": 1084790,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SimpleFadeOut.cs",
+      "serialized_yaml": "--- !u!114 &10414\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1346}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: fc9cdbb8c1e55a8585215f8c2e251e2d, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  fadeDuration: 0.25\n  waitForCall: 0\n  resetOnEnable: 1\n  isRealtime: 0\n"
+    },
+    {
+      "file_id": "10427",
+      "game_object_id": "2028",
+      "unity_class_id": "114",
+      "line": 1085160,
+      "script": "Assets/Scripts/Assembly-CSharp/HitRigidbody2D.cs",
+      "serialized_yaml": "--- !u!114 &10427\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2028}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: f0aa92a0aeab89f9c6ed8798fbd975e1, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  body: {fileID: 6566}\n  groupRoot: {fileID: 0}\n  alwaysRespondToHit: 0\n  origin: {x: 0, y: 0.18, z: 0}\n  force: {x: 40, y: 10}\n  recoilHero: 0\n  resetVelocity: 0\n  useHitDirectionX: 1\n  useHitDirectionY: 0\n  magnitudeMultiplierCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      weightedMode: 0\n      inWeight: 0\n      outWeight: 0\n    - serializedVersion: 3\n      time: 1\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      weightedMode: 0\n      inWeight: 0\n      outWeight: 0\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 4\n  cameraShake:\n    camera: {fileID: 0}\n    profile: {fileID: 0}\n    doFreeze: 0\n    vibrate: 1\n  hitEffect: {fileID: 1709254077376921, guid: 64c20baf394ac9a41b03deea82568445, type: 2}\n  hitEffectScale: 0.7\n  hitAudio:\n    Clips:\n    - {fileID: 8300000, guid: 0349bbef829d6b84698804c1e4c6fed8, type: 3}\n    - {fileID: 8300000, guid: 2816752c44840c843935de8cb5d846f8, type: 3}\n    PitchMin: 0.9\n    PitchMax: 1.1\n    Volume: 1\n    vibrations: []\n  dontPlayHitOnBreak: 0\n  passHitToBreakable: {fileID: 0}\n  breakReactBody: {fileID: 0}\n  breakReactForce: {x: 5, y: 2}\n  hitEventRegister:\n  OnHit:\n    m_PersistentCalls:\n      m_Calls: []\n"
+    },
+    {
+      "file_id": "10457",
+      "game_object_id": "1980",
+      "unity_class_id": "114",
+      "line": 1086017,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SimpleFadeOut.cs",
+      "serialized_yaml": "--- !u!114 &10457\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1980}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: fc9cdbb8c1e55a8585215f8c2e251e2d, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  fadeDuration: 0.25\n  waitForCall: 0\n  resetOnEnable: 1\n  isRealtime: 0\n"
+    },
+    {
+      "file_id": "10460",
+      "game_object_id": "2028",
+      "unity_class_id": "114",
+      "line": 1086062,
+      "script": "Assets/Scripts/ProjectCode/Game/04_World_Environment/NonBouncer.cs",
+      "serialized_yaml": "--- !u!114 &10460\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2028}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 1f42ed389da1036c0c3bd14ce50619bc, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  active: 1\n"
+    },
+    {
+      "file_id": "10474",
+      "game_object_id": "1642",
+      "unity_class_id": "114",
+      "line": 1087189,
+      "script": "Assets/Scripts/Assembly-CSharp/ChainLinkInteraction.cs",
+      "serialized_yaml": "--- !u!114 &10474\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1642}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: e84de0ddfc17908f690887f9df5f2856, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n"
+    },
+    {
+      "file_id": "10506",
+      "game_object_id": "2347",
+      "unity_class_id": "114",
+      "line": 1087959,
+      "script": null,
+      "serialized_yaml": "--- !u!114 &10506\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2347}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 611395615, guid: 732c032f61ae08667087c5e513168b62, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  width: 0.125\n  textureTiling: 2\n  uvMode: 0\n  autoTextureTiling: 0\n  textureTilingMethod: 1\n  textureContinueFrom: {fileID: 0}\n  textureOffset: 0\n  flipTextureU: 0\n  flipTextureV: 1\n  reverseDirection: 1\n  useColorGradient: 0\n  colorGradient:\n    serializedVersion: 2\n    key0: {r: 1, g: 1, b: 1, a: 1}\n    key1: {r: 1, g: 1, b: 1, a: 1}\n    key2: {r: 0, g: 0, b: 0, a: 0}\n    key3: {r: 0, g: 0, b: 0, a: 0}\n    key4: {r: 0, g: 0, b: 0, a: 0}\n    key5: {r: 0, g: 0, b: 0, a: 0}\n    key6: {r: 0, g: 0, b: 0, a: 0}\n    key7: {r: 0, g: 0, b: 0, a: 0}\n    ctime0: 0\n    ctime1: 65535\n    ctime2: 0\n    ctime3: 0\n    ctime4: 0\n    ctime5: 0\n    ctime6: 0\n    ctime7: 0\n    atime0: 0\n    atime1: 65535\n    atime2: 0\n    atime3: 0\n    atime4: 0\n    atime5: 0\n    atime6: 0\n    atime7: 0\n    m_Mode: 0\n    m_ColorSpace: -1\n    m_NumColorKeys: 2\n    m_NumAlphaKeys: 2\n  useWidthCurve: 0\n  widthCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      weightedMode: 0\n      inWeight: 0\n      outWeight: 0\n    - serializedVersion: 3\n      time: 1\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      weightedMode: 0\n      inWeight: 0\n      outWeight: 0\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 4\n  isStatic: 0\n  fpsLimit: 0\n  updateAfter: {fileID: 0}\n  preventCulling: 0\n  tangentSource: 0\n  updateCondition: 1\n  updateOrder: 0\n  controlPoints:\n  - {fileID: 5555}\n  - {fileID: 4584}\n"
+    },
+    {
+      "file_id": "10511",
+      "game_object_id": "1799",
+      "unity_class_id": "114",
+      "line": 1088228,
+      "script": "Assets/Scripts/Assembly-CSharp/ParticleSystemPool.cs",
+      "serialized_yaml": "--- !u!114 &10511\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1799}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: bf36dd9e8ba4c87b8669ed601f32582d, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  original: {fileID: 7211}\n  initialPoolSize: 2\n  deparentOnPlay: 0\n"
+    },
+    {
+      "file_id": "10514",
+      "game_object_id": "2616",
+      "unity_class_id": "114",
+      "line": 1088316,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SpriteFadePulse.cs",
+      "serialized_yaml": "--- !u!114 &10514\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2616}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: cd3455fc1226cff4f667c459754404ed, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  lowAlpha: 0.25\n  highAlpha: 0.75\n  fadeDuration: 0.75\n  startPaused: 0\n"
+    },
+    {
+      "file_id": "10683",
+      "game_object_id": "2953",
+      "unity_class_id": "114",
+      "line": 1148887,
+      "script": "Assets/Scripts/Assembly-CSharp/NeedolinTextOwner.cs",
+      "serialized_yaml": "--- !u!114 &10683\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2953}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 31fc0cd4445f01d3a6cd3001ad153725, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  rangeCheck: 0\n  customRange: 0\n  insideTrigger: {fileID: 0}\n  text:\n    collection: {fileID: 11400000, guid: f5a9f65ecfc52a14ba9bf96652374132, type: 2}\n    customData:\n      template:\n        Sheet:\n        Key:\n      configOverride: {fileID: 0}\n      alternatives: []\n      doNotPlay: 0\n  mapZoneOverrides: []\n  OnAddText:\n    m_PersistentCalls:\n      m_Calls: []\n  OnRemoveText:\n    m_PersistentCalls:\n      m_Calls: []\n"
+    },
+    {
+      "file_id": "10722",
+      "game_object_id": "2229",
+      "unity_class_id": "114",
+      "line": 1150543,
+      "script": null,
+      "serialized_yaml": "--- !u!114 &10722\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2229}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: -664232604, guid: daca89c25bd1813ceecbbbb8555342a7, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  TargetFSMs:\n  - {fileID: 10244}\n"
+    },
+    {
+      "file_id": "10813",
+      "game_object_id": "2204",
+      "unity_class_id": "114",
+      "line": 1155326,
+      "script": "Assets/Scripts/Assembly-CSharp/HarpoonHook.cs",
+      "serialized_yaml": "--- !u!114 &10813\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2204}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9584611dc98bc9b52e51ae2699ff8513, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  OnHookStart:\n    m_PersistentCalls:\n      m_Calls: []\n  OnHookEnd:\n    m_PersistentCalls:\n      m_Calls: []\n  OnHookCancel:\n    m_PersistentCalls:\n      m_Calls: []\n"
+    },
+    {
+      "file_id": "10860",
+      "game_object_id": "2204",
+      "unity_class_id": "114",
+      "line": 1156327,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/RandomAudioStartPosition.cs",
+      "serialized_yaml": "--- !u!114 &10860\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2204}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 0affe8eaf60e73c63bd4ad7d73ded602, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  timeMin: 0\n  timeMax: 8\n"
+    },
+    {
+      "file_id": "10954",
+      "game_object_id": "2229",
+      "unity_class_id": "114",
+      "line": 1159300,
+      "script": "Assets/Scripts/ProjectCode/Game/12_Utilities/PersonalObjectPool.cs",
+      "serialized_yaml": "--- !u!114 &10954\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2229}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5b2ef5c5e57f7fd8e1e9fc2db016e6f0, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  startupPool:\n  - size: 2\n    prefab: {fileID: 1709254077376921, guid: f72e802ae143b324f9b8d3df576c0ede, type: 2}\n    initialiseSpawnedObjects: 0\n    shared: 0\n  stealFromParent: {fileID: 0}\n"
+    },
+    {
+      "file_id": "10969",
+      "game_object_id": "2229",
+      "unity_class_id": "114",
+      "line": 1159710,
+      "script": "Assets/Scripts/ProjectCode/Game/06_Data_Save_Progression/PersistentBoolItem.cs",
+      "serialized_yaml": "--- !u!114 &10969\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2229}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 087a94ec5288c627922d9bede0894295, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  saveCondition:\n    TestGroups: []\n  dontSave: 0\n  itemData:\n    ID:\n    SceneName:\n    IsSemiPersistent: 1\n    Value: 0\n    Mutator: 0\n  disableIfActivated: 0\n  disablePrefabIfActivated: {fileID: 0}\n"
+    }
+  ],
+  "recording_references": [
+    {
+      "source": "Assets/Scenes/Hornet/Wisp_02.unity",
+      "line": 1020914,
+      "name": "Wisp Flame Lantern (1)",
+      "game_object_id": "2229",
+      "hp": null,
+      "special_death": null,
+      "invincible": null,
+      "active": null,
+      "damages": [],
+      "fsms": [
+        {
+          "object": "Wisp Flame Lantern (1)",
+          "game_object_id": "2229",
+          "component_id": "10244",
+          "name": "Control",
+          "start": "Init",
+          "states": [
+            "Init",
+            "Idle",
+            "In Range",
+            "Summon",
+            "Asleep",
+            "Broken",
+            "Summon Antic",
+            "Friendly",
+            "Death Spawn?",
+            "Inert Broken",
+            "Witch Check",
+            "Witch Fix"
+          ],
+          "action_types": [
+            "HutongGames.PlayMaker.Actions.AddForce2dAsAngle",
+            "HutongGames.PlayMaker.Actions.CheckIfCrestEquipped",
+            "HutongGames.PlayMaker.Actions.CheckIfToolEquipped",
+            "HutongGames.PlayMaker.Actions.EnableFsmSelf",
+            "HutongGames.PlayMaker.Actions.FloatAdd",
+            "HutongGames.PlayMaker.Actions.FloatClamp",
+            "HutongGames.PlayMaker.Actions.FloatCompare",
+            "HutongGames.PlayMaker.Actions.GetOwner",
+            "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+            "HutongGames.PlayMaker.Actions.RandomFloat",
+            "HutongGames.PlayMaker.Actions.SendEventByName",
+            "HutongGames.PlayMaker.Actions.SetFloatValue",
+            "HutongGames.PlayMaker.Actions.SetFsmBool",
+            "HutongGames.PlayMaker.Actions.SetFsmGameObject",
+            "HutongGames.PlayMaker.Actions.SetLayer",
+            "HutongGames.PlayMaker.Actions.SetVelocityAsAngle",
+            "HutongGames.PlayMaker.Actions.SpawnObjectFromGlobalPool",
+            "HutongGames.PlayMaker.Actions.Wait"
+          ],
+          "line": 1020914,
+          "lines": 2254,
+          "source_sha256": "091db0e409b6bcb7750cdcc58463ecbdf1e5d649dda4c1c85b3ea8de41e0b4a8"
+        }
+      ],
+      "components": [
+        "Assets/Scripts/Assembly-CSharp/ChainPushReaction.cs",
+        "Assets/Scripts/Assembly-CSharp/IdleForceAnimator.cs",
+        "Assets/Scripts/ProjectCode/Game/06_Data_Save_Progression/PersistentBoolItem.cs",
+        "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+        "Assets/Scripts/ProjectCode/Game/12_Utilities/PersonalObjectPool.cs"
+      ],
+      "evidence": "journal_reference_component_not_necessarily_body",
+      "is_hornet_scene": true,
+      "is_temp_scene": false
+    },
+    {
+      "source": "Assets/Scenes/Hornet/Wisp_02.unity",
+      "line": 1023168,
+      "name": "Wisp Flame Lantern",
+      "game_object_id": "2227",
+      "hp": null,
+      "special_death": null,
+      "invincible": null,
+      "active": null,
+      "damages": [],
+      "fsms": [
+        {
+          "object": "Wisp Flame Lantern",
+          "game_object_id": "2227",
+          "component_id": "10245",
+          "name": "Control",
+          "start": "Init",
+          "states": [
+            "Init",
+            "Idle",
+            "In Range",
+            "Summon",
+            "Asleep",
+            "Broken",
+            "Summon Antic",
+            "Friendly",
+            "Death Spawn?",
+            "Inert Broken",
+            "Witch Check",
+            "Witch Fix"
+          ],
+          "action_types": [
+            "HutongGames.PlayMaker.Actions.AddForce2dAsAngle",
+            "HutongGames.PlayMaker.Actions.CheckIfCrestEquipped",
+            "HutongGames.PlayMaker.Actions.CheckIfToolEquipped",
+            "HutongGames.PlayMaker.Actions.EnableFsmSelf",
+            "HutongGames.PlayMaker.Actions.FloatAdd",
+            "HutongGames.PlayMaker.Actions.FloatClamp",
+            "HutongGames.PlayMaker.Actions.FloatCompare",
+            "HutongGames.PlayMaker.Actions.GetOwner",
+            "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+            "HutongGames.PlayMaker.Actions.RandomFloat",
+            "HutongGames.PlayMaker.Actions.SendEventByName",
+            "HutongGames.PlayMaker.Actions.SetFloatValue",
+            "HutongGames.PlayMaker.Actions.SetFsmBool",
+            "HutongGames.PlayMaker.Actions.SetFsmGameObject",
+            "HutongGames.PlayMaker.Actions.SetLayer",
+            "HutongGames.PlayMaker.Actions.SetVelocityAsAngle",
+            "HutongGames.PlayMaker.Actions.SpawnObjectFromGlobalPool",
+            "HutongGames.PlayMaker.Actions.Wait"
+          ],
+          "line": 1023168,
+          "lines": 2254,
+          "source_sha256": "977ef7ae8ff9a6037a6178e2a49aac644af06cb4649ab66d047c6a814b931ab7"
+        }
+      ],
+      "components": [
+        "Assets/Scripts/Assembly-CSharp/ChainPushReaction.cs",
+        "Assets/Scripts/Assembly-CSharp/IdleForceAnimator.cs",
+        "Assets/Scripts/ProjectCode/Game/06_Data_Save_Progression/PersistentBoolItem.cs",
+        "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+        "Assets/Scripts/ProjectCode/Game/12_Utilities/PersonalObjectPool.cs"
+      ],
+      "evidence": "journal_reference_component_not_necessarily_body",
+      "is_hornet_scene": true,
+      "is_temp_scene": false
+    },
+    {
+      "source": "Assets/Scenes/Hornet/Wisp_07.unity",
+      "line": 876364,
+      "name": "Wisp Flame Lantern (2)",
+      "game_object_id": "2231",
+      "hp": null,
+      "special_death": null,
+      "invincible": null,
+      "active": null,
+      "damages": [],
+      "fsms": [
+        {
+          "object": "Wisp Flame Lantern (2)",
+          "game_object_id": "2231",
+          "component_id": "9504",
+          "name": "Control",
+          "start": "Init",
+          "states": [
+            "Init",
+            "Idle",
+            "In Range",
+            "Summon",
+            "Asleep",
+            "Broken",
+            "Summon Antic",
+            "Friendly",
+            "Death Spawn?",
+            "Inert Broken",
+            "Witch Check",
+            "Witch Fix"
+          ],
+          "action_types": [
+            "HutongGames.PlayMaker.Actions.AddForce2dAsAngle",
+            "HutongGames.PlayMaker.Actions.CheckIfCrestEquipped",
+            "HutongGames.PlayMaker.Actions.CheckIfToolEquipped",
+            "HutongGames.PlayMaker.Actions.EnableFsmSelf",
+            "HutongGames.PlayMaker.Actions.FloatAdd",
+            "HutongGames.PlayMaker.Actions.FloatClamp",
+            "HutongGames.PlayMaker.Actions.FloatCompare",
+            "HutongGames.PlayMaker.Actions.GetOwner",
+            "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+            "HutongGames.PlayMaker.Actions.RandomFloat",
+            "HutongGames.PlayMaker.Actions.SendEventByName",
+            "HutongGames.PlayMaker.Actions.SetFloatValue",
+            "HutongGames.PlayMaker.Actions.SetFsmBool",
+            "HutongGames.PlayMaker.Actions.SetFsmGameObject",
+            "HutongGames.PlayMaker.Actions.SetLayer",
+            "HutongGames.PlayMaker.Actions.SetVelocityAsAngle",
+            "HutongGames.PlayMaker.Actions.SpawnObjectFromGlobalPool",
+            "HutongGames.PlayMaker.Actions.Wait"
+          ],
+          "line": 876364,
+          "lines": 2254,
+          "source_sha256": "0dee5837a1bd20d6abbfed55f1e50a80324eeca0bd624b6d18e440263f23108d"
+        }
+      ],
+      "components": [
+        "Assets/Scripts/Assembly-CSharp/ChainPushReaction.cs",
+        "Assets/Scripts/Assembly-CSharp/IdleForceAnimator.cs",
+        "Assets/Scripts/ProjectCode/Game/06_Data_Save_Progression/PersistentBoolItem.cs",
+        "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+        "Assets/Scripts/ProjectCode/Game/12_Utilities/PersonalObjectPool.cs"
+      ],
+      "evidence": "journal_reference_component_not_necessarily_body",
+      "is_hornet_scene": true,
+      "is_temp_scene": false
+    },
+    {
+      "source": "Assets/Scenes/Hornet/Wisp_07.unity",
+      "line": 878618,
+      "name": "Wisp Flame Lantern (1)",
+      "game_object_id": "2230",
+      "hp": null,
+      "special_death": null,
+      "invincible": null,
+      "active": null,
+      "damages": [],
+      "fsms": [
+        {
+          "object": "Wisp Flame Lantern (1)",
+          "game_object_id": "2230",
+          "component_id": "9505",
+          "name": "Control",
+          "start": "Init",
+          "states": [
+            "Init",
+            "Idle",
+            "In Range",
+            "Summon",
+            "Asleep",
+            "Broken",
+            "Summon Antic",
+            "Friendly",
+            "Death Spawn?",
+            "Inert Broken",
+            "Witch Check",
+            "Witch Fix"
+          ],
+          "action_types": [
+            "HutongGames.PlayMaker.Actions.AddForce2dAsAngle",
+            "HutongGames.PlayMaker.Actions.CheckIfCrestEquipped",
+            "HutongGames.PlayMaker.Actions.CheckIfToolEquipped",
+            "HutongGames.PlayMaker.Actions.EnableFsmSelf",
+            "HutongGames.PlayMaker.Actions.FloatAdd",
+            "HutongGames.PlayMaker.Actions.FloatClamp",
+            "HutongGames.PlayMaker.Actions.FloatCompare",
+            "HutongGames.PlayMaker.Actions.GetOwner",
+            "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+            "HutongGames.PlayMaker.Actions.RandomFloat",
+            "HutongGames.PlayMaker.Actions.SendEventByName",
+            "HutongGames.PlayMaker.Actions.SetFloatValue",
+            "HutongGames.PlayMaker.Actions.SetFsmBool",
+            "HutongGames.PlayMaker.Actions.SetFsmGameObject",
+            "HutongGames.PlayMaker.Actions.SetLayer",
+            "HutongGames.PlayMaker.Actions.SetVelocityAsAngle",
+            "HutongGames.PlayMaker.Actions.SpawnObjectFromGlobalPool",
+            "HutongGames.PlayMaker.Actions.Wait"
+          ],
+          "line": 878618,
+          "lines": 2254,
+          "source_sha256": "f01e81d7dcffe7977142086f32761e899180786d13f973330b36b2353a80d80f"
+        }
+      ],
+      "components": [
+        "Assets/Scripts/Assembly-CSharp/ChainPushReaction.cs",
+        "Assets/Scripts/Assembly-CSharp/IdleForceAnimator.cs",
+        "Assets/Scripts/ProjectCode/Game/06_Data_Save_Progression/PersistentBoolItem.cs",
+        "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+        "Assets/Scripts/ProjectCode/Game/12_Utilities/PersonalObjectPool.cs"
+      ],
+      "evidence": "journal_reference_component_not_necessarily_body",
+      "is_hornet_scene": true,
+      "is_temp_scene": false
+    },
+    {
+      "source": "Assets/Scenes/Hornet/Wisp_08.unity",
+      "line": 466628,
+      "name": "Wisp Flame Lantern",
+      "game_object_id": "1295",
+      "hp": null,
+      "special_death": null,
+      "invincible": null,
+      "active": null,
+      "damages": [],
+      "fsms": [
+        {
+          "object": "Wisp Flame Lantern",
+          "game_object_id": "1295",
+          "component_id": "5437",
+          "name": "Control",
+          "start": "Init",
+          "states": [
+            "Init",
+            "Idle",
+            "In Range",
+            "Summon",
+            "Asleep",
+            "Broken",
+            "Summon Antic",
+            "Friendly",
+            "Death Spawn?",
+            "Inert Broken",
+            "Witch Check",
+            "Witch Fix"
+          ],
+          "action_types": [
+            "HutongGames.PlayMaker.Actions.AddForce2dAsAngle",
+            "HutongGames.PlayMaker.Actions.CheckIfCrestEquipped",
+            "HutongGames.PlayMaker.Actions.CheckIfToolEquipped",
+            "HutongGames.PlayMaker.Actions.EnableFsmSelf",
+            "HutongGames.PlayMaker.Actions.FloatAdd",
+            "HutongGames.PlayMaker.Actions.FloatClamp",
+            "HutongGames.PlayMaker.Actions.FloatCompare",
+            "HutongGames.PlayMaker.Actions.GetOwner",
+            "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+            "HutongGames.PlayMaker.Actions.RandomFloat",
+            "HutongGames.PlayMaker.Actions.SendEventByName",
+            "HutongGames.PlayMaker.Actions.SetFloatValue",
+            "HutongGames.PlayMaker.Actions.SetFsmBool",
+            "HutongGames.PlayMaker.Actions.SetFsmGameObject",
+            "HutongGames.PlayMaker.Actions.SetLayer",
+            "HutongGames.PlayMaker.Actions.SetVelocityAsAngle",
+            "HutongGames.PlayMaker.Actions.SpawnObjectFromGlobalPool",
+            "HutongGames.PlayMaker.Actions.Wait"
+          ],
+          "line": 466628,
+          "lines": 2254,
+          "source_sha256": "6f4faa4b2a74f5a8828c35d8d88602c7c2c2e03ab71dcb0e51bfbb0f92f765d5"
+        }
+      ],
+      "components": [
+        "Assets/Scripts/Assembly-CSharp/ChainPushReaction.cs",
+        "Assets/Scripts/Assembly-CSharp/IdleForceAnimator.cs",
+        "Assets/Scripts/ProjectCode/Game/06_Data_Save_Progression/PersistentBoolItem.cs",
+        "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+        "Assets/Scripts/ProjectCode/Game/12_Utilities/PersonalObjectPool.cs"
+      ],
+      "evidence": "journal_reference_component_not_necessarily_body",
+      "is_hornet_scene": true,
+      "is_temp_scene": false
+    },
+    {
+      "source": "Assets/Scenes/Hornet/Wisp_08.unity",
+      "line": 468882,
+      "name": "Wisp Flame Lantern (1)",
+      "game_object_id": "1294",
+      "hp": null,
+      "special_death": null,
+      "invincible": null,
+      "active": null,
+      "damages": [],
+      "fsms": [
+        {
+          "object": "Wisp Flame Lantern (1)",
+          "game_object_id": "1294",
+          "component_id": "5438",
+          "name": "Control",
+          "start": "Init",
+          "states": [
+            "Init",
+            "Idle",
+            "In Range",
+            "Summon",
+            "Asleep",
+            "Broken",
+            "Summon Antic",
+            "Friendly",
+            "Death Spawn?",
+            "Inert Broken",
+            "Witch Check",
+            "Witch Fix"
+          ],
+          "action_types": [
+            "HutongGames.PlayMaker.Actions.AddForce2dAsAngle",
+            "HutongGames.PlayMaker.Actions.CheckIfCrestEquipped",
+            "HutongGames.PlayMaker.Actions.CheckIfToolEquipped",
+            "HutongGames.PlayMaker.Actions.EnableFsmSelf",
+            "HutongGames.PlayMaker.Actions.FloatAdd",
+            "HutongGames.PlayMaker.Actions.FloatClamp",
+            "HutongGames.PlayMaker.Actions.FloatCompare",
+            "HutongGames.PlayMaker.Actions.GetOwner",
+            "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+            "HutongGames.PlayMaker.Actions.RandomFloat",
+            "HutongGames.PlayMaker.Actions.SendEventByName",
+            "HutongGames.PlayMaker.Actions.SetFloatValue",
+            "HutongGames.PlayMaker.Actions.SetFsmBool",
+            "HutongGames.PlayMaker.Actions.SetFsmGameObject",
+            "HutongGames.PlayMaker.Actions.SetLayer",
+            "HutongGames.PlayMaker.Actions.SetVelocityAsAngle",
+            "HutongGames.PlayMaker.Actions.SpawnObjectFromGlobalPool",
+            "HutongGames.PlayMaker.Actions.Wait"
+          ],
+          "line": 468882,
+          "lines": 2254,
+          "source_sha256": "e53b4c325313b5c22e8d283a5a2b88d0e6098f67472ec561fc96c2191568c192"
+        }
+      ],
+      "components": [
+        "Assets/Scripts/Assembly-CSharp/ChainPushReaction.cs",
+        "Assets/Scripts/Assembly-CSharp/IdleForceAnimator.cs",
+        "Assets/Scripts/ProjectCode/Game/06_Data_Save_Progression/PersistentBoolItem.cs",
+        "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+        "Assets/Scripts/ProjectCode/Game/12_Utilities/PersonalObjectPool.cs"
+      ],
+      "evidence": "journal_reference_component_not_necessarily_body",
+      "is_hornet_scene": true,
+      "is_temp_scene": false
+    },
+    {
+      "source": "Assets/Scenes/Hornet/Wisp_08.unity",
+      "line": 471136,
+      "name": "Wisp Flame Lantern (2)",
+      "game_object_id": "1291",
+      "hp": null,
+      "special_death": null,
+      "invincible": null,
+      "active": null,
+      "damages": [],
+      "fsms": [
+        {
+          "object": "Wisp Flame Lantern (2)",
+          "game_object_id": "1291",
+          "component_id": "5439",
+          "name": "Control",
+          "start": "Init",
+          "states": [
+            "Init",
+            "Idle",
+            "In Range",
+            "Summon",
+            "Asleep",
+            "Broken",
+            "Summon Antic",
+            "Friendly",
+            "Death Spawn?",
+            "Inert Broken",
+            "Witch Check",
+            "Witch Fix"
+          ],
+          "action_types": [
+            "HutongGames.PlayMaker.Actions.AddForce2dAsAngle",
+            "HutongGames.PlayMaker.Actions.CheckIfCrestEquipped",
+            "HutongGames.PlayMaker.Actions.CheckIfToolEquipped",
+            "HutongGames.PlayMaker.Actions.EnableFsmSelf",
+            "HutongGames.PlayMaker.Actions.FloatAdd",
+            "HutongGames.PlayMaker.Actions.FloatClamp",
+            "HutongGames.PlayMaker.Actions.FloatCompare",
+            "HutongGames.PlayMaker.Actions.GetOwner",
+            "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+            "HutongGames.PlayMaker.Actions.RandomFloat",
+            "HutongGames.PlayMaker.Actions.SendEventByName",
+            "HutongGames.PlayMaker.Actions.SetFloatValue",
+            "HutongGames.PlayMaker.Actions.SetFsmBool",
+            "HutongGames.PlayMaker.Actions.SetFsmGameObject",
+            "HutongGames.PlayMaker.Actions.SetLayer",
+            "HutongGames.PlayMaker.Actions.SetVelocityAsAngle",
+            "HutongGames.PlayMaker.Actions.SpawnObjectFromGlobalPool",
+            "HutongGames.PlayMaker.Actions.Wait"
+          ],
+          "line": 471136,
+          "lines": 2254,
+          "source_sha256": "8dde4f4f8d1ca592fd15c7ec75e82ef664b32191c10141cda34693af40416fbd"
+        }
+      ],
+      "components": [
+        "Assets/Scripts/Assembly-CSharp/ChainPushReaction.cs",
+        "Assets/Scripts/Assembly-CSharp/IdleForceAnimator.cs",
+        "Assets/Scripts/ProjectCode/Game/06_Data_Save_Progression/PersistentBoolItem.cs",
+        "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+        "Assets/Scripts/ProjectCode/Game/12_Utilities/PersonalObjectPool.cs"
+      ],
+      "evidence": "journal_reference_component_not_necessarily_body",
+      "is_hornet_scene": true,
+      "is_temp_scene": false
+    }
+  ],
+  "limits": [
+    "Static serialized specimen; no runtime timing capture.",
+    "Scene variants may override values; see catalog.json instances.",
+    "External fileID/GUID dependencies remain explicit; do not replace with guessed values."
+  ]
+}

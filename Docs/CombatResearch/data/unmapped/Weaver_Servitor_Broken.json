@@ -1,0 +1,1855 @@
+{
+  "schema": "silksong-combat-entity-v1",
+  "journal": {
+    "id": "Weaver Servitor Broken",
+    "record_kind": "unmapped_health_object_not_an_additional_species_count"
+  },
+  "specimen": {
+    "source": "Assets/Scenes/Hornet/Abyss_08.unity",
+    "line": 664180,
+    "game_object_id": "2349",
+    "name": "Weaver Servitor Broken",
+    "active": "1",
+    "hp": "1",
+    "special_death": "0",
+    "invincible": "0",
+    "fsms": [
+      {
+        "object": "Head Swiveller",
+        "game_object_id": "2042",
+        "component_id": "9133",
+        "name": "Control",
+        "start": "Init",
+        "states": [
+          "Init",
+          "Swivel L",
+          "Stop",
+          "Swivel R"
+        ],
+        "action_types": [
+          "HutongGames.PlayMaker.Actions.AnimateRotationTo",
+          "HutongGames.PlayMaker.Actions.SetFloatValue"
+        ],
+        "line": 670815,
+        "lines": 591,
+        "source_sha256": "8590da7371593ed7873f4f8e605b563b441f0c4e9bd19fea974b2029d8ee0178"
+      },
+      {
+        "object": "Head",
+        "game_object_id": "2296",
+        "component_id": "8816",
+        "name": "Control",
+        "start": "Init",
+        "states": [
+          "Idle",
+          "Jitter Wait",
+          "Jitter",
+          "Init",
+          "End Jitter"
+        ],
+        "action_types": [
+          "HutongGames.PlayMaker.Actions.BoolTest",
+          "HutongGames.PlayMaker.Actions.FindNamedChild",
+          "HutongGames.PlayMaker.Actions.ObjectJitterLocal",
+          "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+          "HutongGames.PlayMaker.Actions.Wait",
+          "HutongGames.PlayMaker.Actions.WaitRandom"
+        ],
+        "line": 649552,
+        "lines": 716,
+        "source_sha256": "2cead120094ed67d05148703ac8097b1f090f040fd8dfcd075b1c038a6abe97d"
+      },
+      {
+        "object": "Weaver Servitor Broken",
+        "game_object_id": "2349",
+        "component_id": "8860",
+        "name": "Control",
+        "start": "Wait Frame",
+        "states": [
+          "Init",
+          "Idle",
+          "Check Dir",
+          "Aim L",
+          "Look",
+          "Aim R",
+          "End",
+          "Death",
+          "Head End",
+          "Wait Frame"
+        ],
+        "action_types": [
+          "HutongGames.PlayMaker.Actions.ActivateGameObject",
+          "HutongGames.PlayMaker.Actions.AnimateRotationTo",
+          "HutongGames.PlayMaker.Actions.AudioPlaySimple",
+          "HutongGames.PlayMaker.Actions.AudioStop",
+          "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegion",
+          "HutongGames.PlayMaker.Actions.CheckTargetDirection",
+          "HutongGames.PlayMaker.Actions.FindNamedChild",
+          "HutongGames.PlayMaker.Actions.NextFrameEvent",
+          "HutongGames.PlayMaker.Actions.SendEventByName",
+          "HutongGames.PlayMaker.Actions.SetFloatValue",
+          "HutongGames.PlayMaker.Actions.SetFsmBool",
+          "HutongGames.PlayMaker.Actions.SetParent",
+          "HutongGames.PlayMaker.Actions.SetScale",
+          "HutongGames.PlayMaker.Actions.Wait"
+        ],
+        "line": 651873,
+        "lines": 1589,
+        "source_sha256": "c179a2f7cfd6fdd849c5acb80afd29ead41263c6df69542b8e812ca14c1caa7a"
+      }
+    ],
+    "components": [
+      "Assets/Scripts/Assembly-CSharp/EnemyDeathEffectsRegular.cs",
+      "Assets/Scripts/Assembly-CSharp/EnemyHitEffectsRegular.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/HealthManager.cs",
+      "Assets/Scripts/ProjectCode/Game/06_Data_Save_Progression/PersistentBoolItem.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SpriteFadePulse.cs",
+      "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs"
+    ],
+    "damages": [],
+    "evidence": "unmapped_health_actor",
+    "is_hornet_scene": true,
+    "is_temp_scene": false
+  },
+  "source_sha256": "66aa4cc214cf78d540ffd28425bc43510ea847f1755134ea814f1ee0fdcc1950",
+  "fsms": [
+    {
+      "source": "Assets/Scenes/Hornet/Abyss_08.unity",
+      "line": 670816,
+      "file_id": 9133,
+      "owner_id": 2042,
+      "owner": "Head Swiveller",
+      "name": "Control",
+      "start_state": "Init",
+      "states": [
+        {
+          "name": "Init",
+          "line": 670833,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "LOOK START",
+              "to": "Swivel L"
+            }
+          ],
+          "actions": []
+        },
+        {
+          "name": "Swivel L",
+          "line": 670894,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "LOOK STOP",
+              "to": "Stop"
+            },
+            {
+              "event": "FINISHED",
+              "to": "Swivel R"
+            }
+          ],
+          "actions": [
+            {
+              "type": "AnimateRotationTo",
+              "full_type": "HutongGames.PlayMaker.Actions.AnimateRotationTo",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "fromValue": {
+                  "var": "Start Rotation",
+                  "stored": 0
+                },
+                "toValue": -5,
+                "worldSpace": false,
+                "negativeSpace": false,
+                "time": 1,
+                "speed": {
+                  "var": null,
+                  "stored": 0
+                },
+                "delay": {
+                  "var": null,
+                  "stored": 0
+                },
+                "easeType": 14,
+                "reverse": 0,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            },
+            {
+              "type": "SetFloatValue",
+              "full_type": "HutongGames.PlayMaker.Actions.SetFloatValue",
+              "enabled": true,
+              "params": {
+                "floatVariable": {
+                  "var": "Start Rotation",
+                  "stored": 0
+                },
+                "floatValue": -5,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Stop",
+          "line": 671040,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "LOOK START",
+              "to": "Swivel L"
+            }
+          ],
+          "actions": [
+            {
+              "type": "AnimateRotationTo",
+              "full_type": "HutongGames.PlayMaker.Actions.AnimateRotationTo",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "fromValue": {
+                  "var": "Start Rotation",
+                  "stored": 0
+                },
+                "toValue": 0,
+                "worldSpace": false,
+                "negativeSpace": false,
+                "time": 0.75,
+                "speed": {
+                  "var": null,
+                  "stored": 0
+                },
+                "delay": {
+                  "var": null,
+                  "stored": 0
+                },
+                "easeType": 13,
+                "reverse": 0,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            },
+            {
+              "type": "SetFloatValue",
+              "full_type": "HutongGames.PlayMaker.Actions.SetFloatValue",
+              "enabled": true,
+              "params": {
+                "floatVariable": {
+                  "var": "Start Rotation",
+                  "stored": 0
+                },
+                "floatValue": 0,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Swivel R",
+          "line": 671177,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "LOOK STOP",
+              "to": "Stop"
+            },
+            {
+              "event": "FINISHED",
+              "to": "Swivel L"
+            }
+          ],
+          "actions": [
+            {
+              "type": "AnimateRotationTo",
+              "full_type": "HutongGames.PlayMaker.Actions.AnimateRotationTo",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "fromValue": {
+                  "var": "Start Rotation",
+                  "stored": 0
+                },
+                "toValue": 5,
+                "worldSpace": false,
+                "negativeSpace": false,
+                "time": 1,
+                "speed": {
+                  "var": null,
+                  "stored": 0
+                },
+                "delay": {
+                  "var": null,
+                  "stored": 0
+                },
+                "easeType": 14,
+                "reverse": 0,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            },
+            {
+              "type": "SetFloatValue",
+              "full_type": "HutongGames.PlayMaker.Actions.SetFloatValue",
+              "enabled": true,
+              "params": {
+                "floatVariable": {
+                  "var": "Start Rotation",
+                  "stored": 0
+                },
+                "floatValue": 5,
+                "everyFrame": false
+              }
+            }
+          ]
+        }
+      ],
+      "global_transitions": [],
+      "variables": {
+        "floatVariables": [
+          {
+            "useVariable": 1,
+            "name": "Start Rotation",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          }
+        ],
+        "intVariables": [],
+        "boolVariables": [],
+        "stringVariables": [],
+        "vector2Variables": [],
+        "vector3Variables": [],
+        "colorVariables": [],
+        "rectVariables": [],
+        "quaternionVariables": [],
+        "gameObjectVariables": [],
+        "objectVariables": [],
+        "materialVariables": [],
+        "textureVariables": [],
+        "arrayVariables": [],
+        "enumVariables": [],
+        "categories": [
+          null
+        ],
+        "variableCategoryIDs": 0
+      },
+      "fsm_metadata": {
+        "dataVersion": 2,
+        "usedInTemplate": {
+          "fileID": 0
+        },
+        "name": "Control",
+        "startState": "Init",
+        "events": [
+          {
+            "name": "FINISHED",
+            "isSystemEvent": 1,
+            "isGlobal": 0
+          },
+          {
+            "name": "LOOK START",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "LOOK STOP",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          }
+        ],
+        "globalTransitions": [],
+        "description": null,
+        "docUrl": null,
+        "showStateLabel": 0,
+        "maxLoopCount": 0,
+        "watermark": null,
+        "password": null,
+        "locked": 0,
+        "manualUpdate": 0,
+        "outVariableIndices": null,
+        "keepDelayedEventsOnStateExit": 0,
+        "preprocessed": 1,
+        "ExposedEvents": [],
+        "OutputEvents": [],
+        "RestartOnEnable": 1,
+        "ResetVariablesOnEnable": 0,
+        "EnableDebugFlow": 0,
+        "EnableBreakpoints": 1,
+        "editorFlags": 1,
+        "activeStateName": null,
+        "mouseEvents": 0,
+        "handleLevelLoaded": 0,
+        "handleTriggerEnter2D": 0,
+        "handleTriggerExit2D": 0,
+        "handleTriggerStay2D": 0,
+        "handleCollisionEnter2D": 0,
+        "handleCollisionExit2D": 0,
+        "handleCollisionStay2D": 0,
+        "handleTriggerEnter": 0,
+        "handleTriggerExit": 0,
+        "handleTriggerStay": 0,
+        "handleCollisionEnter": 0,
+        "handleCollisionExit": 0,
+        "handleCollisionStay": 0,
+        "handleParticleCollision": 0,
+        "handleControllerColliderHit": 0,
+        "handleJointBreak": 0,
+        "handleJointBreak2D": 0,
+        "handleOnGUI": 0,
+        "handleFixedUpdate": 0,
+        "handleLateUpdate": 0,
+        "handleApplicationEvents": 0,
+        "handleUiEvents": 0,
+        "handleLegacyNetworking": 0,
+        "handleAnimatorMove": 0,
+        "handleAnimatorIK": 0
+      }
+    },
+    {
+      "source": "Assets/Scenes/Hornet/Abyss_08.unity",
+      "line": 649553,
+      "file_id": 8816,
+      "owner_id": 2296,
+      "owner": "Head",
+      "name": "Control",
+      "start_state": "Init",
+      "states": [
+        {
+          "name": "Idle",
+          "line": 649570,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "START",
+              "to": "Jitter"
+            }
+          ],
+          "actions": [
+            {
+              "type": "BoolTest",
+              "full_type": "HutongGames.PlayMaker.Actions.BoolTest",
+              "enabled": true,
+              "params": {
+                "boolVariable": {
+                  "var": "Active",
+                  "stored": 0
+                },
+                "isTrue": "START",
+                "isFalse": null,
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "PlayParticleEmitter",
+              "full_type": "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Pt Pop",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "emit": 0,
+                "resetIfPlaying": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Jitter Wait",
+          "line": 649664,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Jitter"
+            },
+            {
+              "event": "END",
+              "to": "End Jitter"
+            }
+          ],
+          "actions": [
+            {
+              "type": "BoolTest",
+              "full_type": "HutongGames.PlayMaker.Actions.BoolTest",
+              "enabled": true,
+              "params": {
+                "boolVariable": {
+                  "var": "Active",
+                  "stored": 0
+                },
+                "isTrue": null,
+                "isFalse": "END",
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "WaitRandom",
+              "full_type": "HutongGames.PlayMaker.Actions.WaitRandom",
+              "enabled": true,
+              "params": {
+                "timeMin": 0.5,
+                "timeMax": 1,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Jitter",
+          "line": 649767,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Jitter Wait"
+            }
+          ],
+          "actions": [
+            {
+              "type": "ObjectJitterLocal",
+              "full_type": "HutongGames.PlayMaker.Actions.ObjectJitterLocal",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "x": 0.05,
+                "y": 0.05,
+                "z": {
+                  "var": null,
+                  "stored": 0
+                },
+                "resetPosOnStateExit": true,
+                "limitFps": 30
+              }
+            },
+            {
+              "type": "WaitRandom",
+              "full_type": "HutongGames.PlayMaker.Actions.WaitRandom",
+              "enabled": true,
+              "params": {
+                "timeMin": 0.1,
+                "timeMax": 0.2,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            },
+            {
+              "type": "PlayParticleEmitter",
+              "full_type": "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Pt Pop",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "emit": 0,
+                "resetIfPlaying": false
+              }
+            },
+            {
+              "type": "PlayAudioEvent",
+              "full_type": "PlayAudioEvent",
+              "enabled": true,
+              "params": {
+                "audioClip": {
+                  "fileID": 8300000,
+                  "guid": "7cd3b1c58707a1d41851110f2bf19d2f",
+                  "type": 3
+                },
+                "pitchMin": 1.2,
+                "pitchMax": 1.4,
+                "volume": 0.3,
+                "audioPlayerPrefab": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spawnPoint": {
+                  "owner": "self"
+                },
+                "spawnPosition": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "SpawnedPlayerRef": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Init",
+          "line": 649968,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Idle"
+            }
+          ],
+          "actions": [
+            {
+              "type": "FindNamedChild",
+              "full_type": "HutongGames.PlayMaker.Actions.FindNamedChild",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "storeResult": {
+                  "var": "Pt Pop",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "End Jitter",
+          "line": 650047,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Idle"
+            }
+          ],
+          "actions": [
+            {
+              "type": "ObjectJitterLocal",
+              "full_type": "HutongGames.PlayMaker.Actions.ObjectJitterLocal",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "x": 0.05,
+                "y": 0.05,
+                "z": {
+                  "var": null,
+                  "stored": 0
+                },
+                "resetPosOnStateExit": true,
+                "limitFps": 30
+              }
+            },
+            {
+              "type": "PlayParticleEmitter",
+              "full_type": "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Pt Pop",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "emit": 0,
+                "resetIfPlaying": false
+              }
+            },
+            {
+              "type": "Wait",
+              "full_type": "HutongGames.PlayMaker.Actions.Wait",
+              "enabled": true,
+              "params": {
+                "time": 0.1,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            }
+          ]
+        }
+      ],
+      "global_transitions": [],
+      "variables": {
+        "floatVariables": [],
+        "intVariables": [],
+        "boolVariables": [
+          {
+            "useVariable": 1,
+            "name": "Active",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          }
+        ],
+        "stringVariables": [],
+        "vector2Variables": [],
+        "vector3Variables": [],
+        "colorVariables": [],
+        "rectVariables": [],
+        "quaternionVariables": [],
+        "gameObjectVariables": [
+          {
+            "useVariable": 1,
+            "name": "Pt Pop",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          }
+        ],
+        "objectVariables": [],
+        "materialVariables": [],
+        "textureVariables": [],
+        "arrayVariables": [],
+        "enumVariables": [],
+        "categories": [
+          null
+        ],
+        "variableCategoryIDs": 0
+      },
+      "fsm_metadata": {
+        "dataVersion": 2,
+        "usedInTemplate": {
+          "fileID": 0
+        },
+        "name": "Control",
+        "startState": "Init",
+        "events": [
+          {
+            "name": "FINISHED",
+            "isSystemEvent": 1,
+            "isGlobal": 0
+          },
+          {
+            "name": "END",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "START",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          }
+        ],
+        "globalTransitions": [],
+        "description": null,
+        "docUrl": null,
+        "showStateLabel": 0,
+        "maxLoopCount": 0,
+        "watermark": null,
+        "password": null,
+        "locked": 0,
+        "manualUpdate": 0,
+        "outVariableIndices": null,
+        "keepDelayedEventsOnStateExit": 0,
+        "preprocessed": 1,
+        "ExposedEvents": [],
+        "OutputEvents": [],
+        "RestartOnEnable": 1,
+        "ResetVariablesOnEnable": 0,
+        "EnableDebugFlow": 0,
+        "EnableBreakpoints": 1,
+        "editorFlags": 1,
+        "activeStateName": null,
+        "mouseEvents": 0,
+        "handleLevelLoaded": 0,
+        "handleTriggerEnter2D": 0,
+        "handleTriggerExit2D": 0,
+        "handleTriggerStay2D": 0,
+        "handleCollisionEnter2D": 0,
+        "handleCollisionExit2D": 0,
+        "handleCollisionStay2D": 0,
+        "handleTriggerEnter": 0,
+        "handleTriggerExit": 0,
+        "handleTriggerStay": 0,
+        "handleCollisionEnter": 0,
+        "handleCollisionExit": 0,
+        "handleCollisionStay": 0,
+        "handleParticleCollision": 0,
+        "handleControllerColliderHit": 0,
+        "handleJointBreak": 0,
+        "handleJointBreak2D": 0,
+        "handleOnGUI": 0,
+        "handleFixedUpdate": 1,
+        "handleLateUpdate": 0,
+        "handleApplicationEvents": 0,
+        "handleUiEvents": 0,
+        "handleLegacyNetworking": 0,
+        "handleAnimatorMove": 0,
+        "handleAnimatorIK": 0
+      }
+    },
+    {
+      "source": "Assets/Scenes/Hornet/Abyss_08.unity",
+      "line": 651874,
+      "file_id": 8860,
+      "owner_id": 2349,
+      "owner": "Weaver Servitor Broken",
+      "name": "Control",
+      "start_state": "Wait Frame",
+      "states": [
+        {
+          "name": "Init",
+          "line": 651891,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Idle"
+            }
+          ],
+          "actions": [
+            {
+              "type": "FindNamedChild",
+              "full_type": "HutongGames.PlayMaker.Actions.FindNamedChild",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Head Swiveller",
+                    "stored": {
+                      "fileID": 2042
+                    }
+                  }
+                },
+                "storeResult": {
+                  "var": "Head",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "FindNamedChild",
+              "full_type": "HutongGames.PlayMaker.Actions.FindNamedChild",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Head",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "storeResult": {
+                  "var": "Beam Light",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "SetParent",
+              "full_type": "HutongGames.PlayMaker.Actions.SetParent",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Head Swiveller",
+                    "stored": {
+                      "fileID": 2042
+                    }
+                  }
+                },
+                "parent": {
+                  "fileID": 0
+                },
+                "resetLocalPosition": 0,
+                "resetLocalRotation": 0
+              }
+            },
+            {
+              "type": "SetScale",
+              "full_type": "HutongGames.PlayMaker.Actions.SetScale",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Head Swiveller",
+                    "stored": {
+                      "fileID": 2042
+                    }
+                  }
+                },
+                "vector": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  }
+                },
+                "x": 1,
+                "y": {
+                  "var": null,
+                  "stored": 0
+                },
+                "z": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false,
+                "lateUpdate": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Idle",
+          "line": 652061,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "NEEDOLIN",
+              "to": "Check Dir"
+            }
+          ],
+          "actions": [
+            {
+              "type": "CheckHeroPerformanceRegion",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegion",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "MinReactDelay": 2.5,
+                "MaxReactDelay": 3.5,
+                "None": null,
+                "ActiveInner": "NEEDOLIN",
+                "ActiveOuter": null,
+                "IgnoreNeedolinRange": 0,
+                "useActiveBool": false,
+                "ActiveBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "StoreState": {
+                  "var": null,
+                  "stored": 0
+                },
+                "EveryFrame": true
+              }
+            }
+          ]
+        },
+        {
+          "name": "Check Dir",
+          "line": 652177,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "L",
+              "to": "Aim L"
+            },
+            {
+              "event": "R",
+              "to": "Aim R"
+            }
+          ],
+          "actions": [
+            {
+              "type": "CheckTargetDirection",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckTargetDirection",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "target": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "aboveEvent": null,
+                "belowEvent": null,
+                "rightEvent": "R",
+                "leftEvent": "L",
+                "aboveBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "belowBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "rightBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "leftBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "selfOffsetX": 0,
+                "selfOffsetY": 0,
+                "reverseIfNegativeScale": false,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Aim L",
+          "line": 652317,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Look"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetFloatValue",
+              "full_type": "HutongGames.PlayMaker.Actions.SetFloatValue",
+              "enabled": true,
+              "params": {
+                "floatVariable": {
+                  "var": "Angle",
+                  "stored": 0
+                },
+                "floatValue": 20,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Look",
+          "line": 652395,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "END",
+              "to": "End"
+            }
+          ],
+          "actions": [
+            {
+              "type": "AnimateRotationTo",
+              "full_type": "HutongGames.PlayMaker.Actions.AnimateRotationTo",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Head",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "fromValue": {
+                  "var": null,
+                  "stored": 0
+                },
+                "toValue": {
+                  "var": "Angle",
+                  "stored": 0
+                },
+                "worldSpace": false,
+                "negativeSpace": false,
+                "time": 1,
+                "speed": {
+                  "var": null,
+                  "stored": 0
+                },
+                "delay": {
+                  "var": null,
+                  "stored": 0
+                },
+                "easeType": 13,
+                "reverse": 0,
+                "finishEvent": null,
+                "realTime": false
+              }
+            },
+            {
+              "type": "CheckHeroPerformanceRegion",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegion",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "MinReactDelay": 1,
+                "MaxReactDelay": 1,
+                "None": "END",
+                "ActiveInner": null,
+                "ActiveOuter": null,
+                "IgnoreNeedolinRange": 0,
+                "useActiveBool": false,
+                "ActiveBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "StoreState": {
+                  "var": null,
+                  "stored": 0
+                },
+                "EveryFrame": true
+              }
+            },
+            {
+              "type": "ActivateGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.ActivateGameObject",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Beam Light",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "activate": 1,
+                "recursive": 0,
+                "resetOnExit": false,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SetFsmBool",
+              "full_type": "HutongGames.PlayMaker.Actions.SetFsmBool",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Head",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "fsmName": "Control",
+                "variableName": "Active",
+                "setValue": 1,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SendEventByName",
+              "full_type": "HutongGames.PlayMaker.Actions.SendEventByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 1,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": {
+                      "var": "Head Swiveller",
+                      "stored": {
+                        "fileID": 2042
+                      }
+                    }
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "sendEvent": "LOOK START",
+                "delay": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "AudioPlaySimple",
+              "full_type": "HutongGames.PlayMaker.Actions.AudioPlaySimple",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "volume": 0.6,
+                "oneShotClip": {
+                  "fileID": 8300000,
+                  "guid": "75226fc85f77a384ca4979725317a880",
+                  "type": 3
+                }
+              }
+            },
+            {
+              "type": "AudioPlaySimple",
+              "full_type": "HutongGames.PlayMaker.Actions.AudioPlaySimple",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Whir Loop",
+                    "stored": {
+                      "fileID": 2736
+                    }
+                  }
+                },
+                "volume": 1,
+                "oneShotClip": {
+                  "fileID": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Aim R",
+          "line": 652732,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Look"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetFloatValue",
+              "full_type": "HutongGames.PlayMaker.Actions.SetFloatValue",
+              "enabled": true,
+              "params": {
+                "floatVariable": {
+                  "var": "Angle",
+                  "stored": 0
+                },
+                "floatValue": -20,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "End",
+          "line": 652810,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Head End"
+            }
+          ],
+          "actions": [
+            {
+              "type": "AnimateRotationTo",
+              "full_type": "HutongGames.PlayMaker.Actions.AnimateRotationTo",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Head",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "fromValue": {
+                  "var": "Angle",
+                  "stored": 0
+                },
+                "toValue": 0,
+                "worldSpace": false,
+                "negativeSpace": false,
+                "time": 1,
+                "speed": {
+                  "var": null,
+                  "stored": 0
+                },
+                "delay": {
+                  "var": null,
+                  "stored": 0
+                },
+                "easeType": 13,
+                "reverse": 0,
+                "finishEvent": null,
+                "realTime": false
+              }
+            },
+            {
+              "type": "Wait",
+              "full_type": "HutongGames.PlayMaker.Actions.Wait",
+              "enabled": true,
+              "params": {
+                "time": 1,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            },
+            {
+              "type": "SendEventByName",
+              "full_type": "HutongGames.PlayMaker.Actions.SendEventByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 1,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": {
+                      "var": "Head Swiveller",
+                      "stored": {
+                        "fileID": 2042
+                      }
+                    }
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "sendEvent": "LOOK STOP",
+                "delay": 0,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Death",
+          "line": 652992,
+          "sequence": 0,
+          "transitions": [],
+          "actions": [
+            {
+              "type": "ActivateGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.ActivateGameObject",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Head",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "activate": 0,
+                "recursive": 0,
+                "resetOnExit": false,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Head End",
+          "line": 653071,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Idle"
+            }
+          ],
+          "actions": [
+            {
+              "type": "AudioStop",
+              "full_type": "HutongGames.PlayMaker.Actions.AudioStop",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Whir Loop",
+                    "stored": {
+                      "fileID": 2736
+                    }
+                  }
+                },
+                "fadeTime": 0
+              }
+            },
+            {
+              "type": "SetFsmBool",
+              "full_type": "HutongGames.PlayMaker.Actions.SetFsmBool",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Head",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "fsmName": "Control",
+                "variableName": "Active",
+                "setValue": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "ActivateGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.ActivateGameObject",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Beam Light",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "activate": 0,
+                "recursive": 0,
+                "resetOnExit": false,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "PlayAudioEvent",
+              "full_type": "PlayAudioEvent",
+              "enabled": true,
+              "params": {
+                "audioClip": {
+                  "fileID": 8300000,
+                  "guid": "d9c36875302b2284ba3ef260182ee8d4",
+                  "type": 3
+                },
+                "pitchMin": 1,
+                "pitchMax": 1,
+                "volume": 0.8,
+                "audioPlayerPrefab": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spawnPoint": {
+                  "owner": "self"
+                },
+                "spawnPosition": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "SpawnedPlayerRef": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Wait Frame",
+          "line": 653272,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Init"
+            }
+          ],
+          "actions": [
+            {
+              "type": "NextFrameEvent",
+              "full_type": "HutongGames.PlayMaker.Actions.NextFrameEvent",
+              "enabled": true,
+              "params": {
+                "sendEvent": null
+              }
+            }
+          ]
+        }
+      ],
+      "global_transitions": [
+        {
+          "fsmEvent": {
+            "name": "ZERO HP",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          "toState": "Death",
+          "linkStyle": 0,
+          "linkConstraint": 0,
+          "linkTarget": 0,
+          "colorIndex": 0
+        }
+      ],
+      "variables": {
+        "floatVariables": [
+          {
+            "useVariable": 1,
+            "name": "Angle",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          }
+        ],
+        "intVariables": [],
+        "boolVariables": [],
+        "stringVariables": [],
+        "vector2Variables": [],
+        "vector3Variables": [],
+        "colorVariables": [],
+        "rectVariables": [],
+        "quaternionVariables": [],
+        "gameObjectVariables": [
+          {
+            "useVariable": 1,
+            "name": "Head Swiveller",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 2042
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Head",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Beam Light",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Whir Loop",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 2736
+            }
+          }
+        ],
+        "objectVariables": [],
+        "materialVariables": [],
+        "textureVariables": [],
+        "arrayVariables": [],
+        "enumVariables": [],
+        "categories": [
+          null
+        ],
+        "variableCategoryIDs": 0
+      },
+      "fsm_metadata": {
+        "dataVersion": 2,
+        "usedInTemplate": {
+          "fileID": 0
+        },
+        "name": "Control",
+        "startState": "Wait Frame",
+        "events": [
+          {
+            "name": "FINISHED",
+            "isSystemEvent": 1,
+            "isGlobal": 0
+          },
+          {
+            "name": "END",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "L",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "NEEDOLIN",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "R",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "ZERO HP",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          }
+        ],
+        "globalTransitions": [
+          {
+            "fsmEvent": {
+              "name": "ZERO HP",
+              "isSystemEvent": 0,
+              "isGlobal": 0
+            },
+            "toState": "Death",
+            "linkStyle": 0,
+            "linkConstraint": 0,
+            "linkTarget": 0,
+            "colorIndex": 0
+          }
+        ],
+        "description": null,
+        "docUrl": null,
+        "showStateLabel": 0,
+        "maxLoopCount": 0,
+        "watermark": null,
+        "password": null,
+        "locked": 0,
+        "manualUpdate": 0,
+        "outVariableIndices": null,
+        "keepDelayedEventsOnStateExit": 0,
+        "preprocessed": 1,
+        "ExposedEvents": [],
+        "OutputEvents": [],
+        "RestartOnEnable": 1,
+        "ResetVariablesOnEnable": 0,
+        "EnableDebugFlow": 0,
+        "EnableBreakpoints": 1,
+        "editorFlags": 1,
+        "activeStateName": null,
+        "mouseEvents": 0,
+        "handleLevelLoaded": 0,
+        "handleTriggerEnter2D": 0,
+        "handleTriggerExit2D": 0,
+        "handleTriggerStay2D": 0,
+        "handleCollisionEnter2D": 0,
+        "handleCollisionExit2D": 0,
+        "handleCollisionStay2D": 0,
+        "handleTriggerEnter": 0,
+        "handleTriggerExit": 0,
+        "handleTriggerStay": 0,
+        "handleCollisionEnter": 0,
+        "handleCollisionExit": 0,
+        "handleCollisionStay": 0,
+        "handleParticleCollision": 0,
+        "handleControllerColliderHit": 0,
+        "handleJointBreak": 0,
+        "handleJointBreak2D": 0,
+        "handleOnGUI": 0,
+        "handleFixedUpdate": 0,
+        "handleLateUpdate": 0,
+        "handleApplicationEvents": 0,
+        "handleUiEvents": 0,
+        "handleLegacyNetworking": 0,
+        "handleAnimatorMove": 0,
+        "handleAnimatorIK": 0
+      }
+    }
+  ],
+  "game_objects": [
+    {
+      "file_id": "2042",
+      "name": "Head Swiveller",
+      "line": 34897,
+      "serialized_yaml": "--- !u!1 &2042\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4936}\n  - component: {fileID: 9133}\n  m_Layer: 19\n  m_Name: Head Swiveller\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2080",
+      "name": "Beam Light",
+      "line": 35596,
+      "serialized_yaml": "--- !u!1 &2080\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4720}\n  - component: {fileID: 8314}\n  - component: {fileID: 8949}\n  m_Layer: 0\n  m_Name: Beam Light\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "2185",
+      "name": "Pt Pop",
+      "line": 37478,
+      "serialized_yaml": "--- !u!1 &2185\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4938}\n  - component: {fileID: 6262}\n  - component: {fileID: 6429}\n  m_Layer: 0\n  m_Name: Pt Pop\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2296",
+      "name": "Head",
+      "line": 39501,
+      "serialized_yaml": "--- !u!1 &2296\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4955}\n  - component: {fileID: 5704}\n  - component: {fileID: 5626}\n  - component: {fileID: 8617}\n  - component: {fileID: 8816}\n  - component: {fileID: 9208}\n  m_Layer: 19\n  m_Name: Head\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2349",
+      "name": "Weaver Servitor Broken",
+      "line": 40435,
+      "serialized_yaml": "--- !u!1 &2349\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4885}\n  - component: {fileID: 5692}\n  - component: {fileID: 5614}\n  - component: {fileID: 8604}\n  - component: {fileID: 5946}\n  - component: {fileID: 8926}\n  - component: {fileID: 8797}\n  - component: {fileID: 8868}\n  - component: {fileID: 9620}\n  - component: {fileID: 6066}\n  - component: {fileID: 8860}\n  m_Layer: 19\n  m_Name: Weaver Servitor Broken\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2736",
+      "name": "Whir Loop",
+      "line": 47477,
+      "serialized_yaml": "--- !u!1 &2736\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5286}\n  - component: {fileID: 6114}\n  m_Layer: 19\n  m_Name: Whir Loop\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    }
+  ],
+  "components": [
+    {
+      "file_id": "4720",
+      "game_object_id": "2080",
+      "unity_class_id": "4",
+      "line": 79119,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4720\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2080}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 0.45, z: -0.13}\n  m_LocalScale: {x: 0.7125, y: 0.49875015, z: 0.95}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4955}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "4885",
+      "game_object_id": "2349",
+      "unity_class_id": "4",
+      "line": 81881,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4885\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2349}\n  m_LocalRotation: {x: -0, y: -0, z: -0.10078555, w: 0.99490815}\n  m_LocalPosition: {x: 136.5, y: 87.345, z: 0.006}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 5286}\n  - {fileID: 4936}\n  m_Father: {fileID: 0}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 11.568816}\n"
+    },
+    {
+      "file_id": "4936",
+      "game_object_id": "2042",
+      "unity_class_id": "4",
+      "line": 82674,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4936\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2042}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0.46, y: 0.227, z: -0.001}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 4955}\n  m_Father: {fileID: 4885}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "4938",
+      "game_object_id": "2185",
+      "unity_class_id": "4",
+      "line": 82705,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4938\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2185}\n  m_LocalRotation: {x: -0, y: -0, z: 0.35171387, w: 0.9361076}\n  m_LocalPosition: {x: 0, y: 0.19, z: -0.001}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4955}\n  m_LocalEulerAnglesHint: {x: -0, y: -0, z: -41.184357}\n"
+    },
+    {
+      "file_id": "4955",
+      "game_object_id": "2296",
+      "unity_class_id": "4",
+      "line": 82963,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4955\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2296}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 0.22, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 4720}\n  - {fileID: 4938}\n  m_Father: {fileID: 4936}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "5286",
+      "game_object_id": "2736",
+      "unity_class_id": "4",
+      "line": 88200,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5286\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2736}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4885}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "5946",
+      "game_object_id": "2349",
+      "unity_class_id": "61",
+      "line": 106327,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &5946\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2349}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 0.23274231, y: 0.38355994}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 1.4146576, y: 1.0858617}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "6066",
+      "game_object_id": "2349",
+      "unity_class_id": "82",
+      "line": 112761,
+      "script": null,
+      "serialized_yaml": "--- !u!82 &6066\nAudioSource:\n  serializedVersion: 4\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2349}\n  m_Enabled: 1\n  OutputAudioMixerGroup: {fileID: 24300022, guid: d910a835fc4287448b891cc742c2a38a, type: 2}\n  m_audioClip: {fileID: 8300000, guid: 75226fc85f77a384ca4979725317a880, type: 3}\n  m_Resource: {fileID: 8300000, guid: 75226fc85f77a384ca4979725317a880, type: 3}\n  m_PlayOnAwake: 0\n  m_Volume: 1\n  m_Pitch: 1\n  Loop: 0\n  Mute: 0\n  Spatialize: 0\n  SpatializePostEffects: 0\n  Priority: 128\n  DopplerLevel: 0\n  MinDistance: 39\n  MaxDistance: 50\n  Pan2D: 0\n  rolloffMode: 2\n  BypassEffects: 0\n  BypassListenerEffects: 0\n  BypassReverbZones: 0\n  rolloffCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0.78\n      value: 1\n      inSlope: -7.2560205\n      outSlope: -7.2560205\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    - serializedVersion: 3\n      time: 0.9787131\n      value: 0\n      inSlope: -2.3973467\n      outSlope: -2.3973467\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  panLevelCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  spreadCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 0\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  reverbZoneMixCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n"
+    },
+    {
+      "file_id": "6114",
+      "game_object_id": "2736",
+      "unity_class_id": "82",
+      "line": 117417,
+      "script": null,
+      "serialized_yaml": "--- !u!82 &6114\nAudioSource:\n  serializedVersion: 4\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2736}\n  m_Enabled: 1\n  OutputAudioMixerGroup: {fileID: 24300004, guid: d910a835fc4287448b891cc742c2a38a, type: 2}\n  m_audioClip: {fileID: 8300000, guid: 003e0a4863362364d816652f600d7841, type: 3}\n  m_Resource: {fileID: 8300000, guid: 003e0a4863362364d816652f600d7841, type: 3}\n  m_PlayOnAwake: 0\n  m_Volume: 0.8\n  m_Pitch: 1\n  Loop: 1\n  Mute: 0\n  Spatialize: 0\n  SpatializePostEffects: 0\n  Priority: 128\n  DopplerLevel: 0\n  MinDistance: 39\n  MaxDistance: 50\n  Pan2D: 0\n  rolloffMode: 2\n  BypassEffects: 0\n  BypassListenerEffects: 0\n  BypassReverbZones: 0\n  rolloffCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0.78\n      value: 1\n      inSlope: -7.2560205\n      outSlope: -7.2560205\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    - serializedVersion: 3\n      time: 0.9787131\n      value: 0.007873535\n      inSlope: -2.3973467\n      outSlope: -2.3973467\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  panLevelCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  spreadCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 0\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  reverbZoneMixCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n"
+    },
+    {
+      "file_id": "8604",
+      "game_object_id": "2349",
+      "unity_class_id": "114",
+      "line": 624823,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "serialized_yaml": "--- !u!114 &8604\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2349}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 461acbcb857d4478aaa8e8e64ee6f52a, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  collection: {fileID: 114724804207875695, guid: e5210768b0be70f4cba741e4113054d0, type: 2}\n  _color: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}\n  _scale: {x: 1, y: 1, z: 1}\n  _spriteId: 34\n  boxCollider2D: {fileID: 0}\n  polygonCollider2D: []\n  edgeCollider2D: []\n  boxCollider: {fileID: 0}\n  meshCollider: {fileID: 0}\n  meshColliderPositions: []\n  meshColliderMesh: {fileID: 0}\n  renderLayer: 0\n"
+    },
+    {
+      "file_id": "8617",
+      "game_object_id": "2296",
+      "unity_class_id": "114",
+      "line": 625135,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "serialized_yaml": "--- !u!114 &8617\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2296}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 461acbcb857d4478aaa8e8e64ee6f52a, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  collection: {fileID: 114724804207875695, guid: e5210768b0be70f4cba741e4113054d0, type: 2}\n  _color: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}\n  _scale: {x: 1, y: 1, z: 1}\n  _spriteId: 35\n  boxCollider2D: {fileID: 0}\n  polygonCollider2D: []\n  edgeCollider2D: []\n  boxCollider: {fileID: 0}\n  meshCollider: {fileID: 0}\n  meshColliderPositions: []\n  meshColliderMesh: {fileID: 0}\n  renderLayer: 0\n"
+    },
+    {
+      "file_id": "8797",
+      "game_object_id": "2349",
+      "unity_class_id": "114",
+      "line": 649114,
+      "script": "Assets/Scripts/Assembly-CSharp/EnemyHitEffectsRegular.cs",
+      "serialized_yaml": "--- !u!114 &8797\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2349}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 688cf27c991077549cc7e1e5fa656b3d, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  effectOrigin: {x: 0, y: 0.35, z: 0}\n  sendDamageFlashEvent: 0\n  profile: {fileID: 11400000, guid: 2462fc4fee98ddd48b7d0845fe61b747, type: 2}\n  overrideBloodColor: 0\n  bloodColorOverride: {r: 0, g: 0, b: 0, a: 0}\n  forceMinimalEffects: 0\n"
+    },
+    {
+      "file_id": "8868",
+      "game_object_id": "2349",
+      "unity_class_id": "114",
+      "line": 653575,
+      "script": "Assets/Scripts/Assembly-CSharp/EnemyDeathEffectsRegular.cs",
+      "serialized_yaml": "--- !u!114 &8868\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2349}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 2730b6b2b2abd535272d044bb7d8942f, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  corpsePrefab: {fileID: 1709254077376921, guid: 9c1b58e067851fd40a3ae3092416d20a, type: 2}\n  altCorpses: []\n  isCorpseRecyclable: 0\n  manualPreInstantiate: 0\n  corpseFacesRight: 0\n  overrideDeathDirection: 0\n  corpseFlingSpeed: 22\n  corpseSpawnPoint: {x: 0.46, y: 0.82, z: 0}\n  effectOrigin: {x: 0.46, y: 0.6, z: 0}\n  lowCorpseArc: 0\n  recycle: 0\n  rotateCorpse: 0\n  corpseMatchesEnemyScale: 0\n  audioSnapshotOnDeath: {fileID: 0}\n  sendEventRegister:\n  deathSounds: []\n  enemyDeathSwordAudio:\n    Clip: {fileID: 0}\n    PitchMin: 0\n    PitchMax: 0\n    Volume: 0\n    vibrationDataAsset: {fileID: 0}\n  enemyDamageAudio:\n    Clip: {fileID: 0}\n    PitchMin: 0\n    PitchMax: 0\n    Volume: 0\n    vibrationDataAsset: {fileID: 0}\n  deathCameraShake:\n    camera: {fileID: 11400000, guid: 9b0888e0916dca544846a2f34304dac9, type: 2}\n    profile: {fileID: 11400000, guid: 279f38013a080f34999cd00fbee1b9c2, type: 2}\n    doFreeze: 0\n    vibrate: 1\n  journalRecord: {fileID: 0}\n  awardFullJournalEntry: 0\n  setPlayerDataBool:\n  awardAchievement:\n  doNotSetHasKilled: 1\n  doNotSpawnCorpse: 0\n  profile: {fileID: 0}\n"
+    },
+    {
+      "file_id": "8926",
+      "game_object_id": "2349",
+      "unity_class_id": "114",
+      "line": 664180,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/HealthManager.cs",
+      "serialized_yaml": "--- !u!114 &8926\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2349}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 7e0b9799fb0157646caefd91bc67f0a6, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  audioPlayerPrefab: {fileID: 82724804207875695, guid: 99068b2a95bddff419cb6f176648d4e6, type: 2}\n  regularInvincibleAudio:\n    Clip: {fileID: 8300000, guid: 6447a975892e6ac42be7525d74803f40, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  blockHitPrefab: {fileID: 1709254077376921, guid: a7a57900a8a415a4387938611b64e586, type: 2}\n  strikeNailPrefab: {fileID: 1709254077376921, guid: 64c20baf394ac9a41b03deea82568445, type: 2}\n  slashImpactPrefab: {fileID: 1709254077376921, guid: 97c9ba031f06bae4681d3fda13c3f87b, type: 2}\n  corpseSplatPrefab: {fileID: 1709254077376921, guid: ee26d04f9efdaa7458f4fcea07e485df, type: 2}\n  hp: 1\n  damageScaling:\n    Level1Mult: 1\n    Level2Mult: 1\n    Level3Mult: 1\n    Level4Mult: 1\n    Level5Mult: 1\n  enemyType: 0\n  doNotGiveSilk: 1\n  ignoreFlags: 0\n  reaperBundles: 0\n  effectOrigin: {x: 0.46, y: 0.82, z: 0}\n  ignoreKillAll: 0\n  sendDamageTo: {fileID: 0}\n  isPartOfSendToTarget: 0\n  tagDamageTakerIgnoreColliderState: 0\n  takeTagDamageWhileInvincible: 0\n  targetPointOverride: {fileID: 0}\n  battleScene: {fileID: 0}\n  sendHitTo: {fileID: 0}\n  sendKilledToObject: {fileID: 0}\n  sendKilledToName:\n  smallGeoDrops: 0\n  mediumGeoDrops: 0\n  largeGeoDrops: 0\n  largeSmoothGeoDrops: 0\n  megaFlingGeo: 0\n  shellShardDrops: 1\n  flingSilkOrbsDown: 0\n  flingSilkOrbsAimObject: {fileID: 0}\n  itemDropGroups: []\n  _itemDropProbability: 0\n  _itemDrops: []\n  hasAlternateHitAnimation: 0\n  alternateHitAnimation:\n  invincible: 0\n  piercable: 0\n  invincibleFromDirection: 0\n  preventInvincibleEffect: 0\n  preventInvincibleShake: 0\n  preventInvincibleAttackBlock: 0\n  invincibleRecoil: 0\n  dontSendTinkToDamager: 0\n  hasAlternateInvincibleSound: 0\n  alternateInvincibleSound: {fileID: 0}\n  immuneToNailAttacks: 0\n  immuneToExplosions: 0\n  immuneToBeams: 0\n  immuneToHunterWeapon: 0\n  immuneToCoal: 0\n  immuneToTraps: 0\n  immuneToWater: 0\n  immuneToSpikes: 0\n  immuneToLava: 0\n  isMossExtractable: 0\n  isSwampExtractable: 0\n  isBluebloodExtractable: 0\n  deathAudioSnapshot: {fileID: 0}\n  hasSpecialDeath: 0\n  deathReset: 0\n  damageOverride: 0\n  ignoreAcid: 0\n  ignoreWater: 0\n  zeroHPEventOverride: {fileID: 0}\n  dontDropMeat: 1\n  enemySize: 1\n  bigEnemyDeath: 0\n  preventDeathAfterHero: 0\n  ignoreHazards: 0\n  invulnerableTime: 0.25\n  semiPersistent: 0\n  isDead: 0\n  ignorePersistence: 0\n  tinkTimer: 0\n"
+    },
+    {
+      "file_id": "8949",
+      "game_object_id": "2080",
+      "unity_class_id": "114",
+      "line": 665049,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SpriteFadePulse.cs",
+      "serialized_yaml": "--- !u!114 &8949\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2080}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: cd3455fc1226cff4f667c459754404ed, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  lowAlpha: 0.05\n  highAlpha: 0.15\n  fadeDuration: 0.2\n  startPaused: 0\n"
+    },
+    {
+      "file_id": "9208",
+      "game_object_id": "2296",
+      "unity_class_id": "114",
+      "line": 672978,
+      "script": null,
+      "serialized_yaml": "--- !u!114 &9208\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2296}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: -664232604, guid: daca89c25bd1813ceecbbbb8555342a7, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  TargetFSMs:\n  - {fileID: 8816}\n"
+    },
+    {
+      "file_id": "9620",
+      "game_object_id": "2349",
+      "unity_class_id": "114",
+      "line": 687434,
+      "script": "Assets/Scripts/ProjectCode/Game/06_Data_Save_Progression/PersistentBoolItem.cs",
+      "serialized_yaml": "--- !u!114 &9620\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2349}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 087a94ec5288c627922d9bede0894295, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  saveCondition:\n    TestGroups: []\n  dontSave: 0\n  itemData:\n    ID:\n    SceneName:\n    IsSemiPersistent: 1\n    Value: 0\n    Mutator: 0\n  disableIfActivated: 0\n  disablePrefabIfActivated: {fileID: 0}\n"
+    }
+  ],
+  "recording_references": [],
+  "limits": [
+    "Static serialized specimen; no runtime timing capture.",
+    "Scene variants may override values; see catalog.json instances.",
+    "External fileID/GUID dependencies remain explicit; do not replace with guessed values."
+  ]
+}

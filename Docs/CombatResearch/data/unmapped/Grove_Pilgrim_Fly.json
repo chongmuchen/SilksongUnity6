@@ -1,0 +1,2877 @@
+{
+  "schema": "silksong-combat-entity-v1",
+  "journal": {
+    "id": "Grove Pilgrim Fly",
+    "record_kind": "unmapped_health_object_not_an_additional_species_count"
+  },
+  "specimen": {
+    "source": "Assets/Prefabs/Hornet Enemies/Grove Pilgrim Fly.prefab",
+    "line": 514,
+    "game_object_id": "1709254077376921",
+    "name": "Grove Pilgrim Fly",
+    "active": "1",
+    "hp": "22",
+    "special_death": "0",
+    "invincible": "0",
+    "fsms": [
+      {
+        "object": "Grove Pilgrim Fly",
+        "game_object_id": "1709254077376921",
+        "component_id": "114621510681728303",
+        "name": "Control",
+        "start": "Init",
+        "states": [
+          "Init",
+          "To Patrol",
+          "To Start",
+          "Unalert Patrol",
+          "Sing",
+          "Sing End",
+          "Start Check",
+          "Spawn Sing",
+          "Startle",
+          "Chase",
+          "Attack Antic",
+          "Shake",
+          "Recover",
+          "Shake Start",
+          "Hatchling",
+          "Go Up",
+          "Go Up Chase",
+          "Fly In Ready",
+          "Check Pos",
+          "Shift",
+          "Fly In",
+          "Activate"
+        ],
+        "action_types": [
+          "HutongGames.PlayMaker.Actions.AnimatePositionBy",
+          "HutongGames.PlayMaker.Actions.ChaseObjectSpread",
+          "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegion",
+          "HutongGames.PlayMaker.Actions.CreateObject",
+          "HutongGames.PlayMaker.Actions.DecelerateV2",
+          "HutongGames.PlayMaker.Actions.DecelerateXY",
+          "HutongGames.PlayMaker.Actions.DistanceFly",
+          "HutongGames.PlayMaker.Actions.FaceDirection",
+          "HutongGames.PlayMaker.Actions.FaceObjectV2",
+          "HutongGames.PlayMaker.Actions.FireAtTarget",
+          "HutongGames.PlayMaker.Actions.FlingObjectsFromGlobalPoolTime",
+          "HutongGames.PlayMaker.Actions.FloatCompare",
+          "HutongGames.PlayMaker.Actions.GetCurrentTk2dClipName",
+          "HutongGames.PlayMaker.Actions.GetDefaultTk2dClipName",
+          "HutongGames.PlayMaker.Actions.GetDistance",
+          "HutongGames.PlayMaker.Actions.GetXDistance",
+          "HutongGames.PlayMaker.Actions.IdleBuzzV2",
+          "HutongGames.PlayMaker.Actions.IntAdd",
+          "HutongGames.PlayMaker.Actions.IntCompare",
+          "HutongGames.PlayMaker.Actions.NextFrameEvent",
+          "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+          "HutongGames.PlayMaker.Actions.RandomInt",
+          "HutongGames.PlayMaker.Actions.SetBoolValue",
+          "HutongGames.PlayMaker.Actions.SetCollider",
+          "HutongGames.PlayMaker.Actions.SetFsmGameObject",
+          "HutongGames.PlayMaker.Actions.SetMeshRenderer",
+          "HutongGames.PlayMaker.Actions.SetParent",
+          "HutongGames.PlayMaker.Actions.SetPositionToObject",
+          "HutongGames.PlayMaker.Actions.SetVelocity2d",
+          "HutongGames.PlayMaker.Actions.StopParticleEmitter",
+          "HutongGames.PlayMaker.Actions.StringCompare",
+          "HutongGames.PlayMaker.Actions.TiltBySpeedY",
+          "HutongGames.PlayMaker.Actions.Tk2dPlayAnimation",
+          "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+          "HutongGames.PlayMaker.Actions.Tk2dSpriteSetColor",
+          "HutongGames.PlayMaker.Actions.Tk2dSpriteTweenColor",
+          "HutongGames.PlayMaker.Actions.Translate",
+          "HutongGames.PlayMaker.Actions.Wait",
+          "HutongGames.PlayMaker.Actions.WaitRandom"
+        ],
+        "line": 748,
+        "lines": 4778,
+        "source_sha256": "a0fb5b65df4e63c2a837cebc9a7db581adeb1484630e20a755a719afbba452a2"
+      }
+    ],
+    "components": [
+      "Assets/Scripts/Assembly-CSharp/EnemyDeathEffectsRegular.cs",
+      "Assets/Scripts/Assembly-CSharp/EnemyHitEffectsRegular.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/AlertRange.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/DamageHero.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/HealthManager.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/Recoil.cs",
+      "Assets/Scripts/ProjectCode/Game/04_World_Environment/ObjectBounce.cs",
+      "Assets/Scripts/ProjectCode/Game/06_Data_Save_Progression/PersistentBoolItem.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SpriteFlash.cs",
+      "Assets/Scripts/ProjectCode/Game/12_Utilities/PersonalObjectPool.cs",
+      "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs"
+    ],
+    "damages": [
+      {
+        "object": "Grove Pilgrim Fly",
+        "damage": "1",
+        "line": 659
+      }
+    ],
+    "evidence": "unmapped_health_actor",
+    "is_hornet_scene": false,
+    "is_temp_scene": false
+  },
+  "source_sha256": "4eff808b258cc87a64db4d67b33b5206c7f08c4a0888e6f3d39d2c28d9ccc3b5",
+  "fsms": [
+    {
+      "source": "Assets/Prefabs/Hornet Enemies/Grove Pilgrim Fly.prefab",
+      "line": 749,
+      "file_id": 114621510681728303,
+      "owner_id": 1709254077376921,
+      "owner": "Grove Pilgrim Fly",
+      "name": "Control",
+      "start_state": "Init",
+      "states": [
+        {
+          "name": "Init",
+          "line": 766,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Hatchling"
+            },
+            {
+              "event": "FLY IN",
+              "to": "Fly In Ready"
+            }
+          ],
+          "actions": [
+            {
+              "type": "FindAlertRange",
+              "full_type": "FindAlertRange",
+              "enabled": true,
+              "params": {
+                "target": {
+                  "owner": "self"
+                },
+                "storeResult": {
+                  "var": "Alert Range",
+                  "stored": {
+                    "fileID": 114642988549198181
+                  }
+                },
+                "childName": "Alert Range"
+              }
+            },
+            {
+              "type": "SetParent",
+              "full_type": "HutongGames.PlayMaker.Actions.SetParent",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Patrol Point",
+                    "stored": {
+                      "fileID": 1618682377417806
+                    }
+                  }
+                },
+                "parent": {
+                  "fileID": 0
+                },
+                "resetLocalPosition": 0,
+                "resetLocalRotation": 0
+              }
+            },
+            {
+              "type": "SetParent",
+              "full_type": "HutongGames.PlayMaker.Actions.SetParent",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Start Point",
+                    "stored": {
+                      "fileID": 1724804207875695
+                    }
+                  }
+                },
+                "parent": {
+                  "fileID": 0
+                },
+                "resetLocalPosition": 0,
+                "resetLocalRotation": 0
+              }
+            },
+            {
+              "type": "RandomInt",
+              "full_type": "HutongGames.PlayMaker.Actions.RandomInt",
+              "enabled": true,
+              "params": {
+                "min": 1,
+                "max": 2,
+                "storeResult": {
+                  "var": "Spawns",
+                  "stored": 0
+                },
+                "inclusiveMax": true,
+                "noRepeat": 0
+              }
+            },
+            {
+              "type": "NextFrameEvent",
+              "full_type": "HutongGames.PlayMaker.Actions.NextFrameEvent",
+              "enabled": true,
+              "params": {
+                "sendEvent": "FINISHED"
+              }
+            },
+            {
+              "type": "GetDefaultTk2dClipName",
+              "full_type": "HutongGames.PlayMaker.Actions.GetDefaultTk2dClipName",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "storeName": {
+                  "var": "Start Anim",
+                  "stored": null
+                }
+              }
+            },
+            {
+              "type": "StringCompare",
+              "full_type": "HutongGames.PlayMaker.Actions.StringCompare",
+              "enabled": true,
+              "params": {
+                "stringVariable": {
+                  "var": "Start Anim",
+                  "stored": null
+                },
+                "compareTo": "Fly In",
+                "equalEvent": "FLY IN",
+                "notEqualEvent": null,
+                "storeResult": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "To Patrol",
+          "line": 1002,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "SHIFT",
+              "to": "To Start"
+            },
+            {
+              "event": "TOOK DAMAGE",
+              "to": null
+            },
+            {
+              "event": "ALERT",
+              "to": "Startle"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetBoolValue",
+              "full_type": "HutongGames.PlayMaker.Actions.SetBoolValue",
+              "enabled": true,
+              "params": {
+                "boolVariable": {
+                  "var": "Returning",
+                  "stored": 0
+                },
+                "boolValue": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "ChaseObjectSpread",
+              "full_type": "HutongGames.PlayMaker.Actions.ChaseObjectSpread",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "target": {
+                  "var": "Patrol Point",
+                  "stored": {
+                    "fileID": 1618682377417806
+                  }
+                },
+                "speedMax": 3,
+                "acceleration": 0.2,
+                "targetSpreadX": 0,
+                "targetSpreadY": 1,
+                "spreadResetTimeMin": 1,
+                "spreadResetTimeMax": 2,
+                "offsetX": 0,
+                "offsetY": 0
+              }
+            },
+            {
+              "type": "GetXDistance",
+              "full_type": "HutongGames.PlayMaker.Actions.GetXDistance",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "target": {
+                  "var": "Patrol Point",
+                  "stored": {
+                    "fileID": 1618682377417806
+                  }
+                },
+                "storeResult": {
+                  "var": "Distance",
+                  "stored": 0
+                },
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "FloatCompare",
+              "full_type": "HutongGames.PlayMaker.Actions.FloatCompare",
+              "enabled": true,
+              "params": {
+                "float1": {
+                  "var": "Distance",
+                  "stored": 0
+                },
+                "float2": 1,
+                "tolerance": 0,
+                "equal": null,
+                "lessThan": "SHIFT",
+                "greaterThan": null,
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "FaceDirection",
+              "full_type": "HutongGames.PlayMaker.Actions.FaceDirection",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "spriteFacesRight": 0,
+                "playNewAnimation": true,
+                "newAnimationClip": "TurnToFly",
+                "everyFrame": true,
+                "pauseBetweenTurns": true,
+                "pauseTime": 0.5
+              }
+            },
+            {
+              "type": "CheckHeroPerformanceRegion",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegion",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "MinReactDelay": 0.2,
+                "MaxReactDelay": 0.3,
+                "None": null,
+                "ActiveInner": "SING",
+                "ActiveOuter": null,
+                "IgnoreNeedolinRange": 0,
+                "useActiveBool": false,
+                "ActiveBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "StoreState": {
+                  "var": null,
+                  "stored": 0
+                },
+                "EveryFrame": true
+              }
+            },
+            {
+              "type": "CheckAlertRangeByName",
+              "full_type": "CheckAlertRangeByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 0,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "alertRangeName": "Alert Range",
+                "storeResult": 0,
+                "sendEvent": "ALERT",
+                "outOfRangeEvent": null,
+                "everyFrame": true
+              }
+            }
+          ]
+        },
+        {
+          "name": "To Start",
+          "line": 1377,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "SHIFT",
+              "to": "To Patrol"
+            },
+            {
+              "event": "TOOK DAMAGE",
+              "to": null
+            },
+            {
+              "event": "ALERT",
+              "to": "Startle"
+            }
+          ],
+          "actions": [
+            {
+              "type": "TiltBySpeedY",
+              "full_type": "HutongGames.PlayMaker.Actions.TiltBySpeedY",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "tiltFactor": -1,
+                "tiltMax": 15,
+                "rotationSpeed": 50
+              }
+            },
+            {
+              "type": "SetBoolValue",
+              "full_type": "HutongGames.PlayMaker.Actions.SetBoolValue",
+              "enabled": true,
+              "params": {
+                "boolVariable": {
+                  "var": "Returning",
+                  "stored": 0
+                },
+                "boolValue": 1,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "ChaseObjectSpread",
+              "full_type": "HutongGames.PlayMaker.Actions.ChaseObjectSpread",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "target": {
+                  "var": "Start Point",
+                  "stored": {
+                    "fileID": 1724804207875695
+                  }
+                },
+                "speedMax": 3,
+                "acceleration": 0.2,
+                "targetSpreadX": 0,
+                "targetSpreadY": 1,
+                "spreadResetTimeMin": 1,
+                "spreadResetTimeMax": 2,
+                "offsetX": 0,
+                "offsetY": 0
+              }
+            },
+            {
+              "type": "GetXDistance",
+              "full_type": "HutongGames.PlayMaker.Actions.GetXDistance",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "target": {
+                  "var": "Start Point",
+                  "stored": {
+                    "fileID": 1724804207875695
+                  }
+                },
+                "storeResult": {
+                  "var": "Distance",
+                  "stored": 0
+                },
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "FloatCompare",
+              "full_type": "HutongGames.PlayMaker.Actions.FloatCompare",
+              "enabled": true,
+              "params": {
+                "float1": {
+                  "var": "Distance",
+                  "stored": 0
+                },
+                "float2": 1,
+                "tolerance": 0,
+                "equal": null,
+                "lessThan": "SHIFT",
+                "greaterThan": null,
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "FaceDirection",
+              "full_type": "HutongGames.PlayMaker.Actions.FaceDirection",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "spriteFacesRight": 0,
+                "playNewAnimation": true,
+                "newAnimationClip": "TurnToFly",
+                "everyFrame": true,
+                "pauseBetweenTurns": true,
+                "pauseTime": 0.5
+              }
+            },
+            {
+              "type": "CheckHeroPerformanceRegion",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegion",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "MinReactDelay": 0.2,
+                "MaxReactDelay": 0.3,
+                "None": null,
+                "ActiveInner": "SING",
+                "ActiveOuter": null,
+                "IgnoreNeedolinRange": 0,
+                "useActiveBool": false,
+                "ActiveBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "StoreState": {
+                  "var": null,
+                  "stored": 0
+                },
+                "EveryFrame": true
+              }
+            },
+            {
+              "type": "CheckAlertRangeByName",
+              "full_type": "CheckAlertRangeByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 0,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "alertRangeName": "Alert Range",
+                "storeResult": 0,
+                "sendEvent": "ALERT",
+                "outOfRangeEvent": null,
+                "everyFrame": true
+              }
+            }
+          ]
+        },
+        {
+          "name": "Unalert Patrol",
+          "line": 1784,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "ALERT",
+              "to": "Startle"
+            },
+            {
+              "event": "TOOK DAMAGE",
+              "to": "Startle"
+            },
+            {
+              "event": "GO UP",
+              "to": "Go Up"
+            }
+          ],
+          "actions": [
+            {
+              "type": "IdleBuzzV2",
+              "full_type": "HutongGames.PlayMaker.Actions.IdleBuzzV2",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "waitMin": 0.5,
+                "waitMax": 1,
+                "speedMax": 2.5,
+                "accelerationMax": 15,
+                "roamingRangeX": 4,
+                "roamingRangeY": 4,
+                "manualStartPos": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "FaceDirection",
+              "full_type": "HutongGames.PlayMaker.Actions.FaceDirection",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "spriteFacesRight": 0,
+                "playNewAnimation": true,
+                "newAnimationClip": "TurnToFly",
+                "everyFrame": true,
+                "pauseBetweenTurns": true,
+                "pauseTime": 0.5
+              }
+            },
+            {
+              "type": "CheckAlertRangeByName",
+              "full_type": "CheckAlertRangeByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 0,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "alertRangeName": "Alert Range",
+                "storeResult": 0,
+                "sendEvent": "ALERT",
+                "outOfRangeEvent": null,
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "CheckHeroPerformanceRegion",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegion",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "MinReactDelay": 0.2,
+                "MaxReactDelay": 0.3,
+                "None": null,
+                "ActiveInner": "SING",
+                "ActiveOuter": null,
+                "IgnoreNeedolinRange": 0,
+                "useActiveBool": false,
+                "ActiveBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "StoreState": {
+                  "var": null,
+                  "stored": 0
+                },
+                "EveryFrame": true
+              }
+            }
+          ]
+        },
+        {
+          "name": "Sing",
+          "line": 2072,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "CANCEL",
+              "to": "Sing End"
+            }
+          ],
+          "actions": [
+            {
+              "type": "CheckHeroPerformanceRegion",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegion",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "MinReactDelay": 0.4,
+                "MaxReactDelay": 0.6,
+                "None": "CANCEL",
+                "ActiveInner": null,
+                "ActiveOuter": null,
+                "IgnoreNeedolinRange": 0,
+                "useActiveBool": false,
+                "ActiveBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "StoreState": {
+                  "var": null,
+                  "stored": 0
+                },
+                "EveryFrame": true
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Sing",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": null
+              }
+            },
+            {
+              "type": "DecelerateV2",
+              "full_type": "HutongGames.PlayMaker.Actions.DecelerateV2",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "deceleration": 0.9,
+                "brakeOnExit": true
+              }
+            }
+          ]
+        },
+        {
+          "name": "Sing End",
+          "line": 2229,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": null
+            }
+          ],
+          "actions": [
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Sing End",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Start Check",
+          "line": 2312,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "To Patrol"
+            },
+            {
+              "event": "SPAWN SING",
+              "to": "Spawn Sing"
+            }
+          ],
+          "actions": [
+            {
+              "type": "GetCurrentTk2dClipName",
+              "full_type": "HutongGames.PlayMaker.Actions.GetCurrentTk2dClipName",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "storeName": {
+                  "var": "Clip",
+                  "stored": null
+                }
+              }
+            },
+            {
+              "type": "StringCompare",
+              "full_type": "HutongGames.PlayMaker.Actions.StringCompare",
+              "enabled": true,
+              "params": {
+                "stringVariable": {
+                  "var": "Clip",
+                  "stored": null
+                },
+                "compareTo": "Spawn Sing",
+                "equalEvent": "SPAWN SING",
+                "notEqualEvent": null,
+                "storeResult": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Spawn Sing",
+          "line": 2428,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Sing End"
+            }
+          ],
+          "actions": [
+            {
+              "type": "DecelerateXY",
+              "full_type": "HutongGames.PlayMaker.Actions.DecelerateXY",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "decelerationX": {
+                  "var": null,
+                  "stored": 0
+                },
+                "decelerationY": 0.9,
+                "brakeOnExit": true
+              }
+            },
+            {
+              "type": "SetVelocity2d",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocity2d",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "x": 0,
+                  "y": 10
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "Wait",
+              "full_type": "HutongGames.PlayMaker.Actions.Wait",
+              "enabled": true,
+              "params": {
+                "time": 0.5,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Startle",
+          "line": 2560,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Chase"
+            }
+          ],
+          "actions": [
+            {
+              "type": "FaceObjectV2",
+              "full_type": "HutongGames.PlayMaker.Actions.FaceObjectV2",
+              "enabled": true,
+              "params": {
+                "objectA": {
+                  "owner": "self"
+                },
+                "objectB": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spriteFacesRight": 0,
+                "playNewAnimation": false,
+                "newAnimationClip": null,
+                "resetFrame": false,
+                "everyFrame": false,
+                "pauseBetweenTurns": 0.5
+              }
+            },
+            {
+              "type": "SetVelocity2d",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocity2d",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": 5,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "DecelerateV2",
+              "full_type": "HutongGames.PlayMaker.Actions.DecelerateV2",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "deceleration": 0.9,
+                "brakeOnExit": false
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Startle",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Chase",
+          "line": 2731,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "ATTACK",
+              "to": "Attack Antic"
+            },
+            {
+              "event": "UNALERT",
+              "to": "Unalert Patrol"
+            },
+            {
+              "event": "GO UP",
+              "to": "Go Up Chase"
+            }
+          ],
+          "actions": [
+            {
+              "type": "UnalertTimer",
+              "full_type": "UnalertTimer",
+              "enabled": true,
+              "params": {
+                "alertRange": {
+                  "var": "Unalert Range",
+                  "stored": {
+                    "fileID": 114371939378208658
+                  }
+                },
+                "timerVariable": {
+                  "var": "Unalert Timer",
+                  "stored": 0
+                },
+                "unalertTime": 6,
+                "eventTarget": {
+                  "target": 0,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "unalertEvent": "UNALERT",
+                "resetOnStateEntry": false
+              }
+            },
+            {
+              "type": "DistanceFly",
+              "full_type": "HutongGames.PlayMaker.Actions.DistanceFly",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "target": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "distance": 5,
+                "speedMax": 4.5,
+                "acceleration": 0.2,
+                "targetsHeight": false,
+                "height": {
+                  "var": null,
+                  "stored": 0
+                },
+                "minAboveHero": 3
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Fly",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": null
+              }
+            },
+            {
+              "type": "FaceObjectV2",
+              "full_type": "HutongGames.PlayMaker.Actions.FaceObjectV2",
+              "enabled": true,
+              "params": {
+                "objectA": {
+                  "owner": "self"
+                },
+                "objectB": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spriteFacesRight": 0,
+                "playNewAnimation": true,
+                "newAnimationClip": "TurnToFly",
+                "resetFrame": true,
+                "everyFrame": true,
+                "pauseBetweenTurns": 0.5
+              }
+            },
+            {
+              "type": "CheckAlertRangeByName",
+              "full_type": "CheckAlertRangeByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 0,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "alertRangeName": "Alert Range",
+                "storeResult": 0,
+                "sendEvent": "ATTACK",
+                "outOfRangeEvent": null,
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "CheckHeroPerformanceRegion",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegion",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "MinReactDelay": 0.2,
+                "MaxReactDelay": 0.3,
+                "None": null,
+                "ActiveInner": "SING",
+                "ActiveOuter": null,
+                "IgnoreNeedolinRange": 0,
+                "useActiveBool": false,
+                "ActiveBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "StoreState": {
+                  "var": null,
+                  "stored": 0
+                },
+                "EveryFrame": true
+              }
+            }
+          ]
+        },
+        {
+          "name": "Attack Antic",
+          "line": 3096,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Shake Start"
+            }
+          ],
+          "actions": [
+            {
+              "type": "DistanceFly",
+              "full_type": "HutongGames.PlayMaker.Actions.DistanceFly",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "target": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "distance": 5,
+                "speedMax": 2,
+                "acceleration": 0.2,
+                "targetsHeight": false,
+                "height": {
+                  "var": null,
+                  "stored": 0
+                },
+                "minAboveHero": 3
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Antic",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            },
+            {
+              "type": "FaceObjectV2",
+              "full_type": "HutongGames.PlayMaker.Actions.FaceObjectV2",
+              "enabled": true,
+              "params": {
+                "objectA": {
+                  "owner": "self"
+                },
+                "objectB": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spriteFacesRight": 0,
+                "playNewAnimation": false,
+                "newAnimationClip": null,
+                "resetFrame": false,
+                "everyFrame": false,
+                "pauseBetweenTurns": 0.5
+              }
+            }
+          ]
+        },
+        {
+          "name": "Shake",
+          "line": 3269,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Recover"
+            }
+          ],
+          "actions": [
+            {
+              "type": "Tk2dPlayAnimation",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimation",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "animLibName": null,
+                "clipName": "Shake"
+              }
+            },
+            {
+              "type": "DistanceFly",
+              "full_type": "HutongGames.PlayMaker.Actions.DistanceFly",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "target": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "distance": 5,
+                "speedMax": 1,
+                "acceleration": 0.2,
+                "targetsHeight": false,
+                "height": {
+                  "var": null,
+                  "stored": 0
+                },
+                "minAboveHero": 3
+              }
+            },
+            {
+              "type": "WaitRandom",
+              "full_type": "HutongGames.PlayMaker.Actions.WaitRandom",
+              "enabled": true,
+              "params": {
+                "timeMin": 0.75,
+                "timeMax": 0.9,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            },
+            {
+              "type": "FlingObjectsFromGlobalPoolTime",
+              "full_type": "HutongGames.PlayMaker.Actions.FlingObjectsFromGlobalPoolTime",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "fileID": 1709254077376921,
+                  "guid": "6dbfbf12d34302d48baf3ebee1de1f6c",
+                  "type": 2
+                },
+                "spawnPoint": {
+                  "var": "Self",
+                  "stored": {
+                    "fileID": 1709254077376921
+                  }
+                },
+                "position": {
+                  "x": 0,
+                  "y": 0,
+                  "z": -0.0025
+                },
+                "frequency": 0.04,
+                "spawnMin": 2,
+                "spawnMax": 2,
+                "speedMin": 15,
+                "speedMax": 30,
+                "angleMin": 0,
+                "angleMax": 360,
+                "originVariationX": 0.5,
+                "originVariationY": 0.5,
+                "startDelay": 0
+              }
+            }
+          ]
+        },
+        {
+          "name": "Recover",
+          "line": 3521,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Chase"
+            }
+          ],
+          "actions": [
+            {
+              "type": "FaceObjectV2",
+              "full_type": "HutongGames.PlayMaker.Actions.FaceObjectV2",
+              "enabled": true,
+              "params": {
+                "objectA": {
+                  "owner": "self"
+                },
+                "objectB": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spriteFacesRight": 0,
+                "playNewAnimation": false,
+                "newAnimationClip": null,
+                "resetFrame": false,
+                "everyFrame": false,
+                "pauseBetweenTurns": 0.5
+              }
+            },
+            {
+              "type": "Wait",
+              "full_type": "HutongGames.PlayMaker.Actions.Wait",
+              "enabled": true,
+              "params": {
+                "time": 0.7,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            },
+            {
+              "type": "DistanceFly",
+              "full_type": "HutongGames.PlayMaker.Actions.DistanceFly",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "target": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "distance": 7,
+                "speedMax": 4.5,
+                "acceleration": 0.2,
+                "targetsHeight": false,
+                "height": {
+                  "var": null,
+                  "stored": 0
+                },
+                "minAboveHero": 2
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Fly",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": null
+              }
+            },
+            {
+              "type": "FaceObjectV2",
+              "full_type": "HutongGames.PlayMaker.Actions.FaceObjectV2",
+              "enabled": true,
+              "params": {
+                "objectA": {
+                  "owner": "self"
+                },
+                "objectB": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spriteFacesRight": 0,
+                "playNewAnimation": true,
+                "newAnimationClip": "TurnToFly",
+                "resetFrame": true,
+                "everyFrame": true,
+                "pauseBetweenTurns": 0.5
+              }
+            },
+            {
+              "type": "FireAtTarget",
+              "full_type": "HutongGames.PlayMaker.Actions.FireAtTarget",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "target": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "speed": -5,
+                "position": {
+                  "x": 0,
+                  "y": 0.5,
+                  "z": 0
+                },
+                "spread": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "StopParticleEmitter",
+              "full_type": "HutongGames.PlayMaker.Actions.StopParticleEmitter",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Pt Shake",
+                    "stored": {
+                      "fileID": 1099118695303065
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Shake Start",
+          "line": 3793,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Shake"
+            }
+          ],
+          "actions": [
+            {
+              "type": "Wait",
+              "full_type": "HutongGames.PlayMaker.Actions.Wait",
+              "enabled": true,
+              "params": {
+                "time": 0.2,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimation",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimation",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "animLibName": null,
+                "clipName": "Shake"
+              }
+            },
+            {
+              "type": "DistanceFly",
+              "full_type": "HutongGames.PlayMaker.Actions.DistanceFly",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "target": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "distance": 5,
+                "speedMax": 1.5,
+                "acceleration": 0.2,
+                "targetsHeight": false,
+                "height": {
+                  "var": null,
+                  "stored": 0
+                },
+                "minAboveHero": 3
+              }
+            },
+            {
+              "type": "PlayParticleEmitter",
+              "full_type": "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Pt Shake",
+                    "stored": {
+                      "fileID": 1099118695303065
+                    }
+                  }
+                },
+                "emit": 0,
+                "resetIfPlaying": false
+              }
+            },
+            {
+              "type": "SetVelocity2d",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocity2d",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": 1.5,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Hatchling",
+          "line": 3997,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Hatchling"
+            },
+            {
+              "event": "END",
+              "to": "Start Check"
+            }
+          ],
+          "actions": [
+            {
+              "type": "IntCompare",
+              "full_type": "HutongGames.PlayMaker.Actions.IntCompare",
+              "enabled": true,
+              "params": {
+                "integer1": {
+                  "var": "Spawns",
+                  "stored": 0
+                },
+                "integer2": 0,
+                "equal": "END",
+                "lessThan": "FINISHED",
+                "greaterThan": null,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "CreateObject",
+              "full_type": "HutongGames.PlayMaker.Actions.CreateObject",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "fileID": 1709254077376921,
+                  "guid": "2cea5060c45db5643b5a872c516a0d10",
+                  "type": 2
+                },
+                "spawnPoint": {
+                  "var": "Self",
+                  "stored": {
+                    "fileID": 1709254077376921
+                  }
+                },
+                "position": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  }
+                },
+                "rotation": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  }
+                },
+                "storeObject": {
+                  "var": "Hatchling",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "SetFsmGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.SetFsmGameObject",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Hatchling",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "fsmName": "Control",
+                "variableName": "Follow Target",
+                "setValue": {
+                  "var": "Self",
+                  "stored": {
+                    "fileID": 1709254077376921
+                  }
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "IntAdd",
+              "full_type": "HutongGames.PlayMaker.Actions.IntAdd",
+              "enabled": true,
+              "params": {
+                "intVariable": {
+                  "var": "Spawns",
+                  "stored": 0
+                },
+                "add": -1,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Go Up",
+          "line": 4177,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Unalert Patrol"
+            }
+          ],
+          "actions": [
+            {
+              "type": "Translate",
+              "full_type": "HutongGames.PlayMaker.Actions.Translate",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  }
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": 0.1,
+                "z": {
+                  "var": null,
+                  "stored": 0
+                },
+                "space": 0,
+                "perSecond": false,
+                "everyFrame": false,
+                "lateUpdate": false,
+                "fixedUpdate": false
+              }
+            },
+            {
+              "type": "SetVelocity2d",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocity2d",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": 1,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Go Up Chase",
+          "line": 4315,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Chase"
+            }
+          ],
+          "actions": [
+            {
+              "type": "Translate",
+              "full_type": "HutongGames.PlayMaker.Actions.Translate",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  }
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": 0.1,
+                "z": {
+                  "var": null,
+                  "stored": 0
+                },
+                "space": 0,
+                "perSecond": false,
+                "everyFrame": false,
+                "lateUpdate": false,
+                "fixedUpdate": false
+              }
+            },
+            {
+              "type": "SetVelocity2d",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocity2d",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": 1,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Fly In Ready",
+          "line": 4453,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "BATTLE START",
+              "to": "Check Pos"
+            },
+            {
+              "event": "WAKE",
+              "to": "Fly In"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetMeshRenderer",
+              "full_type": "HutongGames.PlayMaker.Actions.SetMeshRenderer",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "active": 0
+              }
+            },
+            {
+              "type": "SetCollider",
+              "full_type": "HutongGames.PlayMaker.Actions.SetCollider",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "active": 0,
+                "resetOnExit": false
+              }
+            },
+            {
+              "type": "Tk2dSpriteSetColor",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dSpriteSetColor",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "color": {
+                  "r": 0,
+                  "g": 0,
+                  "b": 0,
+                  "a": 1
+                },
+                "everyframe": false
+              }
+            },
+            {
+              "type": "CheckAlertRangeByName",
+              "full_type": "CheckAlertRangeByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 0,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "alertRangeName": "Ambush Range",
+                "storeResult": 0,
+                "sendEvent": "WAKE",
+                "outOfRangeEvent": null,
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "StopParticleEmitter",
+              "full_type": "HutongGames.PlayMaker.Actions.StopParticleEmitter",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Pt Idle",
+                    "stored": {
+                      "fileID": 1243736805655561
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Check Pos",
+          "line": 4649,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "SHIFT",
+              "to": "Shift"
+            },
+            {
+              "event": "FINISHED",
+              "to": "Fly In"
+            }
+          ],
+          "actions": [
+            {
+              "type": "GetDistance",
+              "full_type": "HutongGames.PlayMaker.Actions.GetDistance",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "target": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "storeResult": {
+                  "var": "Distance",
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "FloatCompare",
+              "full_type": "HutongGames.PlayMaker.Actions.FloatCompare",
+              "enabled": true,
+              "params": {
+                "float1": {
+                  "var": "Distance",
+                  "stored": 0
+                },
+                "float2": 8,
+                "tolerance": 0,
+                "equal": null,
+                "lessThan": "SHIFT",
+                "greaterThan": null,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Shift",
+          "line": 4775,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Fly In"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetParent",
+              "full_type": "HutongGames.PlayMaker.Actions.SetParent",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Spawn Pos Alt",
+                    "stored": {
+                      "fileID": 1703437598541787
+                    }
+                  }
+                },
+                "parent": {
+                  "fileID": 0
+                },
+                "resetLocalPosition": 0,
+                "resetLocalRotation": 0
+              }
+            },
+            {
+              "type": "SetPositionToObject",
+              "full_type": "HutongGames.PlayMaker.Actions.SetPositionToObject",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "targetObject": {
+                  "var": "Spawn Pos Alt",
+                  "stored": {
+                    "fileID": 1703437598541787
+                  }
+                },
+                "xOffset": 0,
+                "yOffset": 0,
+                "zOffset": 0,
+                "overrideZ": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Fly In",
+          "line": 4915,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Activate"
+            }
+          ],
+          "actions": [
+            {
+              "type": "PlayParticleEmitter",
+              "full_type": "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Pt Idle",
+                    "stored": {
+                      "fileID": 1243736805655561
+                    }
+                  }
+                },
+                "emit": 0,
+                "resetIfPlaying": false
+              }
+            },
+            {
+              "type": "Translate",
+              "full_type": "HutongGames.PlayMaker.Actions.Translate",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  }
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": 10,
+                "z": -15,
+                "space": 0,
+                "perSecond": false,
+                "everyFrame": false,
+                "lateUpdate": false,
+                "fixedUpdate": false
+              }
+            },
+            {
+              "type": "FaceObjectV2",
+              "full_type": "HutongGames.PlayMaker.Actions.FaceObjectV2",
+              "enabled": true,
+              "params": {
+                "objectA": {
+                  "owner": "self"
+                },
+                "objectB": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spriteFacesRight": 0,
+                "playNewAnimation": false,
+                "newAnimationClip": null,
+                "resetFrame": false,
+                "everyFrame": false,
+                "pauseBetweenTurns": 0.5
+              }
+            },
+            {
+              "type": "SetMeshRenderer",
+              "full_type": "HutongGames.PlayMaker.Actions.SetMeshRenderer",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "active": 1
+              }
+            },
+            {
+              "type": "AnimatePositionBy",
+              "full_type": "HutongGames.PlayMaker.Actions.AnimatePositionBy",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "shiftBy": {
+                  "x": 0,
+                  "y": -10,
+                  "z": 15
+                },
+                "time": 0.75,
+                "speed": {
+                  "var": null,
+                  "stored": 0
+                },
+                "delay": {
+                  "var": null,
+                  "stored": 0
+                },
+                "easeType": 13,
+                "reverse": 0,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            },
+            {
+              "type": "Tk2dSpriteTweenColor",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dSpriteTweenColor",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "color": {
+                  "r": 1,
+                  "g": 1,
+                  "b": 1,
+                  "a": 1
+                },
+                "duration": 0.55
+              }
+            }
+          ]
+        },
+        {
+          "name": "Activate",
+          "line": 5168,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Chase"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetCollider",
+              "full_type": "HutongGames.PlayMaker.Actions.SetCollider",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "active": 1,
+                "resetOnExit": false
+              }
+            },
+            {
+              "type": "Tk2dSpriteSetColor",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dSpriteSetColor",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "color": {
+                  "r": 1,
+                  "g": 1,
+                  "b": 1,
+                  "a": 1
+                },
+                "everyframe": false
+              }
+            }
+          ]
+        }
+      ],
+      "global_transitions": [
+        {
+          "fsmEvent": {
+            "name": "SING",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          "toState": "Sing",
+          "linkStyle": 0,
+          "linkConstraint": 0,
+          "linkTarget": 0,
+          "colorIndex": 0
+        }
+      ],
+      "variables": {
+        "floatVariables": [
+          {
+            "useVariable": 1,
+            "name": "Distance",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Unalert Timer",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          }
+        ],
+        "intVariables": [
+          {
+            "useVariable": 1,
+            "name": "Spawns",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          }
+        ],
+        "boolVariables": [
+          {
+            "useVariable": 1,
+            "name": "Returning",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          }
+        ],
+        "stringVariables": [
+          {
+            "useVariable": 1,
+            "name": "Clip",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": null
+          },
+          {
+            "useVariable": 1,
+            "name": "Start Anim",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": null
+          }
+        ],
+        "vector2Variables": [],
+        "vector3Variables": [],
+        "colorVariables": [],
+        "rectVariables": [],
+        "quaternionVariables": [],
+        "gameObjectVariables": [
+          {
+            "useVariable": 1,
+            "name": null,
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": null,
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": null,
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Patrol Point",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 1618682377417806
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": null,
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": null,
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": null,
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Start Point",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 1724804207875695
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Self",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 1709254077376921
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Pt Shake",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 1099118695303065
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": null,
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Hatchling",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": null,
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Spawn Pos Alt",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 1703437598541787
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Pt Idle",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 1243736805655561
+            }
+          }
+        ],
+        "objectVariables": [
+          {
+            "useVariable": 1,
+            "name": "Alert Range",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "typeName": "AlertRange",
+            "value": {
+              "fileID": 114642988549198181
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Unalert Range",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "typeName": "AlertRange",
+            "value": {
+              "fileID": 114371939378208658
+            }
+          }
+        ],
+        "materialVariables": [],
+        "textureVariables": [],
+        "arrayVariables": [],
+        "enumVariables": [],
+        "categories": [
+          null
+        ],
+        "variableCategoryIDs": 0
+      },
+      "fsm_metadata": {
+        "dataVersion": 2,
+        "usedInTemplate": {
+          "fileID": 0
+        },
+        "name": "Control",
+        "startState": "Init",
+        "events": [
+          {
+            "name": "FINISHED",
+            "isSystemEvent": 1,
+            "isGlobal": 0
+          },
+          {
+            "name": "ALERT",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "ATTACK",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "BATTLE START",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "CANCEL",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "END",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "FLY IN",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "GO UP",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "SHIFT",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "SING",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "SPAWN SING",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "TOOK DAMAGE",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "UNALERT",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "WAKE",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          }
+        ],
+        "globalTransitions": [
+          {
+            "fsmEvent": {
+              "name": "SING",
+              "isSystemEvent": 0,
+              "isGlobal": 1
+            },
+            "toState": "Sing",
+            "linkStyle": 0,
+            "linkConstraint": 0,
+            "linkTarget": 0,
+            "colorIndex": 0
+          }
+        ],
+        "description": null,
+        "docUrl": null,
+        "showStateLabel": 0,
+        "maxLoopCount": 0,
+        "watermark": null,
+        "password": null,
+        "locked": 0,
+        "manualUpdate": 0,
+        "outVariableIndices": null,
+        "keepDelayedEventsOnStateExit": 0,
+        "preprocessed": 0,
+        "ExposedEvents": [],
+        "OutputEvents": [],
+        "RestartOnEnable": 1,
+        "ResetVariablesOnEnable": 0,
+        "EnableDebugFlow": 0,
+        "EnableBreakpoints": 1,
+        "editorFlags": 1,
+        "activeStateName": null,
+        "mouseEvents": 0,
+        "handleLevelLoaded": 0,
+        "handleTriggerEnter2D": 0,
+        "handleTriggerExit2D": 0,
+        "handleTriggerStay2D": 0,
+        "handleCollisionEnter2D": 0,
+        "handleCollisionExit2D": 0,
+        "handleCollisionStay2D": 0,
+        "handleTriggerEnter": 0,
+        "handleTriggerExit": 0,
+        "handleTriggerStay": 0,
+        "handleCollisionEnter": 0,
+        "handleCollisionExit": 0,
+        "handleCollisionStay": 0,
+        "handleParticleCollision": 0,
+        "handleControllerColliderHit": 0,
+        "handleJointBreak": 0,
+        "handleJointBreak2D": 0,
+        "handleOnGUI": 0,
+        "handleFixedUpdate": 0,
+        "handleLateUpdate": 0,
+        "handleApplicationEvents": 0,
+        "handleUiEvents": 0,
+        "handleLegacyNetworking": 0,
+        "handleAnimatorMove": 0,
+        "handleAnimatorIK": 0
+      }
+    }
+  ],
+  "game_objects": [
+    {
+      "file_id": "1709254077376921",
+      "name": "Grove Pilgrim Fly",
+      "line": 3,
+      "serialized_yaml": "--- !u!1 &1709254077376921\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4061268324235159}\n  - component: {fileID: 23587765826080250}\n  - component: {fileID: 33709867586078768}\n  - component: {fileID: 114044625135789424}\n  - component: {fileID: 50589667821646929}\n  - component: {fileID: 114372920208702427}\n  - component: {fileID: 82025901758691103}\n  - component: {fileID: 114985305603660343}\n  - component: {fileID: 114705390221481576}\n  - component: {fileID: 114977153420339851}\n  - component: {fileID: 114336590748365959}\n  - component: {fileID: 114256069497284392}\n  - component: {fileID: 61161607090078389}\n  - component: {fileID: 114002669891404536}\n  - component: {fileID: 114470112387431263}\n  - component: {fileID: 114313026266067498}\n  - component: {fileID: 114621510681728303}\n  - component: {fileID: 114632457200066912}\n  - component: {fileID: 114634108722742392}\n  m_Layer: 11\n  m_Name: Grove Pilgrim Fly\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1730242686860875",
+      "name": "Alert Range",
+      "line": 37,
+      "serialized_yaml": "--- !u!1 &1730242686860875\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4302127217294661}\n  - component: {fileID: 58969106005120503}\n  - component: {fileID: 114642988549198181}\n  m_Layer: 13\n  m_Name: Alert Range\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1724804207875695",
+      "name": "Start Point",
+      "line": 55,
+      "serialized_yaml": "--- !u!1 &1724804207875695\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4946936116752871}\n  m_Layer: 11\n  m_Name: Start Point\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1618682377417806",
+      "name": "Patrol Point",
+      "line": 71,
+      "serialized_yaml": "--- !u!1 &1618682377417806\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4711914853252429}\n  m_Layer: 11\n  m_Name: Patrol Point\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1703437598541787",
+      "name": "Spawn Pos Alt",
+      "line": 87,
+      "serialized_yaml": "--- !u!1 &1703437598541787\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4918264173551851}\n  m_Layer: 11\n  m_Name: Spawn Pos Alt\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1884547391421755",
+      "name": "Unalert Range",
+      "line": 103,
+      "serialized_yaml": "--- !u!1 &1884547391421755\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4587397909062814}\n  - component: {fileID: 58875609422105747}\n  - component: {fileID: 114371939378208658}\n  m_Layer: 13\n  m_Name: Unalert Range\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1099118695303065",
+      "name": "Pt Shake",
+      "line": 121,
+      "serialized_yaml": "--- !u!1 &1099118695303065\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4694121525821480}\n  - component: {fileID: 198320256170494724}\n  - component: {fileID: 199017697238300914}\n  m_Layer: 0\n  m_Name: Pt Shake\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "1243736805655561",
+      "name": "Pt Idle",
+      "line": 139,
+      "serialized_yaml": "--- !u!1 &1243736805655561\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4733206282342372}\n  - component: {fileID: 198217368724061974}\n  - component: {fileID: 199089843903986396}\n  m_Layer: 0\n  m_Name: Pt Idle\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    }
+  ],
+  "components": [
+    {
+      "file_id": "4061268324235159",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "4",
+      "line": 157,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4061268324235159\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 29.68, y: 14.27, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 4302127217294661}\n  - {fileID: 4946936116752871}\n  - {fileID: 4711914853252429}\n  - {fileID: 4918264173551851}\n  - {fileID: 4587397909062814}\n  - {fileID: 4694121525821480}\n  - {fileID: 4733206282342372}\n  m_Father: {fileID: 0}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "114044625135789424",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "114",
+      "line": 232,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "serialized_yaml": "--- !u!114 &114044625135789424\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 461acbcb857d4478aaa8e8e64ee6f52a, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  collection: {fileID: 114724804207875695, guid: de26ddf765e381a4c8c3c1e638575d08, type: 2}\n  _color: {r: 1, g: 1, b: 1, a: 1}\n  _scale: {x: 1, y: 1, z: 1}\n  _spriteId: 19\n  boxCollider2D: {fileID: 0}\n  polygonCollider2D: []\n  edgeCollider2D: []\n  boxCollider: {fileID: 0}\n  meshCollider: {fileID: 0}\n  meshColliderPositions: []\n  meshColliderMesh: {fileID: 0}\n  renderLayer: 0\n"
+    },
+    {
+      "file_id": "50589667821646929",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "50",
+      "line": 256,
+      "script": null,
+      "serialized_yaml": "--- !u!50 &50589667821646929\nRigidbody2D:\n  serializedVersion: 5\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_BodyType: 0\n  m_Simulated: 1\n  m_UseFullKinematicContacts: 0\n  m_UseAutoMass: 0\n  m_Mass: 1\n  m_LinearDamping: 0\n  m_AngularDamping: 0.05\n  m_GravityScale: 0\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_Interpolate: 0\n  m_SleepingMode: 0\n  m_CollisionDetection: 1\n  m_Constraints: 4\n"
+    },
+    {
+      "file_id": "114372920208702427",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "114",
+      "line": 283,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs",
+      "serialized_yaml": "--- !u!114 &114372920208702427\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5996133e774984aa7a33c40ed829e17f, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  spriteOverride: {fileID: 0}\n  library: {fileID: 114724804207875695, guid: 64abca44a867c1947b18c60cd8496cb0, type: 2}\n  defaultClipId: 4\n  isRealtime: 0\n  playAutomatically: 1\n  playAutomaticallyOnEnable: 0\n"
+    },
+    {
+      "file_id": "82025901758691103",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "82",
+      "line": 301,
+      "script": null,
+      "serialized_yaml": "--- !u!82 &82025901758691103\nAudioSource:\n  serializedVersion: 4\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  OutputAudioMixerGroup: {fileID: 24300004, guid: d910a835fc4287448b891cc742c2a38a, type: 2}\n  m_audioClip: {fileID: 0}\n  m_Resource: {fileID: 0}\n  m_PlayOnAwake: 1\n  m_Volume: 1\n  m_Pitch: 1\n  Loop: 1\n  Mute: 0\n  Spatialize: 0\n  SpatializePostEffects: 0\n  Priority: 128\n  DopplerLevel: 0\n  MinDistance: 39\n  MaxDistance: 50\n  Pan2D: 0\n  rolloffMode: 2\n  BypassEffects: 0\n  BypassListenerEffects: 0\n  BypassReverbZones: 0\n  rolloffCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0.8068195\n      value: 0.072960496\n      inSlope: -0.47960794\n      outSlope: -0.47960794\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    - serializedVersion: 3\n      time: 1\n      value: 0\n      inSlope: -0.46973643\n      outSlope: -0.46973643\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 4\n  panLevelCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  spreadCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 0\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  reverbZoneMixCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n"
+    },
+    {
+      "file_id": "114985305603660343",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "114",
+      "line": 398,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SpriteFlash.cs",
+      "serialized_yaml": "--- !u!114 &114985305603660343\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 3760009a589b001159b0ab5c0e83a2db, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  children: []\n  parents: []\n  getParent: 0\n  doHitFlashOnEnable: 0\n  startFlashes: 0\n"
+    },
+    {
+      "file_id": "114705390221481576",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "114",
+      "line": 415,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/Recoil.cs",
+      "serialized_yaml": "--- !u!114 &114705390221481576\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9dce17883e836a8b91b054fcaef81958, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  FreezeInPlace: 0\n  recoilSpeedBase: 15\n  recoilDuration: 0.15\n  IsUpBlocked: 0\n  IsDownBlocked: 0\n  IsLeftBlocked: 0\n  IsRightBlocked: 0\n"
+    },
+    {
+      "file_id": "114977153420339851",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "114",
+      "line": 434,
+      "script": "Assets/Scripts/Assembly-CSharp/EnemyHitEffectsRegular.cs",
+      "serialized_yaml": "--- !u!114 &114977153420339851\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 688cf27c991077549cc7e1e5fa656b3d, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  effectOrigin: {x: -0.05, y: -0.22, z: 0}\n  sendDamageFlashEvent: 1\n  profile: {fileID: 11400000, guid: 4230e63efb0c45141b8a9672418ea98b, type: 2}\n  overrideBloodColor: 0\n  bloodColorOverride: {r: 0, g: 0, b: 0, a: 0}\n  forceMinimalEffects: 0\n"
+    },
+    {
+      "file_id": "114336590748365959",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "114",
+      "line": 452,
+      "script": "Assets/Scripts/Assembly-CSharp/EnemyDeathEffectsRegular.cs",
+      "serialized_yaml": "--- !u!114 &114336590748365959\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 2730b6b2b2abd535272d044bb7d8942f, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  corpsePrefab: {fileID: 1709254077376921, guid: 8680208bcc0b19a49ac15e6491e67f96, type: 2}\n  altCorpses: []\n  isCorpseRecyclable: 0\n  manualPreInstantiate: 0\n  corpseFacesRight: 0\n  overrideDeathDirection: 0\n  corpseFlingSpeed: 15\n  corpseSpawnPoint: {x: 0, y: -0.2, z: 0}\n  effectOrigin: {x: -0.06, y: -0.19, z: 0}\n  lowCorpseArc: 0\n  recycle: 0\n  rotateCorpse: 0\n  corpseMatchesEnemyScale: 0\n  audioSnapshotOnDeath: {fileID: 0}\n  sendEventRegister:\n  deathSounds:\n  - Clip: {fileID: 8300000, guid: cadfc16ee055c944da51081b220f0a1a, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  - Clip: {fileID: 8300000, guid: d921724037ad76c429becd63cb4c9677, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  enemyDeathSwordAudio:\n    Clip: {fileID: 0}\n    PitchMin: 0\n    PitchMax: 0\n    Volume: 0\n    vibrationDataAsset: {fileID: 0}\n  enemyDamageAudio:\n    Clip: {fileID: 0}\n    PitchMin: 0\n    PitchMax: 0\n    Volume: 0\n    vibrationDataAsset: {fileID: 0}\n  deathCameraShake:\n    camera: {fileID: 11400000, guid: 9b0888e0916dca544846a2f34304dac9, type: 2}\n    profile: {fileID: 11400000, guid: 279f38013a080f34999cd00fbee1b9c2, type: 2}\n    doFreeze: 1\n    vibrate: 1\n  journalRecord: {fileID: 0}\n  awardFullJournalEntry: 0\n  setPlayerDataBool:\n  awardAchievement:\n  doNotSetHasKilled: 0\n  doNotSpawnCorpse: 0\n  profile: {fileID: 11400000, guid: 0e2a9aa909fe46044a4b97744eed6794, type: 2}\n"
+    },
+    {
+      "file_id": "114256069497284392",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "114",
+      "line": 514,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/HealthManager.cs",
+      "serialized_yaml": "--- !u!114 &114256069497284392\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 7e0b9799fb0157646caefd91bc67f0a6, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  audioPlayerPrefab: {fileID: 82724804207875695, guid: 99068b2a95bddff419cb6f176648d4e6, type: 2}\n  regularInvincibleAudio:\n    Clip: {fileID: 8300000, guid: 6447a975892e6ac42be7525d74803f40, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  blockHitPrefab: {fileID: 1709254077376921, guid: a7a57900a8a415a4387938611b64e586, type: 2}\n  strikeNailPrefab: {fileID: 1709254077376921, guid: 64c20baf394ac9a41b03deea82568445, type: 2}\n  slashImpactPrefab: {fileID: 1709254077376921, guid: 97c9ba031f06bae4681d3fda13c3f87b, type: 2}\n  corpseSplatPrefab: {fileID: 1709254077376921, guid: ee26d04f9efdaa7458f4fcea07e485df, type: 2}\n  hp: 22\n  damageScaling:\n    Level1Mult: 1\n    Level2Mult: 1\n    Level3Mult: 1\n    Level4Mult: 1\n    Level5Mult: 1\n  enemyType: 0\n  doNotGiveSilk: 0\n  ignoreFlags: 0\n  reaperBundles: 0\n  effectOrigin: {x: 0, y: -0.2, z: 0}\n  ignoreKillAll: 0\n  sendDamageTo: {fileID: 0}\n  isPartOfSendToTarget: 0\n  tagDamageTakerIgnoreColliderState: 0\n  takeTagDamageWhileInvincible: 0\n  targetPointOverride: {fileID: 0}\n  battleScene: {fileID: 0}\n  sendHitTo: {fileID: 0}\n  sendKilledToObject: {fileID: 0}\n  sendKilledToName:\n  smallGeoDrops: 0\n  mediumGeoDrops: 0\n  largeGeoDrops: 0\n  largeSmoothGeoDrops: 0\n  megaFlingGeo: 0\n  shellShardDrops: 10\n  flingSilkOrbsDown: 0\n  flingSilkOrbsAimObject: {fileID: 0}\n  itemDropGroups:\n  - TotalProbability: 0.075\n    Drops: []\n  _itemDropProbability: 0\n  _itemDrops: []\n  hasAlternateHitAnimation: 0\n  alternateHitAnimation: False\n  invincible: 0\n  piercable: 0\n  invincibleFromDirection: 0\n  preventInvincibleEffect: 0\n  preventInvincibleShake: 0\n  preventInvincibleAttackBlock: 0\n  invincibleRecoil: 0\n  dontSendTinkToDamager: 0\n  hasAlternateInvincibleSound: 0\n  alternateInvincibleSound: {fileID: 0}\n  immuneToNailAttacks: 0\n  immuneToExplosions: 0\n  immuneToBeams: 0\n  immuneToHunterWeapon: 0\n  immuneToCoal: 0\n  immuneToTraps: 0\n  immuneToWater: 0\n  immuneToSpikes: 0\n  immuneToLava: 0\n  isMossExtractable: 0\n  isSwampExtractable: 0\n  isBluebloodExtractable: 0\n  deathAudioSnapshot: {fileID: 0}\n  hasSpecialDeath: 0\n  deathReset: 0\n  damageOverride: 0\n  ignoreAcid: 0\n  ignoreWater: 0\n  zeroHPEventOverride: {fileID: 0}\n  dontDropMeat: 0\n  enemySize: 1\n  bigEnemyDeath: 0\n  preventDeathAfterHero: 0\n  ignoreHazards: 0\n  invulnerableTime: 0.25\n  semiPersistent: 0\n  isDead: 0\n  ignorePersistence: 0\n  tinkTimer: 0\n"
+    },
+    {
+      "file_id": "61161607090078389",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "61",
+      "line": 613,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &61161607090078389\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 0\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: -0.040551186, y: -0.13380337}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 1.2004681, y: 1.4486294}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "114002669891404536",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "114",
+      "line": 659,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/DamageHero.cs",
+      "serialized_yaml": "--- !u!114 &114002669891404536\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 49c386a20fdaa83a59c1a091a909e14c, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  damageDealt: 1\n  hazardType: 1\n  damageAsset: {fileID: 0}\n  damagePropertyFlags: 0\n  resetOnEnable: 0\n  canClashTink: 0\n  forceParry: 0\n  noClashFreeze: 0\n  noTerrainThunk: 0\n  noTerrainRecoil: 0\n  noCorpseSpikeStick: 0\n  noBounceCooldown: 0\n  overrideCollisionSide: 0\n  collisionSide: 0\n  invertCollisionSide: 0\n  HeroDamagedFSM: {fileID: 0}\n  AlwaysSendDamaged: 0\n  HeroDamagedFSMEvent:\n  HeroDamagedFSMBool:\n  HeroDamagedFSMGameObject:\n  ClashEvents:\n    OnClashUp:\n      m_PersistentCalls:\n        m_Calls: []\n    OnClashDown:\n      m_PersistentCalls:\n        m_Calls: []\n    OnClashLeft:\n      m_PersistentCalls:\n        m_Calls: []\n    OnClashRight:\n      m_PersistentCalls:\n        m_Calls: []\n  OnDamagedHero:\n    m_PersistentCalls:\n      m_Calls: []\n"
+    },
+    {
+      "file_id": "114470112387431263",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "114",
+      "line": 707,
+      "script": "Assets/Scripts/ProjectCode/Game/06_Data_Save_Progression/PersistentBoolItem.cs",
+      "serialized_yaml": "--- !u!114 &114470112387431263\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 087a94ec5288c627922d9bede0894295, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  saveCondition:\n    TestGroups: []\n  dontSave: 0\n  itemData:\n    ID:\n    SceneName:\n    IsSemiPersistent: 1\n    Value: 0\n    Mutator: 0\n  disableIfActivated: 0\n  disablePrefabIfActivated: {fileID: 0}\n"
+    },
+    {
+      "file_id": "114313026266067498",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "114",
+      "line": 730,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "serialized_yaml": "--- !u!114 &114313026266067498\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9a4a05480320f7f0c7f74a7198222c9e, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  z: 0.006\n  dontRandomize: 0\n  randomizeFromStartingValue: 0\n  delayBeforeRandomizing: 0.5\n  waitFrames: 0\n  deParent: 0\n"
+    },
+    {
+      "file_id": "114632457200066912",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "114",
+      "line": 5526,
+      "script": "Assets/Scripts/ProjectCode/Game/12_Utilities/PersonalObjectPool.cs",
+      "serialized_yaml": "--- !u!114 &114632457200066912\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5b2ef5c5e57f7fd8e1e9fc2db016e6f0, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  startupPool:\n  - size: 20\n    prefab: {fileID: 0}\n    initialiseSpawnedObjects: 0\n    shared: 0\n  stealFromParent: {fileID: 0}\n"
+    },
+    {
+      "file_id": "114634108722742392",
+      "game_object_id": "1709254077376921",
+      "unity_class_id": "114",
+      "line": 5544,
+      "script": "Assets/Scripts/ProjectCode/Game/04_World_Environment/ObjectBounce.cs",
+      "serialized_yaml": "--- !u!114 &114634108722742392\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1709254077376921}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 641ee6f5b1012f3655c6199cfe9be7ae, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  bounceFactor: 0.7\n  speedThreshold: 1\n  doNotAffectX: 0\n  doNotAffectY: 0\n  playSound: 0\n  playSoundCooldown: 0\n  chanceToPlay: 100\n  clips: []\n  randomAudioClipTable: {fileID: 0}\n  pitchMin: 1\n  pitchMax: 1\n  playAnimationOnBounce: 0\n  animationName:\n  animPause: 0.5\n  sendFSMEvent: 0\n  recycleAfterBounces: 0\n  heavyBounceSpeed: 0\n  OnBounced:\n    m_PersistentCalls:\n      m_Calls: []\n  OnHeavyBounce:\n    m_PersistentCalls:\n      m_Calls: []\n"
+    },
+    {
+      "file_id": "4302127217294661",
+      "game_object_id": "1730242686860875",
+      "unity_class_id": "4",
+      "line": 5579,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4302127217294661\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1730242686860875}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 0.8754863, y: 0.8754863, z: 0.8754863}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4061268324235159}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "58969106005120503",
+      "game_object_id": "1730242686860875",
+      "unity_class_id": "58",
+      "line": 5594,
+      "script": null,
+      "serialized_yaml": "--- !u!58 &58969106005120503\nCircleCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1730242686860875}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 0, y: 0}\n  m_Radius: 5\n"
+    },
+    {
+      "file_id": "114642988549198181",
+      "game_object_id": "1730242686860875",
+      "unity_class_id": "114",
+      "line": 5630,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/AlertRange.cs",
+      "serialized_yaml": "--- !u!114 &114642988549198181\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1730242686860875}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: e667676c1e2581f78ac6219259c46fde, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  ignoreLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  tagIncludeList: []\n  tagExcludeList: []\n  checkParentSight: 0\n  lineOfSight: 2\n  countUnalertTime: 0\n"
+    },
+    {
+      "file_id": "4946936116752871",
+      "game_object_id": "1724804207875695",
+      "unity_class_id": "4",
+      "line": 5650,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4946936116752871\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1724804207875695}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4061268324235159}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "4711914853252429",
+      "game_object_id": "1618682377417806",
+      "unity_class_id": "4",
+      "line": 5665,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4711914853252429\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1618682377417806}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: -13.610001, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4061268324235159}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "4918264173551851",
+      "game_object_id": "1703437598541787",
+      "unity_class_id": "4",
+      "line": 5680,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4918264173551851\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1703437598541787}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4061268324235159}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "4587397909062814",
+      "game_object_id": "1884547391421755",
+      "unity_class_id": "4",
+      "line": 5695,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4587397909062814\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1884547391421755}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1.651384, y: 1.6513844, z: 1.6513844}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4061268324235159}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "58875609422105747",
+      "game_object_id": "1884547391421755",
+      "unity_class_id": "58",
+      "line": 5710,
+      "script": null,
+      "serialized_yaml": "--- !u!58 &58875609422105747\nCircleCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1884547391421755}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 0, y: 0}\n  m_Radius: 5\n"
+    },
+    {
+      "file_id": "114371939378208658",
+      "game_object_id": "1884547391421755",
+      "unity_class_id": "114",
+      "line": 5746,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/AlertRange.cs",
+      "serialized_yaml": "--- !u!114 &114371939378208658\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1884547391421755}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: e667676c1e2581f78ac6219259c46fde, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  ignoreLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  tagIncludeList: []\n  tagExcludeList: []\n  checkParentSight: 0\n  lineOfSight: 2\n  countUnalertTime: 0\n"
+    },
+    {
+      "file_id": "4694121525821480",
+      "game_object_id": "1099118695303065",
+      "unity_class_id": "4",
+      "line": 5766,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4694121525821480\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1099118695303065}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: -0.001}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4061268324235159}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "4733206282342372",
+      "game_object_id": "1243736805655561",
+      "unity_class_id": "4",
+      "line": 8047,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4733206282342372\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 1243736805655561}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: -0.17, y: 0.5, z: 0.001}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 4061268324235159}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    }
+  ],
+  "recording_references": [],
+  "limits": [
+    "Static serialized specimen; no runtime timing capture.",
+    "Scene variants may override values; see catalog.json instances.",
+    "External fileID/GUID dependencies remain explicit; do not replace with guessed values."
+  ]
+}

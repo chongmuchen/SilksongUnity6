@@ -1,0 +1,3206 @@
+{
+  "schema": "silksong-combat-entity-v1",
+  "journal": {
+    "id": "Gnat Giant",
+    "guid": "f95b889964fb0164b81bbc69d0e2d419",
+    "path": "Assets/Data Assets/Enemy Journal/Journal Records/Gnat Giant.asset",
+    "key": "NAME_GNAT_GIANT",
+    "record_type": 0,
+    "kills_required": 10,
+    "required_type": 1,
+    "master_order": 64,
+    "scene_count": 1,
+    "object_names": [
+      "Gnat Giant",
+      "Gnat Giant (1)",
+      "Gnat Giant (2)"
+    ],
+    "instance_count": 3
+  },
+  "specimen": {
+    "source": "Assets/Scenes/Hornet/Greymoor_16.unity",
+    "line": 786308,
+    "game_object_id": "2776",
+    "name": "Gnat Giant",
+    "active": "1",
+    "hp": "60",
+    "special_death": "0",
+    "invincible": "0",
+    "fsms": [
+      {
+        "object": "Gnat Giant",
+        "game_object_id": "2776",
+        "component_id": "11784",
+        "name": "Behaviour",
+        "start": "Init",
+        "states": [
+          "Init",
+          "Idle",
+          "Idle Turn?",
+          "Idle Turn",
+          "Idle Bound Start",
+          "Idle Bound Move",
+          "Aggro Turn",
+          "Aggro Bound Start",
+          "Aggro Bound Move",
+          "Roar",
+          "Still Alert?",
+          "Aggro Start Turn",
+          "Bound Land",
+          "Roar Antic",
+          "Idle Bound Land",
+          "Sing",
+          "Sing End",
+          "Sleep",
+          "Dead",
+          "Damage Roar"
+        ],
+        "action_types": [
+          "HutongGames.PlayMaker.Actions.ActivateGameObject",
+          "HutongGames.PlayMaker.Actions.AudioPlayRandomVoice",
+          "HutongGames.PlayMaker.Actions.BoolTest",
+          "HutongGames.PlayMaker.Actions.BoolTestMulti",
+          "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegion",
+          "HutongGames.PlayMaker.Actions.CheckPassedTarget",
+          "HutongGames.PlayMaker.Actions.DecelerateXY",
+          "HutongGames.PlayMaker.Actions.DoCameraShake",
+          "HutongGames.PlayMaker.Actions.DoCameraShakeRepeatingV2",
+          "HutongGames.PlayMaker.Actions.EnemyDetectTurn",
+          "HutongGames.PlayMaker.Actions.EnemySingControl",
+          "HutongGames.PlayMaker.Actions.FlipScale",
+          "HutongGames.PlayMaker.Actions.FloatSignToBool",
+          "HutongGames.PlayMaker.Actions.GetDirection2D",
+          "HutongGames.PlayMaker.Actions.GetScale",
+          "HutongGames.PlayMaker.Actions.IntCompare",
+          "HutongGames.PlayMaker.Actions.IntOperator",
+          "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+          "HutongGames.PlayMaker.Actions.RandomInt",
+          "HutongGames.PlayMaker.Actions.SendEventByName",
+          "HutongGames.PlayMaker.Actions.SendRandomEventFair",
+          "HutongGames.PlayMaker.Actions.SendRandomEventFair+ProbabilityFsmEvent",
+          "HutongGames.PlayMaker.Actions.SetBoolValue",
+          "HutongGames.PlayMaker.Actions.SetVelocity2d",
+          "HutongGames.PlayMaker.Actions.SetVelocityByScale",
+          "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+          "HutongGames.PlayMaker.Actions.Tk2dWatchAnimationEvents",
+          "HutongGames.PlayMaker.Actions.WaitRandom",
+          "HutongGames.PlayMaker.FsmBool",
+          "HutongGames.PlayMaker.FsmFloat"
+        ],
+        "line": 768228,
+        "lines": 4311,
+        "source_sha256": "05ff3746164c5acb39b8b339b98f14a6ad7c3addabf2a230b8f3d36b32fc73a4"
+      },
+      {
+        "object": "Gnat Giant",
+        "game_object_id": "2776",
+        "component_id": "12456",
+        "name": "Croak Audio",
+        "start": "Inert",
+        "states": [
+          "Inert",
+          "Wait",
+          "Croak"
+        ],
+        "action_types": [
+          "HutongGames.PlayMaker.Actions.AudioPlayRandomVoice",
+          "HutongGames.PlayMaker.Actions.AudioPlaySimple",
+          "HutongGames.PlayMaker.Actions.AudioStop",
+          "HutongGames.PlayMaker.Actions.GameObjectCompare",
+          "HutongGames.PlayMaker.Actions.WaitRandom",
+          "HutongGames.PlayMaker.FsmFloat"
+        ],
+        "line": 868339,
+        "lines": 514,
+        "source_sha256": "e5d6a2680ee05ac172df2b5e756900c6a542647c569d89c3907c3ff079038ace"
+      }
+    ],
+    "components": [
+      "Assets/Scripts/Assembly-CSharp/BlackThreadState.cs",
+      "Assets/Scripts/Assembly-CSharp/BreakableBreaker.cs",
+      "Assets/Scripts/Assembly-CSharp/EnemyDeathEffectsRegular.cs",
+      "Assets/Scripts/Assembly-CSharp/EnemyHitEffectsRegular.cs",
+      "Assets/Scripts/Assembly-CSharp/EnemySingDuration.cs",
+      "Assets/Scripts/Assembly-CSharp/NeedolinTextOwner.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/AlertRange.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/DamageHero.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/HealthManager.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/Recoil.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/AudioSourceGamePause.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SpriteFlash.cs",
+      "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs"
+    ],
+    "damages": [
+      {
+        "object": "Gnat Giant",
+        "damage": "2",
+        "line": 900743
+      }
+    ],
+    "evidence": "journal_guid",
+    "is_hornet_scene": true,
+    "is_temp_scene": false
+  },
+  "source_sha256": "c499a355f003832c8841c23ccb8efcb3ba0eb17e374e966d4aa2cc7fee010049",
+  "fsms": [
+    {
+      "source": "Assets/Scenes/Hornet/Greymoor_16.unity",
+      "line": 768229,
+      "file_id": 11784,
+      "owner_id": 2776,
+      "owner": "Gnat Giant",
+      "name": "Behaviour",
+      "start_state": "Init",
+      "states": [
+        {
+          "name": "Init",
+          "line": 768246,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Idle"
+            },
+            {
+              "event": "SLEEP",
+              "to": "Sleep"
+            }
+          ],
+          "actions": [
+            {
+              "type": "BoolTest",
+              "full_type": "HutongGames.PlayMaker.Actions.BoolTest",
+              "enabled": true,
+              "params": {
+                "boolVariable": {
+                  "var": "a_WaitForWake",
+                  "stored": 0
+                },
+                "isTrue": "SLEEP",
+                "isFalse": null,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Idle",
+          "line": 768330,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Idle Turn?"
+            },
+            {
+              "event": "AGGRO",
+              "to": "Aggro Start Turn"
+            },
+            {
+              "event": "TOOK DAMAGE",
+              "to": "Damage Roar"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetVelocity2d",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocity2d",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "x": 0,
+                  "y": 0
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Idle",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": null
+              }
+            },
+            {
+              "type": "WaitRandom",
+              "full_type": "HutongGames.PlayMaker.Actions.WaitRandom",
+              "enabled": true,
+              "params": {
+                "timeMin": 2,
+                "timeMax": 4,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            },
+            {
+              "type": "CheckAlertRange",
+              "full_type": "CheckAlertRange",
+              "enabled": true,
+              "params": {
+                "alertRange": {
+                  "var": "Aggro Range",
+                  "stored": {
+                    "fileID": 12036
+                  }
+                },
+                "storeResult": {
+                  "var": null,
+                  "stored": 0
+                },
+                "InRangeEvent": "AGGRO",
+                "InRangeDelay": 0,
+                "OutOfRangeEvent": null,
+                "OutOfRangeDelay": 0,
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "CheckHeroPerformanceRegion",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegion",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "MinReactDelay": 0.3,
+                "MaxReactDelay": 0.5,
+                "None": null,
+                "ActiveInner": "SING",
+                "ActiveOuter": null,
+                "IgnoreNeedolinRange": 0,
+                "useActiveBool": false,
+                "ActiveBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "StoreState": {
+                  "var": null,
+                  "stored": 0
+                },
+                "EveryFrame": true
+              }
+            },
+            {
+              "type": "SendEventByName",
+              "full_type": "HutongGames.PlayMaker.Actions.SendEventByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 1,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "sendEvent": "IN IDLE",
+                "delay": 0,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Idle Turn?",
+          "line": 768624,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Idle Turn"
+            },
+            {
+              "event": "CANCEL",
+              "to": "Idle Bound Start"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SendEventByName",
+              "full_type": "HutongGames.PlayMaker.Actions.SendEventByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 1,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "sendEvent": "OUT IDLE",
+                "delay": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "RandomInt",
+              "full_type": "HutongGames.PlayMaker.Actions.RandomInt",
+              "enabled": true,
+              "params": {
+                "min": 2,
+                "max": 3,
+                "storeResult": {
+                  "var": "Bounds Left",
+                  "stored": 0
+                },
+                "inclusiveMax": true,
+                "noRepeat": 0
+              }
+            },
+            {
+              "type": "SendRandomEventFair",
+              "full_type": "HutongGames.PlayMaker.Actions.SendRandomEventFair",
+              "enabled": true,
+              "params": {
+                "Events": [
+                  {
+                    "custom_type": "HutongGames.PlayMaker.Actions.SendRandomEventFair+ProbabilityFsmEvent",
+                    "SendEvent": "CANCEL",
+                    "Probability": 0.6666666865348816
+                  },
+                  {
+                    "custom_type": "HutongGames.PlayMaker.Actions.SendRandomEventFair+ProbabilityFsmEvent",
+                    "SendEvent": "FINISHED",
+                    "Probability": 0.3333333432674408
+                  }
+                ],
+                "TrackingArray": {
+                  "useVariable": 1,
+                  "name": "Idle Turn Tracking",
+                  "tooltip": null,
+                  "showInInspector": 0,
+                  "networkSync": 0,
+                  "type": 0,
+                  "objectTypeName": "UnityEngine.Object",
+                  "floatValues": [],
+                  "intValues": null,
+                  "boolValues": null,
+                  "stringValues": [],
+                  "vector4Values": [],
+                  "objectReferences": []
+                },
+                "MissedMultiplier": 2
+              }
+            }
+          ]
+        },
+        {
+          "name": "Idle Turn",
+          "line": 768810,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Idle Bound Start"
+            },
+            {
+              "event": "TOOK DAMAGE",
+              "to": "Damage Roar"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetVelocity2d",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocity2d",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "x": 0,
+                  "y": 0
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "FlipScale",
+              "full_type": "HutongGames.PlayMaker.Actions.FlipScale",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "flipHorizontally": true,
+                "flipVertically": false,
+                "everyFrame": false,
+                "lateUpdate": false
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Turn",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Idle Bound Start",
+          "line": 768950,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "AGGRO",
+              "to": "Aggro Start Turn"
+            },
+            {
+              "event": "TURN",
+              "to": "Idle Turn"
+            },
+            {
+              "event": "CANCEL",
+              "to": "Idle"
+            },
+            {
+              "event": "FINISHED",
+              "to": "Idle Bound Move"
+            },
+            {
+              "event": "TOOK DAMAGE",
+              "to": "Damage Roar"
+            }
+          ],
+          "actions": [
+            {
+              "type": "CheckAlertRange",
+              "full_type": "CheckAlertRange",
+              "enabled": true,
+              "params": {
+                "alertRange": {
+                  "var": "Aggro Range",
+                  "stored": {
+                    "fileID": 12036
+                  }
+                },
+                "storeResult": {
+                  "var": null,
+                  "stored": 0
+                },
+                "InRangeEvent": "AGGRO",
+                "InRangeDelay": 0,
+                "OutOfRangeEvent": null,
+                "OutOfRangeDelay": 0,
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "EnemyDetectTurn",
+              "full_type": "HutongGames.PlayMaker.Actions.EnemyDetectTurn",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "WallDistance": 1,
+                "GroundAheadDistance": 1.5,
+                "DefaultFacingRight": 1,
+                "ShouldTurn": "TURN",
+                "EveryFrame": false
+              }
+            },
+            {
+              "type": "IntCompare",
+              "full_type": "HutongGames.PlayMaker.Actions.IntCompare",
+              "enabled": true,
+              "params": {
+                "integer1": {
+                  "var": "Bounds Left",
+                  "stored": 0
+                },
+                "integer2": 0,
+                "equal": "CANCEL",
+                "lessThan": "CANCEL",
+                "greaterThan": null,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "IntOperator",
+              "full_type": "HutongGames.PlayMaker.Actions.IntOperator",
+              "enabled": true,
+              "params": {
+                "integer1": {
+                  "var": "Bounds Left",
+                  "stored": 0
+                },
+                "integer2": 1,
+                "operation": 1,
+                "storeResult": {
+                  "var": "Bounds Left",
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Bound",
+                "animationTriggerEvent": "FINISHED",
+                "animationCompleteEvent": null
+              }
+            },
+            {
+              "type": "DecelerateXY",
+              "full_type": "HutongGames.PlayMaker.Actions.DecelerateXY",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "decelerationX": 0.7,
+                "decelerationY": 0,
+                "brakeOnExit": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Idle Bound Move",
+          "line": 769214,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Idle Bound Land"
+            }
+          ],
+          "actions": [
+            {
+              "type": "PlayAudioEventRandom",
+              "full_type": "PlayAudioEventRandom",
+              "enabled": true,
+              "params": {
+                "audioClips": {
+                  "useVariable": 0,
+                  "name": null,
+                  "tooltip": null,
+                  "showInInspector": 0,
+                  "networkSync": 0,
+                  "type": 12,
+                  "objectTypeName": "UnityEngine.AudioClip",
+                  "floatValues": [],
+                  "intValues": null,
+                  "boolValues": null,
+                  "stringValues": [],
+                  "vector4Values": [],
+                  "objectReferences": [
+                    {
+                      "fileID": 8300000,
+                      "guid": "ae65cfbe91888eb4399c56af12620508",
+                      "type": 3
+                    },
+                    {
+                      "fileID": 8300000,
+                      "guid": "d4d6f5a6441138e4b8144a0ccef32b2a",
+                      "type": 3
+                    },
+                    {
+                      "fileID": 8300000,
+                      "guid": "bcdd89362ebb54547af74c0ea2a5e43e",
+                      "type": 3
+                    }
+                  ]
+                },
+                "pitchMin": 0.95,
+                "pitchMax": 1.05,
+                "volume": 1,
+                "audioPlayerPrefab": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spawnPoint": {
+                  "owner": "self"
+                },
+                "spawnPosition": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "SpawnedPlayerRef": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "SetVelocityByScale",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocityByScale",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "speed": 10,
+                "ySpeed": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "Tk2dWatchAnimationEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dWatchAnimationEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Aggro Turn",
+          "line": 769387,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Still Alert?"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetBoolValue",
+              "full_type": "HutongGames.PlayMaker.Actions.SetBoolValue",
+              "enabled": true,
+              "params": {
+                "boolVariable": {
+                  "var": "Did Turn",
+                  "stored": 0
+                },
+                "boolValue": 1,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SetVelocity2d",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocity2d",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "x": 0,
+                  "y": 0
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "FlipScale",
+              "full_type": "HutongGames.PlayMaker.Actions.FlipScale",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "flipHorizontally": true,
+                "flipVertically": false,
+                "everyFrame": false,
+                "lateUpdate": false
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Turn",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            },
+            {
+              "type": "ActivateGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.ActivateGameObject",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Breaker",
+                    "stored": {
+                      "fileID": 3643
+                    }
+                  }
+                },
+                "activate": 1,
+                "recursive": 0,
+                "resetOnExit": true,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Aggro Bound Start",
+          "line": 769562,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "CANCEL",
+              "to": "Idle"
+            },
+            {
+              "event": "TURN",
+              "to": "Aggro Turn"
+            },
+            {
+              "event": "FINISHED",
+              "to": "Aggro Bound Move"
+            }
+          ],
+          "actions": [
+            {
+              "type": "CheckAlertRange",
+              "full_type": "CheckAlertRange",
+              "enabled": true,
+              "params": {
+                "alertRange": {
+                  "var": "Unaggro Range",
+                  "stored": {
+                    "fileID": 11781
+                  }
+                },
+                "storeResult": {
+                  "var": "In Aggro Range",
+                  "stored": 0
+                },
+                "InRangeEvent": null,
+                "InRangeDelay": 0,
+                "OutOfRangeEvent": null,
+                "OutOfRangeDelay": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "TimeLimitSetV2",
+              "full_type": "TimeLimitSetV2",
+              "enabled": true,
+              "params": {
+                "TimeDelay": {
+                  "var": "Aggro Duration",
+                  "stored": 5
+                },
+                "StoreValue": {
+                  "var": "Unalert Timer",
+                  "stored": 0
+                },
+                "CanSet": {
+                  "var": "In Aggro Range",
+                  "stored": 0
+                },
+                "EveryFrame": true
+              }
+            },
+            {
+              "type": "TimeLimitCheckV2",
+              "full_type": "TimeLimitCheckV2",
+              "enabled": true,
+              "params": {
+                "StoredValue": {
+                  "var": "Unalert Timer",
+                  "stored": 0
+                },
+                "AboveEvent": "CANCEL",
+                "BelowEvent": null,
+                "StoreBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "EveryFrame": true
+              }
+            },
+            {
+              "type": "CheckPassedTarget",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckPassedTarget",
+              "enabled": true,
+              "params": {
+                "Self": {
+                  "owner": "self"
+                },
+                "Target": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "IsActive": 1,
+                "DefaultFacingRight": 1,
+                "DistancePast": 4,
+                "StoreResult": {
+                  "var": "Passed Hero",
+                  "stored": 0
+                },
+                "PassedEvent": null,
+                "NotPassedEvent": null,
+                "EveryFrame": false
+              }
+            },
+            {
+              "type": "BoolTestMulti",
+              "full_type": "HutongGames.PlayMaker.Actions.BoolTestMulti",
+              "enabled": true,
+              "params": {
+                "boolVariables": [
+                  {
+                    "var": "Passed Hero",
+                    "stored": 0
+                  },
+                  {
+                    "var": "Did Turn",
+                    "stored": 0
+                  }
+                ],
+                "boolStates": [
+                  1,
+                  0
+                ],
+                "trueEvent": null,
+                "falseEvent": null,
+                "storeResult": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "EnemyDetectTurn",
+              "full_type": "HutongGames.PlayMaker.Actions.EnemyDetectTurn",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "WallDistance": 1,
+                "GroundAheadDistance": 1.5,
+                "DefaultFacingRight": 1,
+                "ShouldTurn": "TURN",
+                "EveryFrame": false
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Bound Aggro",
+                "animationTriggerEvent": "FINISHED",
+                "animationCompleteEvent": null
+              }
+            },
+            {
+              "type": "DecelerateXY",
+              "full_type": "HutongGames.PlayMaker.Actions.DecelerateXY",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "decelerationX": 0.7,
+                "decelerationY": 0,
+                "brakeOnExit": false
+              }
+            },
+            {
+              "type": "ActivateGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.ActivateGameObject",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Breaker",
+                    "stored": {
+                      "fileID": 3643
+                    }
+                  }
+                },
+                "activate": 1,
+                "recursive": 0,
+                "resetOnExit": true,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Aggro Bound Move",
+          "line": 769929,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Bound Land"
+            }
+          ],
+          "actions": [
+            {
+              "type": "PlayAudioEventRandom",
+              "full_type": "PlayAudioEventRandom",
+              "enabled": true,
+              "params": {
+                "audioClips": {
+                  "useVariable": 0,
+                  "name": null,
+                  "tooltip": null,
+                  "showInInspector": 0,
+                  "networkSync": 0,
+                  "type": 12,
+                  "objectTypeName": "UnityEngine.AudioClip",
+                  "floatValues": [],
+                  "intValues": null,
+                  "boolValues": null,
+                  "stringValues": [],
+                  "vector4Values": [],
+                  "objectReferences": [
+                    {
+                      "fileID": 8300000,
+                      "guid": "ae65cfbe91888eb4399c56af12620508",
+                      "type": 3
+                    },
+                    {
+                      "fileID": 8300000,
+                      "guid": "d4d6f5a6441138e4b8144a0ccef32b2a",
+                      "type": 3
+                    },
+                    {
+                      "fileID": 8300000,
+                      "guid": "bcdd89362ebb54547af74c0ea2a5e43e",
+                      "type": 3
+                    }
+                  ]
+                },
+                "pitchMin": 0.95,
+                "pitchMax": 1.05,
+                "volume": 1,
+                "audioPlayerPrefab": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spawnPoint": {
+                  "owner": "self"
+                },
+                "spawnPosition": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "SpawnedPlayerRef": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "SetVelocityByScale",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocityByScale",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "speed": 15,
+                "ySpeed": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "Tk2dWatchAnimationEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dWatchAnimationEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            },
+            {
+              "type": "ActivateGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.ActivateGameObject",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Breaker",
+                    "stored": {
+                      "fileID": 3643
+                    }
+                  }
+                },
+                "activate": 1,
+                "recursive": 0,
+                "resetOnExit": true,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Roar",
+          "line": 770129,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Aggro Bound Start"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetBoolValue",
+              "full_type": "HutongGames.PlayMaker.Actions.SetBoolValue",
+              "enabled": true,
+              "params": {
+                "boolVariable": {
+                  "var": "Did Turn",
+                  "stored": 0
+                },
+                "boolValue": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "DoCameraShake",
+              "full_type": "HutongGames.PlayMaker.Actions.DoCameraShake",
+              "enabled": true,
+              "params": {
+                "VisibleRenderer": {
+                  "owner": "self"
+                },
+                "Camera": {
+                  "fileID": 11400000,
+                  "guid": "9b0888e0916dca544846a2f34304dac9",
+                  "type": 2
+                },
+                "Profile": {
+                  "fileID": 11400000,
+                  "guid": "e5e3ff61a10a30e488c54681282cc213",
+                  "type": 2
+                },
+                "cancelOnExit": true,
+                "DoFreeze": 0,
+                "Delay": 0
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Roar",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            },
+            {
+              "type": "AudioPlayRandomVoice",
+              "full_type": "HutongGames.PlayMaker.Actions.AudioPlayRandomVoice",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Audio Loop Voice",
+                    "stored": {
+                      "fileID": 3665
+                    }
+                  }
+                },
+                "audioClips": [
+                  {
+                    "fileID": 8300000,
+                    "guid": "78a237ec06d1b5b49bba07ac60768469",
+                    "type": 3
+                  },
+                  {
+                    "fileID": 8300000,
+                    "guid": "0f653a56f06798b46967ebc9f943171e",
+                    "type": 3
+                  },
+                  {
+                    "fileID": 8300000,
+                    "guid": "8fe76556dc241cd4486a5e7810ee9b89",
+                    "type": 3
+                  },
+                  {
+                    "fileID": 8300000,
+                    "guid": "b35274fbd2e131443bdeb5a9780bae2c",
+                    "type": 3
+                  }
+                ],
+                "weights": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "pitchMin": 0.9,
+                "pitchMax": 1.1,
+                "stopPreviousSound": true
+              }
+            }
+          ]
+        },
+        {
+          "name": "Still Alert?",
+          "line": 770337,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "CANCEL",
+              "to": "Idle Bound Start"
+            },
+            {
+              "event": "FINISHED",
+              "to": "Aggro Bound Start"
+            }
+          ],
+          "actions": [
+            {
+              "type": "RandomInt",
+              "full_type": "HutongGames.PlayMaker.Actions.RandomInt",
+              "enabled": true,
+              "params": {
+                "min": 3,
+                "max": 4,
+                "storeResult": {
+                  "var": "Bounds Left",
+                  "stored": 0
+                },
+                "inclusiveMax": true,
+                "noRepeat": 0
+              }
+            },
+            {
+              "type": "CheckAlertRange",
+              "full_type": "CheckAlertRange",
+              "enabled": true,
+              "params": {
+                "alertRange": {
+                  "var": "Unaggro Range",
+                  "stored": {
+                    "fileID": 11781
+                  }
+                },
+                "storeResult": {
+                  "var": null,
+                  "stored": 0
+                },
+                "InRangeEvent": null,
+                "InRangeDelay": 0,
+                "OutOfRangeEvent": "CANCEL",
+                "OutOfRangeDelay": 0,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Aggro Start Turn",
+          "line": 770474,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Roar Antic"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SendEventByName",
+              "full_type": "HutongGames.PlayMaker.Actions.SendEventByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 1,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "sendEvent": "OUT IDLE",
+                "delay": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SetVelocity2d",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocity2d",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "x": 0,
+                  "y": 0
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "TimeLimitSetV2",
+              "full_type": "TimeLimitSetV2",
+              "enabled": true,
+              "params": {
+                "TimeDelay": {
+                  "var": "Aggro Duration",
+                  "stored": 5
+                },
+                "StoreValue": {
+                  "var": "Unalert Timer",
+                  "stored": 0
+                },
+                "CanSet": 1,
+                "EveryFrame": true
+              }
+            },
+            {
+              "type": "GetDirection2D",
+              "full_type": "HutongGames.PlayMaker.Actions.GetDirection2D",
+              "enabled": true,
+              "params": {
+                "From": {
+                  "owner": "self"
+                },
+                "To": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "StoreVector": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "StoreX": {
+                  "var": "Direction To Hero",
+                  "stored": 0
+                },
+                "StoreY": {
+                  "var": null,
+                  "stored": 0
+                },
+                "EveryFrame": false
+              }
+            },
+            {
+              "type": "GetScale",
+              "full_type": "HutongGames.PlayMaker.Actions.GetScale",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  }
+                },
+                "xScale": {
+                  "var": "Scale X",
+                  "stored": 0
+                },
+                "yScale": {
+                  "var": null,
+                  "stored": 0
+                },
+                "zScale": {
+                  "var": null,
+                  "stored": 0
+                },
+                "space": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "FloatSignToBool",
+              "full_type": "HutongGames.PlayMaker.Actions.FloatSignToBool",
+              "enabled": true,
+              "params": {
+                "Value": {
+                  "var": "Direction To Hero",
+                  "stored": 0
+                },
+                "StoreIsPositive": {
+                  "var": "Hero Is Right",
+                  "stored": 0
+                },
+                "EveryFrame": false
+              }
+            },
+            {
+              "type": "FloatSignToBool",
+              "full_type": "HutongGames.PlayMaker.Actions.FloatSignToBool",
+              "enabled": true,
+              "params": {
+                "Value": {
+                  "var": "Scale X",
+                  "stored": 0
+                },
+                "StoreIsPositive": {
+                  "var": "Facing Right",
+                  "stored": 0
+                },
+                "EveryFrame": false
+              }
+            },
+            {
+              "type": "BoolTestMulti",
+              "full_type": "HutongGames.PlayMaker.Actions.BoolTestMulti",
+              "enabled": true,
+              "params": {
+                "boolVariables": [
+                  {
+                    "var": "Facing Right",
+                    "stored": 0
+                  },
+                  {
+                    "var": "Hero Is Right",
+                    "stored": 0
+                  }
+                ],
+                "boolStates": [
+                  1,
+                  1
+                ],
+                "trueEvent": "FINISHED",
+                "falseEvent": null,
+                "storeResult": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "BoolTestMulti",
+              "full_type": "HutongGames.PlayMaker.Actions.BoolTestMulti",
+              "enabled": true,
+              "params": {
+                "boolVariables": [
+                  {
+                    "var": "Facing Right",
+                    "stored": 0
+                  },
+                  {
+                    "var": "Hero Is Right",
+                    "stored": 0
+                  }
+                ],
+                "boolStates": [
+                  0,
+                  0
+                ],
+                "trueEvent": "FINISHED",
+                "falseEvent": null,
+                "storeResult": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "FlipScale",
+              "full_type": "HutongGames.PlayMaker.Actions.FlipScale",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "flipHorizontally": true,
+                "flipVertically": false,
+                "everyFrame": false,
+                "lateUpdate": false
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Turn",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Bound Land",
+          "line": 770886,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Aggro Bound Start"
+            }
+          ],
+          "actions": [
+            {
+              "type": "PlayAudioEventRandom",
+              "full_type": "PlayAudioEventRandom",
+              "enabled": true,
+              "params": {
+                "audioClips": {
+                  "useVariable": 0,
+                  "name": null,
+                  "tooltip": null,
+                  "showInInspector": 0,
+                  "networkSync": 0,
+                  "type": 12,
+                  "objectTypeName": "UnityEngine.AudioClip",
+                  "floatValues": [],
+                  "intValues": null,
+                  "boolValues": null,
+                  "stringValues": [],
+                  "vector4Values": [],
+                  "objectReferences": [
+                    {
+                      "fileID": 8300000,
+                      "guid": "b82b952b628d6224baad5c297f675a81",
+                      "type": 3
+                    },
+                    {
+                      "fileID": 8300000,
+                      "guid": "23204df57f6837445b64246ab9cf180f",
+                      "type": 3
+                    },
+                    {
+                      "fileID": 8300000,
+                      "guid": "c7448f03d8b32ab4b9129c7881ae25e4",
+                      "type": 3
+                    },
+                    {
+                      "fileID": 8300000,
+                      "guid": "a0724af10d6808c448e5e568592b2a76",
+                      "type": 3
+                    }
+                  ]
+                },
+                "pitchMin": 0.95,
+                "pitchMax": 1.05,
+                "volume": 1,
+                "audioPlayerPrefab": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spawnPoint": {
+                  "owner": "self"
+                },
+                "spawnPosition": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "SpawnedPlayerRef": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "CheckHeroPerformanceRegion",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegion",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "MinReactDelay": 0.3,
+                "MaxReactDelay": 0.5,
+                "None": null,
+                "ActiveInner": "SING",
+                "ActiveOuter": null,
+                "IgnoreNeedolinRange": 0,
+                "useActiveBool": false,
+                "ActiveBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "StoreState": {
+                  "var": null,
+                  "stored": 0
+                },
+                "EveryFrame": false
+              }
+            },
+            {
+              "type": "DoCameraShake",
+              "full_type": "HutongGames.PlayMaker.Actions.DoCameraShake",
+              "enabled": true,
+              "params": {
+                "VisibleRenderer": {
+                  "owner": "self"
+                },
+                "Camera": {
+                  "fileID": 11400000,
+                  "guid": "9b0888e0916dca544846a2f34304dac9",
+                  "type": 2
+                },
+                "Profile": {
+                  "fileID": 11400000,
+                  "guid": "3b6799d05bb814a4e9863512371c6cab",
+                  "type": 2
+                },
+                "cancelOnExit": false,
+                "DoFreeze": 0,
+                "Delay": 0
+              }
+            },
+            {
+              "type": "PlayParticleEmitter",
+              "full_type": "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Pt BoundDust",
+                    "stored": {
+                      "fileID": 3096
+                    }
+                  }
+                },
+                "emit": 0,
+                "resetIfPlaying": false
+              }
+            },
+            {
+              "type": "ActivateGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.ActivateGameObject",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Breaker",
+                    "stored": {
+                      "fileID": 3643
+                    }
+                  }
+                },
+                "activate": 1,
+                "recursive": 0,
+                "resetOnExit": true,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Roar Antic",
+          "line": 771162,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Roar"
+            }
+          ],
+          "actions": [
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Antic",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Idle Bound Land",
+          "line": 771245,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Idle Bound Start"
+            }
+          ],
+          "actions": [
+            {
+              "type": "PlayAudioEventRandom",
+              "full_type": "PlayAudioEventRandom",
+              "enabled": true,
+              "params": {
+                "audioClips": {
+                  "useVariable": 0,
+                  "name": null,
+                  "tooltip": null,
+                  "showInInspector": 0,
+                  "networkSync": 0,
+                  "type": 12,
+                  "objectTypeName": "UnityEngine.AudioClip",
+                  "floatValues": [],
+                  "intValues": null,
+                  "boolValues": null,
+                  "stringValues": [],
+                  "vector4Values": [],
+                  "objectReferences": [
+                    {
+                      "fileID": 8300000,
+                      "guid": "b82b952b628d6224baad5c297f675a81",
+                      "type": 3
+                    },
+                    {
+                      "fileID": 8300000,
+                      "guid": "23204df57f6837445b64246ab9cf180f",
+                      "type": 3
+                    },
+                    {
+                      "fileID": 8300000,
+                      "guid": "c7448f03d8b32ab4b9129c7881ae25e4",
+                      "type": 3
+                    },
+                    {
+                      "fileID": 8300000,
+                      "guid": "a0724af10d6808c448e5e568592b2a76",
+                      "type": 3
+                    }
+                  ]
+                },
+                "pitchMin": 0.95,
+                "pitchMax": 1.05,
+                "volume": 1,
+                "audioPlayerPrefab": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spawnPoint": {
+                  "owner": "self"
+                },
+                "spawnPosition": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "SpawnedPlayerRef": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "CheckHeroPerformanceRegion",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegion",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "MinReactDelay": 0.3,
+                "MaxReactDelay": 0.5,
+                "None": null,
+                "ActiveInner": "SING",
+                "ActiveOuter": null,
+                "IgnoreNeedolinRange": 0,
+                "useActiveBool": false,
+                "ActiveBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "StoreState": {
+                  "var": null,
+                  "stored": 0
+                },
+                "EveryFrame": false
+              }
+            },
+            {
+              "type": "PlayParticleEmitter",
+              "full_type": "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Pt BoundDust",
+                    "stored": {
+                      "fileID": 3096
+                    }
+                  }
+                },
+                "emit": 0,
+                "resetIfPlaying": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Sing",
+          "line": 771452,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "CANCEL",
+              "to": "Sing End"
+            },
+            {
+              "event": "SING DURATION END",
+              "to": "Sing End"
+            }
+          ],
+          "actions": [
+            {
+              "type": "EnemySingControl",
+              "full_type": "HutongGames.PlayMaker.Actions.EnemySingControl",
+              "enabled": true,
+              "params": {
+                "enemyGameObject": {
+                  "owner": "self"
+                },
+                "audioPlayer": {
+                  "var": "Audio Loop Voice",
+                  "stored": {
+                    "fileID": 3665
+                  }
+                },
+                "singAudioTable": {
+                  "fileID": 11400000,
+                  "guid": "0840ed198688f0342a7e1b86be9e44f0",
+                  "type": 2
+                },
+                "noThreadEffects": 0,
+                "noPuppetString": 0,
+                "randomSingStartTime": 1,
+                "dontStopAudioOnExit": 0,
+                "altThreadSpawnPoint": {
+                  "fileID": 0
+                }
+              }
+            },
+            {
+              "type": "SendEventByName",
+              "full_type": "HutongGames.PlayMaker.Actions.SendEventByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 1,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "sendEvent": "OUT IDLE",
+                "delay": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SetVelocity2d",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocity2d",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "x": 0,
+                  "y": 0
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Sing",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": null
+              }
+            },
+            {
+              "type": "CheckHeroPerformanceRegion",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegion",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "MinReactDelay": 0.5,
+                "MaxReactDelay": 0.7,
+                "None": "CANCEL",
+                "ActiveInner": null,
+                "ActiveOuter": null,
+                "IgnoreNeedolinRange": 0,
+                "useActiveBool": false,
+                "ActiveBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "StoreState": {
+                  "var": null,
+                  "stored": 0
+                },
+                "EveryFrame": true
+              }
+            },
+            {
+              "type": "DoCameraShakeRepeatingV2",
+              "full_type": "HutongGames.PlayMaker.Actions.DoCameraShakeRepeatingV2",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "MaxCameraDistance": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "Camera": {
+                  "fileID": 11400000,
+                  "guid": "9b0888e0916dca544846a2f34304dac9",
+                  "type": 2
+                },
+                "Profile": {
+                  "fileID": 11400000,
+                  "guid": "d729c9f693c66044693f1982143361f4",
+                  "type": 2
+                },
+                "DoFreeze": 0,
+                "Delay": 0,
+                "RepeatDelay": 0.15,
+                "vibrate": 1
+              }
+            }
+          ]
+        },
+        {
+          "name": "Sing End",
+          "line": 771805,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Idle"
+            }
+          ],
+          "actions": [
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Sing End",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Sleep",
+          "line": 771888,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "WAKE",
+              "to": "Idle"
+            }
+          ],
+          "actions": [
+            {
+              "type": "CheckAlertRangeByName",
+              "full_type": "CheckAlertRangeByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 0,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "alertRangeName": "Wake Range",
+                "storeResult": 0,
+                "sendEvent": "WAKE",
+                "outOfRangeEvent": null,
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Idle",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "Dead",
+          "line": 772030,
+          "sequence": 0,
+          "transitions": [],
+          "actions": [
+            {
+              "type": "PlayAudioEvent",
+              "full_type": "PlayAudioEvent",
+              "enabled": true,
+              "params": {
+                "audioClip": {
+                  "fileID": 8300000,
+                  "guid": "95a64e98489b1b543a7eb3d97b28c919",
+                  "type": 3
+                },
+                "pitchMin": 0.95,
+                "pitchMax": 1.05,
+                "volume": 1,
+                "audioPlayerPrefab": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spawnPoint": {
+                  "owner": "self"
+                },
+                "spawnPosition": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "SpawnedPlayerRef": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Damage Roar",
+          "line": 772144,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Roar Antic"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SendEventByName",
+              "full_type": "HutongGames.PlayMaker.Actions.SendEventByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 1,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "sendEvent": "OUT IDLE",
+                "delay": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SetVelocity2d",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocity2d",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "x": 0,
+                  "y": 0
+                },
+                "x": {
+                  "var": null,
+                  "stored": 0
+                },
+                "y": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "TimeLimitSetV2",
+              "full_type": "TimeLimitSetV2",
+              "enabled": true,
+              "params": {
+                "TimeDelay": {
+                  "var": "Aggro Duration",
+                  "stored": 5
+                },
+                "StoreValue": {
+                  "var": "Unalert Timer",
+                  "stored": 0
+                },
+                "CanSet": 1,
+                "EveryFrame": false
+              }
+            }
+          ]
+        }
+      ],
+      "global_transitions": [
+        {
+          "fsmEvent": {
+            "name": "SING",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          "toState": "Sing",
+          "linkStyle": 0,
+          "linkConstraint": 0,
+          "linkTarget": 0,
+          "colorIndex": 0
+        },
+        {
+          "fsmEvent": {
+            "name": "ZERO HP",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          "toState": "Dead",
+          "linkStyle": 0,
+          "linkConstraint": 0,
+          "linkTarget": 0,
+          "colorIndex": 0
+        }
+      ],
+      "variables": {
+        "floatVariables": [
+          {
+            "useVariable": 1,
+            "name": "Aggro Duration",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 5
+          },
+          {
+            "useVariable": 1,
+            "name": "Direction To Hero",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Scale X",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Unalert Timer",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          }
+        ],
+        "intVariables": [
+          {
+            "useVariable": 1,
+            "name": "Bounds Left",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          }
+        ],
+        "boolVariables": [
+          {
+            "useVariable": 1,
+            "name": "Facing Right",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Hero Is Right",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "In Aggro Range",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "a_WaitForWake",
+            "tooltip": null,
+            "showInInspector": 1,
+            "networkSync": 0,
+            "value": 1
+          },
+          {
+            "useVariable": 1,
+            "name": "Did Turn",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Passed Hero",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          }
+        ],
+        "stringVariables": [],
+        "vector2Variables": [],
+        "vector3Variables": [],
+        "colorVariables": [],
+        "rectVariables": [],
+        "quaternionVariables": [],
+        "gameObjectVariables": [
+          {
+            "useVariable": 1,
+            "name": "Pt BoundDust",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 3096
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Audio Loop Voice",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 3665
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Breaker",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 3643
+            }
+          }
+        ],
+        "objectVariables": [
+          {
+            "useVariable": 1,
+            "name": "Aggro Range",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "typeName": "AlertRange",
+            "value": {
+              "fileID": 12036
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Unaggro Range",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "typeName": "AlertRange",
+            "value": {
+              "fileID": 11781
+            }
+          }
+        ],
+        "materialVariables": [],
+        "textureVariables": [],
+        "arrayVariables": [
+          {
+            "useVariable": 1,
+            "name": "Idle Turn Tracking",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "type": 0,
+            "objectTypeName": "UnityEngine.Object",
+            "floatValues": [],
+            "intValues": null,
+            "boolValues": null,
+            "stringValues": [],
+            "vector4Values": [],
+            "objectReferences": []
+          }
+        ],
+        "enumVariables": [],
+        "categories": [
+          null
+        ],
+        "variableCategoryIDs": 0
+      },
+      "fsm_metadata": {
+        "dataVersion": 2,
+        "usedInTemplate": {
+          "fileID": 0
+        },
+        "name": "Behaviour",
+        "startState": "Init",
+        "events": [
+          {
+            "name": "FINISHED",
+            "isSystemEvent": 1,
+            "isGlobal": 0
+          },
+          {
+            "name": "AGGRO",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "CANCEL",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "SING",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "SLEEP",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "TOOK DAMAGE",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "TURN",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "WAKE",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "ZERO HP",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "SING DURATION END",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          }
+        ],
+        "globalTransitions": [
+          {
+            "fsmEvent": {
+              "name": "SING",
+              "isSystemEvent": 0,
+              "isGlobal": 1
+            },
+            "toState": "Sing",
+            "linkStyle": 0,
+            "linkConstraint": 0,
+            "linkTarget": 0,
+            "colorIndex": 0
+          },
+          {
+            "fsmEvent": {
+              "name": "ZERO HP",
+              "isSystemEvent": 0,
+              "isGlobal": 0
+            },
+            "toState": "Dead",
+            "linkStyle": 0,
+            "linkConstraint": 0,
+            "linkTarget": 0,
+            "colorIndex": 0
+          }
+        ],
+        "description": null,
+        "docUrl": null,
+        "showStateLabel": 0,
+        "maxLoopCount": 0,
+        "watermark": null,
+        "password": null,
+        "locked": 0,
+        "manualUpdate": 0,
+        "outVariableIndices": null,
+        "keepDelayedEventsOnStateExit": 0,
+        "preprocessed": 1,
+        "ExposedEvents": [],
+        "OutputEvents": [],
+        "RestartOnEnable": 1,
+        "ResetVariablesOnEnable": 0,
+        "EnableDebugFlow": 0,
+        "EnableBreakpoints": 1,
+        "editorFlags": 3,
+        "activeStateName": null,
+        "mouseEvents": 0,
+        "handleLevelLoaded": 0,
+        "handleTriggerEnter2D": 0,
+        "handleTriggerExit2D": 0,
+        "handleTriggerStay2D": 0,
+        "handleCollisionEnter2D": 0,
+        "handleCollisionExit2D": 0,
+        "handleCollisionStay2D": 0,
+        "handleTriggerEnter": 0,
+        "handleTriggerExit": 0,
+        "handleTriggerStay": 0,
+        "handleCollisionEnter": 0,
+        "handleCollisionExit": 0,
+        "handleCollisionStay": 0,
+        "handleParticleCollision": 0,
+        "handleControllerColliderHit": 0,
+        "handleJointBreak": 0,
+        "handleJointBreak2D": 0,
+        "handleOnGUI": 0,
+        "handleFixedUpdate": 1,
+        "handleLateUpdate": 0,
+        "handleApplicationEvents": 0,
+        "handleUiEvents": 0,
+        "handleLegacyNetworking": 0,
+        "handleAnimatorMove": 0,
+        "handleAnimatorIK": 0
+      }
+    },
+    {
+      "source": "Assets/Scenes/Hornet/Greymoor_16.unity",
+      "line": 868340,
+      "file_id": 12456,
+      "owner_id": 2776,
+      "owner": "Gnat Giant",
+      "name": "Croak Audio",
+      "start_state": "Inert",
+      "states": [
+        {
+          "name": "Inert",
+          "line": 868357,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "IN IDLE",
+              "to": "Wait"
+            }
+          ],
+          "actions": [
+            {
+              "type": "AudioStop",
+              "full_type": "HutongGames.PlayMaker.Actions.AudioStop",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Spawned Player",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "fadeTime": 0
+              }
+            }
+          ]
+        },
+        {
+          "name": "Wait",
+          "line": 868436,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "CROAK",
+              "to": "Croak"
+            }
+          ],
+          "actions": [
+            {
+              "type": "WaitRandom",
+              "full_type": "HutongGames.PlayMaker.Actions.WaitRandom",
+              "enabled": true,
+              "params": {
+                "timeMin": 2,
+                "timeMax": 4,
+                "finishEvent": "CROAK",
+                "realTime": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Croak",
+          "line": 868516,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Wait"
+            }
+          ],
+          "actions": [
+            {
+              "type": "PlayAudioEvent",
+              "full_type": "PlayAudioEvent",
+              "enabled": false,
+              "params": {
+                "audioClip": {
+                  "fileID": 8300000,
+                  "guid": "22dc5a52d7344b9498d403b2e4a88874",
+                  "type": 3
+                },
+                "pitchMin": 0.9,
+                "pitchMax": 1.05,
+                "volume": 1,
+                "audioPlayerPrefab": {
+                  "var": null,
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spawnPoint": {
+                  "owner": "self"
+                },
+                "spawnPosition": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                },
+                "SpawnedPlayerRef": {
+                  "var": "Spawned Player",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "AudioStop",
+              "full_type": "HutongGames.PlayMaker.Actions.AudioStop",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Audio Loop Voice",
+                    "stored": {
+                      "fileID": 3665
+                    }
+                  }
+                },
+                "fadeTime": 0
+              }
+            },
+            {
+              "type": "AudioPlaySimple",
+              "full_type": "HutongGames.PlayMaker.Actions.AudioPlaySimple",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Audio Loop Voice",
+                    "stored": {
+                      "fileID": 3665
+                    }
+                  }
+                },
+                "volume": 1,
+                "oneShotClip": {
+                  "fileID": 0
+                }
+              }
+            },
+            {
+              "type": "AudioPlayRandomVoice",
+              "full_type": "HutongGames.PlayMaker.Actions.AudioPlayRandomVoice",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Audio Loop Voice",
+                    "stored": {
+                      "fileID": 3665
+                    }
+                  }
+                },
+                "audioClips": [
+                  {
+                    "fileID": 8300000,
+                    "guid": "22dc5a52d7344b9498d403b2e4a88874",
+                    "type": 3
+                  }
+                ],
+                "weights": [
+                  1
+                ],
+                "pitchMin": 0.9,
+                "pitchMax": 1.1,
+                "stopPreviousSound": false
+              }
+            },
+            {
+              "type": "GameObjectCompare",
+              "full_type": "HutongGames.PlayMaker.Actions.GameObjectCompare",
+              "enabled": false,
+              "params": {
+                "gameObjectVariable": {
+                  "owner": {
+                    "var": "Spawned Player",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "compareTo": {
+                  "fileID": 0
+                },
+                "equalEvent": "FINISHED",
+                "notEqualEvent": null,
+                "storeResult": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": true
+              }
+            }
+          ]
+        }
+      ],
+      "global_transitions": [
+        {
+          "fsmEvent": {
+            "name": "OUT IDLE",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          "toState": "Inert",
+          "linkStyle": 0,
+          "linkConstraint": 0,
+          "linkTarget": 0,
+          "colorIndex": 0
+        }
+      ],
+      "variables": {
+        "floatVariables": [],
+        "intVariables": [],
+        "boolVariables": [],
+        "stringVariables": [],
+        "vector2Variables": [],
+        "vector3Variables": [],
+        "colorVariables": [],
+        "rectVariables": [],
+        "quaternionVariables": [],
+        "gameObjectVariables": [
+          {
+            "useVariable": 1,
+            "name": "Spawned Player",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Audio Loop Voice",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 3665
+            }
+          }
+        ],
+        "objectVariables": [],
+        "materialVariables": [],
+        "textureVariables": [],
+        "arrayVariables": [],
+        "enumVariables": [],
+        "categories": [
+          null
+        ],
+        "variableCategoryIDs": 0
+      },
+      "fsm_metadata": {
+        "dataVersion": 2,
+        "usedInTemplate": {
+          "fileID": 0
+        },
+        "name": "Croak Audio",
+        "startState": "Inert",
+        "events": [
+          {
+            "name": "FINISHED",
+            "isSystemEvent": 1,
+            "isGlobal": 0
+          },
+          {
+            "name": "CROAK",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "IN IDLE",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "OUT IDLE",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          }
+        ],
+        "globalTransitions": [
+          {
+            "fsmEvent": {
+              "name": "OUT IDLE",
+              "isSystemEvent": 0,
+              "isGlobal": 0
+            },
+            "toState": "Inert",
+            "linkStyle": 0,
+            "linkConstraint": 0,
+            "linkTarget": 0,
+            "colorIndex": 0
+          }
+        ],
+        "description": null,
+        "docUrl": null,
+        "showStateLabel": 0,
+        "maxLoopCount": 0,
+        "watermark": null,
+        "password": null,
+        "locked": 0,
+        "manualUpdate": 0,
+        "outVariableIndices": null,
+        "keepDelayedEventsOnStateExit": 0,
+        "preprocessed": 1,
+        "ExposedEvents": [],
+        "OutputEvents": [],
+        "RestartOnEnable": 1,
+        "ResetVariablesOnEnable": 0,
+        "EnableDebugFlow": 0,
+        "EnableBreakpoints": 1,
+        "editorFlags": 1,
+        "activeStateName": null,
+        "mouseEvents": 0,
+        "handleLevelLoaded": 0,
+        "handleTriggerEnter2D": 0,
+        "handleTriggerExit2D": 0,
+        "handleTriggerStay2D": 0,
+        "handleCollisionEnter2D": 0,
+        "handleCollisionExit2D": 0,
+        "handleCollisionStay2D": 0,
+        "handleTriggerEnter": 0,
+        "handleTriggerExit": 0,
+        "handleTriggerStay": 0,
+        "handleCollisionEnter": 0,
+        "handleCollisionExit": 0,
+        "handleCollisionStay": 0,
+        "handleParticleCollision": 0,
+        "handleControllerColliderHit": 0,
+        "handleJointBreak": 0,
+        "handleJointBreak2D": 0,
+        "handleOnGUI": 0,
+        "handleFixedUpdate": 0,
+        "handleLateUpdate": 0,
+        "handleApplicationEvents": 0,
+        "handleUiEvents": 0,
+        "handleLegacyNetworking": 0,
+        "handleAnimatorMove": 0,
+        "handleAnimatorIK": 0
+      }
+    }
+  ],
+  "game_objects": [
+    {
+      "file_id": "522",
+      "name": "Wake Range",
+      "line": 8803,
+      "serialized_yaml": "--- !u!1 &522\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 4223}\n  - component: {fileID: 8004}\n  - component: {fileID: 11725}\n  m_Layer: 13\n  m_Name: Wake Range\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2776",
+      "name": "Gnat Giant",
+      "line": 47782,
+      "serialized_yaml": "--- !u!1 &2776\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 7042}\n  - component: {fileID: 7435}\n  - component: {fileID: 7572}\n  - component: {fileID: 11668}\n  - component: {fileID: 7807}\n  - component: {fileID: 11687}\n  - component: {fileID: 8344}\n  - component: {fileID: 12224}\n  - component: {fileID: 12661}\n  - component: {fileID: 12113}\n  - component: {fileID: 12398}\n  - component: {fileID: 11974}\n  - component: {fileID: 11927}\n  - component: {fileID: 13003}\n  - component: {fileID: 8141}\n  - component: {fileID: 12484}\n  - component: {fileID: 11784}\n  - component: {fileID: 12456}\n  - component: {fileID: 13179}\n  - component: {fileID: 12799}\n  - component: {fileID: 12800}\n  m_Layer: 11\n  m_Name: Gnat Giant\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2923",
+      "name": "Unagrro Range",
+      "line": 50509,
+      "serialized_yaml": "--- !u!1 &2923\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 6982}\n  - component: {fileID: 8213}\n  - component: {fileID: 11781}\n  m_Layer: 13\n  m_Name: Unagrro Range\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "3083",
+      "name": "Aggro Range",
+      "line": 53508,
+      "serialized_yaml": "--- !u!1 &3083\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 6990}\n  - component: {fileID: 8144}\n  - component: {fileID: 12036}\n  m_Layer: 13\n  m_Name: Aggro Range\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "3096",
+      "name": "Pt BoundDust",
+      "line": 53746,
+      "serialized_yaml": "--- !u!1 &3096\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 6630}\n  - component: {fileID: 8515}\n  - component: {fileID: 8750}\n  m_Layer: 8\n  m_Name: Pt BoundDust\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "3643",
+      "name": "Breaker",
+      "line": 63847,
+      "serialized_yaml": "--- !u!1 &3643\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 7284}\n  - component: {fileID: 8248}\n  - component: {fileID: 12784}\n  m_Layer: 17\n  m_Name: Breaker\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "3665",
+      "name": "Audio Loop Voice",
+      "line": 64239,
+      "serialized_yaml": "--- !u!1 &3665\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 7358}\n  - component: {fileID: 8392}\n  - component: {fileID: 12913}\n  m_Layer: 0\n  m_Name: Audio Loop Voice\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    }
+  ],
+  "components": [
+    {
+      "file_id": "4223",
+      "game_object_id": "522",
+      "unity_class_id": "4",
+      "line": 73365,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &4223\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 522}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0.8100014, y: -2, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7042}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "6630",
+      "game_object_id": "3096",
+      "unity_class_id": "4",
+      "line": 110602,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &6630\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3096}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: -0.049999237, y: -2.4800005, z: -0.001}\n  m_LocalScale: {x: 1.1, y: 1.1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7042}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "6982",
+      "game_object_id": "2923",
+      "unity_class_id": "4",
+      "line": 116272,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &6982\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2923}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0.80999947, y: -1.56, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7042}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "6990",
+      "game_object_id": "3083",
+      "unity_class_id": "4",
+      "line": 116392,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &6990\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3083}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0.81, y: -2, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7042}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "7042",
+      "game_object_id": "2776",
+      "unity_class_id": "4",
+      "line": 117235,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &7042\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2776}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 93.17999, y: 9.450001, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 6990}\n  - {fileID: 6982}\n  - {fileID: 6630}\n  - {fileID: 7284}\n  - {fileID: 7358}\n  - {fileID: 4223}\n  m_Father: {fileID: 0}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "7284",
+      "game_object_id": "3643",
+      "unity_class_id": "4",
+      "line": 121169,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &7284\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3643}\n  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0.62, y: -0.557, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7042}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: 0}\n"
+    },
+    {
+      "file_id": "7358",
+      "game_object_id": "3665",
+      "unity_class_id": "4",
+      "line": 122306,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &7358\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3665}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 7042}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "7807",
+      "game_object_id": "2776",
+      "unity_class_id": "50",
+      "line": 133746,
+      "script": null,
+      "serialized_yaml": "--- !u!50 &7807\nRigidbody2D:\n  serializedVersion: 5\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2776}\n  m_BodyType: 0\n  m_Simulated: 1\n  m_UseFullKinematicContacts: 0\n  m_UseAutoMass: 0\n  m_Mass: 1\n  m_LinearDamping: 0\n  m_AngularDamping: 0.05\n  m_GravityScale: 3\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_Interpolate: 0\n  m_SleepingMode: 0\n  m_CollisionDetection: 1\n  m_Constraints: 4\n"
+    },
+    {
+      "file_id": "8004",
+      "game_object_id": "522",
+      "unity_class_id": "61",
+      "line": 142508,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &8004\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 522}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: -2.0812063, y: 2.2462935}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 43.121002, y: 12.497878}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "8141",
+      "game_object_id": "2776",
+      "unity_class_id": "61",
+      "line": 148810,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &8141\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2776}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 0\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 0.1315552, y: -0.8763361}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 4.6287374, y: 3.093584}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "8144",
+      "game_object_id": "3083",
+      "unity_class_id": "61",
+      "line": 148948,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &8144\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3083}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 0.7555275, y: 1.3251972}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 14.280365, y: 4}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "8213",
+      "game_object_id": "2923",
+      "unity_class_id": "61",
+      "line": 152122,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &8213\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2923}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 1.246639, y: 1.3251972}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 18, y: 8}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "8248",
+      "game_object_id": "3643",
+      "unity_class_id": "61",
+      "line": 153732,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &8248\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3643}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 0.018592358, y: -0.5584469}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 2.6071844, y: 2.3831062}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "8344",
+      "game_object_id": "2776",
+      "unity_class_id": "82",
+      "line": 160143,
+      "script": null,
+      "serialized_yaml": "--- !u!82 &8344\nAudioSource:\n  serializedVersion: 4\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2776}\n  m_Enabled: 1\n  OutputAudioMixerGroup: {fileID: 24300004, guid: d910a835fc4287448b891cc742c2a38a, type: 2}\n  m_audioClip: {fileID: 0}\n  m_Resource: {fileID: 0}\n  m_PlayOnAwake: 1\n  m_Volume: 1\n  m_Pitch: 1\n  Loop: 1\n  Mute: 0\n  Spatialize: 0\n  SpatializePostEffects: 0\n  Priority: 128\n  DopplerLevel: 0\n  MinDistance: 39\n  MaxDistance: 50\n  Pan2D: 0\n  rolloffMode: 2\n  BypassEffects: 0\n  BypassListenerEffects: 0\n  BypassReverbZones: 0\n  rolloffCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0.8068195\n      value: 0.072960496\n      inSlope: -0.47960794\n      outSlope: -0.47960794\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    - serializedVersion: 3\n      time: 1\n      value: 0\n      inSlope: -0.46973643\n      outSlope: -0.46973643\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 4\n  panLevelCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  spreadCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 0\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  reverbZoneMixCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n"
+    },
+    {
+      "file_id": "8392",
+      "game_object_id": "3665",
+      "unity_class_id": "82",
+      "line": 164799,
+      "script": null,
+      "serialized_yaml": "--- !u!82 &8392\nAudioSource:\n  serializedVersion: 4\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3665}\n  m_Enabled: 1\n  OutputAudioMixerGroup: {fileID: 24300004, guid: d910a835fc4287448b891cc742c2a38a, type: 2}\n  m_audioClip: {fileID: 0}\n  m_Resource: {fileID: 0}\n  m_PlayOnAwake: 0\n  m_Volume: 1\n  m_Pitch: 1\n  Loop: 1\n  Mute: 0\n  Spatialize: 0\n  SpatializePostEffects: 0\n  Priority: 127\n  DopplerLevel: 0\n  MinDistance: 39\n  MaxDistance: 70\n  Pan2D: 0\n  rolloffMode: 2\n  BypassEffects: 0\n  BypassListenerEffects: 0\n  BypassReverbZones: 0\n  rolloffCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0.55770993\n      value: 1\n      inSlope: -11.035242\n      outSlope: -11.035242\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.077779464\n    - serializedVersion: 3\n      time: 0.76478577\n      value: 0\n      inSlope: -0.02625977\n      outSlope: -0.02625977\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.45610875\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  panLevelCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  spreadCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 0\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  reverbZoneMixCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n"
+    },
+    {
+      "file_id": "11668",
+      "game_object_id": "2776",
+      "unity_class_id": "114",
+      "line": 759130,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "serialized_yaml": "--- !u!114 &11668\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2776}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 461acbcb857d4478aaa8e8e64ee6f52a, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  collection: {fileID: 114724804207875695, guid: e2b45bee4513290408b3a07e336c268d, type: 2}\n  _color: {r: 1, g: 1, b: 1, a: 1}\n  _scale: {x: 1, y: 1, z: 1}\n  _spriteId: 20\n  boxCollider2D: {fileID: 8141}\n  polygonCollider2D: []\n  edgeCollider2D: []\n  boxCollider: {fileID: 0}\n  meshCollider: {fileID: 0}\n  meshColliderPositions: []\n  meshColliderMesh: {fileID: 0}\n  renderLayer: 0\n"
+    },
+    {
+      "file_id": "11687",
+      "game_object_id": "2776",
+      "unity_class_id": "114",
+      "line": 759550,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs",
+      "serialized_yaml": "--- !u!114 &11687\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2776}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5996133e774984aa7a33c40ed829e17f, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  spriteOverride: {fileID: 0}\n  library: {fileID: 114724804207875695, guid: 076a0057a048e5b4fa019ad1c7a29f69, type: 2}\n  defaultClipId: 6\n  isRealtime: 0\n  playAutomatically: 1\n  playAutomaticallyOnEnable: 0\n"
+    },
+    {
+      "file_id": "11725",
+      "game_object_id": "522",
+      "unity_class_id": "114",
+      "line": 760336,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/AlertRange.cs",
+      "serialized_yaml": "--- !u!114 &11725\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 522}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: e667676c1e2581f78ac6219259c46fde, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  ignoreLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  tagIncludeList: []\n  tagExcludeList: []\n  checkParentSight: 0\n  lineOfSight: 2\n  countUnalertTime: 0\n"
+    },
+    {
+      "file_id": "11781",
+      "game_object_id": "2923",
+      "unity_class_id": "114",
+      "line": 768168,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/AlertRange.cs",
+      "serialized_yaml": "--- !u!114 &11781\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2923}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: e667676c1e2581f78ac6219259c46fde, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  ignoreLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  tagIncludeList: []\n  tagExcludeList: []\n  checkParentSight: 0\n  lineOfSight: 2\n  countUnalertTime: 0\n"
+    },
+    {
+      "file_id": "11927",
+      "game_object_id": "2776",
+      "unity_class_id": "114",
+      "line": 786308,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/HealthManager.cs",
+      "serialized_yaml": "--- !u!114 &11927\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2776}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 7e0b9799fb0157646caefd91bc67f0a6, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  audioPlayerPrefab: {fileID: 82724804207875695, guid: 99068b2a95bddff419cb6f176648d4e6, type: 2}\n  regularInvincibleAudio:\n    Clip: {fileID: 8300000, guid: 6447a975892e6ac42be7525d74803f40, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  blockHitPrefab: {fileID: 1709254077376921, guid: a7a57900a8a415a4387938611b64e586, type: 2}\n  strikeNailPrefab: {fileID: 1709254077376921, guid: 64c20baf394ac9a41b03deea82568445, type: 2}\n  slashImpactPrefab: {fileID: 1709254077376921, guid: 97c9ba031f06bae4681d3fda13c3f87b, type: 2}\n  corpseSplatPrefab: {fileID: 1709254077376921, guid: ee26d04f9efdaa7458f4fcea07e485df, type: 2}\n  hp: 60\n  damageScaling:\n    Level1Mult: 1.2\n    Level2Mult: 0.95\n    Level3Mult: 0.95\n    Level4Mult: 0.95\n    Level5Mult: 0.95\n  enemyType: 0\n  doNotGiveSilk: 0\n  ignoreFlags: 0\n  reaperBundles: 0\n  effectOrigin: {x: 0, y: -0.01, z: 0}\n  ignoreKillAll: 0\n  sendDamageTo: {fileID: 0}\n  isPartOfSendToTarget: 0\n  tagDamageTakerIgnoreColliderState: 0\n  takeTagDamageWhileInvincible: 0\n  targetPointOverride: {fileID: 0}\n  battleScene: {fileID: 0}\n  sendHitTo: {fileID: 0}\n  sendKilledToObject: {fileID: 0}\n  sendKilledToName:\n  smallGeoDrops: 0\n  mediumGeoDrops: 0\n  largeGeoDrops: 0\n  largeSmoothGeoDrops: 0\n  megaFlingGeo: 0\n  shellShardDrops: 8\n  flingSilkOrbsDown: 0\n  flingSilkOrbsAimObject: {fileID: 0}\n  itemDropGroups: []\n  _itemDropProbability: 0\n  _itemDrops: []\n  hasAlternateHitAnimation: 0\n  alternateHitAnimation: False\n  invincible: 0\n  piercable: 0\n  invincibleFromDirection: 0\n  preventInvincibleEffect: 0\n  preventInvincibleShake: 0\n  preventInvincibleAttackBlock: 0\n  invincibleRecoil: 0\n  dontSendTinkToDamager: 0\n  hasAlternateInvincibleSound: 0\n  alternateInvincibleSound: {fileID: 0}\n  immuneToNailAttacks: 0\n  immuneToExplosions: 0\n  immuneToBeams: 0\n  immuneToHunterWeapon: 0\n  immuneToCoal: 0\n  immuneToTraps: 0\n  immuneToWater: 0\n  immuneToSpikes: 0\n  immuneToLava: 0\n  isMossExtractable: 0\n  isSwampExtractable: 0\n  isBluebloodExtractable: 0\n  deathAudioSnapshot: {fileID: 0}\n  hasSpecialDeath: 0\n  deathReset: 0\n  damageOverride: 0\n  ignoreAcid: 0\n  ignoreWater: 0\n  zeroHPEventOverride: {fileID: 0}\n  dontDropMeat: 0\n  enemySize: 1\n  bigEnemyDeath: 0\n  preventDeathAfterHero: 0\n  ignoreHazards: 0\n  invulnerableTime: 0.25\n  semiPersistent: 0\n  isDead: 0\n  ignorePersistence: 0\n  tinkTimer: 0\n"
+    },
+    {
+      "file_id": "11974",
+      "game_object_id": "2776",
+      "unity_class_id": "114",
+      "line": 788097,
+      "script": "Assets/Scripts/Assembly-CSharp/EnemyDeathEffectsRegular.cs",
+      "serialized_yaml": "--- !u!114 &11974\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2776}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 2730b6b2b2abd535272d044bb7d8942f, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  corpsePrefab: {fileID: 1709254077376921, guid: 9a00575c0a787374cbd681e6f81824ba, type: 2}\n  altCorpses: []\n  isCorpseRecyclable: 0\n  manualPreInstantiate: 0\n  corpseFacesRight: 1\n  overrideDeathDirection: 0\n  corpseFlingSpeed: 15\n  corpseSpawnPoint: {x: 0, y: 0, z: 0}\n  effectOrigin: {x: 0.26, y: -0.6, z: 0}\n  lowCorpseArc: 0\n  recycle: 0\n  rotateCorpse: 0\n  corpseMatchesEnemyScale: 0\n  audioSnapshotOnDeath: {fileID: 0}\n  sendEventRegister:\n  deathSounds:\n  - Clip: {fileID: 8300000, guid: cadfc16ee055c944da51081b220f0a1a, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  - Clip: {fileID: 8300000, guid: d921724037ad76c429becd63cb4c9677, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  enemyDeathSwordAudio:\n    Clip: {fileID: 0}\n    PitchMin: 0\n    PitchMax: 0\n    Volume: 0\n    vibrationDataAsset: {fileID: 0}\n  enemyDamageAudio:\n    Clip: {fileID: 0}\n    PitchMin: 0\n    PitchMax: 0\n    Volume: 0\n    vibrationDataAsset: {fileID: 0}\n  deathCameraShake:\n    camera: {fileID: 11400000, guid: 9b0888e0916dca544846a2f34304dac9, type: 2}\n    profile: {fileID: 11400000, guid: 279f38013a080f34999cd00fbee1b9c2, type: 2}\n    doFreeze: 1\n    vibrate: 1\n  journalRecord: {fileID: 11400000, guid: f95b889964fb0164b81bbc69d0e2d419, type: 2}\n  awardFullJournalEntry: 0\n  setPlayerDataBool:\n  awardAchievement:\n  doNotSetHasKilled: 0\n  doNotSpawnCorpse: 0\n  profile: {fileID: 11400000, guid: f90593717729e35488cbb7c1d6d697fb, type: 2}\n"
+    },
+    {
+      "file_id": "12036",
+      "game_object_id": "3083",
+      "unity_class_id": "114",
+      "line": 790060,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/AlertRange.cs",
+      "serialized_yaml": "--- !u!114 &12036\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3083}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: e667676c1e2581f78ac6219259c46fde, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  ignoreLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  tagIncludeList: []\n  tagExcludeList: []\n  checkParentSight: 0\n  lineOfSight: 2\n  countUnalertTime: 0\n"
+    },
+    {
+      "file_id": "12113",
+      "game_object_id": "2776",
+      "unity_class_id": "114",
+      "line": 792086,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/Recoil.cs",
+      "serialized_yaml": "--- !u!114 &12113\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2776}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9dce17883e836a8b91b054fcaef81958, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  FreezeInPlace: 0\n  recoilSpeedBase: 3\n  recoilDuration: 0.15\n  IsUpBlocked: 0\n  IsDownBlocked: 0\n  IsLeftBlocked: 0\n  IsRightBlocked: 0\n"
+    },
+    {
+      "file_id": "12224",
+      "game_object_id": "2776",
+      "unity_class_id": "114",
+      "line": 826160,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "serialized_yaml": "--- !u!114 &12224\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2776}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9a4a05480320f7f0c7f74a7198222c9e, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  z: 0.009\n  dontRandomize: 0\n  randomizeFromStartingValue: 0\n  delayBeforeRandomizing: 0.5\n  waitFrames: 0\n  deParent: 0\n"
+    },
+    {
+      "file_id": "12398",
+      "game_object_id": "2776",
+      "unity_class_id": "114",
+      "line": 859864,
+      "script": "Assets/Scripts/Assembly-CSharp/EnemyHitEffectsRegular.cs",
+      "serialized_yaml": "--- !u!114 &12398\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2776}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 688cf27c991077549cc7e1e5fa656b3d, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  effectOrigin: {x: 0.34, y: -0.66, z: 0}\n  sendDamageFlashEvent: 1\n  profile: {fileID: 11400000, guid: 4230e63efb0c45141b8a9672418ea98b, type: 2}\n  overrideBloodColor: 0\n  bloodColorOverride: {r: 0, g: 0, b: 0, a: 0}\n  forceMinimalEffects: 0\n"
+    },
+    {
+      "file_id": "12484",
+      "game_object_id": "2776",
+      "unity_class_id": "114",
+      "line": 869783,
+      "script": "Assets/Scripts/Assembly-CSharp/NeedolinTextOwner.cs",
+      "serialized_yaml": "--- !u!114 &12484\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2776}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 31fc0cd4445f01d3a6cd3001ad153725, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  rangeCheck: 3\n  customRange: 0\n  insideTrigger: {fileID: 0}\n  text:\n    collection: {fileID: 11400000, guid: b1df88585d5e2d347949931bda2dcaa1, type: 2}\n    customData:\n      template:\n        Sheet: Song\n        Key: GNAT_GIANT_\n      configOverride: {fileID: 0}\n      alternatives: []\n      doNotPlay: 0\n  mapZoneOverrides: []\n  OnAddText:\n    m_PersistentCalls:\n      m_Calls: []\n  OnRemoveText:\n    m_PersistentCalls:\n      m_Calls: []\n"
+    },
+    {
+      "file_id": "12661",
+      "game_object_id": "2776",
+      "unity_class_id": "114",
+      "line": 880106,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SpriteFlash.cs",
+      "serialized_yaml": "--- !u!114 &12661\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2776}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 3760009a589b001159b0ab5c0e83a2db, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  children: []\n  parents: []\n  getParent: 0\n  doHitFlashOnEnable: 0\n  startFlashes: 0\n"
+    },
+    {
+      "file_id": "12784",
+      "game_object_id": "3643",
+      "unity_class_id": "114",
+      "line": 893753,
+      "script": "Assets/Scripts/Assembly-CSharp/BreakableBreaker.cs",
+      "serialized_yaml": "--- !u!114 &12784\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3643}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 34df739a4a3e406d5c699587d4091c5e, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  breakTypeMask: 1\n  breakInstantly: 1\n"
+    },
+    {
+      "file_id": "12799",
+      "game_object_id": "2776",
+      "unity_class_id": "114",
+      "line": 894060,
+      "script": "Assets/Scripts/Assembly-CSharp/EnemySingDuration.cs",
+      "serialized_yaml": "--- !u!114 &12799\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2776}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: b60c10cda6dbb2924cd52756ec15ead9, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n"
+    },
+    {
+      "file_id": "12800",
+      "game_object_id": "2776",
+      "unity_class_id": "114",
+      "line": 894072,
+      "script": null,
+      "serialized_yaml": "--- !u!114 &12800\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2776}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: -664232604, guid: daca89c25bd1813ceecbbbb8555342a7, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  TargetFSMs:\n  - {fileID: 11784}\n"
+    },
+    {
+      "file_id": "12913",
+      "game_object_id": "3665",
+      "unity_class_id": "114",
+      "line": 898544,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/AudioSourceGamePause.cs",
+      "serialized_yaml": "--- !u!114 &12913\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3665}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: bec75353ea8e29e3c36e5a5845d5030a, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n"
+    },
+    {
+      "file_id": "13003",
+      "game_object_id": "2776",
+      "unity_class_id": "114",
+      "line": 900743,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/DamageHero.cs",
+      "serialized_yaml": "--- !u!114 &13003\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2776}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 49c386a20fdaa83a59c1a091a909e14c, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  damageDealt: 2\n  hazardType: 1\n  damageAsset: {fileID: 0}\n  damagePropertyFlags: 0\n  resetOnEnable: 0\n  canClashTink: 0\n  forceParry: 0\n  noClashFreeze: 0\n  noTerrainThunk: 0\n  noTerrainRecoil: 0\n  noCorpseSpikeStick: 0\n  noBounceCooldown: 0\n  overrideCollisionSide: 0\n  collisionSide: 0\n  invertCollisionSide: 0\n  HeroDamagedFSM: {fileID: 0}\n  AlwaysSendDamaged: 0\n  HeroDamagedFSMEvent:\n  HeroDamagedFSMBool:\n  HeroDamagedFSMGameObject:\n  ClashEvents:\n    OnClashUp:\n      m_PersistentCalls:\n        m_Calls: []\n    OnClashDown:\n      m_PersistentCalls:\n        m_Calls: []\n    OnClashLeft:\n      m_PersistentCalls:\n        m_Calls: []\n    OnClashRight:\n      m_PersistentCalls:\n        m_Calls: []\n  OnDamagedHero:\n    m_PersistentCalls:\n      m_Calls: []\n"
+    },
+    {
+      "file_id": "13179",
+      "game_object_id": "2776",
+      "unity_class_id": "114",
+      "line": 907745,
+      "script": "Assets/Scripts/Assembly-CSharp/BlackThreadState.cs",
+      "serialized_yaml": "--- !u!114 &13179\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2776}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: e152090c12e28c668de1cb3bdcd91125, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  singFsm: {fileID: 11784}\n  attack: {fileID: 0}\n  attacks: []\n  overrideCentreOffset: 0\n  centreOffsetOverride: {x: 0, y: 0}\n  force: 0\n  startThreaded: 0\n  useCustomHPMultiplier: 0\n  customHPMultiplier: 4\n  extraSpriteRenderers: []\n  extraMeshRenderers: []\n  activityRangeBuffer: {x: 4, y: 4}\n"
+    }
+  ],
+  "recording_references": [],
+  "limits": [
+    "Static serialized specimen; no runtime timing capture.",
+    "Scene variants may override values; see catalog.json instances.",
+    "External fileID/GUID dependencies remain explicit; do not replace with guessed values."
+  ]
+}

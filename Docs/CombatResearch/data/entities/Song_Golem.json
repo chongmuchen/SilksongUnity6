@@ -1,0 +1,1229 @@
+{
+  "schema": "silksong-combat-entity-v1",
+  "journal": {
+    "id": "Song Golem",
+    "guid": "df5967e2f20c76640affa25b145b0d80",
+    "path": "Assets/Data Assets/Enemy Journal/Journal Records/Song Golem.asset",
+    "key": "NAME_SONG_GOLEM",
+    "record_type": 0,
+    "kills_required": 1,
+    "required_type": 1,
+    "master_order": 52,
+    "scene_count": 1,
+    "object_names": [
+      "SG_head"
+    ],
+    "instance_count": 1
+  },
+  "specimen": {
+    "source": "Assets/Scenes/Hornet/Bone_East_08_boss_golem.unity",
+    "line": 35614,
+    "game_object_id": "7",
+    "name": "SG_head",
+    "active": "1",
+    "hp": "500",
+    "special_death": "1",
+    "invincible": "0",
+    "fsms": [
+      {
+        "object": "SG_head",
+        "game_object_id": "7",
+        "component_id": "259",
+        "name": "Receive Explosion Dmg",
+        "start": "State 1",
+        "states": [
+          "Idle",
+          "Take Damage",
+          "State 1"
+        ],
+        "action_types": [
+          "HutongGames.PlayMaker.Actions.CompareHP",
+          "HutongGames.PlayMaker.Actions.GetGrandParent",
+          "HutongGames.PlayMaker.Actions.GetOwner",
+          "HutongGames.PlayMaker.Actions.SendEventByName",
+          "HutongGames.PlayMaker.Actions.TakeDamage"
+        ],
+        "line": 53175,
+        "lines": 490,
+        "source_sha256": "80beb657b92284abb57c84c461e04c853af4c22668d4988d92eeba625ccdc6ca"
+      },
+      {
+        "object": "SG_head",
+        "game_object_id": "7",
+        "component_id": "268",
+        "name": "Phase Control",
+        "start": "Init",
+        "states": [
+          "Init",
+          "Phase 1",
+          "HP Check 1",
+          "Phase 2",
+          "HP Check 2",
+          "Phase 3",
+          "HP Check 3",
+          "Phase 4",
+          "Zero HP",
+          "Stun 1",
+          "Stun 2",
+          "Stun 3"
+        ],
+        "action_types": [
+          "HutongGames.PlayMaker.Actions.CompareHP",
+          "HutongGames.PlayMaker.Actions.GetGrandParent",
+          "HutongGames.PlayMaker.Actions.GetOwner",
+          "HutongGames.PlayMaker.Actions.SendEventByName",
+          "HutongGames.PlayMaker.Actions.SendEventToRegister",
+          "HutongGames.PlayMaker.Actions.SetCircleCollider",
+          "HutongGames.PlayMaker.Actions.SetFsmInt",
+          "HutongGames.PlayMaker.Actions.SetIsDead"
+        ],
+        "line": 53870,
+        "lines": 1324,
+        "source_sha256": "82e31d1ea39bd762e9814df07e998634461513bbd94226207e7057a43776e470"
+      }
+    ],
+    "components": [
+      "Assets/Scripts/Assembly-CSharp/EnemyDeathEffectsRegular.cs",
+      "Assets/Scripts/Assembly-CSharp/EnemyHitEffectsRegular.cs",
+      "Assets/Scripts/ProjectCode/FSM/00_Core/EventRegister.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/HealthManager.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SpriteFlash.cs",
+      "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs"
+    ],
+    "damages": [],
+    "evidence": "journal_guid",
+    "is_hornet_scene": true,
+    "is_temp_scene": false
+  },
+  "source_sha256": "c9ad7479587f5684a751910a07429b3fe0e7cda2cf02e2ac1e05dfa8646f92f7",
+  "fsms": [
+    {
+      "source": "Assets/Scenes/Hornet/Bone_East_08_boss_golem.unity",
+      "line": 53176,
+      "file_id": 259,
+      "owner_id": 7,
+      "owner": "SG_head",
+      "name": "Receive Explosion Dmg",
+      "start_state": "State 1",
+      "states": [
+        {
+          "name": "Idle",
+          "line": 53193,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "GOLEM EXPLOSION",
+              "to": "Take Damage"
+            }
+          ],
+          "actions": []
+        },
+        {
+          "name": "Take Damage",
+          "line": 53254,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Idle"
+            }
+          ],
+          "actions": [
+            {
+              "type": "TakeDamage",
+              "full_type": "HutongGames.PlayMaker.Actions.TakeDamage",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "var": "Self",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "AttackType": 1,
+                "CircleDirection": 0,
+                "DamageDealt": 500,
+                "Direction": 0,
+                "IgnoreInvulnerable": 1,
+                "MagnitudeMultiplier": 0,
+                "MoveAngle": 0,
+                "MoveDirection": 0,
+                "Multiplier": 1,
+                "SpecialType": 0
+              }
+            },
+            {
+              "type": "CompareHP",
+              "full_type": "HutongGames.PlayMaker.Actions.CompareHP",
+              "enabled": true,
+              "params": {
+                "enemy": {
+                  "var": "Self",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "integer2": 0,
+                "equal": "FINISHED",
+                "lessThan": "FINISHED",
+                "greaterThan": null,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SendEventByName",
+              "full_type": "HutongGames.PlayMaker.Actions.SendEventByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 1,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": {
+                      "var": "Golem",
+                      "stored": {
+                        "fileID": 0
+                      }
+                    }
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "sendEvent": "STUN",
+                "delay": 0,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "State 1",
+          "line": 53467,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Idle"
+            }
+          ],
+          "actions": [
+            {
+              "type": "GetOwner",
+              "full_type": "HutongGames.PlayMaker.Actions.GetOwner",
+              "enabled": true,
+              "params": {
+                "storeGameObject": {
+                  "var": "Self",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "GetGrandParent",
+              "full_type": "HutongGames.PlayMaker.Actions.GetGrandParent",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "storeResult": {
+                  "var": "Waist",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "GetGrandParent",
+              "full_type": "HutongGames.PlayMaker.Actions.GetGrandParent",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Waist",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "storeResult": {
+                  "var": "Golem",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "global_transitions": [],
+      "variables": {
+        "floatVariables": [],
+        "intVariables": [],
+        "boolVariables": [],
+        "stringVariables": [],
+        "vector2Variables": [],
+        "vector3Variables": [],
+        "colorVariables": [],
+        "rectVariables": [],
+        "quaternionVariables": [],
+        "gameObjectVariables": [
+          {
+            "useVariable": 1,
+            "name": "Golem",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Self",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Waist",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          }
+        ],
+        "objectVariables": [],
+        "materialVariables": [],
+        "textureVariables": [],
+        "arrayVariables": [],
+        "enumVariables": [],
+        "categories": [
+          null
+        ],
+        "variableCategoryIDs": 0
+      },
+      "fsm_metadata": {
+        "dataVersion": 2,
+        "usedInTemplate": {
+          "fileID": 0
+        },
+        "name": "Receive Explosion Dmg",
+        "startState": "State 1",
+        "events": [
+          {
+            "name": "FINISHED",
+            "isSystemEvent": 1,
+            "isGlobal": 0
+          },
+          {
+            "name": "GOLEM EXPLOSION",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          }
+        ],
+        "globalTransitions": [],
+        "description": null,
+        "docUrl": null,
+        "showStateLabel": 0,
+        "maxLoopCount": 0,
+        "watermark": null,
+        "password": null,
+        "locked": 0,
+        "manualUpdate": 0,
+        "outVariableIndices": null,
+        "keepDelayedEventsOnStateExit": 0,
+        "preprocessed": 1,
+        "ExposedEvents": [],
+        "OutputEvents": [],
+        "RestartOnEnable": 1,
+        "ResetVariablesOnEnable": 0,
+        "EnableDebugFlow": 0,
+        "EnableBreakpoints": 1,
+        "editorFlags": 1,
+        "activeStateName": null,
+        "mouseEvents": 0,
+        "handleLevelLoaded": 0,
+        "handleTriggerEnter2D": 0,
+        "handleTriggerExit2D": 0,
+        "handleTriggerStay2D": 0,
+        "handleCollisionEnter2D": 0,
+        "handleCollisionExit2D": 0,
+        "handleCollisionStay2D": 0,
+        "handleTriggerEnter": 0,
+        "handleTriggerExit": 0,
+        "handleTriggerStay": 0,
+        "handleCollisionEnter": 0,
+        "handleCollisionExit": 0,
+        "handleCollisionStay": 0,
+        "handleParticleCollision": 0,
+        "handleControllerColliderHit": 0,
+        "handleJointBreak": 0,
+        "handleJointBreak2D": 0,
+        "handleOnGUI": 0,
+        "handleFixedUpdate": 0,
+        "handleLateUpdate": 0,
+        "handleApplicationEvents": 0,
+        "handleUiEvents": 0,
+        "handleLegacyNetworking": 0,
+        "handleAnimatorMove": 0,
+        "handleAnimatorIK": 0
+      }
+    },
+    {
+      "source": "Assets/Scenes/Hornet/Bone_East_08_boss_golem.unity",
+      "line": 53871,
+      "file_id": 268,
+      "owner_id": 7,
+      "owner": "SG_head",
+      "name": "Phase Control",
+      "start_state": "Init",
+      "states": [
+        {
+          "name": "Init",
+          "line": 53888,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Phase 1"
+            }
+          ],
+          "actions": [
+            {
+              "type": "GetGrandParent",
+              "full_type": "HutongGames.PlayMaker.Actions.GetGrandParent",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "storeResult": {
+                  "var": "Waist",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "GetGrandParent",
+              "full_type": "HutongGames.PlayMaker.Actions.GetGrandParent",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Waist",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "storeResult": {
+                  "var": "Golem",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "GetOwner",
+              "full_type": "HutongGames.PlayMaker.Actions.GetOwner",
+              "enabled": true,
+              "params": {
+                "storeGameObject": {
+                  "var": "Self",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Phase 1",
+          "line": 53994,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "TOOK DAMAGE",
+              "to": "HP Check 1"
+            }
+          ],
+          "actions": []
+        },
+        {
+          "name": "HP Check 1",
+          "line": 54055,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "NEXT",
+              "to": "Stun 1"
+            },
+            {
+              "event": "FINISHED",
+              "to": "Phase 1"
+            }
+          ],
+          "actions": [
+            {
+              "type": "CompareHP",
+              "full_type": "HutongGames.PlayMaker.Actions.CompareHP",
+              "enabled": true,
+              "params": {
+                "enemy": {
+                  "var": "Self",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "integer2": 451,
+                "equal": null,
+                "lessThan": "NEXT",
+                "greaterThan": null,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Phase 2",
+          "line": 54148,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "TOOK DAMAGE",
+              "to": "HP Check 2"
+            }
+          ],
+          "actions": []
+        },
+        {
+          "name": "HP Check 2",
+          "line": 54209,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "NEXT",
+              "to": "Stun 2"
+            },
+            {
+              "event": "FINISHED",
+              "to": "Phase 2"
+            }
+          ],
+          "actions": [
+            {
+              "type": "CompareHP",
+              "full_type": "HutongGames.PlayMaker.Actions.CompareHP",
+              "enabled": true,
+              "params": {
+                "enemy": {
+                  "var": "Self",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "integer2": 326,
+                "equal": null,
+                "lessThan": "NEXT",
+                "greaterThan": null,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Phase 3",
+          "line": 54302,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "TOOK DAMAGE",
+              "to": "HP Check 3"
+            }
+          ],
+          "actions": []
+        },
+        {
+          "name": "HP Check 3",
+          "line": 54363,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "NEXT",
+              "to": "Stun 3"
+            },
+            {
+              "event": "FINISHED",
+              "to": "Phase 3"
+            }
+          ],
+          "actions": [
+            {
+              "type": "CompareHP",
+              "full_type": "HutongGames.PlayMaker.Actions.CompareHP",
+              "enabled": true,
+              "params": {
+                "enemy": {
+                  "var": "Self",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "integer2": 201,
+                "equal": null,
+                "lessThan": "NEXT",
+                "greaterThan": null,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Phase 4",
+          "line": 54456,
+          "sequence": 0,
+          "transitions": [],
+          "actions": []
+        },
+        {
+          "name": "Zero HP",
+          "line": 54508,
+          "sequence": 0,
+          "transitions": [],
+          "actions": [
+            {
+              "type": "SendEventByName",
+              "full_type": "HutongGames.PlayMaker.Actions.SendEventByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 1,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": {
+                      "var": "Golem",
+                      "stored": {
+                        "fileID": 0
+                      }
+                    }
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "sendEvent": "ZERO HP",
+                "delay": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SetCircleCollider",
+              "full_type": "HutongGames.PlayMaker.Actions.SetCircleCollider",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "active": 0
+              }
+            },
+            {
+              "type": "SetIsDead",
+              "full_type": "HutongGames.PlayMaker.Actions.SetIsDead",
+              "enabled": true,
+              "params": {
+                "target": {
+                  "owner": "self"
+                },
+                "setValue": 1
+              }
+            }
+          ]
+        },
+        {
+          "name": "Stun 1",
+          "line": 54646,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Phase 2"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SendEventByName",
+              "full_type": "HutongGames.PlayMaker.Actions.SendEventByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 1,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": {
+                      "var": "Golem",
+                      "stored": {
+                        "fileID": 0
+                      }
+                    }
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "sendEvent": "STUN",
+                "delay": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SetFsmInt",
+              "full_type": "HutongGames.PlayMaker.Actions.SetFsmInt",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Golem",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "fsmName": "Control",
+                "variableName": "Phase",
+                "setValue": 2,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Stun 2",
+          "line": 54790,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Phase 3"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SendEventByName",
+              "full_type": "HutongGames.PlayMaker.Actions.SendEventByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 1,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": {
+                      "var": "Golem",
+                      "stored": {
+                        "fileID": 0
+                      }
+                    }
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "sendEvent": "STUN",
+                "delay": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SetFsmInt",
+              "full_type": "HutongGames.PlayMaker.Actions.SetFsmInt",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Golem",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "fsmName": "Control",
+                "variableName": "Phase",
+                "setValue": 3,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Stun 3",
+          "line": 54934,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Phase 4"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SendEventToRegister",
+              "full_type": "HutongGames.PlayMaker.Actions.SendEventToRegister",
+              "enabled": false,
+              "params": {
+                "eventName": "FINAL PHASE"
+              }
+            },
+            {
+              "type": "SendEventByName",
+              "full_type": "HutongGames.PlayMaker.Actions.SendEventByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 1,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": {
+                      "var": "Golem",
+                      "stored": {
+                        "fileID": 0
+                      }
+                    }
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "sendEvent": "STUN",
+                "delay": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SetFsmInt",
+              "full_type": "HutongGames.PlayMaker.Actions.SetFsmInt",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Golem",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "fsmName": "Control",
+                "variableName": "Phase",
+                "setValue": 4,
+                "everyFrame": false
+              }
+            }
+          ]
+        }
+      ],
+      "global_transitions": [
+        {
+          "fsmEvent": {
+            "name": "ZERO HP",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          "toState": "Zero HP",
+          "linkStyle": 0,
+          "linkConstraint": 0,
+          "linkTarget": 0,
+          "colorIndex": 0
+        }
+      ],
+      "variables": {
+        "floatVariables": [],
+        "intVariables": [],
+        "boolVariables": [],
+        "stringVariables": [],
+        "vector2Variables": [],
+        "vector3Variables": [],
+        "colorVariables": [],
+        "rectVariables": [],
+        "quaternionVariables": [],
+        "gameObjectVariables": [
+          {
+            "useVariable": 1,
+            "name": "Golem",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Self",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Waist",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          }
+        ],
+        "objectVariables": [],
+        "materialVariables": [],
+        "textureVariables": [],
+        "arrayVariables": [],
+        "enumVariables": [],
+        "categories": [
+          null
+        ],
+        "variableCategoryIDs": 0
+      },
+      "fsm_metadata": {
+        "dataVersion": 2,
+        "usedInTemplate": {
+          "fileID": 0
+        },
+        "name": "Phase Control",
+        "startState": "Init",
+        "events": [
+          {
+            "name": "FINISHED",
+            "isSystemEvent": 1,
+            "isGlobal": 0
+          },
+          {
+            "name": "NEXT",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "TOOK DAMAGE",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "ZERO HP",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          }
+        ],
+        "globalTransitions": [
+          {
+            "fsmEvent": {
+              "name": "ZERO HP",
+              "isSystemEvent": 0,
+              "isGlobal": 0
+            },
+            "toState": "Zero HP",
+            "linkStyle": 0,
+            "linkConstraint": 0,
+            "linkTarget": 0,
+            "colorIndex": 0
+          }
+        ],
+        "description": null,
+        "docUrl": null,
+        "showStateLabel": 0,
+        "maxLoopCount": 0,
+        "watermark": null,
+        "password": null,
+        "locked": 0,
+        "manualUpdate": 0,
+        "outVariableIndices": null,
+        "keepDelayedEventsOnStateExit": 0,
+        "preprocessed": 1,
+        "ExposedEvents": [],
+        "OutputEvents": [],
+        "RestartOnEnable": 1,
+        "ResetVariablesOnEnable": 0,
+        "EnableDebugFlow": 0,
+        "EnableBreakpoints": 1,
+        "editorFlags": 1,
+        "activeStateName": null,
+        "mouseEvents": 0,
+        "handleLevelLoaded": 0,
+        "handleTriggerEnter2D": 0,
+        "handleTriggerExit2D": 0,
+        "handleTriggerStay2D": 0,
+        "handleCollisionEnter2D": 0,
+        "handleCollisionExit2D": 0,
+        "handleCollisionStay2D": 0,
+        "handleTriggerEnter": 0,
+        "handleTriggerExit": 0,
+        "handleTriggerStay": 0,
+        "handleCollisionEnter": 0,
+        "handleCollisionExit": 0,
+        "handleCollisionStay": 0,
+        "handleParticleCollision": 0,
+        "handleControllerColliderHit": 0,
+        "handleJointBreak": 0,
+        "handleJointBreak2D": 0,
+        "handleOnGUI": 0,
+        "handleFixedUpdate": 0,
+        "handleLateUpdate": 0,
+        "handleApplicationEvents": 0,
+        "handleUiEvents": 0,
+        "handleLegacyNetworking": 0,
+        "handleAnimatorMove": 0,
+        "handleAnimatorIK": 0
+      }
+    }
+  ],
+  "game_objects": [
+    {
+      "file_id": "6",
+      "name": "Dots",
+      "line": 204,
+      "serialized_yaml": "--- !u!1 &6\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 102}\n  - component: {fileID: 175}\n  - component: {fileID: 193}\n  m_Layer: 0\n  m_Name: Dots\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "7",
+      "name": "SG_head",
+      "line": 222,
+      "serialized_yaml": "--- !u!1 &7\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 110}\n  - component: {fileID: 242}\n  - component: {fileID: 152}\n  - component: {fileID: 140}\n  - component: {fileID: 227}\n  - component: {fileID: 251}\n  - component: {fileID: 256}\n  - component: {fileID: 160}\n  - component: {fileID: 255}\n  - component: {fileID: 268}\n  - component: {fileID: 267}\n  - component: {fileID: 259}\n  - component: {fileID: 260}\n  - component: {fileID: 159}\n  m_Layer: 11\n  m_Name: SG_head\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "15",
+      "name": "Pt Silkfly Escape",
+      "line": 368,
+      "serialized_yaml": "--- !u!1 &15\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 75}\n  m_Layer: 11\n  m_Name: Pt Silkfly Escape\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "20",
+      "name": "Dots (2)",
+      "line": 456,
+      "serialized_yaml": "--- !u!1 &20\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 128}\n  - component: {fileID: 176}\n  - component: {fileID: 192}\n  m_Layer: 0\n  m_Name: Dots (2)\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "21",
+      "name": "Dots (1)",
+      "line": 474,
+      "serialized_yaml": "--- !u!1 &21\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 81}\n  - component: {fileID: 180}\n  - component: {fileID: 183}\n  m_Layer: 0\n  m_Name: Dots (1)\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "31",
+      "name": "Pt Idle",
+      "line": 650,
+      "serialized_yaml": "--- !u!1 &31\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 88}\n  - component: {fileID: 177}\n  - component: {fileID: 185}\n  m_Layer: 16\n  m_Name: Pt Idle\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "36",
+      "name": "silkfly (1)",
+      "line": 741,
+      "serialized_yaml": "--- !u!1 &36\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 106}\n  - component: {fileID: 172}\n  - component: {fileID: 188}\n  m_Layer: 0\n  m_Name: silkfly (1)\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "45",
+      "name": "Dots (3)",
+      "line": 898,
+      "serialized_yaml": "--- !u!1 &45\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 134}\n  - component: {fileID: 168}\n  - component: {fileID: 182}\n  m_Layer: 0\n  m_Name: Dots (3)\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "58",
+      "name": "silkfly",
+      "line": 1139,
+      "serialized_yaml": "--- !u!1 &58\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 80}\n  - component: {fileID: 170}\n  - component: {fileID: 189}\n  m_Layer: 0\n  m_Name: silkfly\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "67",
+      "name": "Silk Possess Point",
+      "line": 1301,
+      "serialized_yaml": "--- !u!1 &67\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 135}\n  m_Layer: 11\n  m_Name: Silk Possess Point\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    }
+  ],
+  "components": [
+    {
+      "file_id": "75",
+      "game_object_id": "15",
+      "unity_class_id": "4",
+      "line": 1432,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &75\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 15}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: -0.76, y: 1.03, z: -0.1}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 102}\n  - {fileID: 81}\n  - {fileID: 88}\n  - {fileID: 128}\n  - {fileID: 134}\n  - {fileID: 80}\n  - {fileID: 106}\n  m_Father: {fileID: 110}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "80",
+      "game_object_id": "58",
+      "unity_class_id": "4",
+      "line": 1514,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &80\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 58}\n  m_LocalRotation: {x: -0, y: -0, z: 0.22850291, w: 0.9735432}\n  m_LocalPosition: {x: 0.104, y: 0.012, z: -0.002}\n  m_LocalScale: {x: 0.8, y: 1, z: 0.20457144}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 75}\n  m_LocalEulerAnglesHint: {x: -0, y: -0, z: -26.417896}\n"
+    },
+    {
+      "file_id": "81",
+      "game_object_id": "21",
+      "unity_class_id": "4",
+      "line": 1529,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &81\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 21}\n  m_LocalRotation: {x: -0, y: -0, z: 0.70326394, w: 0.7109289}\n  m_LocalPosition: {x: 0.07, y: 0.02, z: -0.003}\n  m_LocalScale: {x: 1.0671084, y: 1.0671084, z: 1.0895375}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 75}\n  m_LocalEulerAnglesHint: {x: -0, y: -0, z: -89.378914}\n"
+    },
+    {
+      "file_id": "88",
+      "game_object_id": "31",
+      "unity_class_id": "4",
+      "line": 1636,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &88\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 31}\n  m_LocalRotation: {x: -0, y: -0, z: 0.11252003, w: 0.9936495}\n  m_LocalPosition: {x: 0.71, y: 0.09, z: -0.001}\n  m_LocalScale: {x: 1.9243928, y: 1.9243925, z: 1.964842}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 75}\n  m_LocalEulerAnglesHint: {x: -0, y: -0, z: -12.921208}\n"
+    },
+    {
+      "file_id": "102",
+      "game_object_id": "6",
+      "unity_class_id": "4",
+      "line": 1868,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &102\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 6}\n  m_LocalRotation: {x: -0, y: -0, z: 0.70326376, w: 0.71092904}\n  m_LocalPosition: {x: 0.09, y: -0.256, z: -0.003}\n  m_LocalScale: {x: 1.772649, y: 1.7726485, z: 1.8099084}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 75}\n  m_LocalEulerAnglesHint: {x: -0, y: -0, z: -89.37889}\n"
+    },
+    {
+      "file_id": "106",
+      "game_object_id": "36",
+      "unity_class_id": "4",
+      "line": 1928,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &106\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 36}\n  m_LocalRotation: {x: -0, y: -0, z: -0.19543241, w: 0.9807172}\n  m_LocalPosition: {x: 1.77, y: 0.15, z: -0.002}\n  m_LocalScale: {x: 0.79999995, y: 1, z: 0.20457144}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 75}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 22.53997}\n"
+    },
+    {
+      "file_id": "110",
+      "game_object_id": "7",
+      "unity_class_id": "4",
+      "line": 1989,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &110\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 7}\n  m_LocalRotation: {x: -0, y: -0, z: -0.027053697, w: 0.999634}\n  m_LocalPosition: {x: 0, y: 1.81, z: -1.547}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 75}\n  - {fileID: 135}\n  m_Father: {fileID: 129}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.1005034}\n"
+    },
+    {
+      "file_id": "128",
+      "game_object_id": "20",
+      "unity_class_id": "4",
+      "line": 2281,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &128\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 20}\n  m_LocalRotation: {x: -0, y: -0, z: 0.39272833, w: 0.9196545}\n  m_LocalPosition: {x: 1.8099988, y: -0.16599974, z: -0.003}\n  m_LocalScale: {x: 1.7726512, y: 1.7726512, z: 1.8099099}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 75}\n  m_LocalEulerAnglesHint: {x: -0, y: -0, z: -46.24874}\n"
+    },
+    {
+      "file_id": "134",
+      "game_object_id": "45",
+      "unity_class_id": "4",
+      "line": 2377,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &134\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 45}\n  m_LocalRotation: {x: -0, y: -0, z: 0.39272833, w: 0.9196545}\n  m_LocalPosition: {x: 1.79, y: 0.11, z: -0.003}\n  m_LocalScale: {x: 1.0671104, y: 1.0671104, z: 1.0895399}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 75}\n  m_LocalEulerAnglesHint: {x: -0, y: -0, z: -46.24874}\n"
+    },
+    {
+      "file_id": "135",
+      "game_object_id": "67",
+      "unity_class_id": "4",
+      "line": 2392,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &135\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 67}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: -0.01}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 110}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "159",
+      "game_object_id": "7",
+      "unity_class_id": "50",
+      "line": 3005,
+      "script": null,
+      "serialized_yaml": "--- !u!50 &159\nRigidbody2D:\n  serializedVersion: 5\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 7}\n  m_BodyType: 1\n  m_Simulated: 1\n  m_UseFullKinematicContacts: 0\n  m_UseAutoMass: 0\n  m_Mass: 1\n  m_LinearDamping: 0\n  m_AngularDamping: 0.05\n  m_GravityScale: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_Interpolate: 0\n  m_SleepingMode: 1\n  m_CollisionDetection: 0\n  m_Constraints: 7\n"
+    },
+    {
+      "file_id": "160",
+      "game_object_id": "7",
+      "unity_class_id": "58",
+      "line": 3032,
+      "script": null,
+      "serialized_yaml": "--- !u!58 &160\nCircleCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 7}\n  m_Enabled: 0\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 0.06, y: 0.44}\n  m_Radius: 1.62\n"
+    },
+    {
+      "file_id": "227",
+      "game_object_id": "7",
+      "unity_class_id": "114",
+      "line": 34959,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "serialized_yaml": "--- !u!114 &227\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 7}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 461acbcb857d4478aaa8e8e64ee6f52a, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  collection: {fileID: 114724804207875695, guid: 74154f0cd0b5c0541a784929bd6a3974, type: 2}\n  _color: {r: 1, g: 1, b: 1, a: 1}\n  _scale: {x: 1, y: 1, z: 1}\n  _spriteId: 78\n  boxCollider2D: {fileID: 0}\n  polygonCollider2D: []\n  edgeCollider2D: []\n  boxCollider: {fileID: 0}\n  meshCollider: {fileID: 0}\n  meshColliderPositions: []\n  meshColliderMesh: {fileID: 0}\n  renderLayer: 0\n"
+    },
+    {
+      "file_id": "242",
+      "game_object_id": "7",
+      "unity_class_id": "114",
+      "line": 35283,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs",
+      "serialized_yaml": "--- !u!114 &242\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 7}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5996133e774984aa7a33c40ed829e17f, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  spriteOverride: {fileID: 0}\n  library: {fileID: 114724804207875695, guid: 8a5da9842e8416d4a95b518c2322d9f5, type: 2}\n  defaultClipId: 5\n  isRealtime: 0\n  playAutomatically: 1\n  playAutomaticallyOnEnable: 0\n"
+    },
+    {
+      "file_id": "251",
+      "game_object_id": "7",
+      "unity_class_id": "114",
+      "line": 35614,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/HealthManager.cs",
+      "serialized_yaml": "--- !u!114 &251\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 7}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 7e0b9799fb0157646caefd91bc67f0a6, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  audioPlayerPrefab: {fileID: 82724804207875695, guid: 99068b2a95bddff419cb6f176648d4e6, type: 2}\n  regularInvincibleAudio:\n    Clip: {fileID: 8300000, guid: 6447a975892e6ac42be7525d74803f40, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  blockHitPrefab: {fileID: 1709254077376921, guid: a7a57900a8a415a4387938611b64e586, type: 2}\n  strikeNailPrefab: {fileID: 1709254077376921, guid: 64c20baf394ac9a41b03deea82568445, type: 2}\n  slashImpactPrefab: {fileID: 1709254077376921, guid: 97c9ba031f06bae4681d3fda13c3f87b, type: 2}\n  corpseSplatPrefab: {fileID: 1709254077376921, guid: ee26d04f9efdaa7458f4fcea07e485df, type: 2}\n  hp: 500\n  damageScaling:\n    Level1Mult: 1\n    Level2Mult: 0.65\n    Level3Mult: 0.5\n    Level4Mult: 0.45\n    Level5Mult: 0.45\n  enemyType: 0\n  doNotGiveSilk: 0\n  ignoreFlags: 0\n  reaperBundles: 0\n  effectOrigin: {x: 0, y: -0.2, z: 0}\n  ignoreKillAll: 0\n  sendDamageTo: {fileID: 0}\n  isPartOfSendToTarget: 0\n  tagDamageTakerIgnoreColliderState: 0\n  takeTagDamageWhileInvincible: 0\n  targetPointOverride: {fileID: 0}\n  battleScene: {fileID: 0}\n  sendHitTo: {fileID: 0}\n  sendKilledToObject: {fileID: 0}\n  sendKilledToName:\n  smallGeoDrops: 0\n  mediumGeoDrops: 0\n  largeGeoDrops: 0\n  largeSmoothGeoDrops: 0\n  megaFlingGeo: 0\n  shellShardDrops: 0\n  flingSilkOrbsDown: 1\n  flingSilkOrbsAimObject: {fileID: 0}\n  itemDropGroups: []\n  _itemDropProbability: 0\n  _itemDrops: []\n  hasAlternateHitAnimation: 0\n  alternateHitAnimation: False\n  invincible: 0\n  piercable: 0\n  invincibleFromDirection: 4\n  preventInvincibleEffect: 0\n  preventInvincibleShake: 0\n  preventInvincibleAttackBlock: 0\n  invincibleRecoil: 0\n  dontSendTinkToDamager: 0\n  hasAlternateInvincibleSound: 0\n  alternateInvincibleSound: {fileID: 0}\n  immuneToNailAttacks: 0\n  immuneToExplosions: 0\n  immuneToBeams: 0\n  immuneToHunterWeapon: 0\n  immuneToCoal: 0\n  immuneToTraps: 0\n  immuneToWater: 0\n  immuneToSpikes: 0\n  immuneToLava: 0\n  isMossExtractable: 0\n  isSwampExtractable: 0\n  isBluebloodExtractable: 0\n  deathAudioSnapshot: {fileID: 0}\n  hasSpecialDeath: 1\n  deathReset: 0\n  damageOverride: 0\n  ignoreAcid: 0\n  ignoreWater: 0\n  zeroHPEventOverride: {fileID: 0}\n  dontDropMeat: 1\n  enemySize: 1\n  bigEnemyDeath: 0\n  preventDeathAfterHero: 1\n  ignoreHazards: 0\n  invulnerableTime: 0.25\n  semiPersistent: 0\n  isDead: 0\n  ignorePersistence: 0\n  tinkTimer: 0\n"
+    },
+    {
+      "file_id": "255",
+      "game_object_id": "7",
+      "unity_class_id": "114",
+      "line": 53102,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SpriteFlash.cs",
+      "serialized_yaml": "--- !u!114 &255\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 7}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 3760009a589b001159b0ab5c0e83a2db, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  children: []\n  parents: []\n  getParent: 0\n  doHitFlashOnEnable: 0\n  startFlashes: 0\n"
+    },
+    {
+      "file_id": "256",
+      "game_object_id": "7",
+      "unity_class_id": "114",
+      "line": 53119,
+      "script": "Assets/Scripts/Assembly-CSharp/EnemyHitEffectsRegular.cs",
+      "serialized_yaml": "--- !u!114 &256\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 7}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 688cf27c991077549cc7e1e5fa656b3d, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  effectOrigin: {x: 0, y: 0, z: 0}\n  sendDamageFlashEvent: 1\n  profile: {fileID: 11400000, guid: 94f5fa3ece9118e4ea99899bf6b8f2e0, type: 2}\n  overrideBloodColor: 0\n  bloodColorOverride: {r: 0.039215688, g: 0.03529412, b: 0.07450981, a: 1}\n  forceMinimalEffects: 0\n"
+    },
+    {
+      "file_id": "260",
+      "game_object_id": "7",
+      "unity_class_id": "114",
+      "line": 53665,
+      "script": "Assets/Scripts/ProjectCode/FSM/00_Core/EventRegister.cs",
+      "serialized_yaml": "--- !u!114 &260\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 7}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 1514c730a4c7204f950cda704cc1fb4a, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  subscribedEvent: GOLEM EXPLOSION\n  targetFsm: {fileID: 259}\n  setFsmBool:\n  setFsmBoolValue: 0\n  enableFsmBeforeSend: 0\n  aliasEventMode: 0\n  aliasEvent:\n"
+    },
+    {
+      "file_id": "267",
+      "game_object_id": "7",
+      "unity_class_id": "114",
+      "line": 53808,
+      "script": "Assets/Scripts/Assembly-CSharp/EnemyDeathEffectsRegular.cs",
+      "serialized_yaml": "--- !u!114 &267\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 7}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 2730b6b2b2abd535272d044bb7d8942f, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  corpsePrefab: {fileID: 0}\n  altCorpses: []\n  isCorpseRecyclable: 0\n  manualPreInstantiate: 0\n  corpseFacesRight: 0\n  overrideDeathDirection: 0\n  corpseFlingSpeed: 15\n  corpseSpawnPoint: {x: 0, y: 0, z: 0}\n  effectOrigin: {x: 0, y: 0, z: 0}\n  lowCorpseArc: 0\n  recycle: 0\n  rotateCorpse: 0\n  corpseMatchesEnemyScale: 0\n  audioSnapshotOnDeath: {fileID: 0}\n  sendEventRegister:\n  deathSounds:\n  - Clip: {fileID: 8300000, guid: cadfc16ee055c944da51081b220f0a1a, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  - Clip: {fileID: 8300000, guid: d921724037ad76c429becd63cb4c9677, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  enemyDeathSwordAudio:\n    Clip: {fileID: 0}\n    PitchMin: 0\n    PitchMax: 0\n    Volume: 0\n    vibrationDataAsset: {fileID: 0}\n  enemyDamageAudio:\n    Clip: {fileID: 0}\n    PitchMin: 0\n    PitchMax: 0\n    Volume: 0\n    vibrationDataAsset: {fileID: 0}\n  deathCameraShake:\n    camera: {fileID: 11400000, guid: 9b0888e0916dca544846a2f34304dac9, type: 2}\n    profile: {fileID: 11400000, guid: 279f38013a080f34999cd00fbee1b9c2, type: 2}\n    doFreeze: 1\n    vibrate: 1\n  journalRecord: {fileID: 11400000, guid: df5967e2f20c76640affa25b145b0d80, type: 2}\n  awardFullJournalEntry: 0\n  setPlayerDataBool:\n  awardAchievement:\n  doNotSetHasKilled: 0\n  doNotSpawnCorpse: 0\n  profile: {fileID: 11400000, guid: 0e2a9aa909fe46044a4b97744eed6794, type: 2}\n"
+    }
+  ],
+  "recording_references": [],
+  "limits": [
+    "Static serialized specimen; no runtime timing capture.",
+    "Scene variants may override values; see catalog.json instances.",
+    "External fileID/GUID dependencies remain explicit; do not replace with guessed values."
+  ]
+}

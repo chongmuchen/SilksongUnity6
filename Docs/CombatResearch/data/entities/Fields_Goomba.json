@@ -1,0 +1,2990 @@
+{
+  "schema": "silksong-combat-entity-v1",
+  "journal": {
+    "id": "Fields Goomba",
+    "guid": "740f659433081d643963fa458f746edb",
+    "path": "Assets/Data Assets/Enemy Journal/Journal Records/Fields Goomba.asset",
+    "key": "NAME_FIELDS_GOOMBA",
+    "record_type": 0,
+    "kills_required": 25,
+    "required_type": 1,
+    "master_order": 50,
+    "scene_count": 19,
+    "object_names": [
+      "Fields Goomba",
+      "Fields Goomba (1)",
+      "Fields Goomba (2)",
+      "Fields Goomba (3)",
+      "Fields Goomba (4)",
+      "Fields Goomba (5)",
+      "Fields Goomba (6)"
+    ],
+    "instance_count": 31
+  },
+  "specimen": {
+    "source": "Assets/Scenes/Hornet/Dock_03b.unity",
+    "line": 141379,
+    "game_object_id": "817",
+    "name": "Fields Goomba",
+    "active": "1",
+    "hp": "15",
+    "special_death": "0",
+    "invincible": "0",
+    "fsms": [
+      {
+        "object": "Fields Goomba",
+        "game_object_id": "817",
+        "component_id": "2705",
+        "name": "lowpass",
+        "start": "Add Lowpass Component",
+        "states": [
+          "Init",
+          "Normal",
+          "To Lowpass",
+          "Lowpass",
+          "To Normal",
+          "Use Vent Region?",
+          "Start Lowpassed?",
+          "Add Lowpass Component"
+        ],
+        "action_types": [
+          "HutongGames.PlayMaker.Actions.AddComponent",
+          "HutongGames.PlayMaker.Actions.AddEventRegister",
+          "HutongGames.PlayMaker.Actions.BoolTest",
+          "HutongGames.PlayMaker.Actions.EaseFloat",
+          "HutongGames.PlayMaker.Actions.FadeAudio",
+          "HutongGames.PlayMaker.Actions.GetProperty",
+          "HutongGames.PlayMaker.Actions.ObjectIsNull",
+          "HutongGames.PlayMaker.Actions.SetAudioVolume",
+          "HutongGames.PlayMaker.Actions.SetProperty"
+        ],
+        "line": 138694,
+        "lines": 2427,
+        "source_sha256": "6ad0b6b50e0df9867ccf85fc36878dee367be2b2cda90cffb8350caf06dbb8bd"
+      },
+      {
+        "object": "Fields Goomba",
+        "game_object_id": "817",
+        "component_id": "2735",
+        "name": "Behaviour",
+        "start": "Init",
+        "states": [
+          "Idle",
+          "Walk",
+          "Init",
+          "To Idle",
+          "Run Away",
+          "Damaged",
+          "Sing",
+          "Waiting",
+          "Sing End",
+          "Call Antic",
+          "Call"
+        ],
+        "action_types": [
+          "HutongGames.PlayMaker.Actions.AudioPlayRandomVoice",
+          "HutongGames.PlayMaker.Actions.BoolTestMulti",
+          "HutongGames.PlayMaker.Actions.CheckFacingTarget",
+          "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegion",
+          "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegionV2",
+          "HutongGames.PlayMaker.Actions.EnemySingControl",
+          "HutongGames.PlayMaker.Actions.FindNamedChild",
+          "HutongGames.PlayMaker.Actions.GameObjectIsNull",
+          "HutongGames.PlayMaker.Actions.RandomBool",
+          "HutongGames.PlayMaker.Actions.RandomBoolPercent",
+          "HutongGames.PlayMaker.Actions.RandomFloat",
+          "HutongGames.PlayMaker.Actions.SetBoolValue",
+          "HutongGames.PlayMaker.Actions.SetParticleEmissionChildren",
+          "HutongGames.PlayMaker.Actions.SetVelocity2d",
+          "HutongGames.PlayMaker.Actions.Tk2dPlayAnimation",
+          "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+          "HutongGames.PlayMaker.Actions.Tk2dWatchAnimationEvents",
+          "HutongGames.PlayMaker.Actions.WaitBool",
+          "HutongGames.PlayMaker.Actions.WaitRandom",
+          "HutongGames.PlayMaker.FsmBool",
+          "HutongGames.PlayMaker.FsmFloat"
+        ],
+        "line": 141689,
+        "lines": 2143,
+        "source_sha256": "3a1be482e25384d8dda88807817ec047749ff5d87c52942152c2215399ba5a8c"
+      }
+    ],
+    "components": [
+      "Assets/Scripts/Assembly-CSharp/BlackThreadState.cs",
+      "Assets/Scripts/Assembly-CSharp/EnemyDeathEffectsRegular.cs",
+      "Assets/Scripts/Assembly-CSharp/EnemyHitEffectsRegular.cs",
+      "Assets/Scripts/Assembly-CSharp/EnemySingDuration.cs",
+      "Assets/Scripts/Assembly-CSharp/NeedolinTextOwner.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/AlertRange.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/DamageHero.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/HealthManager.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/Recoil.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/AudioSourceGamePause.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetParticleScale.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SpriteFlash.cs",
+      "Assets/Scripts/ProjectCode/Game/11_Actors_Quests/Crawler.cs",
+      "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs"
+    ],
+    "damages": [
+      {
+        "object": "Fields Goomba",
+        "damage": "1",
+        "line": 149052
+      }
+    ],
+    "evidence": "journal_guid",
+    "is_hornet_scene": true,
+    "is_temp_scene": false
+  },
+  "source_sha256": "ba5c75df76b13bdb7262e6930678d011679de9f3c9b47a47054e7107e63fff0b",
+  "fsms": [
+    {
+      "source": "Assets/Scenes/Hornet/Dock_03b.unity",
+      "line": 138695,
+      "file_id": 2705,
+      "owner_id": 817,
+      "owner": "Fields Goomba",
+      "name": "lowpass",
+      "start_state": "Add Lowpass Component",
+      "states": [
+        {
+          "name": "Init",
+          "line": 138712,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Use Vent Region?"
+            }
+          ],
+          "actions": [
+            {
+              "type": "AddEventRegister",
+              "full_type": "HutongGames.PlayMaker.Actions.AddEventRegister",
+              "enabled": true,
+              "params": {
+                "target": {
+                  "owner": "self"
+                },
+                "eventName": "LOWPASS AREA ENTER"
+              }
+            },
+            {
+              "type": "AddEventRegister",
+              "full_type": "HutongGames.PlayMaker.Actions.AddEventRegister",
+              "enabled": true,
+              "params": {
+                "target": {
+                  "owner": "self"
+                },
+                "eventName": "LOWPASS AREA EXIT"
+              }
+            },
+            {
+              "type": "SetProperty",
+              "full_type": "HutongGames.PlayMaker.Actions.SetProperty",
+              "enabled": true,
+              "params": {
+                "targetProperty": {
+                  "TargetObject": {
+                    "var": "Lowpass Component",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  },
+                  "TargetTypeName": "UnityEngine.AudioLowPassFilter",
+                  "PropertyName": "cutoffFrequency",
+                  "BoolParameter": 0,
+                  "FloatParameter": {
+                    "var": "Cutoff Frequency",
+                    "stored": 5000
+                  },
+                  "IntParameter": 0,
+                  "GameObjectParameter": {
+                    "fileID": 0
+                  },
+                  "StringParameter": null,
+                  "Vector2Parameter": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "Vector3Parameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "RectParamater": {
+                    "serializedVersion": 2,
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  },
+                  "QuaternionParameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 0
+                  },
+                  "ObjectParameter": {
+                    "fileID": 0
+                  },
+                  "MaterialParameter": {
+                    "fileID": 0
+                  },
+                  "TextureParameter": {
+                    "fileID": 0
+                  },
+                  "ColorParameter": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 1
+                  },
+                  "EnumParameter": 0,
+                  "ArrayParameter": {
+                    "useVariable": 0,
+                    "name": null,
+                    "tooltip": null,
+                    "showInInspector": 0,
+                    "networkSync": 0,
+                    "type": -1,
+                    "objectTypeName": "UnityEngine.Object",
+                    "floatValues": [],
+                    "intValues": null,
+                    "boolValues": null,
+                    "stringValues": [],
+                    "vector4Values": [],
+                    "objectReferences": []
+                  },
+                  "setProperty": 1
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SetProperty",
+              "full_type": "HutongGames.PlayMaker.Actions.SetProperty",
+              "enabled": true,
+              "params": {
+                "targetProperty": {
+                  "TargetObject": {
+                    "var": "Lowpass Component",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  },
+                  "TargetTypeName": "UnityEngine.AudioLowPassFilter",
+                  "PropertyName": "enabled",
+                  "BoolParameter": 0,
+                  "FloatParameter": 0,
+                  "IntParameter": 0,
+                  "GameObjectParameter": {
+                    "fileID": 0
+                  },
+                  "StringParameter": null,
+                  "Vector2Parameter": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "Vector3Parameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "RectParamater": {
+                    "serializedVersion": 2,
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  },
+                  "QuaternionParameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 0
+                  },
+                  "ObjectParameter": {
+                    "fileID": 0
+                  },
+                  "MaterialParameter": {
+                    "fileID": 0
+                  },
+                  "TextureParameter": {
+                    "fileID": 0
+                  },
+                  "ColorParameter": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 1
+                  },
+                  "EnumParameter": 0,
+                  "ArrayParameter": {
+                    "useVariable": 0,
+                    "name": null,
+                    "tooltip": null,
+                    "showInInspector": 0,
+                    "networkSync": 0,
+                    "type": -1,
+                    "objectTypeName": "UnityEngine.Object",
+                    "floatValues": [],
+                    "intValues": null,
+                    "boolValues": null,
+                    "stringValues": [],
+                    "vector4Values": [],
+                    "objectReferences": []
+                  },
+                  "setProperty": 1
+                },
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Normal",
+          "line": 139081,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "LOWPASS AREA ENTER",
+              "to": "To Lowpass"
+            },
+            {
+              "event": "VENT REGION ENTER",
+              "to": "To Lowpass"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetAudioVolume",
+              "full_type": "HutongGames.PlayMaker.Actions.SetAudioVolume",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "volume": {
+                  "var": "Volume Normal",
+                  "stored": 1
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SetProperty",
+              "full_type": "HutongGames.PlayMaker.Actions.SetProperty",
+              "enabled": true,
+              "params": {
+                "targetProperty": {
+                  "TargetObject": {
+                    "var": "Lowpass Component",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  },
+                  "TargetTypeName": "UnityEngine.AudioLowPassFilter",
+                  "PropertyName": "enabled",
+                  "BoolParameter": 0,
+                  "FloatParameter": 0,
+                  "IntParameter": 0,
+                  "GameObjectParameter": {
+                    "fileID": 0
+                  },
+                  "StringParameter": null,
+                  "Vector2Parameter": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "Vector3Parameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "RectParamater": {
+                    "serializedVersion": 2,
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  },
+                  "QuaternionParameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 0
+                  },
+                  "ObjectParameter": {
+                    "fileID": 0
+                  },
+                  "MaterialParameter": {
+                    "fileID": 0
+                  },
+                  "TextureParameter": {
+                    "fileID": 0
+                  },
+                  "ColorParameter": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 1
+                  },
+                  "EnumParameter": 0,
+                  "ArrayParameter": {
+                    "useVariable": 0,
+                    "name": null,
+                    "tooltip": null,
+                    "showInInspector": 0,
+                    "networkSync": 0,
+                    "type": -1,
+                    "objectTypeName": "UnityEngine.Object",
+                    "floatValues": [],
+                    "intValues": null,
+                    "boolValues": null,
+                    "stringValues": [],
+                    "vector4Values": [],
+                    "objectReferences": []
+                  },
+                  "setProperty": 1
+                },
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "To Lowpass",
+          "line": 139306,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Lowpass"
+            },
+            {
+              "event": "LOWPASS AREA EXIT",
+              "to": "To Normal"
+            },
+            {
+              "event": "VENT REGION EXIT",
+              "to": "To Normal"
+            }
+          ],
+          "actions": [
+            {
+              "type": "FadeAudio",
+              "full_type": "HutongGames.PlayMaker.Actions.FadeAudio",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "startVolume": {
+                  "var": "Volume Normal",
+                  "stored": 1
+                },
+                "endVolume": {
+                  "var": "Volume Lowpass",
+                  "stored": 1
+                },
+                "time": 0.5
+              }
+            },
+            {
+              "type": "GetProperty",
+              "full_type": "HutongGames.PlayMaker.Actions.GetProperty",
+              "enabled": true,
+              "params": {
+                "targetProperty": {
+                  "TargetObject": {
+                    "var": "Lowpass Component",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  },
+                  "TargetTypeName": "UnityEngine.AudioLowPassFilter",
+                  "PropertyName": "cutoffFrequency",
+                  "BoolParameter": 0,
+                  "FloatParameter": {
+                    "var": "Cutoff Frequency Start",
+                    "stored": 0
+                  },
+                  "IntParameter": 0,
+                  "GameObjectParameter": {
+                    "fileID": 0
+                  },
+                  "StringParameter": null,
+                  "Vector2Parameter": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "Vector3Parameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "RectParamater": {
+                    "serializedVersion": 2,
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  },
+                  "QuaternionParameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 0
+                  },
+                  "ObjectParameter": {
+                    "fileID": 0
+                  },
+                  "MaterialParameter": {
+                    "fileID": 0
+                  },
+                  "TextureParameter": {
+                    "fileID": 0
+                  },
+                  "ColorParameter": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 1
+                  },
+                  "EnumParameter": 0,
+                  "ArrayParameter": {
+                    "useVariable": 0,
+                    "name": null,
+                    "tooltip": null,
+                    "showInInspector": 0,
+                    "networkSync": 0,
+                    "type": -1,
+                    "objectTypeName": "UnityEngine.Object",
+                    "floatValues": [],
+                    "intValues": null,
+                    "boolValues": null,
+                    "stringValues": [],
+                    "vector4Values": [],
+                    "objectReferences": []
+                  },
+                  "setProperty": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "EaseFloat",
+              "full_type": "HutongGames.PlayMaker.Actions.EaseFloat",
+              "enabled": true,
+              "params": {
+                "fromValue": {
+                  "var": "Cutoff Frequency Start",
+                  "stored": 0
+                },
+                "toValue": {
+                  "var": "Cutoff Frequency",
+                  "stored": 5000
+                },
+                "floatVariable": {
+                  "var": "Cutoff Frequency Crt",
+                  "stored": 0
+                },
+                "time": 0.5,
+                "speed": {
+                  "var": null,
+                  "stored": 0
+                },
+                "delay": {
+                  "var": null,
+                  "stored": 0
+                },
+                "easeType": 21,
+                "reverse": 0,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            },
+            {
+              "type": "SetProperty",
+              "full_type": "HutongGames.PlayMaker.Actions.SetProperty",
+              "enabled": true,
+              "params": {
+                "targetProperty": {
+                  "TargetObject": {
+                    "var": "Lowpass Component",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  },
+                  "TargetTypeName": "UnityEngine.AudioLowPassFilter",
+                  "PropertyName": "cutoffFrequency",
+                  "BoolParameter": 0,
+                  "FloatParameter": {
+                    "var": "Cutoff Frequency Crt",
+                    "stored": 0
+                  },
+                  "IntParameter": 0,
+                  "GameObjectParameter": {
+                    "fileID": 0
+                  },
+                  "StringParameter": null,
+                  "Vector2Parameter": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "Vector3Parameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "RectParamater": {
+                    "serializedVersion": 2,
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  },
+                  "QuaternionParameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 0
+                  },
+                  "ObjectParameter": {
+                    "fileID": 0
+                  },
+                  "MaterialParameter": {
+                    "fileID": 0
+                  },
+                  "TextureParameter": {
+                    "fileID": 0
+                  },
+                  "ColorParameter": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 1
+                  },
+                  "EnumParameter": 0,
+                  "ArrayParameter": {
+                    "useVariable": 0,
+                    "name": null,
+                    "tooltip": null,
+                    "showInInspector": 0,
+                    "networkSync": 0,
+                    "type": -1,
+                    "objectTypeName": "UnityEngine.Object",
+                    "floatValues": [],
+                    "intValues": null,
+                    "boolValues": null,
+                    "stringValues": [],
+                    "vector4Values": [],
+                    "objectReferences": []
+                  },
+                  "setProperty": 1
+                },
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "SetProperty",
+              "full_type": "HutongGames.PlayMaker.Actions.SetProperty",
+              "enabled": true,
+              "params": {
+                "targetProperty": {
+                  "TargetObject": {
+                    "var": "Lowpass Component",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  },
+                  "TargetTypeName": "UnityEngine.AudioLowPassFilter",
+                  "PropertyName": "enabled",
+                  "BoolParameter": 1,
+                  "FloatParameter": 0,
+                  "IntParameter": 0,
+                  "GameObjectParameter": {
+                    "fileID": 0
+                  },
+                  "StringParameter": null,
+                  "Vector2Parameter": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "Vector3Parameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "RectParamater": {
+                    "serializedVersion": 2,
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  },
+                  "QuaternionParameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 0
+                  },
+                  "ObjectParameter": {
+                    "fileID": 0
+                  },
+                  "MaterialParameter": {
+                    "fileID": 0
+                  },
+                  "TextureParameter": {
+                    "fileID": 0
+                  },
+                  "ColorParameter": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 1
+                  },
+                  "EnumParameter": 0,
+                  "ArrayParameter": {
+                    "useVariable": 0,
+                    "name": null,
+                    "tooltip": null,
+                    "showInInspector": 0,
+                    "networkSync": 0,
+                    "type": -1,
+                    "objectTypeName": "UnityEngine.Object",
+                    "floatValues": [],
+                    "intValues": null,
+                    "boolValues": null,
+                    "stringValues": [],
+                    "vector4Values": [],
+                    "objectReferences": []
+                  },
+                  "setProperty": 1
+                },
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Lowpass",
+          "line": 139880,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "LOWPASS AREA EXIT",
+              "to": "To Normal"
+            },
+            {
+              "event": "VENT REGION EXIT",
+              "to": "To Normal"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetAudioVolume",
+              "full_type": "HutongGames.PlayMaker.Actions.SetAudioVolume",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "volume": {
+                  "var": "Volume Lowpass",
+                  "stored": 1
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SetProperty",
+              "full_type": "HutongGames.PlayMaker.Actions.SetProperty",
+              "enabled": true,
+              "params": {
+                "targetProperty": {
+                  "TargetObject": {
+                    "var": "Lowpass Component",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  },
+                  "TargetTypeName": "UnityEngine.AudioLowPassFilter",
+                  "PropertyName": "cutoffFrequency",
+                  "BoolParameter": 0,
+                  "FloatParameter": {
+                    "var": "Cutoff Frequency",
+                    "stored": 5000
+                  },
+                  "IntParameter": 0,
+                  "GameObjectParameter": {
+                    "fileID": 0
+                  },
+                  "StringParameter": null,
+                  "Vector2Parameter": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "Vector3Parameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "RectParamater": {
+                    "serializedVersion": 2,
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  },
+                  "QuaternionParameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 0
+                  },
+                  "ObjectParameter": {
+                    "fileID": 0
+                  },
+                  "MaterialParameter": {
+                    "fileID": 0
+                  },
+                  "TextureParameter": {
+                    "fileID": 0
+                  },
+                  "ColorParameter": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 1
+                  },
+                  "EnumParameter": 0,
+                  "ArrayParameter": {
+                    "useVariable": 0,
+                    "name": null,
+                    "tooltip": null,
+                    "showInInspector": 0,
+                    "networkSync": 0,
+                    "type": -1,
+                    "objectTypeName": "UnityEngine.Object",
+                    "floatValues": [],
+                    "intValues": null,
+                    "boolValues": null,
+                    "stringValues": [],
+                    "vector4Values": [],
+                    "objectReferences": []
+                  },
+                  "setProperty": 1
+                },
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "To Normal",
+          "line": 140105,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Normal"
+            },
+            {
+              "event": "LOWPASS AREA ENTER",
+              "to": "To Lowpass"
+            },
+            {
+              "event": "VENT REGION ENTER",
+              "to": "To Lowpass"
+            }
+          ],
+          "actions": [
+            {
+              "type": "GetProperty",
+              "full_type": "HutongGames.PlayMaker.Actions.GetProperty",
+              "enabled": true,
+              "params": {
+                "targetProperty": {
+                  "TargetObject": {
+                    "var": "Lowpass Component",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  },
+                  "TargetTypeName": "UnityEngine.AudioLowPassFilter",
+                  "PropertyName": "cutoffFrequency",
+                  "BoolParameter": 0,
+                  "FloatParameter": {
+                    "var": "Cutoff Frequency Start",
+                    "stored": 0
+                  },
+                  "IntParameter": 0,
+                  "GameObjectParameter": {
+                    "fileID": 0
+                  },
+                  "StringParameter": null,
+                  "Vector2Parameter": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "Vector3Parameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "RectParamater": {
+                    "serializedVersion": 2,
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  },
+                  "QuaternionParameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 0
+                  },
+                  "ObjectParameter": {
+                    "fileID": 0
+                  },
+                  "MaterialParameter": {
+                    "fileID": 0
+                  },
+                  "TextureParameter": {
+                    "fileID": 0
+                  },
+                  "ColorParameter": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 1
+                  },
+                  "EnumParameter": 0,
+                  "ArrayParameter": {
+                    "useVariable": 0,
+                    "name": null,
+                    "tooltip": null,
+                    "showInInspector": 0,
+                    "networkSync": 0,
+                    "type": -1,
+                    "objectTypeName": "UnityEngine.Object",
+                    "floatValues": [],
+                    "intValues": null,
+                    "boolValues": null,
+                    "stringValues": [],
+                    "vector4Values": [],
+                    "objectReferences": []
+                  },
+                  "setProperty": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "FadeAudio",
+              "full_type": "HutongGames.PlayMaker.Actions.FadeAudio",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "startVolume": {
+                  "var": "Volume Lowpass",
+                  "stored": 1
+                },
+                "endVolume": {
+                  "var": "Volume Normal",
+                  "stored": 1
+                },
+                "time": 0.5
+              }
+            },
+            {
+              "type": "EaseFloat",
+              "full_type": "HutongGames.PlayMaker.Actions.EaseFloat",
+              "enabled": true,
+              "params": {
+                "fromValue": {
+                  "var": "Cutoff Frequency Start",
+                  "stored": 0
+                },
+                "toValue": 22000,
+                "floatVariable": {
+                  "var": "Cutoff Frequency Crt",
+                  "stored": 0
+                },
+                "time": 0.5,
+                "speed": {
+                  "var": null,
+                  "stored": 0
+                },
+                "delay": {
+                  "var": null,
+                  "stored": 0
+                },
+                "easeType": 21,
+                "reverse": 0,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            },
+            {
+              "type": "SetProperty",
+              "full_type": "HutongGames.PlayMaker.Actions.SetProperty",
+              "enabled": true,
+              "params": {
+                "targetProperty": {
+                  "TargetObject": {
+                    "var": "Lowpass Component",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  },
+                  "TargetTypeName": "UnityEngine.AudioLowPassFilter",
+                  "PropertyName": "cutoffFrequency",
+                  "BoolParameter": 0,
+                  "FloatParameter": {
+                    "var": "Cutoff Frequency Crt",
+                    "stored": 0
+                  },
+                  "IntParameter": 0,
+                  "GameObjectParameter": {
+                    "fileID": 0
+                  },
+                  "StringParameter": null,
+                  "Vector2Parameter": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "Vector3Parameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "RectParamater": {
+                    "serializedVersion": 2,
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  },
+                  "QuaternionParameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 0
+                  },
+                  "ObjectParameter": {
+                    "fileID": 0
+                  },
+                  "MaterialParameter": {
+                    "fileID": 0
+                  },
+                  "TextureParameter": {
+                    "fileID": 0
+                  },
+                  "ColorParameter": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 1
+                  },
+                  "EnumParameter": 0,
+                  "ArrayParameter": {
+                    "useVariable": 0,
+                    "name": null,
+                    "tooltip": null,
+                    "showInInspector": 0,
+                    "networkSync": 0,
+                    "type": -1,
+                    "objectTypeName": "UnityEngine.Object",
+                    "floatValues": [],
+                    "intValues": null,
+                    "boolValues": null,
+                    "stringValues": [],
+                    "vector4Values": [],
+                    "objectReferences": []
+                  },
+                  "setProperty": 1
+                },
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "SetProperty",
+              "full_type": "HutongGames.PlayMaker.Actions.SetProperty",
+              "enabled": true,
+              "params": {
+                "targetProperty": {
+                  "TargetObject": {
+                    "var": "Lowpass Component",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  },
+                  "TargetTypeName": "UnityEngine.AudioLowPassFilter",
+                  "PropertyName": "enabled",
+                  "BoolParameter": 1,
+                  "FloatParameter": 0,
+                  "IntParameter": 0,
+                  "GameObjectParameter": {
+                    "fileID": 0
+                  },
+                  "StringParameter": null,
+                  "Vector2Parameter": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "Vector3Parameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "RectParamater": {
+                    "serializedVersion": 2,
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  },
+                  "QuaternionParameter": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 0
+                  },
+                  "ObjectParameter": {
+                    "fileID": 0
+                  },
+                  "MaterialParameter": {
+                    "fileID": 0
+                  },
+                  "TextureParameter": {
+                    "fileID": 0
+                  },
+                  "ColorParameter": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 1
+                  },
+                  "EnumParameter": 0,
+                  "ArrayParameter": {
+                    "useVariable": 0,
+                    "name": null,
+                    "tooltip": null,
+                    "showInInspector": 0,
+                    "networkSync": 0,
+                    "type": -1,
+                    "objectTypeName": "UnityEngine.Object",
+                    "floatValues": [],
+                    "intValues": null,
+                    "boolValues": null,
+                    "stringValues": [],
+                    "vector4Values": [],
+                    "objectReferences": []
+                  },
+                  "setProperty": 1
+                },
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Use Vent Region?",
+          "line": 140679,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Start Lowpassed?"
+            }
+          ],
+          "actions": [
+            {
+              "type": "BoolTest",
+              "full_type": "HutongGames.PlayMaker.Actions.BoolTest",
+              "enabled": true,
+              "params": {
+                "boolVariable": {
+                  "var": "Use Vent Events",
+                  "stored": 0
+                },
+                "isTrue": null,
+                "isFalse": "FINISHED",
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "AddEventRegister",
+              "full_type": "HutongGames.PlayMaker.Actions.AddEventRegister",
+              "enabled": true,
+              "params": {
+                "target": {
+                  "owner": "self"
+                },
+                "eventName": "VENT REGION ENTER"
+              }
+            },
+            {
+              "type": "AddEventRegister",
+              "full_type": "HutongGames.PlayMaker.Actions.AddEventRegister",
+              "enabled": true,
+              "params": {
+                "target": {
+                  "owner": "self"
+                },
+                "eventName": "VENT REGION EXIT"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Start Lowpassed?",
+          "line": 140790,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "To Normal"
+            },
+            {
+              "event": "LOWPASS AREA ENTER",
+              "to": "To Lowpass"
+            }
+          ],
+          "actions": [
+            {
+              "type": "BoolTest",
+              "full_type": "HutongGames.PlayMaker.Actions.BoolTest",
+              "enabled": true,
+              "params": {
+                "boolVariable": {
+                  "var": "z Start Lowpassed",
+                  "stored": 0
+                },
+                "isTrue": "LOWPASS AREA ENTER",
+                "isFalse": null,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Add Lowpass Component",
+          "line": 140874,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Init"
+            }
+          ],
+          "actions": [
+            {
+              "type": "ObjectIsNull",
+              "full_type": "HutongGames.PlayMaker.Actions.ObjectIsNull",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "var": "Lowpass Component",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "trueEvent": null,
+                "falseEvent": "FINISHED",
+                "storeValue": {
+                  "var": null,
+                  "stored": 0
+                }
+              }
+            },
+            {
+              "type": "AddComponent",
+              "full_type": "HutongGames.PlayMaker.Actions.AddComponent",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "component": "UnityEngine.AudioLowPassFilter",
+                "storeComponent": {
+                  "var": "Lowpass Component",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "removeOnExit": 0
+              }
+            }
+          ]
+        }
+      ],
+      "global_transitions": [],
+      "variables": {
+        "floatVariables": [
+          {
+            "useVariable": 1,
+            "name": "Cutoff Frequency",
+            "tooltip": null,
+            "showInInspector": 1,
+            "networkSync": 0,
+            "value": 5000
+          },
+          {
+            "useVariable": 1,
+            "name": "Volume Normal",
+            "tooltip": null,
+            "showInInspector": 1,
+            "networkSync": 0,
+            "value": 1
+          },
+          {
+            "useVariable": 1,
+            "name": "Volume Lowpass",
+            "tooltip": null,
+            "showInInspector": 1,
+            "networkSync": 0,
+            "value": 0.35
+          },
+          {
+            "useVariable": 1,
+            "name": "Cutoff Frequency Crt",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Cutoff Frequency Start",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          }
+        ],
+        "intVariables": [],
+        "boolVariables": [
+          {
+            "useVariable": 1,
+            "name": "Use Vent Events",
+            "tooltip": null,
+            "showInInspector": 1,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "z Start Lowpassed",
+            "tooltip": null,
+            "showInInspector": 1,
+            "networkSync": 0,
+            "value": 0
+          }
+        ],
+        "stringVariables": [],
+        "vector2Variables": [],
+        "vector3Variables": [],
+        "colorVariables": [],
+        "rectVariables": [],
+        "quaternionVariables": [],
+        "gameObjectVariables": [],
+        "objectVariables": [
+          {
+            "useVariable": 1,
+            "name": "Lowpass Component",
+            "tooltip": null,
+            "showInInspector": 1,
+            "networkSync": 0,
+            "typeName": "UnityEngine.AudioLowPassFilter",
+            "value": {
+              "fileID": 0
+            }
+          }
+        ],
+        "materialVariables": [],
+        "textureVariables": [],
+        "arrayVariables": [],
+        "enumVariables": [],
+        "categories": [
+          null
+        ],
+        "variableCategoryIDs": 0
+      },
+      "fsm_metadata": {
+        "dataVersion": 2,
+        "usedInTemplate": {
+          "fileID": 0
+        },
+        "name": "lowpass",
+        "startState": "Add Lowpass Component",
+        "events": [
+          {
+            "name": "FINISHED",
+            "isSystemEvent": 1,
+            "isGlobal": 0
+          },
+          {
+            "name": "LOWPASS AREA ENTER",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "LOWPASS AREA EXIT",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "VENT REGION ENTER",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "VENT REGION EXIT",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          }
+        ],
+        "globalTransitions": [],
+        "description": null,
+        "docUrl": null,
+        "showStateLabel": 0,
+        "maxLoopCount": 0,
+        "watermark": null,
+        "password": null,
+        "locked": 0,
+        "manualUpdate": 0,
+        "outVariableIndices": null,
+        "keepDelayedEventsOnStateExit": 0,
+        "preprocessed": 1,
+        "ExposedEvents": [],
+        "OutputEvents": [],
+        "RestartOnEnable": 1,
+        "ResetVariablesOnEnable": 0,
+        "EnableDebugFlow": 0,
+        "EnableBreakpoints": 1,
+        "editorFlags": 35,
+        "activeStateName": null,
+        "mouseEvents": 0,
+        "handleLevelLoaded": 0,
+        "handleTriggerEnter2D": 0,
+        "handleTriggerExit2D": 0,
+        "handleTriggerStay2D": 0,
+        "handleCollisionEnter2D": 0,
+        "handleCollisionExit2D": 0,
+        "handleCollisionStay2D": 0,
+        "handleTriggerEnter": 0,
+        "handleTriggerExit": 0,
+        "handleTriggerStay": 0,
+        "handleCollisionEnter": 0,
+        "handleCollisionExit": 0,
+        "handleCollisionStay": 0,
+        "handleParticleCollision": 0,
+        "handleControllerColliderHit": 0,
+        "handleJointBreak": 0,
+        "handleJointBreak2D": 0,
+        "handleOnGUI": 0,
+        "handleFixedUpdate": 0,
+        "handleLateUpdate": 0,
+        "handleApplicationEvents": 0,
+        "handleUiEvents": 0,
+        "handleLegacyNetworking": 0,
+        "handleAnimatorMove": 0,
+        "handleAnimatorIK": 0
+      }
+    },
+    {
+      "source": "Assets/Scenes/Hornet/Dock_03b.unity",
+      "line": 141690,
+      "file_id": 2735,
+      "owner_id": 817,
+      "owner": "Fields Goomba",
+      "name": "Behaviour",
+      "start_state": "Init",
+      "states": [
+        {
+          "name": "Idle",
+          "line": 141707,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "WALK",
+              "to": "Walk"
+            },
+            {
+              "event": "RUN AWAY",
+              "to": "Run Away"
+            },
+            {
+              "event": "SING",
+              "to": "Sing"
+            },
+            {
+              "event": "CALL",
+              "to": "Call Antic"
+            }
+          ],
+          "actions": [
+            {
+              "type": "RandomBoolPercent",
+              "full_type": "HutongGames.PlayMaker.Actions.RandomBoolPercent",
+              "enabled": true,
+              "params": {
+                "storeResult": {
+                  "var": "Will Call",
+                  "stored": 0
+                },
+                "trueChance": 50
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Idle",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": null
+              }
+            },
+            {
+              "type": "RandomFloat",
+              "full_type": "HutongGames.PlayMaker.Actions.RandomFloat",
+              "enabled": true,
+              "params": {
+                "min": 1,
+                "max": 1.5,
+                "storeResult": {
+                  "var": "Wait Time",
+                  "stored": 0
+                }
+              }
+            },
+            {
+              "type": "WaitBool",
+              "full_type": "HutongGames.PlayMaker.Actions.WaitBool",
+              "enabled": true,
+              "params": {
+                "boolTest": {
+                  "var": "Idle Walk",
+                  "stored": 1
+                },
+                "time": {
+                  "var": "Wait Time",
+                  "stored": 0
+                },
+                "finishEvent": "WALK",
+                "realTime": false
+              }
+            },
+            {
+              "type": "CheckAlertRange",
+              "full_type": "CheckAlertRange",
+              "enabled": true,
+              "params": {
+                "alertRange": {
+                  "var": "Alert Range",
+                  "stored": {
+                    "fileID": 2723
+                  }
+                },
+                "storeResult": {
+                  "var": null,
+                  "stored": 0
+                },
+                "InRangeEvent": "RUN AWAY",
+                "InRangeDelay": 0.1,
+                "OutOfRangeEvent": null,
+                "OutOfRangeDelay": 0,
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "SetParticleEmissionChildren",
+              "full_type": "HutongGames.PlayMaker.Actions.SetParticleEmissionChildren",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": {
+                    "var": "Pt Run",
+                    "stored": {
+                      "fileID": 852
+                    }
+                  }
+                },
+                "SetEmission": 0,
+                "EveryFrame": false,
+                "stopOnExit": false
+              }
+            },
+            {
+              "type": "CheckHeroPerformanceRegionV2",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegionV2",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "Radius": 0,
+                "MinReactDelay": 0.2,
+                "MaxReactDelay": 0.3,
+                "None": null,
+                "ActiveInner": "SING",
+                "ActiveOuter": null,
+                "IgnoreNeedolinRange": 0,
+                "UseActiveBool": 0,
+                "ActiveBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "StoreState": {
+                  "var": null,
+                  "stored": 0
+                },
+                "EveryFrame": true
+              }
+            },
+            {
+              "type": "BoolTestMulti",
+              "full_type": "HutongGames.PlayMaker.Actions.BoolTestMulti",
+              "enabled": true,
+              "params": {
+                "boolVariables": [
+                  {
+                    "var": "Will Call",
+                    "stored": 0
+                  },
+                  {
+                    "var": "Did Call",
+                    "stored": 0
+                  }
+                ],
+                "boolStates": [
+                  1,
+                  0
+                ],
+                "trueEvent": null,
+                "falseEvent": null,
+                "storeResult": {
+                  "var": "Do Call",
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "WaitBool",
+              "full_type": "HutongGames.PlayMaker.Actions.WaitBool",
+              "enabled": true,
+              "params": {
+                "boolTest": {
+                  "var": "Do Call",
+                  "stored": 0
+                },
+                "time": 0.5,
+                "finishEvent": "CALL",
+                "realTime": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Walk",
+          "line": 142064,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "IDLE",
+              "to": "To Idle"
+            },
+            {
+              "event": "SING",
+              "to": "Sing"
+            }
+          ],
+          "actions": [
+            {
+              "type": "RandomBool",
+              "full_type": "HutongGames.PlayMaker.Actions.RandomBool",
+              "enabled": true,
+              "params": {
+                "storeResult": {
+                  "var": "Schedule Turn",
+                  "stored": 0
+                }
+              }
+            },
+            {
+              "type": "StartCrawler",
+              "full_type": "StartCrawler",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "ScheduleTurn": {
+                  "var": "Schedule Turn",
+                  "stored": 0
+                }
+              }
+            },
+            {
+              "type": "WaitRandom",
+              "full_type": "HutongGames.PlayMaker.Actions.WaitRandom",
+              "enabled": true,
+              "params": {
+                "timeMin": 0.5,
+                "timeMax": 1,
+                "finishEvent": "IDLE",
+                "realTime": false
+              }
+            },
+            {
+              "type": "SetParticleEmissionChildren",
+              "full_type": "HutongGames.PlayMaker.Actions.SetParticleEmissionChildren",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": {
+                    "var": "Pt Run",
+                    "stored": {
+                      "fileID": 852
+                    }
+                  }
+                },
+                "SetEmission": 1,
+                "EveryFrame": false,
+                "stopOnExit": false
+              }
+            },
+            {
+              "type": "CheckHeroPerformanceRegionV2",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegionV2",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "Radius": 0,
+                "MinReactDelay": 0.2,
+                "MaxReactDelay": 0.3,
+                "None": null,
+                "ActiveInner": "SING",
+                "ActiveOuter": null,
+                "IgnoreNeedolinRange": 0,
+                "UseActiveBool": 0,
+                "ActiveBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "StoreState": {
+                  "var": null,
+                  "stored": 0
+                },
+                "EveryFrame": true
+              }
+            },
+            {
+              "type": "SetBoolValue",
+              "full_type": "HutongGames.PlayMaker.Actions.SetBoolValue",
+              "enabled": true,
+              "params": {
+                "boolVariable": {
+                  "var": "Did Call",
+                  "stored": 0
+                },
+                "boolValue": 0,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Init",
+          "line": 142285,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Idle"
+            },
+            {
+              "event": "WAITING",
+              "to": "Waiting"
+            }
+          ],
+          "actions": [
+            {
+              "type": "StopCrawler",
+              "full_type": "StopCrawler",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "WaitForTurn": 1
+              }
+            },
+            {
+              "type": "FindNamedChild",
+              "full_type": "HutongGames.PlayMaker.Actions.FindNamedChild",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "storeResult": {
+                  "var": "Wake Range",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "GameObjectIsNull",
+              "full_type": "HutongGames.PlayMaker.Actions.GameObjectIsNull",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "var": "Wake Range",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "isNull": null,
+                "isNotNull": "WAITING",
+                "storeResult": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "To Idle",
+          "line": 142412,
+          "sequence": 1,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Idle"
+            },
+            {
+              "event": "SING",
+              "to": "Sing"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetParticleEmissionChildren",
+              "full_type": "HutongGames.PlayMaker.Actions.SetParticleEmissionChildren",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": {
+                    "var": "Pt Run",
+                    "stored": {
+                      "fileID": 852
+                    }
+                  }
+                },
+                "SetEmission": 0,
+                "EveryFrame": false,
+                "stopOnExit": false
+              }
+            },
+            {
+              "type": "StopCrawler",
+              "full_type": "StopCrawler",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "WaitForTurn": 1
+              }
+            },
+            {
+              "type": "CheckHeroPerformanceRegion",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegion",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "MinReactDelay": 0,
+                "MaxReactDelay": 0,
+                "None": null,
+                "ActiveInner": "SING",
+                "ActiveOuter": null,
+                "IgnoreNeedolinRange": 0,
+                "useActiveBool": false,
+                "ActiveBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "StoreState": {
+                  "var": null,
+                  "stored": 0
+                },
+                "EveryFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Run Away",
+          "line": 142575,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "IDLE",
+              "to": "To Idle"
+            },
+            {
+              "event": "SING",
+              "to": "Sing"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetBoolValue",
+              "full_type": "HutongGames.PlayMaker.Actions.SetBoolValue",
+              "enabled": true,
+              "params": {
+                "boolVariable": {
+                  "var": "Should Face Away",
+                  "stored": 0
+                },
+                "boolValue": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "CheckFacingTarget",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckFacingTarget",
+              "enabled": true,
+              "params": {
+                "facingObject": {
+                  "owner": "self"
+                },
+                "target": {
+                  "var": "Hero",
+                  "stored": {
+                    "fileID": 0
+                  }
+                },
+                "spriteFacesRight": true,
+                "everyFrame": false,
+                "facingEvent": null,
+                "notFacingEvent": null,
+                "facingBool": {
+                  "var": "Should Face Away",
+                  "stored": 0
+                },
+                "notFacingBool": {
+                  "var": null,
+                  "stored": 0
+                }
+              }
+            },
+            {
+              "type": "StartCrawler",
+              "full_type": "StartCrawler",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "ScheduleTurn": {
+                  "var": "Should Face Away",
+                  "stored": 0
+                }
+              }
+            },
+            {
+              "type": "WaitRandom",
+              "full_type": "HutongGames.PlayMaker.Actions.WaitRandom",
+              "enabled": true,
+              "params": {
+                "timeMin": 1,
+                "timeMax": 1.5,
+                "finishEvent": "IDLE",
+                "realTime": false
+              }
+            },
+            {
+              "type": "SetParticleEmissionChildren",
+              "full_type": "HutongGames.PlayMaker.Actions.SetParticleEmissionChildren",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": {
+                    "var": "Pt Run",
+                    "stored": {
+                      "fileID": 852
+                    }
+                  }
+                },
+                "SetEmission": 1,
+                "EveryFrame": false,
+                "stopOnExit": false
+              }
+            },
+            {
+              "type": "CheckHeroPerformanceRegionV2",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegionV2",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "Radius": 0,
+                "MinReactDelay": 0.2,
+                "MaxReactDelay": 0.3,
+                "None": null,
+                "ActiveInner": "SING",
+                "ActiveOuter": null,
+                "IgnoreNeedolinRange": 0,
+                "UseActiveBool": 0,
+                "ActiveBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "StoreState": {
+                  "var": null,
+                  "stored": 0
+                },
+                "EveryFrame": true
+              }
+            },
+            {
+              "type": "SetBoolValue",
+              "full_type": "HutongGames.PlayMaker.Actions.SetBoolValue",
+              "enabled": true,
+              "params": {
+                "boolVariable": {
+                  "var": "Did Call",
+                  "stored": 0
+                },
+                "boolValue": 0,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Damaged",
+          "line": 142842,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Run Away"
+            }
+          ],
+          "actions": []
+        },
+        {
+          "name": "Sing",
+          "line": 142903,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "CANCEL",
+              "to": "Sing End"
+            },
+            {
+              "event": "SING DURATION END",
+              "to": "Sing End"
+            }
+          ],
+          "actions": [
+            {
+              "type": "EnemySingControl",
+              "full_type": "HutongGames.PlayMaker.Actions.EnemySingControl",
+              "enabled": true,
+              "params": {
+                "enemyGameObject": {
+                  "owner": "self"
+                },
+                "audioPlayer": {
+                  "var": "Audio Loop Voice",
+                  "stored": {
+                    "fileID": 890
+                  }
+                },
+                "singAudioTable": {
+                  "fileID": 11400000,
+                  "guid": "1f6ffdb8153211d44a1514c747d0ad03",
+                  "type": 2
+                },
+                "noThreadEffects": 0,
+                "noPuppetString": 0,
+                "randomSingStartTime": 1,
+                "dontStopAudioOnExit": 0,
+                "altThreadSpawnPoint": {
+                  "fileID": 0
+                }
+              }
+            },
+            {
+              "type": "StopCrawler",
+              "full_type": "StopCrawler",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "WaitForTurn": 0
+              }
+            },
+            {
+              "type": "SetVelocity2d",
+              "full_type": "HutongGames.PlayMaker.Actions.SetVelocity2d",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "vector": {
+                  "var": null,
+                  "stored": {
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                "x": 0,
+                "y": {
+                  "var": null,
+                  "stored": 0
+                },
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimation",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimation",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "animLibName": null,
+                "clipName": "Sing"
+              }
+            },
+            {
+              "type": "CheckHeroPerformanceRegion",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckHeroPerformanceRegion",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": "self"
+                },
+                "MinReactDelay": 0.3,
+                "MaxReactDelay": 0.5,
+                "None": "CANCEL",
+                "ActiveInner": null,
+                "ActiveOuter": null,
+                "IgnoreNeedolinRange": 0,
+                "useActiveBool": false,
+                "ActiveBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "StoreState": {
+                  "var": null,
+                  "stored": 0
+                },
+                "EveryFrame": true
+              }
+            },
+            {
+              "type": "SetParticleEmissionChildren",
+              "full_type": "HutongGames.PlayMaker.Actions.SetParticleEmissionChildren",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": {
+                    "var": "Pt Run",
+                    "stored": {
+                      "fileID": 852
+                    }
+                  }
+                },
+                "SetEmission": 0,
+                "EveryFrame": false,
+                "stopOnExit": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Waiting",
+          "line": 143185,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "RUN AWAY",
+              "to": "Walk"
+            }
+          ],
+          "actions": [
+            {
+              "type": "Tk2dPlayAnimation",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimation",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "animLibName": null,
+                "clipName": "Idle"
+              }
+            },
+            {
+              "type": "CheckAlertRangeByName",
+              "full_type": "CheckAlertRangeByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 0,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": "self"
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "alertRangeName": "Wake Range",
+                "storeResult": 0,
+                "sendEvent": "RUN AWAY",
+                "outOfRangeEvent": null,
+                "everyFrame": true
+              }
+            }
+          ]
+        },
+        {
+          "name": "Sing End",
+          "line": 143330,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Idle"
+            }
+          ],
+          "actions": [
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Sing End",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Call Antic",
+          "line": 143413,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Call"
+            }
+          ],
+          "actions": [
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Call",
+                "animationTriggerEvent": "FINISHED",
+                "animationCompleteEvent": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "Call",
+          "line": 143496,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Idle"
+            },
+            {
+              "event": "TOOK DAMAGE",
+              "to": "Run Away"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetBoolValue",
+              "full_type": "HutongGames.PlayMaker.Actions.SetBoolValue",
+              "enabled": true,
+              "params": {
+                "boolVariable": {
+                  "var": "Did Call",
+                  "stored": 0
+                },
+                "boolValue": 1,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "AudioPlayRandomVoice",
+              "full_type": "HutongGames.PlayMaker.Actions.AudioPlayRandomVoice",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Audio Loop Voice",
+                    "stored": {
+                      "fileID": 890
+                    }
+                  }
+                },
+                "audioClips": [
+                  {
+                    "fileID": 8300000,
+                    "guid": "849bd9fe867043a469efdb099c5d241a",
+                    "type": 3
+                  },
+                  {
+                    "fileID": 8300000,
+                    "guid": "70b6fe19bd48f1f46be05da2005afff0",
+                    "type": 3
+                  },
+                  {
+                    "fileID": 8300000,
+                    "guid": "1cb888106e681694f974068dd4041d61",
+                    "type": 3
+                  }
+                ],
+                "weights": [
+                  1,
+                  1,
+                  1
+                ],
+                "pitchMin": 0.85,
+                "pitchMax": 1.15,
+                "stopPreviousSound": false
+              }
+            },
+            {
+              "type": "Tk2dWatchAnimationEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dWatchAnimationEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": "FINISHED"
+              }
+            }
+          ]
+        }
+      ],
+      "global_transitions": [
+        {
+          "fsmEvent": {
+            "name": "TOOK DAMAGE",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          "toState": "Damaged",
+          "linkStyle": 0,
+          "linkConstraint": 0,
+          "linkTarget": 0,
+          "colorIndex": 0
+        }
+      ],
+      "variables": {
+        "floatVariables": [
+          {
+            "useVariable": 1,
+            "name": "Wait Time",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          }
+        ],
+        "intVariables": [],
+        "boolVariables": [
+          {
+            "useVariable": 1,
+            "name": "Schedule Turn",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Should Face Away",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Will Call",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Did Call",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Do Call",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          },
+          {
+            "useVariable": 1,
+            "name": "Idle Walk",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 1
+          }
+        ],
+        "stringVariables": [],
+        "vector2Variables": [],
+        "vector3Variables": [],
+        "colorVariables": [],
+        "rectVariables": [],
+        "quaternionVariables": [],
+        "gameObjectVariables": [
+          {
+            "useVariable": 1,
+            "name": "Pt Run",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 852
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Wake Range",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Audio Loop Voice",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 890
+            }
+          }
+        ],
+        "objectVariables": [
+          {
+            "useVariable": 1,
+            "name": "Alert Range",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "typeName": "AlertRange",
+            "value": {
+              "fileID": 2723
+            }
+          }
+        ],
+        "materialVariables": [],
+        "textureVariables": [],
+        "arrayVariables": [],
+        "enumVariables": [],
+        "categories": [
+          null
+        ],
+        "variableCategoryIDs": 0
+      },
+      "fsm_metadata": {
+        "dataVersion": 2,
+        "usedInTemplate": {
+          "fileID": 0
+        },
+        "name": "Behaviour",
+        "startState": "Init",
+        "events": [
+          {
+            "name": "FINISHED",
+            "isSystemEvent": 1,
+            "isGlobal": 0
+          },
+          {
+            "name": "CANCEL",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "IDLE",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "RUN AWAY",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "SING",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "TOOK DAMAGE",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          },
+          {
+            "name": "WAITING",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "WALK",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "CALL",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "Do Call",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "SING DURATION END",
+            "isSystemEvent": 0,
+            "isGlobal": 1
+          }
+        ],
+        "globalTransitions": [
+          {
+            "fsmEvent": {
+              "name": "TOOK DAMAGE",
+              "isSystemEvent": 0,
+              "isGlobal": 1
+            },
+            "toState": "Damaged",
+            "linkStyle": 0,
+            "linkConstraint": 0,
+            "linkTarget": 0,
+            "colorIndex": 0
+          }
+        ],
+        "description": null,
+        "docUrl": null,
+        "showStateLabel": 0,
+        "maxLoopCount": 0,
+        "watermark": null,
+        "password": null,
+        "locked": 0,
+        "manualUpdate": 0,
+        "outVariableIndices": null,
+        "keepDelayedEventsOnStateExit": 0,
+        "preprocessed": 1,
+        "ExposedEvents": [],
+        "OutputEvents": [],
+        "RestartOnEnable": 1,
+        "ResetVariablesOnEnable": 0,
+        "EnableDebugFlow": 0,
+        "EnableBreakpoints": 1,
+        "editorFlags": 1,
+        "activeStateName": null,
+        "mouseEvents": 0,
+        "handleLevelLoaded": 0,
+        "handleTriggerEnter2D": 0,
+        "handleTriggerExit2D": 0,
+        "handleTriggerStay2D": 0,
+        "handleCollisionEnter2D": 0,
+        "handleCollisionExit2D": 0,
+        "handleCollisionStay2D": 0,
+        "handleTriggerEnter": 0,
+        "handleTriggerExit": 0,
+        "handleTriggerStay": 0,
+        "handleCollisionEnter": 0,
+        "handleCollisionExit": 0,
+        "handleCollisionStay": 0,
+        "handleParticleCollision": 0,
+        "handleControllerColliderHit": 0,
+        "handleJointBreak": 0,
+        "handleJointBreak2D": 0,
+        "handleOnGUI": 0,
+        "handleFixedUpdate": 1,
+        "handleLateUpdate": 0,
+        "handleApplicationEvents": 0,
+        "handleUiEvents": 0,
+        "handleLegacyNetworking": 0,
+        "handleAnimatorMove": 0,
+        "handleAnimatorIK": 0
+      }
+    }
+  ],
+  "game_objects": [
+    {
+      "file_id": "683",
+      "name": "Alert Range",
+      "line": 11377,
+      "serialized_yaml": "--- !u!1 &683\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 1679}\n  - component: {fileID: 1891}\n  - component: {fileID: 2723}\n  m_Layer: 13\n  m_Name: Alert Range\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "737",
+      "name": "Dust",
+      "line": 12336,
+      "serialized_yaml": "--- !u!1 &737\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 1576}\n  - component: {fileID: 1962}\n  - component: {fileID: 1993}\n  - component: {fileID: 2783}\n  m_Layer: 8\n  m_Name: Dust\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "803",
+      "name": "Rock",
+      "line": 13518,
+      "serialized_yaml": "--- !u!1 &803\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 1675}\n  - component: {fileID: 1966}\n  - component: {fileID: 1982}\n  m_Layer: 8\n  m_Name: Rock\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "817",
+      "name": "Fields Goomba",
+      "line": 13761,
+      "serialized_yaml": "--- !u!1 &817\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 1666}\n  - component: {fileID: 1790}\n  - component: {fileID: 1816}\n  - component: {fileID: 2674}\n  - component: {fileID: 1817}\n  - component: {fileID: 2675}\n  - component: {fileID: 2777}\n  - component: {fileID: 1875}\n  - component: {fileID: 2824}\n  - component: {fileID: 2771}\n  - component: {fileID: 2749}\n  - component: {fileID: 2778}\n  - component: {fileID: 2721}\n  - component: {fileID: 2875}\n  - component: {fileID: 2766}\n  - component: {fileID: 2735}\n  - component: {fileID: 2780}\n  - component: {fileID: 2890}\n  - component: {fileID: 1951}\n  - component: {fileID: 2851}\n  - component: {fileID: 2705}\n  - component: {fileID: 2867}\n  m_Layer: 11\n  m_Name: Fields Goomba\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "852",
+      "name": "Pt Run",
+      "line": 14388,
+      "serialized_yaml": "--- !u!1 &852\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 1738}\n  m_Layer: 11\n  m_Name: Pt Run\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "864",
+      "name": "Grass",
+      "line": 14591,
+      "serialized_yaml": "--- !u!1 &864\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 1658}\n  - component: {fileID: 1971}\n  - component: {fileID: 1988}\n  m_Layer: 11\n  m_Name: Grass\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "876",
+      "name": "Audio Loop Run",
+      "line": 14814,
+      "serialized_yaml": "--- !u!1 &876\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 1746}\n  - component: {fileID: 1949}\n  m_Layer: 11\n  m_Name: Audio Loop Run\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "890",
+      "name": "Audio Loop Voice",
+      "line": 15061,
+      "serialized_yaml": "--- !u!1 &890\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 1753}\n  - component: {fileID: 1950}\n  - component: {fileID: 2866}\n  m_Layer: 0\n  m_Name: Audio Loop Voice\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    }
+  ],
+  "components": [
+    {
+      "file_id": "1576",
+      "game_object_id": "737",
+      "unity_class_id": "4",
+      "line": 25936,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &1576\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 737}\n  m_LocalRotation: {x: -0, y: -0, z: -2.2085505E-05, w: -1}\n  m_LocalPosition: {x: 0.08, y: -1.37, z: 0.001}\n  m_LocalScale: {x: 1, y: 0.01, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 1738}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0.0025308125}\n"
+    },
+    {
+      "file_id": "1658",
+      "game_object_id": "864",
+      "unity_class_id": "4",
+      "line": 27220,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &1658\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 864}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: -0.08, y: -1.06, z: -0.01}\n  m_LocalScale: {x: 0.7875, y: 1.7624992, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 1738}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "1666",
+      "game_object_id": "817",
+      "unity_class_id": "4",
+      "line": 27358,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &1666\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 817}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 156.9, y: 91.35, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 1679}\n  - {fileID: 1738}\n  - {fileID: 1746}\n  - {fileID: 1753}\n  m_Father: {fileID: 0}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "1675",
+      "game_object_id": "803",
+      "unity_class_id": "4",
+      "line": 27505,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &1675\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 803}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: -0.17, y: -1.25, z: 0.005}\n  m_LocalScale: {x: -1, y: 0.01, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 1738}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "1679",
+      "game_object_id": "683",
+      "unity_class_id": "4",
+      "line": 27565,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &1679\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 683}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 3.88, y: -0.03, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 1666}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "1738",
+      "game_object_id": "852",
+      "unity_class_id": "4",
+      "line": 28473,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &1738\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 852}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 1576}\n  - {fileID: 1675}\n  - {fileID: 1658}\n  m_Father: {fileID: 1666}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "1746",
+      "game_object_id": "876",
+      "unity_class_id": "4",
+      "line": 28604,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &1746\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 876}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 1666}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "1753",
+      "game_object_id": "890",
+      "unity_class_id": "4",
+      "line": 28709,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &1753\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 890}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 1666}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "1817",
+      "game_object_id": "817",
+      "unity_class_id": "50",
+      "line": 30274,
+      "script": null,
+      "serialized_yaml": "--- !u!50 &1817\nRigidbody2D:\n  serializedVersion: 5\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 817}\n  m_BodyType: 0\n  m_Simulated: 1\n  m_UseFullKinematicContacts: 0\n  m_UseAutoMass: 0\n  m_Mass: 1\n  m_LinearDamping: 0\n  m_AngularDamping: 0.05\n  m_GravityScale: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_Interpolate: 0\n  m_SleepingMode: 0\n  m_CollisionDetection: 1\n  m_Constraints: 4\n"
+    },
+    {
+      "file_id": "1875",
+      "game_object_id": "817",
+      "unity_class_id": "61",
+      "line": 32980,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &1875\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 817}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 0\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: -0.00024795532, y: -0.7877443}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 0.9934006, y: 1.1818843}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "1891",
+      "game_object_id": "683",
+      "unity_class_id": "61",
+      "line": 33716,
+      "script": null,
+      "serialized_yaml": "--- !u!61 &1891\nBoxCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 683}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: -2.68816, y: 0.23947167}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Size: {x: 11.144997, y: 4.2789435}\n  m_EdgeRadius: 0\n"
+    },
+    {
+      "file_id": "1949",
+      "game_object_id": "876",
+      "unity_class_id": "82",
+      "line": 37642,
+      "script": null,
+      "serialized_yaml": "--- !u!82 &1949\nAudioSource:\n  serializedVersion: 4\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 876}\n  m_Enabled: 1\n  OutputAudioMixerGroup: {fileID: 24300004, guid: d910a835fc4287448b891cc742c2a38a, type: 2}\n  m_audioClip: {fileID: 8300000, guid: 0dbd3983989012641b44e96c20dcb3fc, type: 3}\n  m_Resource: {fileID: 8300000, guid: 0dbd3983989012641b44e96c20dcb3fc, type: 3}\n  m_PlayOnAwake: 0\n  m_Volume: 1\n  m_Pitch: 1\n  Loop: 1\n  Mute: 0\n  Spatialize: 0\n  SpatializePostEffects: 0\n  Priority: 128\n  DopplerLevel: 0\n  MinDistance: 39\n  MaxDistance: 50\n  Pan2D: 0\n  rolloffMode: 2\n  BypassEffects: 0\n  BypassListenerEffects: 0\n  BypassReverbZones: 0\n  rolloffCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0.78\n      value: 1\n      inSlope: -7.2560205\n      outSlope: -7.2560205\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    - serializedVersion: 3\n      time: 0.9787131\n      value: 0.007873535\n      inSlope: -2.3973467\n      outSlope: -2.3973467\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  panLevelCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  spreadCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 0\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  reverbZoneMixCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n"
+    },
+    {
+      "file_id": "1950",
+      "game_object_id": "890",
+      "unity_class_id": "82",
+      "line": 37739,
+      "script": null,
+      "serialized_yaml": "--- !u!82 &1950\nAudioSource:\n  serializedVersion: 4\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 890}\n  m_Enabled: 1\n  OutputAudioMixerGroup: {fileID: 24300004, guid: d910a835fc4287448b891cc742c2a38a, type: 2}\n  m_audioClip: {fileID: 0}\n  m_Resource: {fileID: 0}\n  m_PlayOnAwake: 0\n  m_Volume: 1\n  m_Pitch: 1\n  Loop: 1\n  Mute: 0\n  Spatialize: 0\n  SpatializePostEffects: 0\n  Priority: 127\n  DopplerLevel: 0\n  MinDistance: 39\n  MaxDistance: 70\n  Pan2D: 0\n  rolloffMode: 2\n  BypassEffects: 0\n  BypassListenerEffects: 0\n  BypassReverbZones: 0\n  rolloffCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0.55770993\n      value: 1\n      inSlope: -11.035242\n      outSlope: -11.035242\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.077779464\n    - serializedVersion: 3\n      time: 0.76478577\n      value: 0\n      inSlope: -0.02625977\n      outSlope: -0.02625977\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.45610875\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  panLevelCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  spreadCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 0\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  reverbZoneMixCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n"
+    },
+    {
+      "file_id": "1951",
+      "game_object_id": "817",
+      "unity_class_id": "82",
+      "line": 37836,
+      "script": null,
+      "serialized_yaml": "--- !u!82 &1951\nAudioSource:\n  serializedVersion: 4\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 817}\n  m_Enabled: 1\n  OutputAudioMixerGroup: {fileID: 24300004, guid: d910a835fc4287448b891cc742c2a38a, type: 2}\n  m_audioClip: {fileID: 0}\n  m_Resource: {fileID: 0}\n  m_PlayOnAwake: 0\n  m_Volume: 1\n  m_Pitch: 1\n  Loop: 0\n  Mute: 0\n  Spatialize: 0\n  SpatializePostEffects: 0\n  Priority: 128\n  DopplerLevel: 0\n  MinDistance: 39\n  MaxDistance: 50\n  Pan2D: 0\n  rolloffMode: 2\n  BypassEffects: 0\n  BypassListenerEffects: 0\n  BypassReverbZones: 0\n  rolloffCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0.78\n      value: 1\n      inSlope: -7.2560205\n      outSlope: -7.2560205\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    - serializedVersion: 3\n      time: 0.9787131\n      value: 0.007873535\n      inSlope: -2.3973467\n      outSlope: -2.3973467\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  panLevelCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  spreadCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 0\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n  reverbZoneMixCustomCurve:\n    serializedVersion: 2\n    m_Curve:\n    - serializedVersion: 3\n      time: 0\n      value: 1\n      inSlope: 0\n      outSlope: 0\n      tangentMode: 0\n      weightedMode: 0\n      inWeight: 0.33333334\n      outWeight: 0.33333334\n    m_PreInfinity: 2\n    m_PostInfinity: 2\n    m_RotationOrder: 0\n"
+    },
+    {
+      "file_id": "2674",
+      "game_object_id": "817",
+      "unity_class_id": "114",
+      "line": 132501,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "serialized_yaml": "--- !u!114 &2674\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 817}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 461acbcb857d4478aaa8e8e64ee6f52a, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  collection: {fileID: 114724804207875695, guid: acf5ae43f41d5e04d8d7a884881e319a, type: 2}\n  _color: {r: 1, g: 1, b: 1, a: 1}\n  _scale: {x: 1, y: 1, z: 1}\n  _spriteId: 4\n  boxCollider2D: {fileID: 1875}\n  polygonCollider2D: []\n  edgeCollider2D: []\n  boxCollider: {fileID: 0}\n  meshCollider: {fileID: 0}\n  meshColliderPositions: []\n  meshColliderMesh: {fileID: 0}\n  renderLayer: 0\n"
+    },
+    {
+      "file_id": "2675",
+      "game_object_id": "817",
+      "unity_class_id": "114",
+      "line": 132525,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs",
+      "serialized_yaml": "--- !u!114 &2675\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 817}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5996133e774984aa7a33c40ed829e17f, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  spriteOverride: {fileID: 0}\n  library: {fileID: 114724804207875695, guid: a7991ae6a97bbcb4bb9458fdbe19b69f, type: 2}\n  defaultClipId: 1\n  isRealtime: 0\n  playAutomatically: 1\n  playAutomaticallyOnEnable: 0\n"
+    },
+    {
+      "file_id": "2721",
+      "game_object_id": "817",
+      "unity_class_id": "114",
+      "line": 141379,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/HealthManager.cs",
+      "serialized_yaml": "--- !u!114 &2721\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 817}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 7e0b9799fb0157646caefd91bc67f0a6, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  audioPlayerPrefab: {fileID: 82724804207875695, guid: 99068b2a95bddff419cb6f176648d4e6, type: 2}\n  regularInvincibleAudio:\n    Clip: {fileID: 8300000, guid: 6447a975892e6ac42be7525d74803f40, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  blockHitPrefab: {fileID: 1709254077376921, guid: a7a57900a8a415a4387938611b64e586, type: 2}\n  strikeNailPrefab: {fileID: 1709254077376921, guid: 64c20baf394ac9a41b03deea82568445, type: 2}\n  slashImpactPrefab: {fileID: 1709254077376921, guid: 97c9ba031f06bae4681d3fda13c3f87b, type: 2}\n  corpseSplatPrefab: {fileID: 1709254077376921, guid: ee26d04f9efdaa7458f4fcea07e485df, type: 2}\n  hp: 15\n  damageScaling:\n    Level1Mult: 1\n    Level2Mult: 0.75\n    Level3Mult: 0.75\n    Level4Mult: 0.75\n    Level5Mult: 0.75\n  enemyType: 0\n  doNotGiveSilk: 0\n  ignoreFlags: 0\n  reaperBundles: 1\n  effectOrigin: {x: 0, y: -0.55, z: 0}\n  ignoreKillAll: 0\n  sendDamageTo: {fileID: 0}\n  isPartOfSendToTarget: 0\n  tagDamageTakerIgnoreColliderState: 0\n  takeTagDamageWhileInvincible: 0\n  targetPointOverride: {fileID: 0}\n  battleScene: {fileID: 0}\n  sendHitTo: {fileID: 0}\n  sendKilledToObject: {fileID: 0}\n  sendKilledToName:\n  smallGeoDrops: 0\n  mediumGeoDrops: 0\n  largeGeoDrops: 0\n  largeSmoothGeoDrops: 0\n  megaFlingGeo: 0\n  shellShardDrops: 3\n  flingSilkOrbsDown: 0\n  flingSilkOrbsAimObject: {fileID: 0}\n  itemDropGroups: []\n  _itemDropProbability: 0\n  _itemDrops: []\n  hasAlternateHitAnimation: 0\n  alternateHitAnimation: False\n  invincible: 0\n  piercable: 0\n  invincibleFromDirection: 0\n  preventInvincibleEffect: 0\n  preventInvincibleShake: 0\n  preventInvincibleAttackBlock: 0\n  invincibleRecoil: 0\n  dontSendTinkToDamager: 0\n  hasAlternateInvincibleSound: 0\n  alternateInvincibleSound: {fileID: 0}\n  immuneToNailAttacks: 0\n  immuneToExplosions: 0\n  immuneToBeams: 0\n  immuneToHunterWeapon: 0\n  immuneToCoal: 0\n  immuneToTraps: 0\n  immuneToWater: 0\n  immuneToSpikes: 0\n  immuneToLava: 0\n  isMossExtractable: 0\n  isSwampExtractable: 0\n  isBluebloodExtractable: 0\n  deathAudioSnapshot: {fileID: 0}\n  hasSpecialDeath: 0\n  deathReset: 0\n  damageOverride: 0\n  ignoreAcid: 0\n  ignoreWater: 0\n  zeroHPEventOverride: {fileID: 0}\n  dontDropMeat: 0\n  enemySize: 1\n  bigEnemyDeath: 0\n  preventDeathAfterHero: 0\n  ignoreHazards: 0\n  invulnerableTime: 0.25\n  semiPersistent: 0\n  isDead: 0\n  ignorePersistence: 0\n  tinkTimer: 0\n"
+    },
+    {
+      "file_id": "2723",
+      "game_object_id": "683",
+      "unity_class_id": "114",
+      "line": 141495,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/AlertRange.cs",
+      "serialized_yaml": "--- !u!114 &2723\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 683}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: e667676c1e2581f78ac6219259c46fde, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  ignoreLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  tagIncludeList: []\n  tagExcludeList: []\n  checkParentSight: 0\n  lineOfSight: 2\n  countUnalertTime: 0\n"
+    },
+    {
+      "file_id": "2749",
+      "game_object_id": "817",
+      "unity_class_id": "114",
+      "line": 144572,
+      "script": "Assets/Scripts/Assembly-CSharp/EnemyHitEffectsRegular.cs",
+      "serialized_yaml": "--- !u!114 &2749\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 817}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 688cf27c991077549cc7e1e5fa656b3d, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  effectOrigin: {x: 0.11, y: -0.55, z: 0}\n  sendDamageFlashEvent: 1\n  profile: {fileID: 11400000, guid: 4230e63efb0c45141b8a9672418ea98b, type: 2}\n  overrideBloodColor: 0\n  bloodColorOverride: {r: 0, g: 0, b: 0, a: 0}\n  forceMinimalEffects: 0\n"
+    },
+    {
+      "file_id": "2766",
+      "game_object_id": "817",
+      "unity_class_id": "114",
+      "line": 145218,
+      "script": "Assets/Scripts/ProjectCode/Game/11_Actors_Quests/Crawler.cs",
+      "serialized_yaml": "--- !u!114 &2766\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 817}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 27bf723bcc6f23b405b5cbb546fb71c8, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  speed: 6\n  rayFrontDistance: 0.65\n  rayDownFrontPadding: 0.4\n  crawlAnimName: Run\n  spriteFacesRight: 1\n  flipBeforeTurn: 1\n  moveWhileTurning: 1\n  doTurnAnim: 1\n  turnAnimName: Turn\n  keepSpriteFacing: 0\n  startInactive: 0\n  ambientIdle: 0\n  allowRoofRecoil: 0\n  idleAnimName: Ambient Idle\n  loopAudioSource: {fileID: 1949}\n  pauseLoopDontStop: 1\n  ambientLoopAudioSource: {fileID: 0}\n"
+    },
+    {
+      "file_id": "2771",
+      "game_object_id": "817",
+      "unity_class_id": "114",
+      "line": 145300,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/Recoil.cs",
+      "serialized_yaml": "--- !u!114 &2771\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 817}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9dce17883e836a8b91b054fcaef81958, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  FreezeInPlace: 0\n  recoilSpeedBase: 15\n  recoilDuration: 0.15\n  IsUpBlocked: 0\n  IsDownBlocked: 0\n  IsLeftBlocked: 0\n  IsRightBlocked: 0\n"
+    },
+    {
+      "file_id": "2777",
+      "game_object_id": "817",
+      "unity_class_id": "114",
+      "line": 145393,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetZ.cs",
+      "serialized_yaml": "--- !u!114 &2777\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 817}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 9a4a05480320f7f0c7f74a7198222c9e, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  z: 0.006\n  dontRandomize: 0\n  randomizeFromStartingValue: 0\n  delayBeforeRandomizing: 0.5\n  waitFrames: 0\n  deParent: 0\n"
+    },
+    {
+      "file_id": "2778",
+      "game_object_id": "817",
+      "unity_class_id": "114",
+      "line": 145411,
+      "script": "Assets/Scripts/Assembly-CSharp/EnemyDeathEffectsRegular.cs",
+      "serialized_yaml": "--- !u!114 &2778\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 817}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 2730b6b2b2abd535272d044bb7d8942f, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  corpsePrefab: {fileID: 1709254077376921, guid: 046a716760a8eab4ca362600a68f48d1, type: 2}\n  altCorpses: []\n  isCorpseRecyclable: 0\n  manualPreInstantiate: 0\n  corpseFacesRight: 0\n  overrideDeathDirection: 0\n  corpseFlingSpeed: 20\n  corpseSpawnPoint: {x: 0, y: 0, z: 0}\n  effectOrigin: {x: 0.15, y: -0.55, z: 0}\n  lowCorpseArc: 0\n  recycle: 0\n  rotateCorpse: 0\n  corpseMatchesEnemyScale: 0\n  audioSnapshotOnDeath: {fileID: 0}\n  sendEventRegister:\n  deathSounds:\n  - Clip: {fileID: 8300000, guid: cadfc16ee055c944da51081b220f0a1a, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  - Clip: {fileID: 8300000, guid: d921724037ad76c429becd63cb4c9677, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  enemyDeathSwordAudio:\n    Clip: {fileID: 0}\n    PitchMin: 0\n    PitchMax: 0\n    Volume: 0\n    vibrationDataAsset: {fileID: 0}\n  enemyDamageAudio:\n    Clip: {fileID: 0}\n    PitchMin: 0\n    PitchMax: 0\n    Volume: 0\n    vibrationDataAsset: {fileID: 0}\n  deathCameraShake:\n    camera: {fileID: 11400000, guid: 9b0888e0916dca544846a2f34304dac9, type: 2}\n    profile: {fileID: 11400000, guid: 279f38013a080f34999cd00fbee1b9c2, type: 2}\n    doFreeze: 1\n    vibrate: 1\n  journalRecord: {fileID: 11400000, guid: 740f659433081d643963fa458f746edb, type: 2}\n  awardFullJournalEntry: 0\n  setPlayerDataBool:\n  awardAchievement:\n  doNotSetHasKilled: 0\n  doNotSpawnCorpse: 0\n  profile: {fileID: 11400000, guid: 0e2a9aa909fe46044a4b97744eed6794, type: 2}\n"
+    },
+    {
+      "file_id": "2780",
+      "game_object_id": "817",
+      "unity_class_id": "114",
+      "line": 145492,
+      "script": "Assets/Scripts/Assembly-CSharp/NeedolinTextOwner.cs",
+      "serialized_yaml": "--- !u!114 &2780\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 817}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 31fc0cd4445f01d3a6cd3001ad153725, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  rangeCheck: 3\n  customRange: 0\n  insideTrigger: {fileID: 0}\n  text:\n    collection: {fileID: 11400000, guid: dc9d512b345912a458c5b3814d5fdc48, type: 2}\n    customData:\n      template:\n        Sheet:\n        Key:\n      configOverride: {fileID: 0}\n      alternatives: []\n      doNotPlay: 0\n  mapZoneOverrides: []\n  OnAddText:\n    m_PersistentCalls:\n      m_Calls: []\n  OnRemoveText:\n    m_PersistentCalls:\n      m_Calls: []\n"
+    },
+    {
+      "file_id": "2783",
+      "game_object_id": "737",
+      "unity_class_id": "114",
+      "line": 145737,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SetParticleScale.cs",
+      "serialized_yaml": "--- !u!114 &2783\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 737}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: e11a86c30fcb68fd7563d18ca0824777, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  grandParent: 0\n  greatGrandParent: 0\n  doesNotMove: 0\n"
+    },
+    {
+      "file_id": "2824",
+      "game_object_id": "817",
+      "unity_class_id": "114",
+      "line": 147809,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SpriteFlash.cs",
+      "serialized_yaml": "--- !u!114 &2824\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 817}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 3760009a589b001159b0ab5c0e83a2db, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  children: []\n  parents: []\n  getParent: 0\n  doHitFlashOnEnable: 0\n  startFlashes: 0\n"
+    },
+    {
+      "file_id": "2851",
+      "game_object_id": "817",
+      "unity_class_id": "114",
+      "line": 148614,
+      "script": "Assets/Scripts/Assembly-CSharp/EnemySingDuration.cs",
+      "serialized_yaml": "--- !u!114 &2851\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 817}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: b60c10cda6dbb2924cd52756ec15ead9, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n"
+    },
+    {
+      "file_id": "2866",
+      "game_object_id": "890",
+      "unity_class_id": "114",
+      "line": 148916,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/AudioSourceGamePause.cs",
+      "serialized_yaml": "--- !u!114 &2866\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 890}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: bec75353ea8e29e3c36e5a5845d5030a, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n"
+    },
+    {
+      "file_id": "2867",
+      "game_object_id": "817",
+      "unity_class_id": "114",
+      "line": 148928,
+      "script": null,
+      "serialized_yaml": "--- !u!114 &2867\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 817}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: -664232604, guid: daca89c25bd1813ceecbbbb8555342a7, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  TargetFSMs:\n  - {fileID: 2735}\n"
+    },
+    {
+      "file_id": "2875",
+      "game_object_id": "817",
+      "unity_class_id": "114",
+      "line": 149052,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/DamageHero.cs",
+      "serialized_yaml": "--- !u!114 &2875\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 817}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 49c386a20fdaa83a59c1a091a909e14c, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  damageDealt: 1\n  hazardType: 1\n  damageAsset: {fileID: 0}\n  damagePropertyFlags: 0\n  resetOnEnable: 0\n  canClashTink: 0\n  forceParry: 0\n  noClashFreeze: 0\n  noTerrainThunk: 0\n  noTerrainRecoil: 0\n  noCorpseSpikeStick: 0\n  noBounceCooldown: 0\n  overrideCollisionSide: 0\n  collisionSide: 0\n  invertCollisionSide: 0\n  HeroDamagedFSM: {fileID: 0}\n  AlwaysSendDamaged: 0\n  HeroDamagedFSMEvent:\n  HeroDamagedFSMBool:\n  HeroDamagedFSMGameObject:\n  ClashEvents:\n    OnClashUp:\n      m_PersistentCalls:\n        m_Calls: []\n    OnClashDown:\n      m_PersistentCalls:\n        m_Calls: []\n    OnClashLeft:\n      m_PersistentCalls:\n        m_Calls: []\n    OnClashRight:\n      m_PersistentCalls:\n        m_Calls: []\n  OnDamagedHero:\n    m_PersistentCalls:\n      m_Calls: []\n"
+    },
+    {
+      "file_id": "2890",
+      "game_object_id": "817",
+      "unity_class_id": "114",
+      "line": 149652,
+      "script": "Assets/Scripts/Assembly-CSharp/BlackThreadState.cs",
+      "serialized_yaml": "--- !u!114 &2890\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 817}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: e152090c12e28c668de1cb3bdcd91125, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  singFsm: {fileID: 2735}\n  attack: {fileID: 0}\n  attacks: []\n  overrideCentreOffset: 0\n  centreOffsetOverride: {x: 0, y: 0}\n  force: 0\n  startThreaded: 0\n  useCustomHPMultiplier: 0\n  customHPMultiplier: 4\n  extraSpriteRenderers: []\n  extraMeshRenderers: []\n  activityRangeBuffer: {x: 4, y: 4}\n"
+    }
+  ],
+  "recording_references": [],
+  "limits": [
+    "Static serialized specimen; no runtime timing capture.",
+    "Scene variants may override values; see catalog.json instances.",
+    "External fileID/GUID dependencies remain explicit; do not replace with guessed values."
+  ]
+}

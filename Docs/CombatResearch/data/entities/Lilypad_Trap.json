@@ -1,0 +1,1422 @@
+{
+  "schema": "silksong-combat-entity-v1",
+  "journal": {
+    "id": "Lilypad Trap",
+    "guid": "fc48c4fbe24bce24880fcd8fa6a86456",
+    "path": "Assets/Data Assets/Enemy Journal/Journal Records/Lilypad Trap.asset",
+    "key": "NAME_LILYPAD_TRAP",
+    "record_type": 0,
+    "kills_required": 6,
+    "required_type": 1,
+    "master_order": 208,
+    "scene_count": 12,
+    "object_names": [
+      "Enemy"
+    ],
+    "instance_count": 41
+  },
+  "specimen": {
+    "source": "Assets/Scenes/Hornet/Arborium_09.unity",
+    "line": 483650,
+    "game_object_id": "2963",
+    "name": "Enemy",
+    "active": "0",
+    "hp": "70",
+    "special_death": "0",
+    "invincible": "0",
+    "fsms": [
+      {
+        "object": "Enemy",
+        "game_object_id": "2963",
+        "component_id": "10229",
+        "name": "Control",
+        "start": "Snap 1",
+        "states": [
+          "Snap 1",
+          "End Std",
+          "Kill Parent",
+          "Snap 2?",
+          "Catch Hero 2?",
+          "End Hero",
+          "OnDIsable",
+          "Wait",
+          "Catch Hero 1",
+          "No Hero",
+          "Hero"
+        ],
+        "action_types": [
+          "HutongGames.PlayMaker.Actions.ActivateGameObject",
+          "HutongGames.PlayMaker.Actions.ActivateGameObjectDelay",
+          "HutongGames.PlayMaker.Actions.BoolTest",
+          "HutongGames.PlayMaker.Actions.CheckTrackTriggerCountV2",
+          "HutongGames.PlayMaker.Actions.DamageHeroDirectly",
+          "HutongGames.PlayMaker.Actions.DoCameraShake",
+          "HutongGames.PlayMaker.Actions.FindNamedChild",
+          "HutongGames.PlayMaker.Actions.GetParent",
+          "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+          "HutongGames.PlayMaker.Actions.RunFSM",
+          "HutongGames.PlayMaker.Actions.SendEventByName",
+          "HutongGames.PlayMaker.Actions.SetBoolValue",
+          "HutongGames.PlayMaker.Actions.SetPositionToObject2D",
+          "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+          "HutongGames.PlayMaker.Actions.Tk2dPlayFrame",
+          "HutongGames.PlayMaker.Actions.Wait"
+        ],
+        "line": 487731,
+        "lines": 1705,
+        "source_sha256": "4e91ae2cdc56c63ef003eb5edf3ded00cc04bcd5d2fcb992483d2903c25454db"
+      }
+    ],
+    "components": [
+      "Assets/Scripts/Assembly-CSharp/EnemyDeathEffectsRegular.cs",
+      "Assets/Scripts/Assembly-CSharp/EnemyHitEffectsRegular.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/DamageEnemies.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/DamageHero.cs",
+      "Assets/Scripts/ProjectCode/Game/03_Combat/HealthManager.cs",
+      "Assets/Scripts/ProjectCode/Game/04_World_Environment/TrackTriggerObjects.cs",
+      "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SpriteFlash.cs",
+      "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs"
+    ],
+    "damages": [
+      {
+        "object": "Collider 1",
+        "damage": "999",
+        "line": 566191
+      },
+      {
+        "object": "Enemy Chomper",
+        "damage": "999",
+        "line": 565864
+      },
+      {
+        "object": "Collider 2",
+        "damage": "1",
+        "line": 565053
+      }
+    ],
+    "evidence": "journal_guid",
+    "is_hornet_scene": true,
+    "is_temp_scene": false
+  },
+  "source_sha256": "1ddc3a3076db8d945c6e5aab891f282a33f9930382989d5b60a101218a84059b",
+  "fsms": [
+    {
+      "source": "Assets/Scenes/Hornet/Arborium_09.unity",
+      "line": 487732,
+      "file_id": 10229,
+      "owner_id": 2963,
+      "owner": "Enemy",
+      "name": "Control",
+      "start_state": "Snap 1",
+      "states": [
+        {
+          "name": "Snap 1",
+          "line": 487749,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "HERO",
+              "to": "Catch Hero 1"
+            },
+            {
+              "event": "FINISHED",
+              "to": "Snap 2?"
+            }
+          ],
+          "actions": [
+            {
+              "type": "FindNamedChild",
+              "full_type": "HutongGames.PlayMaker.Actions.FindNamedChild",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "storeResult": {
+                  "var": "Collider 1",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "FindNamedChild",
+              "full_type": "HutongGames.PlayMaker.Actions.FindNamedChild",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "storeResult": {
+                  "var": "Collider 2",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "FindNamedChild",
+              "full_type": "HutongGames.PlayMaker.Actions.FindNamedChild",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "storeResult": {
+                  "var": "Enemy Chomper",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "FindNamedChild",
+              "full_type": "HutongGames.PlayMaker.Actions.FindNamedChild",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "storeResult": {
+                  "var": "Pt Snap",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "ActivateGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.ActivateGameObject",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Collider 1",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "activate": 1,
+                "recursive": 0,
+                "resetOnExit": false,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "ActivateGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.ActivateGameObject",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Collider 2",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "activate": 0,
+                "recursive": 0,
+                "resetOnExit": false,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Trap Attack",
+                "animationTriggerEvent": "FINISHED",
+                "animationCompleteEvent": null
+              }
+            },
+            {
+              "type": "Tk2dPlayFrame",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayFrame",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "frame": 0
+              }
+            },
+            {
+              "type": "CheckTrackTriggerCountV2",
+              "full_type": "HutongGames.PlayMaker.Actions.CheckTrackTriggerCountV2",
+              "enabled": true,
+              "params": {
+                "Target": {
+                  "owner": {
+                    "var": "Collider 1",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "Count": 0,
+                "Test": 2,
+                "EveryFrame": true,
+                "SetBool": {
+                  "var": null,
+                  "stored": 0
+                },
+                "SuccessEvent": "HERO",
+                "FailEvent": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "End Std",
+          "line": 488023,
+          "sequence": 0,
+          "transitions": [],
+          "actions": [
+            {
+              "type": "ActivateGameObjectDelay",
+              "full_type": "HutongGames.PlayMaker.Actions.ActivateGameObjectDelay",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Enemy Chomper",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "activate": 0,
+                "resetOnExit": false,
+                "delay": 0.25
+              }
+            }
+          ]
+        },
+        {
+          "name": "Kill Parent",
+          "line": 488101,
+          "sequence": 0,
+          "transitions": [],
+          "actions": [
+            {
+              "type": "GetParent",
+              "full_type": "HutongGames.PlayMaker.Actions.GetParent",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "storeResult": {
+                  "var": "Parent",
+                  "stored": {
+                    "fileID": 0
+                  }
+                }
+              }
+            },
+            {
+              "type": "SendEventByName",
+              "full_type": "HutongGames.PlayMaker.Actions.SendEventByName",
+              "enabled": true,
+              "params": {
+                "eventTarget": {
+                  "target": 1,
+                  "excludeSelf": 0,
+                  "gameObject": {
+                    "owner": {
+                      "var": "Parent",
+                      "stored": {
+                        "fileID": 0
+                      }
+                    }
+                  },
+                  "fsmName": null,
+                  "sendToChildren": 0,
+                  "fsmComponent": {
+                    "fileID": 0
+                  }
+                },
+                "sendEvent": "DIE",
+                "delay": 0,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Snap 2?",
+          "line": 488221,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "HERO",
+              "to": "Catch Hero 2?"
+            },
+            {
+              "event": "FINISHED",
+              "to": "End Std"
+            }
+          ],
+          "actions": [
+            {
+              "type": "DoCameraShake",
+              "full_type": "HutongGames.PlayMaker.Actions.DoCameraShake",
+              "enabled": true,
+              "params": {
+                "VisibleRenderer": {
+                  "owner": "self"
+                },
+                "Camera": {
+                  "fileID": 11400000,
+                  "guid": "9b0888e0916dca544846a2f34304dac9",
+                  "type": 2
+                },
+                "Profile": {
+                  "fileID": 11400000,
+                  "guid": "279f38013a080f34999cd00fbee1b9c2",
+                  "type": 2
+                },
+                "cancelOnExit": false,
+                "DoFreeze": 0,
+                "Delay": 0
+              }
+            },
+            {
+              "type": "ActivateGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.ActivateGameObject",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Collider 1",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "activate": 0,
+                "recursive": 0,
+                "resetOnExit": false,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "ActivateGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.ActivateGameObject",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Collider 2",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "activate": 1,
+                "recursive": 0,
+                "resetOnExit": false,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "ActivateGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.ActivateGameObject",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Enemy Chomper",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "activate": 1,
+                "recursive": 0,
+                "resetOnExit": false,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "PlayParticleEmitter",
+              "full_type": "HutongGames.PlayMaker.Actions.PlayParticleEmitter",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Pt Snap",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "emit": 0,
+                "resetIfPlaying": false
+              }
+            },
+            {
+              "type": "BoolTest",
+              "full_type": "HutongGames.PlayMaker.Actions.BoolTest",
+              "enabled": true,
+              "params": {
+                "boolVariable": {
+                  "var": "Caught Hero",
+                  "stored": 0
+                },
+                "isTrue": "HERO",
+                "isFalse": null,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Catch Hero 2?",
+          "line": 488447,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Wait"
+            }
+          ],
+          "actions": [
+            {
+              "type": "BoolTest",
+              "full_type": "HutongGames.PlayMaker.Actions.BoolTest",
+              "enabled": true,
+              "params": {
+                "boolVariable": {
+                  "var": "Caught Hero",
+                  "stored": 0
+                },
+                "isTrue": "FINISHED",
+                "isFalse": null,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SetBoolValue",
+              "full_type": "HutongGames.PlayMaker.Actions.SetBoolValue",
+              "enabled": true,
+              "params": {
+                "boolVariable": {
+                  "var": "Caught Hero",
+                  "stored": 0
+                },
+                "boolValue": 1,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "RunFSM",
+              "full_type": "HutongGames.PlayMaker.Actions.RunFSM",
+              "enabled": true,
+              "params": {
+                "fsmTemplateControl": {
+                  "targetType": 0,
+                  "target": {
+                    "fileID": 11400000,
+                    "guid": "9cecd679aea2aa0488a1144e8fe2c1bb",
+                    "type": 2
+                  },
+                  "inputVariables": [
+                    {
+                      "variable": {
+                        "var": "Grab Effect Point",
+                        "stored": null
+                      },
+                      "fsmVar": {
+                        "variableName": "Grab Effect Point",
+                        "objectType": "UnityEngine.GameObject",
+                        "useVariable": 1,
+                        "type": 3,
+                        "floatValue": 0,
+                        "intValue": 0,
+                        "boolValue": 0,
+                        "stringValue": null,
+                        "vector4Value": {
+                          "x": 0,
+                          "y": 0,
+                          "z": 0,
+                          "w": 0
+                        },
+                        "objectReference": {
+                          "fileID": 2559
+                        },
+                        "arrayValue": {
+                          "useVariable": 0,
+                          "name": null,
+                          "tooltip": null,
+                          "showInInspector": 0,
+                          "networkSync": 0,
+                          "type": -1,
+                          "objectTypeName": null,
+                          "floatValues": [],
+                          "intValues": null,
+                          "boolValues": null,
+                          "stringValues": [],
+                          "vector4Values": [],
+                          "objectReferences": []
+                        }
+                      },
+                      "isEdited": 0
+                    }
+                  ],
+                  "outputVariables": [],
+                  "outputEvents": []
+                },
+                "finishEvent": null,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "End Hero",
+          "line": 488582,
+          "sequence": 0,
+          "transitions": [],
+          "actions": [
+            {
+              "type": "SetPositionToObject2D",
+              "full_type": "HutongGames.PlayMaker.Actions.SetPositionToObject2D",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Hero",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "targetObject": {
+                  "var": "Grab Point",
+                  "stored": {
+                    "fileID": 2965
+                  }
+                },
+                "xOffset": 0,
+                "yOffset": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "RunFSM",
+              "full_type": "HutongGames.PlayMaker.Actions.RunFSM",
+              "enabled": true,
+              "params": {
+                "fsmTemplateControl": {
+                  "targetType": 0,
+                  "target": {
+                    "fileID": 11400000,
+                    "guid": "ab3cdb6f1c81e1545937f9e7dbd37c33",
+                    "type": 2
+                  },
+                  "inputVariables": [],
+                  "outputVariables": [],
+                  "outputEvents": []
+                },
+                "finishEvent": null,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "SetBoolValue",
+              "full_type": "HutongGames.PlayMaker.Actions.SetBoolValue",
+              "enabled": true,
+              "params": {
+                "boolVariable": {
+                  "var": "Caught Hero",
+                  "stored": 0
+                },
+                "boolValue": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Trap Attack",
+                "animationTriggerEvent": null,
+                "animationCompleteEvent": null
+              }
+            },
+            {
+              "type": "Tk2dPlayFrame",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayFrame",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "frame": 3
+              }
+            },
+            {
+              "type": "ActivateGameObject",
+              "full_type": "HutongGames.PlayMaker.Actions.ActivateGameObject",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Enemy Chomper",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "activate": 0,
+                "recursive": 0,
+                "resetOnExit": false,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "OnDIsable",
+          "line": 488762,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "HERO",
+              "to": "End Hero"
+            }
+          ],
+          "actions": [
+            {
+              "type": "BoolTest",
+              "full_type": "HutongGames.PlayMaker.Actions.BoolTest",
+              "enabled": true,
+              "params": {
+                "boolVariable": {
+                  "var": "Caught Hero",
+                  "stored": 0
+                },
+                "isTrue": "HERO",
+                "isFalse": null,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Wait",
+          "line": 488837,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "End Hero"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetPositionToObject2D",
+              "full_type": "HutongGames.PlayMaker.Actions.SetPositionToObject2D",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Hero",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "targetObject": {
+                  "var": "Grab Point",
+                  "stored": {
+                    "fileID": 2965
+                  }
+                },
+                "xOffset": 0,
+                "yOffset": 0,
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "Wait",
+              "full_type": "HutongGames.PlayMaker.Actions.Wait",
+              "enabled": true,
+              "params": {
+                "time": 0.5,
+                "finishEvent": "FINISHED",
+                "realTime": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Catch Hero 1",
+          "line": 488943,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Hero"
+            },
+            {
+              "event": "CANCEL",
+              "to": "No Hero"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetBoolValue",
+              "full_type": "HutongGames.PlayMaker.Actions.SetBoolValue",
+              "enabled": true,
+              "params": {
+                "boolVariable": {
+                  "var": "Caught Hero",
+                  "stored": 0
+                },
+                "boolValue": 1,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "RunFSM",
+              "full_type": "HutongGames.PlayMaker.Actions.RunFSM",
+              "enabled": true,
+              "params": {
+                "fsmTemplateControl": {
+                  "targetType": 0,
+                  "target": {
+                    "fileID": 11400000,
+                    "guid": "9cecd679aea2aa0488a1144e8fe2c1bb",
+                    "type": 2
+                  },
+                  "inputVariables": [
+                    {
+                      "variable": {
+                        "var": "Grab Effect Point",
+                        "stored": null
+                      },
+                      "fsmVar": {
+                        "variableName": "Grab Effect Point",
+                        "objectType": "UnityEngine.GameObject",
+                        "useVariable": 1,
+                        "type": 3,
+                        "floatValue": 0,
+                        "intValue": 0,
+                        "boolValue": 0,
+                        "stringValue": null,
+                        "vector4Value": {
+                          "x": 0,
+                          "y": 0,
+                          "z": 0,
+                          "w": 0
+                        },
+                        "objectReference": {
+                          "fileID": 2559
+                        },
+                        "arrayValue": {
+                          "useVariable": 0,
+                          "name": null,
+                          "tooltip": null,
+                          "showInInspector": 0,
+                          "networkSync": 0,
+                          "type": -1,
+                          "objectTypeName": null,
+                          "floatValues": [],
+                          "intValues": null,
+                          "boolValues": null,
+                          "stringValues": [],
+                          "vector4Values": [],
+                          "objectReferences": []
+                        }
+                      },
+                      "isEdited": 0
+                    }
+                  ],
+                  "outputVariables": [],
+                  "outputEvents": []
+                },
+                "finishEvent": null,
+                "everyFrame": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "No Hero",
+          "line": 489073,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Snap 2?"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetBoolValue",
+              "full_type": "HutongGames.PlayMaker.Actions.SetBoolValue",
+              "enabled": true,
+              "params": {
+                "boolVariable": {
+                  "var": "Caught Hero",
+                  "stored": 0
+                },
+                "boolValue": 0,
+                "everyFrame": false
+              }
+            },
+            {
+              "type": "DamageHeroDirectly",
+              "full_type": "HutongGames.PlayMaker.Actions.DamageHeroDirectly",
+              "enabled": true,
+              "params": {
+                "damager": {
+                  "owner": "self"
+                },
+                "damageAmount": 1,
+                "spikeHazard": false,
+                "sinkHazard": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Hero",
+          "line": 489171,
+          "sequence": 0,
+          "transitions": [
+            {
+              "event": "FINISHED",
+              "to": "Snap 2?"
+            }
+          ],
+          "actions": [
+            {
+              "type": "SetPositionToObject2D",
+              "full_type": "HutongGames.PlayMaker.Actions.SetPositionToObject2D",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": {
+                    "var": "Hero",
+                    "stored": {
+                      "fileID": 0
+                    }
+                  }
+                },
+                "targetObject": {
+                  "var": "Grab Point",
+                  "stored": {
+                    "fileID": 2965
+                  }
+                },
+                "xOffset": 0,
+                "yOffset": 0,
+                "everyFrame": true
+              }
+            },
+            {
+              "type": "Tk2dPlayAnimationWithEvents",
+              "full_type": "HutongGames.PlayMaker.Actions.Tk2dPlayAnimationWithEvents",
+              "enabled": true,
+              "params": {
+                "gameObject": {
+                  "owner": "self"
+                },
+                "clipName": "Trap Attack Hero",
+                "animationTriggerEvent": "FINISHED",
+                "animationCompleteEvent": null
+              }
+            }
+          ]
+        }
+      ],
+      "global_transitions": [
+        {
+          "fsmEvent": {
+            "name": "ZERO HP",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          "toState": "Kill Parent",
+          "linkStyle": 0,
+          "linkConstraint": 0,
+          "linkTarget": 0,
+          "colorIndex": 0
+        },
+        {
+          "fsmEvent": {
+            "name": "DISABLE",
+            "isSystemEvent": 1,
+            "isGlobal": 0
+          },
+          "toState": "OnDIsable",
+          "linkStyle": 0,
+          "linkConstraint": 0,
+          "linkTarget": 0,
+          "colorIndex": 0
+        }
+      ],
+      "variables": {
+        "floatVariables": [],
+        "intVariables": [],
+        "boolVariables": [
+          {
+            "useVariable": 1,
+            "name": "Caught Hero",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": 0
+          }
+        ],
+        "stringVariables": [],
+        "vector2Variables": [],
+        "vector3Variables": [],
+        "colorVariables": [],
+        "rectVariables": [],
+        "quaternionVariables": [],
+        "gameObjectVariables": [
+          {
+            "useVariable": 1,
+            "name": "Collider 1",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Collider 2",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Pt Snap",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Enemy Chomper",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Parent",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 0
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Grab Effect Point",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 2559
+            }
+          },
+          {
+            "useVariable": 1,
+            "name": "Grab Point",
+            "tooltip": null,
+            "showInInspector": 0,
+            "networkSync": 0,
+            "value": {
+              "fileID": 2965
+            }
+          }
+        ],
+        "objectVariables": [],
+        "materialVariables": [],
+        "textureVariables": [],
+        "arrayVariables": [],
+        "enumVariables": [],
+        "categories": [
+          null
+        ],
+        "variableCategoryIDs": 0
+      },
+      "fsm_metadata": {
+        "dataVersion": 2,
+        "usedInTemplate": {
+          "fileID": 0
+        },
+        "name": "Control",
+        "startState": "Snap 1",
+        "events": [
+          {
+            "name": "DISABLE",
+            "isSystemEvent": 1,
+            "isGlobal": 0
+          },
+          {
+            "name": "FINISHED",
+            "isSystemEvent": 1,
+            "isGlobal": 0
+          },
+          {
+            "name": "CANCEL",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "HERO",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          },
+          {
+            "name": "ZERO HP",
+            "isSystemEvent": 0,
+            "isGlobal": 0
+          }
+        ],
+        "globalTransitions": [
+          {
+            "fsmEvent": {
+              "name": "ZERO HP",
+              "isSystemEvent": 0,
+              "isGlobal": 0
+            },
+            "toState": "Kill Parent",
+            "linkStyle": 0,
+            "linkConstraint": 0,
+            "linkTarget": 0,
+            "colorIndex": 0
+          },
+          {
+            "fsmEvent": {
+              "name": "DISABLE",
+              "isSystemEvent": 1,
+              "isGlobal": 0
+            },
+            "toState": "OnDIsable",
+            "linkStyle": 0,
+            "linkConstraint": 0,
+            "linkTarget": 0,
+            "colorIndex": 0
+          }
+        ],
+        "description": null,
+        "docUrl": null,
+        "showStateLabel": 0,
+        "maxLoopCount": 0,
+        "watermark": null,
+        "password": null,
+        "locked": 0,
+        "manualUpdate": 0,
+        "outVariableIndices": null,
+        "keepDelayedEventsOnStateExit": 0,
+        "preprocessed": 1,
+        "ExposedEvents": [],
+        "OutputEvents": [],
+        "RestartOnEnable": 1,
+        "ResetVariablesOnEnable": 0,
+        "EnableDebugFlow": 0,
+        "EnableBreakpoints": 1,
+        "editorFlags": 1,
+        "activeStateName": null,
+        "mouseEvents": 0,
+        "handleLevelLoaded": 0,
+        "handleTriggerEnter2D": 0,
+        "handleTriggerExit2D": 0,
+        "handleTriggerStay2D": 0,
+        "handleCollisionEnter2D": 0,
+        "handleCollisionExit2D": 0,
+        "handleCollisionStay2D": 0,
+        "handleTriggerEnter": 0,
+        "handleTriggerExit": 0,
+        "handleTriggerStay": 0,
+        "handleCollisionEnter": 0,
+        "handleCollisionExit": 0,
+        "handleCollisionStay": 0,
+        "handleParticleCollision": 0,
+        "handleControllerColliderHit": 0,
+        "handleJointBreak": 0,
+        "handleJointBreak2D": 0,
+        "handleOnGUI": 0,
+        "handleFixedUpdate": 1,
+        "handleLateUpdate": 0,
+        "handleApplicationEvents": 0,
+        "handleUiEvents": 0,
+        "handleLegacyNetworking": 0,
+        "handleAnimatorMove": 0,
+        "handleAnimatorIK": 0
+      }
+    }
+  ],
+  "game_objects": [
+    {
+      "file_id": "2559",
+      "name": "Grab Effect Point",
+      "line": 44191,
+      "serialized_yaml": "--- !u!1 &2559\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5941}\n  m_Layer: 11\n  m_Name: Grab Effect Point\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2568",
+      "name": "Collider 1",
+      "line": 44346,
+      "serialized_yaml": "--- !u!1 &2568\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 6063}\n  - component: {fileID: 6874}\n  - component: {fileID: 11420}\n  - component: {fileID: 10452}\n  m_Layer: 17\n  m_Name: Collider 1\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "2630",
+      "name": "Pt Snap",
+      "line": 45448,
+      "serialized_yaml": "--- !u!1 &2630\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 6046}\n  - component: {fileID: 7240}\n  - component: {fileID: 7347}\n  m_Layer: 0\n  m_Name: Pt Snap\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "2633",
+      "name": "Enemy Chomper",
+      "line": 45501,
+      "serialized_yaml": "--- !u!1 &2633\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5965}\n  - component: {fileID: 6870}\n  - component: {fileID: 11417}\n  m_Layer: 17\n  m_Name: Enemy Chomper\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "2963",
+      "name": "Enemy",
+      "line": 51488,
+      "serialized_yaml": "--- !u!1 &2963\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5939}\n  - component: {fileID: 6740}\n  - component: {fileID: 6639}\n  - component: {fileID: 10017}\n  - component: {fileID: 10075}\n  - component: {fileID: 10229}\n  - component: {fileID: 10195}\n  - component: {fileID: 10215}\n  - component: {fileID: 6871}\n  - component: {fileID: 10205}\n  - component: {fileID: 11012}\n  - component: {fileID: 11013}\n  m_Layer: 11\n  m_Name: Enemy\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    },
+    {
+      "file_id": "2965",
+      "name": "Grab Point",
+      "line": 51542,
+      "serialized_yaml": "--- !u!1 &2965\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 5928}\n  m_Layer: 11\n  m_Name: Grab Point\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 1\n"
+    },
+    {
+      "file_id": "3040",
+      "name": "Collider 2",
+      "line": 52874,
+      "serialized_yaml": "--- !u!1 &3040\nGameObject:\n  serializedVersion: 6\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_Component:\n  - component: {fileID: 6141}\n  - component: {fileID: 6867}\n  - component: {fileID: 10383}\n  - component: {fileID: 11409}\n  m_Layer: 17\n  m_Name: Collider 2\n  m_TagString: Untagged\n  m_Icon: {fileID: 0}\n  m_NavMeshLayer: 0\n  m_StaticEditorFlags: 0\n  m_IsActive: 0\n"
+    }
+  ],
+  "components": [
+    {
+      "file_id": "5928",
+      "game_object_id": "2965",
+      "unity_class_id": "4",
+      "line": 99159,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5928\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2965}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: -0, y: 2.68, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 5939}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "5939",
+      "game_object_id": "2963",
+      "unity_class_id": "4",
+      "line": 99330,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5939\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2963}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children:\n  - {fileID: 6063}\n  - {fileID: 6141}\n  - {fileID: 6046}\n  - {fileID: 5965}\n  - {fileID: 5928}\n  - {fileID: 5941}\n  m_Father: {fileID: 6093}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "5941",
+      "game_object_id": "2559",
+      "unity_class_id": "4",
+      "line": 99372,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5941\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2559}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 1.82, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 5939}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "5965",
+      "game_object_id": "2633",
+      "unity_class_id": "4",
+      "line": 99767,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &5965\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2633}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 0.9999981, y: 1.0000024, z: 0.99999815}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 5939}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "6046",
+      "game_object_id": "2630",
+      "unity_class_id": "4",
+      "line": 101038,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &6046\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2630}\n  m_LocalRotation: {x: -0, y: -0, z: 0.0067252815, w: 0.99997747}\n  m_LocalPosition: {x: -0.05, y: 1.98, z: 9.449001E-05}\n  m_LocalScale: {x: 0.21846789, y: 0.1, z: 0.908978}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 5939}\n  m_LocalEulerAnglesHint: {x: -0, y: -0, z: -0.7706663}\n"
+    },
+    {
+      "file_id": "6063",
+      "game_object_id": "2568",
+      "unity_class_id": "4",
+      "line": 101308,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &6063\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2568}\n  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}\n  m_LocalPosition: {x: 0, y: 0, z: 0}\n  m_LocalScale: {x: 1, y: 1, z: 1}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 5939}\n  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}\n"
+    },
+    {
+      "file_id": "6141",
+      "game_object_id": "3040",
+      "unity_class_id": "4",
+      "line": 102554,
+      "script": null,
+      "serialized_yaml": "--- !u!4 &6141\nTransform:\n  serializedVersion: 2\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3040}\n  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}\n  m_LocalPosition: {x: 0, y: 2.3841858E-07, z: 0}\n  m_LocalScale: {x: 0.9999981, y: 1.0000024, z: 0.99999815}\n  m_ConstrainProportionsScale: 0\n  m_Children: []\n  m_Father: {fileID: 5939}\n  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}\n"
+    },
+    {
+      "file_id": "6867",
+      "game_object_id": "3040",
+      "unity_class_id": "60",
+      "line": 118133,
+      "script": null,
+      "serialized_yaml": "--- !u!60 &6867\nPolygonCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3040}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 0, y: 0}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Points:\n    m_Paths:\n    - - {x: 1.1547515, y: 0.4934619}\n      - {x: 0.7586251, y: 1.5806597}\n      - {x: 0.015330272, y: 2.434025}\n      - {x: -1.0514606, y: 1.4595873}\n      - {x: -1.2794809, y: 0.5028472}\n      - {x: -1.0187129, y: -0.34663907}\n      - {x: -0.053545825, y: -1.0328691}\n      - {x: 0.7948669, y: -0.3899296}\n  m_UseDelaunayMesh: 0\n"
+    },
+    {
+      "file_id": "6870",
+      "game_object_id": "2633",
+      "unity_class_id": "60",
+      "line": 118298,
+      "script": null,
+      "serialized_yaml": "--- !u!60 &6870\nPolygonCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2633}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 0, y: 0}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Points:\n    m_Paths:\n    - - {x: 1.1547515, y: 0.4934619}\n      - {x: 0.7586251, y: 1.5806597}\n      - {x: 0.015330272, y: 2.434025}\n      - {x: -1.0514606, y: 1.4595873}\n      - {x: -1.2794809, y: 0.5028472}\n      - {x: -1.0187129, y: -0.34663907}\n      - {x: -0.053545825, y: -1.0328691}\n      - {x: 0.7948669, y: -0.3899296}\n  m_UseDelaunayMesh: 0\n"
+    },
+    {
+      "file_id": "6871",
+      "game_object_id": "2963",
+      "unity_class_id": "60",
+      "line": 118353,
+      "script": null,
+      "serialized_yaml": "--- !u!60 &6871\nPolygonCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2963}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 0, y: 0}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Points:\n    m_Paths:\n    - - {x: 1.1547515, y: 0.4934619}\n      - {x: 0.7586251, y: 1.5806597}\n      - {x: 0.015330272, y: 2.434025}\n      - {x: -1.0514606, y: 1.4595873}\n      - {x: -1.2794809, y: 0.5028472}\n      - {x: -1.0187129, y: -0.34663907}\n      - {x: -0.053545825, y: -1.0328691}\n      - {x: 0.7948669, y: -0.3899296}\n  m_UseDelaunayMesh: 0\n"
+    },
+    {
+      "file_id": "6874",
+      "game_object_id": "2568",
+      "unity_class_id": "60",
+      "line": 118518,
+      "script": null,
+      "serialized_yaml": "--- !u!60 &6874\nPolygonCollider2D:\n  serializedVersion: 3\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2568}\n  m_Enabled: 1\n  m_Density: 1\n  m_Material: {fileID: 0}\n  m_IncludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_ExcludeLayers:\n    serializedVersion: 2\n    m_Bits: 0\n  m_LayerOverridePriority: 0\n  m_ForceSendLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ForceReceiveLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_ContactCaptureLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_CallbackLayers:\n    serializedVersion: 2\n    m_Bits: 4294967295\n  m_IsTrigger: 1\n  m_UsedByEffector: 0\n  m_CompositeOperation: 0\n  m_CompositeOrder: 0\n  m_Offset: {x: 0, y: 0}\n  m_SpriteTilingProperty:\n    border: {x: 0, y: 0, z: 0, w: 0}\n    pivot: {x: 0, y: 0}\n    oldSize: {x: 0, y: 0}\n    newSize: {x: 0, y: 0}\n    adaptiveTilingThreshold: 0\n    drawMode: 0\n    adaptiveTiling: 0\n  m_AutoTiling: 0\n  m_Points:\n    m_Paths:\n    - - {x: 1.5229086, y: 0.32141352}\n      - {x: 1.3387457, y: 1.7527084}\n      - {x: -0.08507318, y: -0.24346709}\n      - {x: -1.7096789, y: 1.7391648}\n      - {x: -1.7034107, y: 0.08348155}\n      - {x: -0.85137194, y: -0.6907346}\n      - {x: -0.053545825, y: -1.0328691}\n      - {x: 1.0626146, y: -0.46519923}\n  m_UseDelaunayMesh: 0\n"
+    },
+    {
+      "file_id": "10017",
+      "game_object_id": "2963",
+      "unity_class_id": "114",
+      "line": 476455,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSprite.cs",
+      "serialized_yaml": "--- !u!114 &10017\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2963}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 461acbcb857d4478aaa8e8e64ee6f52a, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  collection: {fileID: 114724804207875695, guid: 707846f2d181ebd4aa234e9ef001fd64, type: 2}\n  _color: {r: 1, g: 1, b: 1, a: 1}\n  _scale: {x: 1, y: 1, z: 1}\n  _spriteId: 8\n  boxCollider2D: {fileID: 0}\n  polygonCollider2D: []\n  edgeCollider2D: []\n  boxCollider: {fileID: 0}\n  meshCollider: {fileID: 0}\n  meshColliderPositions: []\n  meshColliderMesh: {fileID: 0}\n  renderLayer: 0\n"
+    },
+    {
+      "file_id": "10075",
+      "game_object_id": "2963",
+      "unity_class_id": "114",
+      "line": 477739,
+      "script": "Assets/Scripts/TeamCherry/TeamCherry.TK2D/tk2dSpriteAnimator.cs",
+      "serialized_yaml": "--- !u!114 &10075\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2963}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 5996133e774984aa7a33c40ed829e17f, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  spriteOverride: {fileID: 0}\n  library: {fileID: 114724804207875695, guid: e4fbeedd44b5fc1408a0f717d6d0ff48, type: 2}\n  defaultClipId: 3\n  isRealtime: 0\n  playAutomatically: 0\n  playAutomaticallyOnEnable: 0\n"
+    },
+    {
+      "file_id": "10195",
+      "game_object_id": "2963",
+      "unity_class_id": "114",
+      "line": 483650,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/HealthManager.cs",
+      "serialized_yaml": "--- !u!114 &10195\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2963}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 7e0b9799fb0157646caefd91bc67f0a6, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  audioPlayerPrefab: {fileID: 82724804207875695, guid: 99068b2a95bddff419cb6f176648d4e6, type: 2}\n  regularInvincibleAudio:\n    Clip: {fileID: 8300000, guid: 6447a975892e6ac42be7525d74803f40, type: 3}\n    PitchMin: 0.75\n    PitchMax: 1.25\n    Volume: 1\n    vibrationDataAsset: {fileID: 0}\n  blockHitPrefab: {fileID: 1709254077376921, guid: a7a57900a8a415a4387938611b64e586, type: 2}\n  strikeNailPrefab: {fileID: 1709254077376921, guid: 64c20baf394ac9a41b03deea82568445, type: 2}\n  slashImpactPrefab: {fileID: 1709254077376921, guid: 97c9ba031f06bae4681d3fda13c3f87b, type: 2}\n  corpseSplatPrefab: {fileID: 1709254077376921, guid: ee26d04f9efdaa7458f4fcea07e485df, type: 2}\n  hp: 70\n  damageScaling:\n    Level1Mult: 1.35\n    Level2Mult: 1.15\n    Level3Mult: 1\n    Level4Mult: 1\n    Level5Mult: 1\n  enemyType: 0\n  doNotGiveSilk: 0\n  ignoreFlags: 0\n  reaperBundles: 0\n  effectOrigin: {x: 0, y: 0.5, z: 0}\n  ignoreKillAll: 0\n  sendDamageTo: {fileID: 0}\n  isPartOfSendToTarget: 0\n  tagDamageTakerIgnoreColliderState: 0\n  takeTagDamageWhileInvincible: 0\n  targetPointOverride: {fileID: 0}\n  battleScene: {fileID: 0}\n  sendHitTo: {fileID: 0}\n  sendKilledToObject: {fileID: 0}\n  sendKilledToName:\n  smallGeoDrops: 0\n  mediumGeoDrops: 0\n  largeGeoDrops: 0\n  largeSmoothGeoDrops: 0\n  megaFlingGeo: 0\n  shellShardDrops: 0\n  flingSilkOrbsDown: 0\n  flingSilkOrbsAimObject: {fileID: 0}\n  itemDropGroups: []\n  _itemDropProbability: 0\n  _itemDrops: []\n  hasAlternateHitAnimation: 0\n  alternateHitAnimation: False\n  invincible: 0\n  piercable: 0\n  invincibleFromDirection: 0\n  preventInvincibleEffect: 0\n  preventInvincibleShake: 0\n  preventInvincibleAttackBlock: 0\n  invincibleRecoil: 0\n  dontSendTinkToDamager: 0\n  hasAlternateInvincibleSound: 0\n  alternateInvincibleSound: {fileID: 0}\n  immuneToNailAttacks: 0\n  immuneToExplosions: 0\n  immuneToBeams: 0\n  immuneToHunterWeapon: 0\n  immuneToCoal: 0\n  immuneToTraps: 0\n  immuneToWater: 1\n  immuneToSpikes: 0\n  immuneToLava: 0\n  isMossExtractable: 0\n  isSwampExtractable: 0\n  isBluebloodExtractable: 0\n  deathAudioSnapshot: {fileID: 0}\n  hasSpecialDeath: 0\n  deathReset: 0\n  damageOverride: 0\n  ignoreAcid: 0\n  ignoreWater: 0\n  zeroHPEventOverride: {fileID: 0}\n  dontDropMeat: 0\n  enemySize: 1\n  bigEnemyDeath: 0\n  preventDeathAfterHero: 0\n  ignoreHazards: 0\n  invulnerableTime: 0.25\n  semiPersistent: 0\n  isDead: 0\n  ignorePersistence: 0\n  tinkTimer: 0\n"
+    },
+    {
+      "file_id": "10205",
+      "game_object_id": "2963",
+      "unity_class_id": "114",
+      "line": 487011,
+      "script": "Assets/Scripts/Assembly-CSharp/EnemyDeathEffectsRegular.cs",
+      "serialized_yaml": "--- !u!114 &10205\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2963}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 2730b6b2b2abd535272d044bb7d8942f, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  corpsePrefab: {fileID: 1709254077376921, guid: ef5999786ea325c418a3862bf96f2187, type: 2}\n  altCorpses: []\n  isCorpseRecyclable: 0\n  manualPreInstantiate: 0\n  corpseFacesRight: 0\n  overrideDeathDirection: 0\n  corpseFlingSpeed: 20\n  corpseSpawnPoint: {x: 0, y: 0, z: 0}\n  effectOrigin: {x: 0, y: 0.5, z: 0}\n  lowCorpseArc: 0\n  recycle: 0\n  rotateCorpse: 0\n  corpseMatchesEnemyScale: 0\n  audioSnapshotOnDeath: {fileID: 0}\n  sendEventRegister:\n  deathSounds: []\n  enemyDeathSwordAudio:\n    Clip: {fileID: 0}\n    PitchMin: 0\n    PitchMax: 0\n    Volume: 0\n    vibrationDataAsset: {fileID: 0}\n  enemyDamageAudio:\n    Clip: {fileID: 0}\n    PitchMin: 0\n    PitchMax: 0\n    Volume: 0\n    vibrationDataAsset: {fileID: 0}\n  deathCameraShake:\n    camera: {fileID: 11400000, guid: 9b0888e0916dca544846a2f34304dac9, type: 2}\n    profile: {fileID: 11400000, guid: 279f38013a080f34999cd00fbee1b9c2, type: 2}\n    doFreeze: 0\n    vibrate: 1\n  journalRecord: {fileID: 11400000, guid: fc48c4fbe24bce24880fcd8fa6a86456, type: 2}\n  awardFullJournalEntry: 0\n  setPlayerDataBool:\n  awardAchievement:\n  doNotSetHasKilled: 0\n  doNotSpawnCorpse: 0\n  profile: {fileID: 11400000, guid: 3cec05b7aa79ab6448eb0c94fcb2e909, type: 2}\n"
+    },
+    {
+      "file_id": "10215",
+      "game_object_id": "2963",
+      "unity_class_id": "114",
+      "line": 487382,
+      "script": "Assets/Scripts/Assembly-CSharp/EnemyHitEffectsRegular.cs",
+      "serialized_yaml": "--- !u!114 &10215\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2963}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 688cf27c991077549cc7e1e5fa656b3d, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  effectOrigin: {x: 0, y: 0.5, z: 0}\n  sendDamageFlashEvent: 1\n  profile: {fileID: 11400000, guid: b4a2f08cd3ae0434292d732f1920d499, type: 2}\n  overrideBloodColor: 0\n  bloodColorOverride: {r: 0, g: 0, b: 0, a: 0}\n  forceMinimalEffects: 0\n"
+    },
+    {
+      "file_id": "10383",
+      "game_object_id": "3040",
+      "unity_class_id": "114",
+      "line": 496837,
+      "script": "Assets/Scripts/ProjectCode/Game/04_World_Environment/TrackTriggerObjects.cs",
+      "serialized_yaml": "--- !u!114 &10383\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3040}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: d4a939acc923291ec1689df6ed0cf6cf, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  ignoreLayers:\n    serializedVersion: 2\n    m_Bits: 4293918207\n  tagIncludeList: []\n  tagExcludeList: []\n"
+    },
+    {
+      "file_id": "10452",
+      "game_object_id": "2568",
+      "unity_class_id": "114",
+      "line": 498375,
+      "script": "Assets/Scripts/ProjectCode/Game/04_World_Environment/TrackTriggerObjects.cs",
+      "serialized_yaml": "--- !u!114 &10452\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2568}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: d4a939acc923291ec1689df6ed0cf6cf, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  ignoreLayers:\n    serializedVersion: 2\n    m_Bits: 4293918007\n  tagIncludeList: []\n  tagExcludeList: []\n"
+    },
+    {
+      "file_id": "11012",
+      "game_object_id": "2963",
+      "unity_class_id": "114",
+      "line": 541638,
+      "script": "Assets/Scripts/ProjectCode/Game/08_Audio_Visual_Cinematics/SpriteFlash.cs",
+      "serialized_yaml": "--- !u!114 &11012\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2963}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 3760009a589b001159b0ab5c0e83a2db, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  children: []\n  parents: []\n  getParent: 0\n  doHitFlashOnEnable: 0\n  startFlashes: 0\n"
+    },
+    {
+      "file_id": "11013",
+      "game_object_id": "2963",
+      "unity_class_id": "114",
+      "line": 541655,
+      "script": null,
+      "serialized_yaml": "--- !u!114 &11013\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2963}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: -664232604, guid: daca89c25bd1813ceecbbbb8555342a7, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  TargetFSMs:\n  - {fileID: 10229}\n"
+    },
+    {
+      "file_id": "11409",
+      "game_object_id": "3040",
+      "unity_class_id": "114",
+      "line": 565053,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/DamageHero.cs",
+      "serialized_yaml": "--- !u!114 &11409\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 3040}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: 49c386a20fdaa83a59c1a091a909e14c, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  damageDealt: 1\n  hazardType: 1\n  damageAsset: {fileID: 0}\n  damagePropertyFlags: 0\n  resetOnEnable: 1\n  canClashTink: 0\n  forceParry: 0\n  noClashFreeze: 0\n  noTerrainThunk: 0\n  noTerrainRecoil: 0\n  noCorpseSpikeStick: 0\n  noBounceCooldown: 0\n  overrideCollisionSide: 0\n  collisionSide: 0\n  invertCollisionSide: 0\n  HeroDamagedFSM: {fileID: 0}\n  AlwaysSendDamaged: 0\n  HeroDamagedFSMEvent:\n  HeroDamagedFSMBool:\n  HeroDamagedFSMGameObject:\n  ClashEvents:\n    OnClashUp:\n      m_PersistentCalls:\n        m_Calls: []\n    OnClashDown:\n      m_PersistentCalls:\n        m_Calls: []\n    OnClashLeft:\n      m_PersistentCalls:\n        m_Calls: []\n    OnClashRight:\n      m_PersistentCalls:\n        m_Calls: []\n  OnDamagedHero:\n    m_PersistentCalls:\n      m_Calls: []\n"
+    },
+    {
+      "file_id": "11417",
+      "game_object_id": "2633",
+      "unity_class_id": "114",
+      "line": 565864,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/DamageEnemies.cs",
+      "serialized_yaml": "--- !u!114 &11417\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2633}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: eeaa4bda7931aa8b209bb66265d212b7, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  attackType: 4\n  specialType: 0\n  useNailDamage: 0\n  nailDamageMultiplier: 1\n  damageDealt: 999\n  damageAsset: {fileID: 0}\n  useHeroDamageAffectors: 0\n  damageDealtOffset: 0\n  ignoreNailPosition: 0\n  damageMultPerHit: []\n  stunDamage: 1\n  canWeakHit: 0\n  onlyDamageEnemies: 0\n  onlyDamageEnemiesChance: 100\n  isHeroDamage: 0\n  sharedDamagedGroup: {fileID: 0}\n  directionSourceOverride: 0\n  circleDirection: 0\n  direction: 0\n  corpseDirection:\n    IsEnabled: 0\n    Value: 0\n  canTriggerBouncePod: 0\n  useBouncePodDirection: 0\n  bouncePodDirection: 0\n  flipDirectionIfXScaleNegative: 0\n  flipDirectionIfBehind: 0\n  forwardVector: {x: 0, y: 0}\n  flippedDirMagnitude: 1\n  ignoreInvuln: 1\n  magnitudeMult: 0\n  corpseMagnitudeMult:\n    IsEnabled: 0\n    Value: 0\n  currencyMagnitudeMult:\n    IsEnabled: 0\n    Value: 0\n  moveDirection: 0\n  representingTool: {fileID: 0}\n  damageFlags: 0\n  poisonDamageTicks: 0\n  zapDamageTicks: 0\n  manualTrigger: 0\n  hitOnceUntilEnd: 0\n  endDamageEnemyExit: 0\n  damageScalingLevel: 0\n  multiHitter: 0\n  stepsPerHit: 0\n  hitsUntilDeath: 0\n  finalHitMagMultOverride: 0\n  deathEventTarget: {fileID: 0}\n  deathEvent:\n  deathEndDamage: 0\n  contactFSMEvent:\n  damageFSMEvent:\n  dealtDamageFSM: {fileID: 0}\n  dealtDamageFSMEvent:\n  targetRecordedFSMEvent:\n  multiHitFirstEffects: 0\n  multiHitEffects: 0\n  slashEffectOverrides: []\n  minimalHitEffects: 0\n  doesNotStun: 0\n  doesNotTink: 0\n  doesNotTinkThroughWalls: 0\n  doesNotParry: 0\n  doesNotFlags: 0\n  allowedTinkFlags: 0\n  nonLethal: 0\n  doesNotCriticalHit: 0\n  forceSpikeUpdate: 0\n  silkGeneration: 0\n  awardJournalKill: 1\n  firstHitFreeze: -1\n  lagHitOptionsProfile: {fileID: 0}\n  lagHitOptions:\n    UseNailDamage: 0\n    NailDamageMultiplier: 1\n    HitDamage: 0\n    DamageType: 0\n    NonLethalOverride:\n      IsEnabled: 0\n      Value: 0\n    StartDelay: 0\n    HitCount: 0\n    HitDelay: 0\n    MagnitudeMult: 1\n    HitsGiveSilk: 0\n    SlashEffectOverrides: []\n    IgnoreBlock: 0\n  DealtDamage:\n    m_PersistentCalls:\n      m_Calls: []\n  Tinked:\n    m_PersistentCalls:\n      m_Calls: []\n  doesNotGenerateSilk: 0\n"
+    },
+    {
+      "file_id": "11420",
+      "game_object_id": "2568",
+      "unity_class_id": "114",
+      "line": 566191,
+      "script": "Assets/Scripts/ProjectCode/Game/03_Combat/DamageEnemies.cs",
+      "serialized_yaml": "--- !u!114 &11420\nMonoBehaviour:\n  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}\n  m_GameObject: {fileID: 2568}\n  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: eeaa4bda7931aa8b209bb66265d212b7, type: 3}\n  m_Name:\n  m_EditorClassIdentifier:\n  attackType: 4\n  specialType: 0\n  useNailDamage: 0\n  nailDamageMultiplier: 1\n  damageDealt: 999\n  damageAsset: {fileID: 0}\n  useHeroDamageAffectors: 0\n  damageDealtOffset: 0\n  ignoreNailPosition: 0\n  damageMultPerHit: []\n  stunDamage: 1\n  canWeakHit: 0\n  onlyDamageEnemies: 0\n  onlyDamageEnemiesChance: 100\n  isHeroDamage: 0\n  sharedDamagedGroup: {fileID: 0}\n  directionSourceOverride: 0\n  circleDirection: 0\n  direction: 0\n  corpseDirection:\n    IsEnabled: 0\n    Value: 0\n  canTriggerBouncePod: 0\n  useBouncePodDirection: 0\n  bouncePodDirection: 0\n  flipDirectionIfXScaleNegative: 0\n  flipDirectionIfBehind: 0\n  forwardVector: {x: 0, y: 0}\n  flippedDirMagnitude: 1\n  ignoreInvuln: 1\n  magnitudeMult: 0\n  corpseMagnitudeMult:\n    IsEnabled: 0\n    Value: 0\n  currencyMagnitudeMult:\n    IsEnabled: 0\n    Value: 0\n  moveDirection: 0\n  representingTool: {fileID: 0}\n  damageFlags: 0\n  poisonDamageTicks: 0\n  zapDamageTicks: 0\n  manualTrigger: 0\n  hitOnceUntilEnd: 0\n  endDamageEnemyExit: 0\n  damageScalingLevel: 0\n  multiHitter: 0\n  stepsPerHit: 0\n  hitsUntilDeath: 0\n  finalHitMagMultOverride: 0\n  deathEventTarget: {fileID: 0}\n  deathEvent:\n  deathEndDamage: 0\n  contactFSMEvent:\n  damageFSMEvent:\n  dealtDamageFSM: {fileID: 0}\n  dealtDamageFSMEvent:\n  targetRecordedFSMEvent:\n  multiHitFirstEffects: 0\n  multiHitEffects: 0\n  slashEffectOverrides: []\n  minimalHitEffects: 0\n  doesNotStun: 0\n  doesNotTink: 0\n  doesNotTinkThroughWalls: 0\n  doesNotParry: 0\n  doesNotFlags: 0\n  allowedTinkFlags: 0\n  nonLethal: 0\n  doesNotCriticalHit: 0\n  forceSpikeUpdate: 0\n  silkGeneration: 0\n  awardJournalKill: 1\n  firstHitFreeze: -1\n  lagHitOptionsProfile: {fileID: 0}\n  lagHitOptions:\n    UseNailDamage: 0\n    NailDamageMultiplier: 1\n    HitDamage: 0\n    DamageType: 0\n    NonLethalOverride:\n      IsEnabled: 0\n      Value: 0\n    StartDelay: 0\n    HitCount: 0\n    HitDelay: 0\n    MagnitudeMult: 1\n    HitsGiveSilk: 0\n    SlashEffectOverrides: []\n    IgnoreBlock: 0\n  DealtDamage:\n    m_PersistentCalls:\n      m_Calls: []\n  Tinked:\n    m_PersistentCalls:\n      m_Calls: []\n  doesNotGenerateSilk: 0\n"
+    }
+  ],
+  "recording_references": [],
+  "limits": [
+    "Static serialized specimen; no runtime timing capture.",
+    "Scene variants may override values; see catalog.json instances.",
+    "External fileID/GUID dependencies remain explicit; do not replace with guessed values."
+  ]
+}
